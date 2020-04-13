@@ -1,0 +1,285 @@
+# Version of the configuration file
+version: 3.0.0
+# Icarus theme variant, can be "default" or "cyberpunk"
+variant: default
+# Path or URL to the website's logo
+logo: /Post-Resources/UyNguyen.jpg
+# Page metadata configurations
+head:
+    # URL or path to the website's icon
+    favicon: /Post-Resources/UyNguyen.jpg
+    # Open Graph metadata
+    # https://hexo.io/docs/helpers.html#open-graph
+    open_graph:
+        # Page title (og:title) (optional)
+        # You should leave this blank for most of the time
+        title: 
+        # Page type (og:type) (optional)
+        # You should leave this blank for most of the time
+        type: blog
+        # Page URL (og:url) (optional)
+        # You should leave this blank for most of the time
+        url: 
+        # Page cover (og:image) (optional) Default to the Open Graph image or thumbnail of the page
+        # You should leave this blank for most of the time
+        image:
+        # Site name (og:site_name) (optional)
+        # You should leave this blank for most of the time
+        site_name: 
+        # Page author (article:author) (optional)
+        # You should leave this blank for most of the time
+        author: 
+        # Page description (og:description) (optional)
+        # You should leave this blank for most of the time
+        description: 
+        # Twitter card type (twitter:card)
+        twitter_card: 
+        # Twitter ID (twitter:creator)
+        twitter_id: 
+        # Twitter ID (twitter:creator)
+        twitter_site: 
+        # Google+ profile link (deprecated)
+        google_plus: 
+        # Facebook admin ID
+        fb_admins: 
+        # Facebook App ID
+        fb_app_id: 
+    # Structured data of the page
+    # https://developers.google.com/search/docs/guides/intro-structured-data
+    structured_data:
+        # Page title (optional)
+        # You should leave this blank for most of the time
+        title: 
+        # Page description (optional)
+        # You should leave this blank for most of the time
+        description: 
+        # Page URL (optional)
+        # You should leave this blank for most of the time
+        url: 
+        # Page author (article:author) (optional)
+        # You should leave this blank for most of the time
+        author: 
+        # Page images (optional) Default to the Open Graph image or thumbnail of the page
+        # You should leave this blank for most of the time
+        image: 
+    # Additional HTML meta tags in an array
+    meta:
+        # Meta tag specified in <attribute>=<value> style
+        # E.g., name=theme-color;content=#123456 => <meta name="theme-color" content="#123456">
+        - ''
+    # URL or path to the website's RSS atom.xml
+    rss: 
+# Page top navigation bar configurations
+navbar:
+    # Naviagtion menu items
+    menu:
+        Home: /
+        Archives: /archives
+        Categories: /categories
+        Tags: /tags
+        About: /about
+    # Links to be shown on the right of the navigation bar
+    # links:
+    #     Download on GitHub:
+    #         icon: fab fa-github
+    #         url: 'https://github.com/ppoffice/hexo-theme-icarus'
+# Page footer configurations
+footer:
+    # Links to be shown on the right of the footer section
+    # links:
+    #     Creative Commons:
+    #         icon: fab fa-creative-commons
+    #         url: 'https://creativecommons.org/'
+    #     Attribution 4.0 International:
+    #         icon: fab fa-creative-commons-by
+    #         url: 'https://creativecommons.org/licenses/by/4.0/'
+    #     Download on GitHub:
+    #         icon: fab fa-github
+    #         url: 'https://github.com/ppoffice/hexo-theme-icarus'
+# Article related configurations
+article:
+    # Code highlight settings
+    highlight:
+        # Code highlight themes
+        # https://github.com/highlightjs/highlight.js/tree/master/src/styles
+        theme: atom-one-light
+        # Show copy code button
+        clipboard: true
+        # Default folding status of the code blocks. Can be "", "folded", "unfolded"
+        fold: unfolded
+    # Whether to show thumbnail image for every article
+    thumbnail: true
+    # Whether to show estimated article reading time
+    readtime: true
+# Search plugin configurations
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Search/
+search:
+    type: insight
+# Comment plugin configurations
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
+comment:
+    type: disqus
+    # Disqus shortname
+    shortname: 'uynguyen-github-io'
+# Donate plugin configurations
+# https://blog.zhangruipeng.me/hexo-theme-icarus/categories/Plugins/Donation/
+donates:
+    # "Buy me a coffee" donate button configurations
+    -
+        type: buymeacoffee
+        # URL to the "Buy me a coffee" page
+        url: 'https://ko-fi.com/uynguyen'
+    # Paypal donate button configurations
+    -
+        type: paypal
+        # Paypal business ID or email address
+        business: 'uynguyen.itus@gmail.com'
+        # Currency code
+        currency_code: USD
+# Share plugin configurations
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
+share:
+    type: sharethis
+    # URL to the ShareThis share plugin script
+    install_url: 'https://platform-api.sharethis.com/js/sharethis.js#property=5e9474199d6bcc0012d5bba6&product=inline-share-buttons'
+# Sidebar configurations.
+# Please be noted that a sidebar is only visible when it has at least one widget
+sidebar:
+    # Left sidebar configurations
+    left:
+        # Whether the sidebar sticks to the top when page scrolls
+        sticky: false
+    # Right sidebar configurations
+    right:
+        # Whether the sidebar sticks to the top when page scrolls
+        sticky: false
+# Sidebar widget configurations
+# http://ppoffice.github.io/hexo-theme-icarus/categories/Widgets/
+widgets:
+    # Profile widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: profile
+        # Author name
+        author: Uy Nguyen
+        # Author title
+        author_title: Software engineer
+        # Author's current location
+        location: Vietnam
+        # URL or path to the avatar image
+        avatar: /Post-Resources/UyNguyen.jpg
+        # Whether show the rounded avatar image
+        avatar_rounded: true
+        # Email address for the Gravatar
+        gravatar: 
+        # URL or path for the follow button
+        follow_link: 'https://github.com/ppoffice'
+        # Links to be shown on the bottom of the profile widget
+        social_links:
+            Github:
+                icon: fab fa-github
+                url: 'https://github.com/uynguyen'
+            Facebook:
+                icon: fab fa-facebook
+                url: 'https://www.facebook.com/UyNguyen505'
+            Twitter:
+                icon: fab fa-linkedin
+                url: 'https://www.linkedin.com/in/uynguyen505'
+    # Table of contents widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: toc
+    # Recommendation links widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: links
+        # Names and URLs of the sites
+        links:
+            Uy Nguyen: 'https://uynguyen.github.io'
+    # Categories widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: categories
+    # Recent posts widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: recent_posts
+    # Archives widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: archives
+    # Tags widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: tags
+    # Google FeedBurner email subscription widget configurations
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #     position: right
+    #     type: subscribe_email
+    #     # Hint text under the email input
+    #     description: 
+    #     # Feedburner ID
+    #     feedburner_id: ''
+# Plugin configurations
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/
+plugins:
+    # Enable page startup animations
+    animejs: true
+    # Show the "back to top" button
+    back_to_top: true
+    # Baidu Analytics plugin settings
+    # https://tongji.baidu.com
+    baidu_analytics:
+        # Baidu Analytics tracking ID
+        tracking_id: 
+    # BuSuanZi site/page view counter
+    # https://busuanzi.ibruce.info
+    busuanzi: false
+    # CNZZ statistics
+    # https://www.umeng.com/web
+    cnzz:
+        # CNZZ tracker id
+        id: 
+        # CNZZ website id
+        web_id: 
+    # Enable the lightGallery and Justified Gallery plugins
+    # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/gallery-plugin/
+    gallery: true
+    # Google Analytics plugin settings
+    # https://analytics.google.com
+    google_analytics:
+        # Google Analytics tracking ID
+        tracking_id: 'UA-163508356-1'
+    # Hotjar user feedback plugin
+    # https://www.hotjar.com/
+    hotjar:
+        # Hotjar site id
+        site_id: 
+    # Enable the KaTeX math typesetting supprot
+    # https://katex.org/
+    katex: false
+    # Enable the MathJax math typesetting support
+    # https://www.mathjax.org/
+    mathjax: false
+    # Enable the Outdated Browser plugin
+    # http://outdatedbrowser.com/
+    outdated_browser: false
+    # Show a progress bar at top of the page on page loading
+    progressbar: true
+# CDN provider settings
+# https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/
+providers:
+    # Name or URL template of the JavaScript and/or stylesheet CDN provider
+    cdn: jsdelivr
+    # Name or URL template of the webfont CDN provider
+    fontcdn: google
+    # Name or URL of the fontawesome icon font CDN provider
+    iconcdn: fontawesome
