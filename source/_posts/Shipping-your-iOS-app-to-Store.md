@@ -49,7 +49,7 @@ That's all for creating a Distribution Certificate, let's move on to the next st
 ![](/Post-Resources/Delivery/Create_App_Id_1.png "Create App Id")
 
 2. Fill in your app information, including your bundle Id. Please note that this bundle id must match your bundle id in XCode. You can also use wildcard pattern to define bundle Id for more than one app Ids.
-![](/Post-Resources/Delivery/Create_App_Id_2.png "Create App Id")
+![](/Post-Resources/Delivery/Create_App_Id_3.png "Create App Id")
 
 ### Create Provisioning Profile
 1. Press the "+" button on the page "Profiles", then select "App Store" option.
