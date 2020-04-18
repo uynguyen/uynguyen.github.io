@@ -23,7 +23,7 @@ In other to submit your app to App Store, you need to understand what certificat
 
 3. Fill in your email to the email box.
 
-![](/Post-Resources/Delivery/Generate_P12_2.png "Create CSR")
+![](/Post-Resources/Delivery/Generate_P12_3.png "Create CSR")
 
 The Keychain Access will create a private key, which is stored in the keychain, and a `.certSigningRequest` file which will be uploaded to Apple. Apple will issue a certificate for you based on the `.certSigningRequest`. The Certificate contains the public key. After that, you can download the file and open it. The public key will be pushed to the Keychain and paired with the private key to make the "Code Signing Identify".
 
