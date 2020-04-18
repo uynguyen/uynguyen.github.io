@@ -66,7 +66,7 @@ Now you have a profile that links your Certificate and your app Ids. Download th
 ### Uploading
 It's time to upload your app to Store. 
 Let's back to your project, from the Top Tool Bar > Product > Archive, XCode will rebuild your project. After that, the XCode Organizer will launch and show all archives you've created in the past.
-Select the current build, then click on "Upload to App Store" in the right-hand panel.
+Select the current build, then click on "Distribute App" in the right-hand panel.
 
 ![](/Post-Resources/Delivery/Uploading_1.png "Uploading")
 
