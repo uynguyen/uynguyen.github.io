@@ -8,7 +8,7 @@ As an iOS developer, you might have heard about TestFlight - a product of Apple 
 In this tutorial, we will walk through steps uploading a build to TestFlight, and invite users to test your app.
 Let's have fun!
 <!-- more --> 
-You also need to refer the post (Shipping your app to Store)[]
+<!-- You also need to refer the post (Shipping your app to Store)[]
 Note: You need a Paid Developer Account to submit your apps to Store.
 
 TestFlight has two types of testers:
@@ -32,4 +32,4 @@ https://developer.apple.com/testflight/
 
 https://help.apple.com/app-store-connect/#/devdc42b26b8
 
-Happy coding!
+Happy coding! -->
