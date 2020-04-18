@@ -19,7 +19,7 @@ head:
         type: blog
         # Page URL (og:url) (optional)
         # You should leave this blank for most of the time
-        :year/:month/:day/:title/
+            '/:year/:month/:day/:title/'
         url: 
         # Page cover (og:image) (optional) Default to the Open Graph image or thumbnail of the page
         # You should leave this blank for most of the time
