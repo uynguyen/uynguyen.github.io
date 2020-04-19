@@ -12,6 +12,7 @@ Let’s drive-in!
 <div style="text-align:center">
 <img src="/Post-Resources/SwiftApprentice/LikeABoss.jpg" />
 </div>
+
 # About the author
 For those who don't know who Raywenderlich is, it is a community site focused on creating programming tutorials and books (Mainly focus on mobile development on Android and iOS). Their content covers all levels from beginning to advanced topics.
 I often access [Raywenderlich](https://www.raywenderlich.com/about) site to get example code and to make my knowledge up to date. Their tutorials are extremely great, technically accurate and are updated to the newest technologies.
