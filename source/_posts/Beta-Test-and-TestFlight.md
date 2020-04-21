@@ -4,32 +4,40 @@ date: 2020-04-14 21:25:25
 tags:
 ---
 ![](/Post-Resources/TestFlight/Cover.png "TestFlight")
-As an iOS developer, you might have heard about TestFlight - a product of Apple that allows you to distribute your apps to beta users.
-In this tutorial, we will walk through steps uploading a build to TestFlight, and invite users to test your app.
+As an iOS developer, you might have heard about TestFlight - a product of Apple that allows you to distribute your apps to beta users. So what can we do with it? Is it useful? 
+In this tutorial, we will walk through steps uploading a build to TestFlight, and invite users to test your app. 
+You also need to refer the previous post [Shipping your app to Store](/2018/12/13/Shipping-your-iOS-app-to-Store/) to complete this tutorial.
 Let's have fun!
 <!-- more --> 
-<!-- You also need to refer the post (Shipping your app to Store)[]
-Note: You need a Paid Developer Account to submit your apps to Store.
-
-TestFlight has two types of testers:
-- Internal Tester: "Add up to 25 members of your team who have been assigned the Admin, Technical, App Manager, Developer, or Marketer role to test your app. Each member can test on up to 30 devices. Internal testers can access all of your beta builds available for testing."
+### What is TestFlight?
+TestFlight is a product of Apple that allows developers to distribute their apps to beta users before rolling to production. With the latest update of TestFlight app on iOS 13, testers can give feedback directly from the app with screenshots, crashes and other useful information provided. Using TestFlight is a great way to help to test your apps and improve the performance before it goes live.
+TestFlight provides two types of testers:
+- Internal Tester: It takes up to 25 members of your team who have been assigned a specified role to test your app. Each member can test on up to 30 devices. Once a beta build is submitted to App Store Connect and is available for testing, internal testers will be notified when new builds are added.
 - External Tester: You can invite up to 10,000 testers using just their email address or by sharing a public link.
 
-To let External Tester test your app, you must submit your app to Apple for review. The process is the same as App Store submission but it's usually go faster than normal app reviews. By contract, 
+The main difference from the two is to let External Tester test your app, you must submit your app to Apple for review. The reviewing process is the same as an official submission but it's usually going faster than normal app reviews. By contract, testing your app with internal testers does not require review by Apple.
+
+### Select build for testing
+After completing the final step at [Shipping your app to Store](/2018/12/13/Shipping-your-iOS-app-to-Store/), your app is successfully submitted to Apple Store Connect. Now, navigate to your [Apple developer page](https://developer.apple.com) and sign in with your Apple Id. Then select "My Apps" to see all available apps > Select a specified app > From the top toolbar > Select TestFlight > You will see all builds that are available for testing.
+The following image gives you a quick look of TestFlight dashboard
+
+![](/Post-Resources/TestFlight/TestFlight_Board.png "TestFlight_Board")
 
 ### TestFlight App
+Testers need install TestFlight app on their device. This app are free and available on App Store. 
 <div style="text-align:center">
 <img src="/Post-Resources/TestFlight/TestFlight.jpeg"/>
 </div>
 
-From now on, whenever a new version of this app is available, you’ll see a notification from TestFlight. All you need to do is update your app and run the latest version.
+After you add your testers to the build, they will use their invitation email or a public link to enroll in the testing.
+Open the TestFlight app, the tester needs to sign in with their App Id. After that, they will see all available apps that they can install which just be the same as App Store. A small note that you will see a small orange dot near the name of the app to indicate this build installing from TestFlight. Easy, huh?
+<div style="text-align:center">
+<img src="/Post-Resources/TestFlight/TestFlightApp.jpeg"/>
+</div>
 
-Testers running TestFlight for iOS, version 2.3 and later and iOS 13, can send feedback through the TestFlight app or directly from your beta app by taking a screenshot. You can view this tester feedback in the Feedback section in App Store Connect. Testers running tvOS or earlier versions of iOS can send feedback to the email address you specified in Step 1.
+From now on, whenever a build of this app is available, your tester will receive a notification and an email from TestFlight. They then can update this app via TestFlight and enjoy the latest version.
 
-When you are done testing, you can optionally expire a build to stop testing it, and then go to Overview of publishing an app for the process of submitting your app to the App Store. If you don’t expire your build and submit it to the App Store, testers that have received an invite to test will still be able to test your build even after it goes live on the App Store. Your build will become unavailable in TestFlight after 90 days.
-
-https://developer.apple.com/testflight/
-
-https://help.apple.com/app-store-connect/#/devdc42b26b8
-
-Happy coding! -->
+### After testing
+When you are done testing, you can stop about from testing, and then go to Overview of publishing an app for the process of submitting your app to the App Store. Your beta build will become unavailable in TestFlight after 90 days by default.
+In this post, we had a quick look at TestFlight and how to distribute your beta test to your testers. In practice, beta testing is a common term in the software development process. Having knowledge of how to distribute your app will be useful in some situations.
+Happy coding!
