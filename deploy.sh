@@ -6,4 +6,4 @@ cp -Rf ./public/* ../uynguyen.github.io
 cd ../uynguyen.github.io
 git add .
 git commit -m "deploy"
-git push -u origin master
+git push -u origin master --force
