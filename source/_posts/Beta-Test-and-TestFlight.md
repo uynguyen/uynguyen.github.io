@@ -23,8 +23,8 @@ The following image gives you a quick look of TestFlight dashboard
 
 ![](/Post-Resources/TestFlight/TestFlight_Board.png "TestFlight_Board")
 
-From the main window, you can see all available versions of your app; when it expire; how many invitaions sent; how many installation succeeded. etc.
-To add new user, click on "App Store Connect Users" at the left side bar > Press "+" button > Then fill in your tester information including there App Id. After that, you can add your tester to your build.
+From the main window, you can see all available versions of your app; when it expires; how many invitations sent; how many installations succeeded. etc.
+To add new users, click on “App Store Connect Users” at the left sidebar > Press “+” button > Then fill in your tester information including there App Id. After that, you can add your tester to your build.
 
 ### TestFlight App
 Testers need install TestFlight app on their device. This app is free and available on App Store. 
