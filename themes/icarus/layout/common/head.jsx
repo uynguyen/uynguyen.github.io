@@ -90,8 +90,8 @@ module.exports = class extends Component {
 
         var openGraphImages = [];
         for (i in images) {
-            if (page.photos[i].indexOf('UyNguyen') == -1) {
-                openGraphImages.push(page.photos[i]);
+            if (images[i].indexOf('UyNguyen') == -1) {
+                openGraphImages.push(images[i]);
                 break;
             }
         }
