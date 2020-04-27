@@ -2,6 +2,7 @@
 title: Beta Test and TestFlight
 date: 2020-04-14 21:25:25
 tags:
+thumbnail: '/Post-Resources/TestFlight/Cover.png'
 ---
 ![](/Post-Resources/TestFlight/Cover.png "TestFlight")
 As an iOS developer, you might have heard about TestFlight - a product of Apple that allows you to distribute your apps to beta users. So what can we do with it? Is it useful? 
