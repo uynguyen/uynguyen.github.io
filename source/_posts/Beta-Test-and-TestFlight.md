@@ -43,4 +43,4 @@ From now on, whenever a build of this app is available, your tester will receive
 ## After testing
 When you are done testing, you can stop the app from testing, and then go to publishing an app for the process of submitting your app to the App Store. Your beta build will become unavailable in TestFlight after 90 days by default.
 In this post, we had a quick look at TestFlight and how to distribute your beta test to your testers. In practice, beta testing is a common term in the software development process. Having knowledge of how to distribute your app will be useful in some situations.
-Happy coding!
+Happy coding!!!
