@@ -90,7 +90,7 @@ module.exports = class extends Component {
 
         var openGraphImages = [];
         for (var i in images) {
-            if (images[i].includes('UyNguyen') == false) {
+            if (i == 1 && images[i].includes('UyNguyen') == false) {
                 openGraphImages.push(images[i]);
                 break;
             }
