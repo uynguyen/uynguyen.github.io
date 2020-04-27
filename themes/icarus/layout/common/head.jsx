@@ -91,7 +91,7 @@ module.exports = class extends Component {
 
         var openGraphImages = ['https://uynguyen.github.io/Post-Resources/TestFlight/Cover.png'];
         for (var i in images) {
-            if (images[i].includes('UyNguyen') == false) {
+            if (!images[i].includes('UyNguyen') && i != 0) {
                 openGraphImages = [images[i]];
                 break;
             }
