@@ -88,7 +88,7 @@ module.exports = class extends Component {
             }
         }
 
-        var openGraphImages = images;
+        var openGraphImages = [];
         if ((Array.isArray(page.photos) && page.photos.length > 0) || typeof page.photos === 'string') {
             for (var i in page.photos) {
                 if (page.photos[i].includes('UyNguyen') == false) {
