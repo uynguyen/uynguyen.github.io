@@ -89,10 +89,15 @@ module.exports = class extends Component {
         }
 
         let openGraphImages = images;
-        if ((Array.isArray(open_graph.image) && open_graph.image.length > 0) || typeof open_graph.image === 'string') {
-            openGraphImages = open_graph.image;
-        } else if ((Array.isArray(page.photos) && page.photos.length > 0) || typeof page.photos === 'string') {
-            openGraphImages = page.photos;
+        if ((Array.isArray(page.photos) && page.photos.length > 0) || typeof page.photos === 'string') {
+            for (i in page.photos) {
+                if (page.photos[i].indexOf('UyNguyen') == -1) {
+                    let arr = [];
+                    arr.push(page.photos[i]);
+                    openGraphImages = arr;
+                    break;
+                }
+            }
         }
 
         let structuredImages = images;
@@ -119,7 +124,7 @@ module.exports = class extends Component {
                 description={open_graph.description || page.description || page.excerpt || page.content || config.description}
                 keywords={page.keywords || (page.tags && page.tags.length ? page.tags : undefined) || config.keywords}
                 url={open_graph.url || url}
-                images={["https://uynguyen.github.io/Post-Resources/TestFlight/Cover.png"]}
+                images={openGraphImages}
                 siteName={open_graph.site_name || config.title}
                 language={language}
                 twitterId={open_graph.twitter_id}
