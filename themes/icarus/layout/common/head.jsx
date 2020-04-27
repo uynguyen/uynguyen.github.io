@@ -88,15 +88,11 @@ module.exports = class extends Component {
             }
         }
 
-        let openGraphImages = images;
-        if ((Array.isArray(page.photos) && page.photos.length > 0) || typeof page.photos === 'string') {
-            for (i in page.photos) {
-                if (page.photos[i].indexOf('UyNguyen') == -1) {
-                    let arr = [];
-                    arr.push(page.photos[i]);
-                    openGraphImages = arr;
-                    break;
-                }
+        var openGraphImages = [];
+        for (i in images) {
+            if (page.photos[i].indexOf('UyNguyen') == -1) {
+                openGraphImages.push(page.photos[i]);
+                break;
             }
         }
 
