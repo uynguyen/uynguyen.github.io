@@ -88,7 +88,7 @@ module.exports = class extends Component {
             }
         }
 
-        var openGraphImages = [];
+        var openGraphImages = ['https://uynguyen.github.io/Post-Resources/TestFlight/Cover.png'];
         if ((Array.isArray(page.photos) && page.photos.length > 0) || typeof page.photos === 'string') {
             for (var i in page.photos) {
                 if (page.photos[i].includes('UyNguyen') == false) {
