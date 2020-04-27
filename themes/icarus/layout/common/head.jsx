@@ -92,8 +92,7 @@ module.exports = class extends Component {
         if ((Array.isArray(open_graph.image) && open_graph.image.length > 0) || typeof open_graph.image === 'string') {
             openGraphImages = open_graph.image;
         } else if ((Array.isArray(page.photos) && page.photos.length > 0) || typeof page.photos === 'string') {
-            console.log("123");
-            console.log(page.photos);
+            page.photos.shift();
             openGraphImages = page.photos;
         }
 
