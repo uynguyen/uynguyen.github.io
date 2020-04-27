@@ -88,15 +88,12 @@ module.exports = class extends Component {
             }
         }
 
-
-        var openGraphImages = images[1];//['https://uynguyen.github.io/Post-Resources/TestFlight/Cover.png'];
-        // for (var i in images) {
-        //     if (!images[i].includes('UyNguyen') && i != 0) {
-        //         openGraphImages = [images[i]];
-        //         break;
-        //     }
-        // }
-
+        let openGraphImages = images;
+        if ((Array.isArray(open_graph.image) && open_graph.image.length > 0) || typeof open_graph.image === 'string') {
+            openGraphImages = open_graph.image;
+        } else if ((Array.isArray(page.photos) && page.photos.length > 0) || typeof page.photos === 'string') {
+            openGraphImages = page.photos;
+        }
 
         let structuredImages = images;
         if ((Array.isArray(structured_data.image) && structured_data.image.length > 0) || typeof structured_data.image === 'string') {
