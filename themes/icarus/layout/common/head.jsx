@@ -88,11 +88,15 @@ module.exports = class extends Component {
             }
         }
 
-        var openGraphImages = [];
-        for (var i in images) {
-            if (i == 1 && images[i].includes('UyNguyen') == false) {
-                openGraphImages.push(images[i]);
-                break;
+        var openGraphImages = images;
+        if ((Array.isArray(page.photos) && page.photos.length > 0) || typeof page.photos === 'string') {
+            for (var i in page.photos) {
+                if (page.photos[i].includes('UyNguyen') == false) {
+                    let arr = [];
+                    arr.push(page.photos[i])
+                    openGraphImages = arr;
+                    break;
+                }
             }
         }
 
@@ -120,7 +124,7 @@ module.exports = class extends Component {
                 description={open_graph.description || page.description || page.excerpt || page.content || config.description}
                 keywords={page.keywords || (page.tags && page.tags.length ? page.tags : undefined) || config.keywords}
                 url={open_graph.url || url}
-                images={openGraphImages}
+                images={["https://uynguyen.github.io/Post-Resources/TestFlight/Cover.png"]}
                 siteName={open_graph.site_name || config.title}
                 language={language}
                 twitterId={open_graph.twitter_id}
