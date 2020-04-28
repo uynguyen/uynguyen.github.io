@@ -95,8 +95,6 @@ module.exports = class extends Component {
             openGraphImages = page.photos;
         }
 
-        console.log(openGraphImages);
-
         let structuredImages = images;
         if ((Array.isArray(structured_data.image) && structured_data.image.length > 0) || typeof structured_data.image === 'string') {
             structuredImages = structured_data.image;
