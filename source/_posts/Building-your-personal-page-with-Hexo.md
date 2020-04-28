@@ -82,6 +82,6 @@ hexo clean && hexo deploy
 You can also use Heroku for deployment instead of using github. For more information, please refer to [Hexo deployment](https://hexo.io/docs/one-command-deployment.html)
 
 ## Conclusion
-If you want a simple - personal page to share your ideas and contents, Hexo and Github page become such a great tool for you. With its simple and its community, It's easy to set up, allowing you to just focus on what matters: Your sharing.
+If you want a simple - personal page to share your ideas and contents, Hexo and Github page become such a great tool for you. With its simplicity and its community, It's easy to set up, allowing you to just focus on what matters: Your sharing.
 I hope you find this post useful.
 
