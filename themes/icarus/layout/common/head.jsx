@@ -95,6 +95,8 @@ module.exports = class extends Component {
             openGraphImages = page.photos;
         }
 
+        console.log(openGraphImages);
+
         let structuredImages = images;
         if ((Array.isArray(structured_data.image) && structured_data.image.length > 0) || typeof structured_data.image === 'string') {
             structuredImages = structured_data.image;
@@ -145,6 +147,7 @@ module.exports = class extends Component {
             {hlTheme ? <link rel="stylesheet" href={cdn('highlight.js', '9.12.0', 'styles/' + hlTheme + '.css')} /> : null}
             <link rel="stylesheet" href={fontCssUrl[variant]} />
             <link rel="stylesheet" href={url_for('/css/' + variant + '.css')} />
+            <meta property="og:image" content={openGraphImages[0] ?? ''}/>
             <Plugins site={site} config={config} helper={helper} page={page} head={true} />
 
             {adsenseClientId ? <script data-ad-client={adsenseClientId}
