@@ -245,7 +245,7 @@ Here, we init two new instances of the `DownloadImageOperation` and the `ImageFi
 
 > "Operations have important effects on your application’s performance. For instance, if you want to download a lot of content from the Internet, you might want to do so only when it is absolutely necessary. Also, you might decide to ensure that only a specific number of operations can run at the same time. If you do decide to limit the number of concurrent operations in a queue, you can change the maxConcurrentOperationCount property of your operation queue. This is an integer property that allows you to specify how many operations, at most, can run in a queue at a given time." (iOS 8 Swift Programming Cookbook)
 
-Learning the above theories is enough, let's start practicing. Let re-build the project to see the result.
+Learning the above theories is enough, now re-build the project to see the result.
 
 ![](/Post-Resources/Operations/EmptyList.jpeg "EmptyList")
 
