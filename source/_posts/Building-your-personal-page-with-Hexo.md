@@ -1,7 +1,7 @@
 ---
 title: Building your personal page with Hexo
 date: 2020-04-27 20:56:51
-tags:
+tags: Hexo
 ---
 ![](/Post-Resources/Hexo/Cover.png "Hexo")
 As I build this personal site, my first aim is to enjoy my hobby of writing. I write whatever I learn on along with my daily working, and share it. I hope my share will help someone when they need it. In return, I will have a deep of understanding what I write, and sometimes, receive "a cup of coffee" (Buy me Coffee) from a friend I've never met. ☺️
