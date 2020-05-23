@@ -202,7 +202,7 @@ class ImageFilterOperation: Operation {
 }
 ```
 
-To use Operation, we simply subclass the Operation class and override the `main` method where our task is placed. By default, operations run in the background by default, so there are no worries about blocking the main thread.
+To use Operation, we simply subclass the Operation class and override the `main` method where our task is placed. By default, operations run in the background, so there are no worries about blocking the main thread.
 Back to the task to set up the table view cell, you might notice that there is a dependency between these two tasks, we only do the filter process after downloading the image. In other words, the `ImageFilterOperation` operation depends on the `DownloadImageOperation` operation.  Operation Dependencies is one of the "killer functions" of Operation along with the capability of canceling a running operation. By linking the two operations, we ensure that the dependent operation does not begin before the prerequisite operation has completed. Additionally, the linking makes a clean way to pass data from the first one to the second one. 
  
 ```swift
