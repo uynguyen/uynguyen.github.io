@@ -7,7 +7,7 @@ tags: [iOS, Concurrency, Operations]
 ![](/Post-Resources/Operations/operations.png "Operations")
 There are two techniques to deal with Concurrency in iOS: GCD - Grand Central Dispatch and Operations. Most of the time, GCD provides most of the concurrency capabilities you need. Yet, sometimes you’ll want some extra advanced customizations. It’s time to use Operations. This tutorial will introduce Operations in Swift, also explain when and why we use Operation instead of GCD.
 Let’s switch the gears!
-> There is a big gap between knowing the path and walking the path.
+> There is a big gap between knowing the path and walking through the path.
 <!-- more --> 
 ## Introduce Operations
 Operation is a class allowing you to submit a block of code that should be run on a different thread, it is built on top of GCD. Basically, both GCD and operation roles are similar. However, operations have other benefits that give us more control over the task.
