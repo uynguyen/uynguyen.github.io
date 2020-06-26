@@ -1,7 +1,7 @@
 ---
 title: 'Review book: Building Applications With iBeacon'
 date: 2020-06-14 21:13:41
-tags:
+tags: [Books, Study, BLE, iBeacon]
 ---
 ![](/Post-Resources/ibeacons/ibeacon-cover.png "SwiftApprentice")
 
