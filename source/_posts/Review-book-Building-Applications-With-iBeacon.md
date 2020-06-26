@@ -83,7 +83,7 @@ Ranging limitation:
 There is nothing to complain about the book, from content to form.
 
 ## Generally
-Many technologies exist to help phones interact with the world around them. This book introduces you to iBeacons, a Bluetooth technology that allow a device to discover nearby subjects with relatively high accuracy. There is no doubt that the applications of beacon are increasingly widely applied in many fields, especially in marketing and advertising. 
+Many technologies exist to help phones interact with the world around them. This book introduces you to iBeacons, a Bluetooth technology that allows a device to discover nearby subjects with relatively high accuracy. There is no doubt that the applications of beacon are increasingly widely applied in many fields, especially in marketing and advertising. 
 From my point of view, you should read the book so that you can unlock your mind about iBeacon. Maybe your next startup is built on top of Beacon, who knows?
 In the next tutorial, I will take you into practice with iBeacon on iOS, also will introduce you to some techniques to deal with iBeacon in deep analysis.
 If you have any questions or comments on this post, feel free to contact me!
