@@ -15,7 +15,7 @@ Let's drive-in!
 The book mainly focuses on developers who are looking for an efficient way to integrate beacon protocol to their applications. To use the book efficiently, I recommend you should have some BLE background knowledge as iBeacon is built on top of BLE.
 In the beginning, the book describes a brief history of *proximity* technologies in particular. It also explains why and when to use in some specified circumstances.
 The two key main why using iBeacon are, first and foremost, `GPS technologies struggle to do better than a few meters, and GPS is often limited indoors. iBeacons can enable a determination within centimeters`. The second one is `iBeacons offer high precision micro-location, along with the ability to act on what a mobile device is near. No other technology yet offers that combination.`
-To convince the reader, the book compares GPS versus Beacon, or location versus proximity; giving some limitations of current GPS technology, the writer makes some area in which Beacon is far superior to GPS.
+To convince the reader, the book compares GPS versus Beacon, in other word location versus proximity; giving some limitations of current GPS technology, the writer makes some area in which Beacon is far superior to GPS.
 Next, the book explains how Beacon protocol works under the hook; introduces you to the foundational terms, and how they interact with each other.
 In some chapters, the book guides you on how to set up your own beacons on Mac OS, mobile devices, or tiny computers such as Ras. Pi or Arduino.
 
