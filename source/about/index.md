@@ -12,7 +12,7 @@ Bachelor in Software Engineering, GPA 8.87 / 10.0
 *Thesis: Question and Answer system integrated with an online IDE.*
 This system allows users to create projects, build, run and debug applications online with an IDE that supports three majors programming languages: C/C++, C#, and Java. If there are any problems while development, users can post questions linked to their projects, other members will help them to solve the problems by answering the questions directly. By using this system, users will not have to spend time installing IDEs on their computers and reducing debugging time thanks to the help of the community.
 <center>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/1Wj6zWHNop0" frameborder="0" allowfullscreen></iframe>
+	<iframe width="100%" height="500px" src="https://www.youtube.com/embed/1Wj6zWHNop0" frameborder="0" allowfullscreen></iframe>
 </center>
 
 # Projects
