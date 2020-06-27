@@ -6,8 +6,8 @@ tags: [Books, Study, BLE, iBeacon]
 ![](/Post-Resources/ibeacons/ibeacon-cover.png "SwiftApprentice")
 
 In [the previous post](/2018/08/18/Best-practice-iBeacon/), I basically give you a quick look at iBeacon - A Bluetooth protocol built on top of BLE by Apple, and made a simple demo of how iBeacon can wake up an application after being terminated by the user. However, I did not mention other foundation concepts in Beacon, it also did not give you a deep look at the advantages and disadvantages of this powerful technology.
-Today, I would like to introduce you to a good book giving a solid knowledge in Beacon field, especially iBeacon: `Building Applications With iBeacon` written by O'Reilly.
-After reading this book, I ensure that you have no double in iBeacon field and your mind will be more open to the next coming up ideas.
+Today, I would like to introduce you to a good book giving a solid knowledge in Beacon field, especially iBeacon: `Building Applications With iBeacon` published by O'Reilly.
+After reading this book, I ensure that you have get a good knowledge in iBeacon field and your mind will be more open to the next coming up ideas.
 Let's drive-in!
 <!-- more --> 
 
@@ -17,7 +17,7 @@ In the beginning, the book describes a brief history of *proximity* technologies
 The two key main why using iBeacon are, first and foremost, `GPS technologies struggle to do better than a few meters, and GPS is often limited indoors. iBeacons can enable a determination within centimeters`. The second one is `iBeacons offer high precision micro-location, along with the ability to act on what a mobile device is near. No other technology yet offers that combination.`
 To convince the reader, the book compares GPS versus Beacon, in other word location versus proximity; giving some limitations of current GPS technology, the writer makes some area in which Beacon is far superior to GPS.
 Next, the book explains how Beacon protocol works under the hook; introduces you to the foundational terms, and how they interact with each other.
-In some chapters, the book guides you on how to set up your own beacons on Mac OS, mobile devices, or tiny computers such as Ras. Pi or Arduino.
+Finally, in some chapters, the book guides you on how to set up your own beacons on Mac OS, mobile devices, or tiny computers such as Ras. Pi or Arduino.
 
 ## Key concepts
 - The relationship between iBeacons, generic beacons, BLE beacons, and BLE devices is described as below
@@ -70,7 +70,7 @@ Ranging limitation:
 - One main downside of ranging operations requires much more activity in the Bluetooth hardware and consume significant power, because the Bluetooth interface is much more active when ranging
 
 ## What I like
-- I never thought iBeacon topic would be written as a whole book but O'Reilly did it very well: The book describes iBeacon in a deep explanation.
+- I never thought iBeacon topic would be written as a whole book but the author did it very well: The book describes iBeacon in a deep explanation.
 - Make clear of foundational terms that are commonly used in beacon technology.
 - Analyses the pros and cons of iBeacon with examples.
 - Introduce other applications of beacon that I never thought about before, which opens my mind a lot:
