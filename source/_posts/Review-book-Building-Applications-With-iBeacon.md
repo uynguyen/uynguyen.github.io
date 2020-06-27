@@ -7,7 +7,7 @@ tags: [Books, Study, BLE, iBeacon]
 
 In [the previous post](/2018/08/18/Best-practice-iBeacon/), I basically give you a quick look at iBeacon - A Bluetooth protocol built on top of BLE by Apple, and made a simple demo of how iBeacon can wake up an application after being terminated by the user. However, I did not mention other foundation concepts in Beacon, it also did not give you a deep look at the advantages and disadvantages of this powerful technology.
 Today, I would like to introduce you to a good book giving a solid knowledge in Beacon field, especially iBeacon: `Building Applications With iBeacon` published by O'Reilly.
-After reading this book, I ensure that you have get a good knowledge in iBeacon field and your mind will be more open to the next coming up ideas.
+After reading this book, I ensure that you will get a good knowledge in iBeacon field and your mind will be more open to the next coming up ideas.
 Let's drive-in!
 <!-- more --> 
 
