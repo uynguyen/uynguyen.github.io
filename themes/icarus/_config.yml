@@ -174,7 +174,7 @@ widgets:
         # Email address for the Gravatar
         gravatar: 
         # URL or path for the follow button
-        follow_link: 'https://github.com/uynguyen'
+        follow_link: 'https://ko-fi.com/uynguyen'
         # Links to be shown on the bottom of the profile widget
         social_links:
             Github:

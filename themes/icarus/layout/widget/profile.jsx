@@ -40,8 +40,8 @@ class Profile extends Component {
                             {author ? <p class="title is-size-4 is-block line-height-inherit">{author}</p> : null}
                             {authorTitle ? <p class="is-size-6 is-block">{authorTitle}</p> : null}
                             {location ? <p class="is-size-6 is-flex justify-content-center">
-                                <i class="fas fa-map-marker-alt mr-1"></i>
-                                <span>{location}</span>
+                                <i class="fas fa-envelope mr-1"></i>
+                                <span>{"uynguyen.itus@gmail.com"}</span>
                             </p> : null}
                         </div>
                     </div>
@@ -73,7 +73,9 @@ class Profile extends Component {
                     </div>
                 </nav>
                 {followLink ? <div class="level">
-                    <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="noopener">{followTitle}</a>
+                    <a style={{'background-color': '#f14668e3',
+                                'color': 'white',
+                                'font-weight': 'bold'}} class="level-item button is-rounded" href={followLink} target="_blank" rel="noopener">{followTitle}</a>
                 </div> : null}
                 {socialLinks ? this.renderSocialLinks(socialLinks) : null}
             </div>
@@ -148,7 +150,7 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
             }
         },
         followLink: url_for(follow_link),
-        followTitle: __('widget.follow'),
+        followTitle: "if 👍 then Buy me a Coffee",//__('widget.follow'),
         socialLinks
     };
 });
