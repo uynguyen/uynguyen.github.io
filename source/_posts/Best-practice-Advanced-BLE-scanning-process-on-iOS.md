@@ -12,4 +12,4 @@ Let’s switch the gear!
 
 <!-- more -->
 
-It's coming!
+It's coming.
