@@ -1,13 +1,193 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.0"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Best practice: Advanced BLE scanning process on iOS - Uy Nguyen</title><meta description="iOS developers are building applications that play both roles Peripheral and Central to exchange data with other copies apps. The data can be exchange a small of information via BLE packets or the si"><meta property="og:type" content="blog"><meta property="og:title" content="Best practice: Advanced BLE scanning process on iOS"><meta property="og:url" content=":year/:month/:day/:title/"><meta property="og:site_name" content="Uy Nguyen"><meta property="og:description" content="iOS developers are building applications that play both roles Peripheral and Central to exchange data with other copies apps. The data can be exchange a small of information via BLE packets or the si"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2020-08-23T02:51:43.000Z"><meta property="article:modified_time" content="2020-09-13T03:09:35.278Z"><meta property="article:author" content="Uy Nguyen"><meta property="article:tag" content="iOS"><meta property="article:tag" content="BLE"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/Post-Resources/ScanningInBG/cover.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://uynguyen.github.io/2020/08/23/Best-practice-Advanced-BLE-scanning-process-on-iOS/"},"headline":"Uy Nguyen","image":["https://uynguyen.github.io/Post-Resources/ScanningInBG/cover.png"],"datePublished":"2020-08-23T02:51:43.000Z","dateModified":"2020-09-13T03:09:35.278Z","author":{"@type":"Person","name":"Uy Nguyen"},"description":"iOS developers are building applications that play both roles Peripheral and Central to exchange data with other copies apps. The data can be exchange a small of information via BLE packets or the si"}</script><link rel="canonical" href="https://uynguyen.github.io/2020/08/23/Best-practice-Advanced-BLE-scanning-process-on-iOS/"><link rel="icon" href="/Post-Resources/UyNguyen.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><meta property="og:image" content="/Post-Resources/ScanningInBG/cover.png"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-163508356-1" async></script><script>window.dataLayer = window.dataLayer || [];
+<html lang="en"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.0"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Best practice: Advanced BLE scanning process on iOS - Uy Nguyen</title><meta description="iOS developers are building applications that play both roles Peripheral and Central to exchange data with other copies apps. The data can be exchange a small of information via BLE packets or the si"><meta property="og:type" content="blog"><meta property="og:title" content="Best practice: Advanced BLE scanning process on iOS"><meta property="og:url" content=":year/:month/:day/:title/"><meta property="og:site_name" content="Uy Nguyen"><meta property="og:description" content="iOS developers are building applications that play both roles Peripheral and Central to exchange data with other copies apps. The data can be exchange a small of information via BLE packets or the si"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2020-08-23T02:51:43.000Z"><meta property="article:modified_time" content="2020-09-13T14:38:38.530Z"><meta property="article:author" content="Uy Nguyen"><meta property="article:tag" content="iOS"><meta property="article:tag" content="BLE"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/Post-Resources/ScanningInBG/cover.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://uynguyen.github.io/2020/08/23/Best-practice-Advanced-BLE-scanning-process-on-iOS/"},"headline":"Uy Nguyen","image":["https://uynguyen.github.io/Post-Resources/ScanningInBG/cover.png","https://uynguyen.github.io/Post-Resources/ScanningInBG/ScanningProcedures.png","https://uynguyen.github.io/Post-Resources/ScanningInBG/advertising_method.png","https://uynguyen.github.io/Post-Resources/ScanningInBG/Adv_Packets.png"],"datePublished":"2020-08-23T02:51:43.000Z","dateModified":"2020-09-13T14:38:38.530Z","author":{"@type":"Person","name":"Uy Nguyen"},"description":"iOS developers are building applications that play both roles Peripheral and Central to exchange data with other copies apps. The data can be exchange a small of information via BLE packets or the si"}</script><link rel="canonical" href="https://uynguyen.github.io/2020/08/23/Best-practice-Advanced-BLE-scanning-process-on-iOS/"><link rel="icon" href="/Post-Resources/UyNguyen.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><meta property="og:image" content="/Post-Resources/ScanningInBG/cover.png"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-163508356-1" async></script><script>window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
     
-        gtag('config', 'UA-163508356-1');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/Post-Resources/UyNguyen.jpg" alt="Uy Nguyen" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-23T02:51:43.000Z" title="2020-08-23T02:51:43.000Z">2020-08-23</time><span class="level-item">a minute read (About 172 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Best practice: Advanced BLE scanning process on iOS</h1><div class="content"><p><img src="/Post-Resources/ScanningInBG/cover.png" alt="" title="Banner"></p>
+        gtag('config', 'UA-163508356-1');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/Post-Resources/UyNguyen.jpg" alt="Uy Nguyen" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-23T02:51:43.000Z" title="2020-08-23T02:51:43.000Z">2020-08-23</time><span class="level-item">12 minutes read (About 1866 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Best practice: Advanced BLE scanning process on iOS</h1><div class="content"><p><img src="/Post-Resources/ScanningInBG/cover.png" alt="" title="Banner"></p>
 <p>iOS developers are building applications that play both roles Peripheral and Central to exchange data with other copies apps. The data can be exchange a small of information via BLE packets or the signal strength indicator (RSSI) value from one to the others. However, keeping the app last forever in the foreground is impossible. Sooner or later, the app will enter to background mode by the user and finally will be suspended by the system depending on RAM available, power consumption and other factors. Thus, understanding the procedure of advertising and scanning on iOS devices helps you to build good applications that fit your expectations.<br>At the end of this tutorial, we will build a simple application that acts as both a scanner and an advertiser. When two applications find each other, they will write a log record for analysis. Depending on the results, we will find out how effective our application is using Core Bluetooth.<br>Let’s switch the gear!</p>
 <a id="more"></a>
 
-<p>It’s coming.</p>
+<h2 id="Foundational-knowledge"><a href="#Foundational-knowledge" class="headerlink" title="Foundational knowledge"></a>Foundational knowledge</h2><p>According to the <code>Getting Started With Bluetooth Low Energy</code> book, the two main purposes of advertising packets are:</p>
+<ul>
+<li>To broadcast data for applications.</li>
+<li>To discover slaves and to connect them.</li>
+</ul>
+<p>The maximum size of payload each advertising packet is <strong>31 bytes</strong>, along with the header information. Every elapsed interval, which ranges from 20ms to 10.24s, advertising packets are broadcasted blindly to notify its presence to other devices or applications. There are two types of scanning approaches:</p>
+<ul>
+<li><strong>Passive Scanning</strong>: Scanners simply receives advertising packets without any further actions.</li>
+<li><strong>Active Scanning</strong>: After receiving an advertising packet, the scanner performs a Scanning Request packet to the advertiser. After receiving the Scanning Request, the advertiser responds with a Scanning Response packet which allows the advertises to send extra data (Extra 31 bytes) to the scanner.</li>
+</ul>
+<p><img src="/Post-Resources/ScanningInBG/ScanningProcedures.png" alt="" title="Scanning Procedures"></p>
+<p>To classify advertising packet types, we rely on three properties: <code>connectability</code>, <code>scannability</code>, and <code>directability</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">Adv packet type</th>
+<th align="left">Connectability: Determines if a scanner can make a connection or not</th>
+<th align="center">Scannability: Determines if a scanner can issue a scan request or not</th>
+<th align="center">Directability: Determines if this packet is targeted at any particular scanners or not.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ADV_IND</td>
+<td align="left">Yes</td>
+<td align="center">Yes</td>
+<td align="center">No</td>
+</tr>
+<tr>
+<td align="center">ADV_DIRECT_IND</td>
+<td align="left">Yes</td>
+<td align="center">No</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">ADV_NONCONN_IND</td>
+<td align="left">No</td>
+<td align="center">No</td>
+<td align="center">No</td>
+</tr>
+<tr>
+<td align="center">ADV_SCAN_IND</td>
+<td align="left">No</td>
+<td align="center">Yes</td>
+<td align="center">No</td>
+</tr>
+</tbody></table>
+<p>There are a lot more advanced topics that described in more detail in the <code>Getting Started With Bluetooth Low Energy</code> book, such as how data is organized in BLE devices and how to communicate with existing hardware, etc. If you want to know more, please refer to the book.<br>Because of the scope of this post, understanding of the advertising process is good enough for us to move to the next section.</p>
+<h2 id="Scanning-and-advertising-on-iOS"><a href="#Scanning-and-advertising-on-iOS" class="headerlink" title="Scanning and advertising on iOS"></a>Scanning and advertising on iOS</h2><h3 id="Setting-up-the-advertiser-Peripheral"><a href="#Setting-up-the-advertiser-Peripheral" class="headerlink" title="Setting up the advertiser - Peripheral"></a>Setting up the advertiser - Peripheral</h3><p>We’re going to reuse my previous repo allowing an ios phone advertises as a peripheral using Core Bluetooth.<br>First, I will generate 5 UUIDs as the services of the advertiser (Peripheral).</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> kServiceUUID1 = <span class="string">"1FA2FD8A-17E0-4D3B-AF45-305DA6130E39"</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> kServiceUUID4 = <span class="string">"4FA2FD8A-17E0-4D3B-AF45-305DA6130E39"</span></span><br><span class="line"><span class="keyword">let</span> kServiceUUID5 = <span class="string">"5FA2FD8A-17E0-4D3B-AF45-305DA6130E39"</span></span><br></pre></td></tr></table></figure>
+
+<p>Next, I will create a list of <code>CBMutableService</code> and then add them to the <code>CBPeripheralManager</code> object.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">services.forEach &#123; (each) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">let</span> cbService = <span class="type">CBMutableService</span>(type: each.uuid.cbUUID, primary: <span class="literal">true</span>)</span><br><span class="line">    <span class="keyword">var</span> charArr = [<span class="type">CBMutableCharacteristic</span>]()</span><br><span class="line">    </span><br><span class="line">    each.characteristics.forEach &#123; (char) <span class="keyword">in</span></span><br><span class="line">        charArr.append(<span class="type">CBMutableCharacteristic</span>.<span class="keyword">init</span>(</span><br><span class="line">            type: char.uuid.cbUUID,</span><br><span class="line">        properties: [.read, .write, .notify],</span><br><span class="line">        value: <span class="literal">nil</span>,</span><br><span class="line">        permissions: <span class="type">CBAttributePermissions</span>(char.permissions.<span class="built_in">map</span> &#123; $<span class="number">0</span>.cbAttributePermission &#125; )))</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cbService.characteristics = charArr</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.peripheralManager.add(cbService)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Finally, we start advertising the peripheral when its state gets ready.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.peripheralManager.startAdvertising([<span class="type">CBAdvertisementDataLocalNameKey</span>: <span class="string">"uynguyen"</span>,</span><br><span class="line">                                        <span class="type">CBAdvertisementDataServiceUUIDsKey</span>: <span class="keyword">self</span>.cbServices.<span class="built_in">map</span> &#123; $<span class="number">0</span>.uuid &#125;])</span><br></pre></td></tr></table></figure>
+
+<p>As the above code gets executed, we will see the following log are printed.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Add service 1FA2FD8A-17E0-4D3B-AF45-305DA6130E39 Succeeded</span><br><span class="line">---&gt; Chars [&lt;CBMutableCharacteristic: 0x2802d4070 UUID = 463FED20-DA93-45E7-B00F-B5CD99775150, Value = (null), Properties = 0x1A, Permissions = 0x3, Descriptors = (null), SubscribedCentrals = (</span><br><span class="line">)&gt;, &lt;CBMutableCharacteristic: 0x2802d4380 UUID = 463FED21-DA93-45E7-B00F-B5CD99775150, Value = (null), Properties = 0x112, Permissions = 0x1, Descriptors = (null), SubscribedCentrals = (</span><br><span class="line">)&gt;, &lt;CBMutableCharacteristic: 0x2802d4620 UUID = 463FED22-DA93-45E7-B00F-B5CD99775150, Value = &#123;length = 6, bytes = 0x486168616861&#125;, Properties = 0x2, Permissions = 0x1, Descriptors = (null), SubscribedCentrals = (</span><br><span class="line">)&gt;]</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Add service 5FA2FD8A-17E0-4D3B-AF45-305DA6130E39 Succeeded</span><br><span class="line">---&gt; Chars []</span><br><span class="line"></span><br><span class="line">===&gt; Start advertising Succeeded</span><br></pre></td></tr></table></figure>
+
+<h3 id="Setting-the-scanner-Central"><a href="#Setting-the-scanner-Central" class="headerlink" title="Setting the scanner - Central"></a>Setting the scanner - Central</h3><p>The next step is to set up our Central Manage - the scanner. As you might know from my previous tutorial, the code to scan nearby devices is quite simple. </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">startScanning</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">self</span>.centralManager?.scanForPeripherals(withServices: <span class="literal">nil</span>,</span><br><span class="line">                                            options: [<span class="type">CBCentralManagerScanOptionAllowDuplicatesKey</span>: <span class="literal">true</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>The <code>nil</code> value we pass to <code>withServices</code> param indicates that we will scan all nearby devices without specifying service uuids.</li>
+<li>The <code>CBCentralManagerScanOptionAllowDuplicatesKey</code> option specifies the scan should run without duplicate filtering.</li>
+</ul>
+<p>Once the central discover a peripheral, we will print its info including the local name and the <code>CBAdvertisementDataServiceUUIDsKey</code> value in the advertising packet.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">centralManager</span><span class="params">(<span class="number">_</span> central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : <span class="keyword">Any</span>], rssi RSSI: NSNumber)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Did found per \(peripheral.name)"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"CBAdvertisementDataServiceUUIDsKey adv value "</span> + advertisementData[<span class="type">CBAdvertisementDataServiceUUIDsKey</span>])</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Let’s build and run the project, </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Did found peripheral name: Optional(<span class="string">"Uy Nguyen iPad"</span>)</span><br><span class="line">CBAdvertisementDataServiceUUIDsKey adv value:</span><br><span class="line">Optional(&lt;__NSArrayM 0x282a79350&gt;(</span><br><span class="line">    1FA2FD8A-17E0-4D3B-AF45-305DA6130E39</span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+
+<p>Looking at the log, can you spot what’s going wrong? There is a problem with the advertising packet: the <code>CBAdvertisementDataServiceUUIDsKey</code> value contains only 1 service, where are the other services from 2 to 5?</p>
+<p>Let’s print out full advertising packet to see what it contains.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"kCBAdvDataServiceUUIDs"</span>: &lt;__NSArrayM 0x283460630&gt;(</span><br><span class="line">1FA2FD8A-17E0-4D3B-AF45-305DA6130E39</span><br><span class="line">)</span><br><span class="line">, <span class="string">"kCBAdvDataLocalName"</span>: uynguyen, <span class="string">"kCBAdvDataTimestamp"</span>: 620013184.4512661, <span class="string">"kCBAdvDataRxPrimaryPHY"</span>: 0, <span class="string">"kCBAdvDataIsConnectable"</span>: 1, <span class="string">"kCBAdvDataRxSecondaryPHY"</span>: 0]</span><br></pre></td></tr></table></figure>
+
+<p>Still no luck, we can not find the other services from <code>&quot;2FA2FD8A-17E0-4D3B-AF45-305DA6130E39&quot;</code> to <code>&quot;5FA2FD8A-17E0-4D3B-AF45-305DA6130E39&quot;</code>.</p>
+<h3 id="Finding-problems"><a href="#Finding-problems" class="headerlink" title="Finding problems"></a>Finding problems</h3><p>It turns out the advertising packet the Central receive depends on how we call <code>scanForPeripherals</code> method.<br>If we change param <code>withServices</code> to an array of our service from <code>&quot;1FA2FD8A-17E0-4D3B-AF45-305DA6130E39&quot;</code> to <code>&quot;5FA2FD8A-17E0-4D3B-AF45-305DA6130E39&quot;</code> explicitly, we will see the differences.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">startScanning</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">self</span>.centralManager?.scanForPeripherals(withServices: [<span class="type">CBUUID</span>(string: <span class="string">"1FA2FD8A-17E0-4D3B-AF45-305DA6130E39"</span>), </span><br><span class="line">                                                            <span class="type">CBUUID</span>(string: <span class="string">"2FA2FD8A-17E0-4D3B-AF45-305DA6130E39"</span>), </span><br><span class="line">                                                            <span class="type">CBUUID</span>(string: <span class="string">"3FA2FD8A-17E0-4D3B-AF45-305DA6130E39"</span>), </span><br><span class="line">                                                            <span class="type">CBUUID</span>(string: <span class="string">"4FA2FD8A-17E0-4D3B-AF45-305DA6130E39"</span>), </span><br><span class="line">                                                            <span class="type">CBUUID</span>(string: <span class="string">"5FA2FD8A-17E0-4D3B-AF45-305DA6130E39"</span>)],</span><br><span class="line">                                                            options: [<span class="type">CBCentralManagerScanOptionAllowDuplicatesKey</span>: <span class="literal">true</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Here is the log that comes to.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"kCBAdvDataIsConnectable"</span>: 1, <span class="string">"kCBAdvDataServiceUUIDs"</span>: &lt;__NSArrayM 0x280708750&gt;(</span><br><span class="line">1FA2FD8A-17E0-4D3B-AF45-305DA6130E39</span><br><span class="line">)</span><br><span class="line">, <span class="string">"kCBAdvDataLocalName"</span>: uynguyen, <span class="string">"kCBAdvDataRxSecondaryPHY"</span>: 0, <span class="string">"kCBAdvDataHashedServiceUUIDs"</span>: &lt;__NSArrayM 0x280708720&gt;(</span><br><span class="line">2FA2FD8A-17E0-4D3B-AF45-305DA6130E39,</span><br><span class="line">3FA2FD8A-17E0-4D3B-AF45-305DA6130E39,</span><br><span class="line">4FA2FD8A-17E0-4D3B-AF45-305DA6130E39,</span><br><span class="line">5FA2FD8A-17E0-4D3B-AF45-305DA6130E39</span><br><span class="line">)</span><br><span class="line">, <span class="string">"kCBAdvDataRxPrimaryPHY"</span>: 0, <span class="string">"kCBAdvDataTimestamp"</span>: 620013608.239601]</span><br></pre></td></tr></table></figure>
+
+<p>Now, we can see the new value contained inside the advertising packet, the <code>kCBAdvDataHashedServiceUUIDs</code>. But what is it?<br>Let’s back to the Peripheral side, if you look closer to the definition of the advertising method of Peripheral object, you might know what it actually is.</p>
+<p><img src="/Post-Resources/ScanningInBG/advertising_method.png" alt="" title="Advetising definition"></p>
+<p>In short, when you make an iPhone advertise as a peripheral, if there is no space for any services UUIDs contained in the value of <code>CBAdvertisementDataServiceUUIDsKey</code>, these services will be moved to another space called <code>overflow area</code>. </p>
+<p>Another term, T_T What does exactly the <code>overflow area</code> mean?<br>Basically, the <code>overflow area</code> is placed in the scan response packet. These service uuids are hashed by Apple alg and are discovered only by an iOS device explicitly scanning for them. In our case, because we pass our service uuids from 1F to 5F when start scanning, we will get this <code>kCBAdvDataHashedServiceUUIDs</code> value in the advertising packets.</p>
+<p>To verify this statement, I use a tool introduced by Apple for BLE debugging - (<a href="https://www.bluetooth.com/blog/a-new-way-to-debug-iosbluetooth-applications/">A New Way to Debug iOS Bluetooth Applications</a>), to grab the advertising packet from our Peripheral for analyzing.<br>And here is the result</p>
+<p><img src="/Post-Resources/ScanningInBG/Adv_Packets.png" alt="" title="Advetising packets"></p>
+<ul>
+<li>Advertising packet type: <code>ADV_IND</code>, which means the scanner can make a connection to it; and a scanner can issue a scan request; and its packets do not target at any particular scanners.</li>
+<li>The yellow box is the advertising data: (Data: 02 01 1A 11 06 39 0E 13 A6 5D 30 45 AF 3B 4D E0 17 8A FD A2 1F 09 09 75 79 6E 67 75 79 65 6E), length = 31 bytes; it contains <code>CBAdvertisementDataLocalName</code> (75 79 6E 67 75 79 65 6E &gt; “uynguyen”) and our first service uuid 1F A2 FD 8A 17 E0 4D 3B AF 45 30 5D A6 13 0E 39 (39 0E 13 A6 5D 30 45 AF 3B 4D E0 17 8A FD A2 1F).</li>
+<li>The scan response packet (SCAN_RSP) contains the other info that the advertising packet is not enough length to carry on. In our case, it contains the other services from 2F to 5F. Understanding this packet is quite complex to put in this tutorial so I will skip explaining it for now. I have another tutorial working on this packet later.</li>
+</ul>
+<p>In conclusion, what we have found here is: Advertising, while the app is in background, performs differently than when it is in the foreground. </p>
+<ul>
+<li><code>CBAdvertisementDataLocalNameKey</code> is ignored.</li>
+<li>All service UUIDs contained in the value of the CBAdvertisementDataServiceUUIDsKey advertisement key are placed in a special “overflow” area; they can be discovered only by an iOS device that is explicitly scanning for them.</li>
+</ul>
+<h2 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h2><p>The table below summarizes what we have investigated.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* YES means the Central is able to find the Peripheral.</span><br></pre></td></tr></table></figure>
+
+<h4 id="Case-1-Both-Peripheral-and-Central’s-screens-turn-on"><a href="#Case-1-Both-Peripheral-and-Central’s-screens-turn-on" class="headerlink" title="Case 1 - Both Peripheral and Central’s screens turn on"></a>Case 1 - Both Peripheral and Central’s screens turn on</h4><table>
+<thead>
+<tr>
+<th align="center">\</th>
+<th align="center">Peripheral Background</th>
+<th align="center">Peripheral Foreground</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>Central Background</strong></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center"><strong>Central Foreground</strong></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+</tbody></table>
+<h4 id="Case-2-Peripheral’s-screen-turn-off-locked-Central’s-screen-turn-on"><a href="#Case-2-Peripheral’s-screen-turn-off-locked-Central’s-screen-turn-on" class="headerlink" title="Case 2 - Peripheral’s screen turn off (locked), Central’s screen turn on"></a>Case 2 - Peripheral’s screen turn off (locked), Central’s screen turn on</h4><table>
+<thead>
+<tr>
+<th align="center">\</th>
+<th align="center">Peripheral Background</th>
+<th align="center">Peripheral Foreground</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>Central Background</strong></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center"><strong>Central Foreground</strong></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+</tbody></table>
+<h4 id="Case-3-Central’s-screen-turn-off-locked-Peripheral’s-screen-turn-on"><a href="#Case-3-Central’s-screen-turn-off-locked-Peripheral’s-screen-turn-on" class="headerlink" title="Case 3 - Central’s screen turn off (locked), Peripheral’s screen turn on"></a>Case 3 - Central’s screen turn off (locked), Peripheral’s screen turn on</h4><table>
+<thead>
+<tr>
+<th align="center">\</th>
+<th align="center">Peripheral Background</th>
+<th align="center">Peripheral Foreground</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>Central Background</strong></td>
+<td align="center">No</td>
+<td align="center">No</td>
+</tr>
+<tr>
+<td align="center"><strong>Central Foreground</strong></td>
+<td align="center">No</td>
+<td align="center">No</td>
+</tr>
+</tbody></table>
+<h4 id="Case-4-Both-Peripheral-and-Central’s-screens-turn-off-locked"><a href="#Case-4-Both-Peripheral-and-Central’s-screens-turn-off-locked" class="headerlink" title="Case 4 - Both Peripheral and Central’s screens turn off (locked)"></a>Case 4 - Both Peripheral and Central’s screens turn off (locked)</h4><table>
+<thead>
+<tr>
+<th align="center">\</th>
+<th align="center">Peripheral Background</th>
+<th align="center">Peripheral Foreground</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>Central Background</strong></td>
+<td align="center">No</td>
+<td align="center">No</td>
+</tr>
+<tr>
+<td align="center"><strong>Central Foreground</strong></td>
+<td align="center">No</td>
+<td align="center">No</td>
+</tr>
+</tbody></table>
+<p>From the above experiments, regardless of the state of the device playing Peripheral role, the screen of the device playing Central mode must turn on so that it can scan nearby peripherals. In other words, if we’re building an application that allows an iOS device to discover other nearby iOS devices, we <code>have to run both Central and Peripheral modes on each device AND the most important, if two devices want to find each other, either the screen must be turned on.</code><br>There is a technique (It’s likely a trick) to get over this issue, is that scheduling periodically to push notifications to your iOS devices, which immediately turn the screen on so that the Central can discover nearby Peripherals.<br>While the app is in background, it performs differently than when it is in the foreground. One of them is the frequency of advertising packets to be sent may decrease. As a result, a Scanner in background finds nearby peripherals is slower compared to when it is in foreground.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Congratulation! We walked through a tutorial to get a deeper view of how CoreBluetooth on iOS works in both Central and Peripheral modes. Hope you find this post interested!<br>If you have any comments, feel free to send me an email to <a href="mailto:uynguyen.itus@gmail.com">uynguyen.itus@gmail.com</a> or leave your questions on the comment box.</p>
+<p><code>Made with love.</code></p>
 </div><div class="article-tags size-small is-uppercase mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/iOS/">iOS</a><a class="link-muted mr-2" rel="tag" href="/tags/BLE/">BLE</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9474199d6bcc0012d5bba6&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" href="https://ko-fi.com/uynguyen" style="background-color:rgba(255,128,62,.87);border-color:transparent;color:white;" target="_blank" rel="noopener"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button is-warning donate" onclick="document.getElementById(&#039;paypal-donate-form&#039;).submit()"><span class="icon is-small"><i class="fab fa-paypal"></i></span><span>Paypal</span></a><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form"><input type="hidden" name="cmd" value="_donations"><input type="hidden" name="business" value="uynguyen.itus@gmail.com"><input type="hidden" name="currency_code" value="USD"></form></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/07/18/iOS-Introducing-Stack-Views/"><span class="level-item">iOS: Introducing Stack Views Programmatically</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
             this.page.url = 'https://uynguyen.github.io/2020/08/23/Best-practice-Advanced-BLE-scanning-process-on-iOS/';
             this.page.identifier = '2020/08/23/Best-practice-Advanced-BLE-scanning-process-on-iOS/';
