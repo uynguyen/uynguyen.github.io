@@ -1,5 +1,5 @@
 ---
-title: 'WWDC 2020 - Key Note Series: Top reasons why app get killed in background'
+title: 'WWDC 2020 - Top reasons why app get killed in background'
 date: 2020-09-30 19:03:28
 tags:
 ---
