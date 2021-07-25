@@ -7,7 +7,7 @@ tags:
 ![](/Post-Resources/Darkhat/darkhat.png "")
 
 After years of working in BLE technology, I found that despite there are many applications helping to test BLE devices but none of them performs their roles well. That’s why I decided to implement a BLE application on my own - [Dark Hat](https://apps.apple.com/az/app/dark-hat/id1576175854?ign-mpt=uo%3D2). The core objective of this application is to share a better tool with you - an engineer working in BLE field.
-
+<!-- more -->
 ## Main Features
 `Discover nearby devices` with `multiple filters supported` to only show devices which mater to the user.
 - Filter by RSSI.
