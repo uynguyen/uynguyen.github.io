@@ -64,5 +64,5 @@ Additionally, I plan to move all UI views to a cross-platform technology (maybe 
 ## Next steps
 I have a road map to add more amazing features to the app, to name a few: realtime streaming data, speed measurement, multiple connections, control by script, iBeacons.
 Can't wait to deliver all these cool features to users.
-If you have any idea of feedback, feel free to kick an email to uynguyen.itus@gmail.com or dark.hat.ble@gmail.com, I would love to hear from you.
+If you have any idea or feedback, feel free to kick an email to uynguyen.itus@gmail.com or dark.hat.ble@gmail.com, I would love to hear from you.
 
