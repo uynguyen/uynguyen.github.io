@@ -150,7 +150,7 @@ For all available options in a notification, please refer to [Apple doc: generat
 ### Silent notification
 From my perspective, the most interesting feature of Push notification is "Silent notification", **which can wake your app up to perform some tasks while your app is in the background**, even if your app was terminated by the user. Many engineers out there are finding a way to keep their app lives in the background as many as they can. There are several ways to achieve it by using restoration and preservation, core location, iBeacon. Silent push notification is one among of them.
 
-I will have [another post](/2021/08/06/Silent-notification) talking about silent notification and my experiment so that I will give you more details and info.
+I will have [another post](/2021/08/06/Silent-notification) talking about silent notification and my experiment so we will have more details and info.
 
 To send a silent notification, simply change the JSON content to
 
