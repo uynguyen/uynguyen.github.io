@@ -10,4 +10,4 @@ tags: [iOS, Notification]
 
 <!-- more --> 
 
-Coming soon.
+Coming

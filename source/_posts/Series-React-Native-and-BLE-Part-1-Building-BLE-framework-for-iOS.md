@@ -34,7 +34,7 @@ From the top left bar of Xcode, select `File > New > Project > From the "Framewo
 
 ![](/Post-Resources/RN-BLE/ios_create_project.png "")
 
-Now, you can develop your BLE logic in the project you just created. I'm not going to detail implementing all single methods of the framework as it depends on your business logic and your architecture. You can find my previous tutorials to have an idea of how to implement a BLE framework. [Bluetooth Low Energy OniOS](/2017/10/13/Bluetooth-Low-Energy-On-iOS/), [Play Central And Peripheral Roles With CoreBluetooth](2018/02/21/Play-Central-And-Peripheral-Roles-With-CoreBluetooth/)
+Now, you can develop your BLE logic in the project you just created. I'm not going to detail implementing all single methods of the framework as it depends on your business logic and your architecture. You can find my previous tutorials to have an idea of how to implement a BLE framework. [Bluetooth Low Energy OniOS](/2017/10/13/Bluetooth-Low-Energy-On-iOS/), [Play Central And Peripheral Roles With CoreBluetooth](/2018/02/21/Play-Central-And-Peripheral-Roles-With-CoreBluetooth/)
 I will take a simple method in my BLE framework as an example: the `startScanning` method.
 
 ```swift
