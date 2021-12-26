@@ -195,9 +195,9 @@ public class BLEManager: RCTEventEmitter, ScanningDelegate {
 }
 ```
 
-[1]. make sure you decorate your class and functions by the `@objc` keyword to ensure the class and functions are exported properly to the Objective-C runtime.
-[2]. Once a peripheral is discovered, send an event to Javascript.
-[3]. Register supported the event from the native module.
+[1] Make sure you decorate your class and functions by the `@objc` keyword to ensure the class and functions are exported properly to the Objective-C runtime.
+[2] Once a peripheral is discovered, send an event to Javascript.
+[3] Register supported the event from the native module.
 
 Finally, to expose the methods of your native module, create a new file `BLEManager.m` and add the following code.
 
@@ -229,19 +229,19 @@ In `componentDidMount` method, add the following to it
 componentDidMount() {
     let beaconManagerEmitter = new NativeEventEmitter(BLEManager); [1]
     this.didFoundDevice = beaconManagerEmitter.addListener( [2]
-      'didFoundDevice',
-      data => {
+        'didFoundDevice',
+        data => {
         console.log(data);
-      },
+        },
     );
     setTimeout(() => {
-      BLEManager.startScanning(); [3]
+        BLEManager.startScanning(); [3]
     }, 3000); // Just to make sure the Bluetooth is on, we will improve it later
-  }
+}
 ```
 
 [1] Create a new NativeEventEmitter instance and listen to the `didFoundDevice` event [2]
-[3] Because we do not support the Bluetooth state changes event, so we temporarily delay 3s before calling scanning just to make sure the Bluetooth is on. We will improve it later by supporting more events and methods.
+[3] Because we do not support the Bluetooth state changes event yet, so we temporarily delay 3s before calling scanning just to make sure the Bluetooth is on. We will improve it later by supporting more events and methods.
 
 OK, let's build and run your project. If you see your console log print the results from the scanning process, congratulation, you make it right!
 ![](/Post-Resources/RN-BLE/Scan-Result.png "")
