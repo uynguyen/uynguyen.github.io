@@ -32,7 +32,7 @@ Another reason is that it will improve the compile time of Xcode, breaking your 
 
 From the top left bar of Xcode, select `File > New > Project > From the "Framework & Library" section, select "Framework" > Enter your framework name (I use "BLEFramework")`
 
-![](/Post-Resources/RN-BLE/ios_create_project.png)
+![](/Post-Resources/RN-BLE/ios_create_project.png "")
 
 Now, you can develop your BLE logic in the project you just created. I'm not going to detail implementing all single methods of the framework as it depends on your business logic and your architecture. You can find my previous tutorials to have an idea of how to implement a BLE framework. [Bluetooth Low Energy OniOS](/2017/10/13/Bluetooth-Low-Energy-On-iOS/), [Play Central And Peripheral Roles With CoreBluetooth](2018/02/21/Play-Central-And-Peripheral-Roles-With-CoreBluetooth/)
 I will take a simple method in my BLE framework as an example: the `startScanning` method.
@@ -58,7 +58,7 @@ There are many ways to distribute a framework like using [CocoaPod](/2017/09/25/
 
 Make sure you turn "Build Libraries for Distribution" flag in the "Build Settings" to `YES`. The flag indicates that the compiler should generate one of the stable interfaces so the framework can be used when newer versions of Xcode or the Swift compiler are released.
 
-![](/Post-Resources/RN-BLE/ios_build_distribution.png)
+![](/Post-Resources/RN-BLE/ios_build_distribution.png "")
 
 Next, create a bash file, put it in the root of the ios folder, and copy the following commands to the file. Then execute the script.
 
@@ -113,7 +113,7 @@ open "${RELEASE_DIR}"
 
 Once you run the script successfully, you should see the result as below
 
-![](/Post-Resources/RN-BLE/ios_build_result.png)
+![](/Post-Resources/RN-BLE/ios_build_result.png "")
 
 In which:
 
@@ -150,7 +150,7 @@ From Xcode project, select `File > New > File > Swift File > Enter your file nam
 
 > For those who don't know what the bridging header is used for, the bridging header is where you define all the Objective-C classes that are exposed to Swift.
 
-![](/Post-Resources/RN-BLE/bridging-header.png)
+![](/Post-Resources/RN-BLE/bridging-header.png "")
 
 To use RCT classes, make sure you `#import` all related headers to your `...-Bridging-Header.h`. Otherwise, you will get complied errors.
 
@@ -244,7 +244,7 @@ componentDidMount() {
 [3] Because we do not support the Bluetooth state changes event, so we temporarily delay 3s before calling scanning just to make sure the Bluetooth is on. We will improve it later by supporting more events and methods.
 
 OK, let's build and run your project. If you see your console log print the results from the scanning process, congratulation, you make it right!
-![](/Post-Resources/RN-BLE/Scan-Result.png)
+![](/Post-Resources/RN-BLE/Scan-Result.png "")
 
 ### Next step
 In this post, I showed you how to create a BLE framework and how to use a BLE native module in a React Native project such as invoking a method from Javascript to Swift and handling an event from Swift to Javascript. In the next tutorial, we will do the same on Android platform.
