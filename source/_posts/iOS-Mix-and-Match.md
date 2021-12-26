@@ -80,7 +80,7 @@ class SwifthMath: NSObject {
 ```
 
 ## Swift <-> React Native
-
+Please find my series at [React Native and BLE](/2021/12/25/Series-React-Native-and-BLE-Part-1-Building-BLE-framework-for-iOS/)
 ## Limitation
 
 - Swift objects can have a subclass of an objective-c class, like NSObject. But a swift class cannot be a base class for an objective-c class.

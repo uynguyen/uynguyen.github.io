@@ -16,14 +16,23 @@ As you might know, there are five main states of every iOS app.
 *Active* The app is running in the foreground and receiving events from the user.
 *Background* The app is in the background and be invisible to the user. However, an app that requests extra execution time may remain in this state for a period of time. In addition, the app will transit into the inactive state before entering into the background mode.
 *Suspended* The app is in the background but it does not allow to execute any code. The app is moved to this state automatically by the system and it will not receive any events before the system does so. When the foreground apps need more memory, the system may terminate the suspended apps to make more space for the foreground apps. Note that we can not predict when the suspended app will be terminated by the system. After being terminated, the app returns to the not running state.
+
+<center>
+
 ![](/Post-Resources/BackgroundProcessing/AppCycle.gif "iOS app life cycle eaxmple")
+
+</center>
 
 ## BLE issues with the application life cycle
 As mentioned, when the app enters to the background, the app might be terminated by the system if it need evict resources for other applications. Unlike Android OS, after being killed by the system, we can re-start a service to keep your app alive. On iOS, once the app is terminated by the system, there is no way to bring it back to the background. As a result, any Bluetooth events that dispatch from the device will never come to the app. It means your app might miss the indications that are triggered by users, such as play a track of music on their phone when pressing physical buttons from a BLE device.
 
 Apple gives out an example called ["Smart door"](https://developer.apple.com/library/archive/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/CoreBluetoothBackgroundProcessingForIOSApps/PerformingTasksWhileYourAppIsInTheBackground.html#//apple_ref/doc/uid/TP40013257-CH7-SW10). The main idea of this example is to have an automatic interaction between the app and the lock of the door. Imagine we’re developing an application that can automatically lock and unlock the door when the user goes in and go out their home, respectively. However, the main problem of this implementation is to keep the connection between the two, the phone and the lock of the door. While using their phone, users do a variety of actions on the phone: open / close applications, toggle the Bluetooth setting, enter the airplane mode, reboot the phone, etc. These interactions can lead to our app is killed by the system, forever. In this case, the app will not be able to reconnect to the lock when the user returns home, and the user may not be able to unlock the door.
 
+<center>
+
 ![](/Post-Resources/BackgroundProcessing/SmartDoor.jpg "Smart door")
+
+</center>
 
 To deal with this issue, Apple provides a method called *State Preservation and Restoration* (CoreBluetooth background processing). *State Preservation and Restoration* is built-in to CoreBluetooth that allows our app can be relaunched into the background when it's terminated by the system.
 At the bottom line, iOS takes a snapshot of all the Bluetooth-related objects that were going on in our app. Subsequently, if there is any Bluetooth event which related to the Bluetooth-related objects our app were interacting with comes to the phone, our app will be waked up from the grave. That's amazing!
@@ -32,7 +41,12 @@ At the bottom line, iOS takes a snapshot of all the Bluetooth-related objects th
 
 To demonstrate State Preservation and Restoration technique on iOS, I'm going to reuse the source code from the previous post [Play Central And Peripheral Roles With CoreBluetooth](/2018/02/21/Play-Central-And-Peripheral-Roles-With-CoreBluetooth/) but we'll add some more code to the projects to make it become magical.
 First, I set my iPad act as a Peripheral with a uuid "1FA2FD8A-17E0-4D3B-AF45-305DA6130E39", which is generated via `uuidgen` command on Mac. Then, make it start advertising with local name "iPad". If there is a connection established by a central manager, the in/out logs will print so we know whether the connection is made successfully.
+
+<center>
+
 ![](/Post-Resources/BackgroundProcessing/Peripheral.gif "iPad acts as a peripheral")
+
+</center>
 
 When the "Send Notify" button is touched, the app will notify a data string "Say something cool!" via the "463FED21-DA93-45E7-B00F-B5CD99775150" that is defined as an encrypted notifiable characteristic of the app to the connected central manager.
 
@@ -93,7 +107,11 @@ The second one is doing the following steps:
 
 In the below demonstration, you will see I use both of them for testing. Let's see something cool happens!
 
+<center>
+
 ![](/Post-Resources/BackgroundProcessing/Restoration.gif "Demo")
+
+</center>
 
 Here is the log printed from Xcode.
 
