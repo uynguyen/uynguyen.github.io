@@ -26,7 +26,7 @@ Let's go.
 
 ### Prepare iOS framework
 
-The first step is creating a BLE framework. You definitely don't have to create a framework, you can include your source code inside the iOS project directly if you want to.
+The first step is creating a BLE framework. You also don't have to create a framework, you can include your source code inside the iOS project directly if you want to.
 However, the reason why I recommend moving all BLE logic to a framework is that it’s reusable, you can share your framework to other projects such as Flutter or Native projects without having to duplicate the logic.
 Another reason is that it will improve the compile time of Xcode, breaking your app into several frameworks can speed up the build times. This is because the Xcode build system doesn’t have to recompile frameworks for which Swift files have not changed.
 
