@@ -4,7 +4,7 @@ date: 2021-12-25 18:16:08
 tags:
 ---
 
-![](/Post-Resources/RN-BLE/cover1.png)
+![](/Post-Resources/RN-BLE/cover1.png "")
 
 I have been working in mobile development on both native projects and cross platforms (React Native, Flutter), and I also have experience working on BLE. Sometimes I get emails asking about the communication of RN/Flutter to BLE. Thus, I decided to introduce this series React Native and BLE to guide you on how to develop a native BLE framework and connect it to React Native.
 Of course, there will be another series for Flutter and BLE after finishing the series of React Native.
