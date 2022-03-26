@@ -12,7 +12,7 @@ In this post, I will shortly summarize steps to publish a library to `npm`, and 
 
 <!-- more -->
 
-It's quite simple to publish a lib to npm. Just need to do the following steps:
+It's quite simple to publish a lib to `npm`. Just need to do the following steps:
 1. Make sure you have a `npm` account. Go to `https://www.npmjs.com` to sign up for an account if you don't have one.
 2. Next, sign in to your account on your computer via the command line `npm login`.
 ![](/Post-Resources/npm/signin.png "")
