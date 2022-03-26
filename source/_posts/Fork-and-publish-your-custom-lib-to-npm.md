@@ -17,10 +17,10 @@ It's quite simple to publish a lib to `npm`. Just need to do the following steps
 2. Next, sign in to your account on your computer via the command line `npm login`.
 ![](/Post-Resources/npm/signin.png "")
 3. To check which user is signed in, use `npm whoami`.
-4. [The lib](https://www.npmjs.com/package/@gregfrench/react-native-wheel-picker) I use for my project support a `Wheel Picker component`, but it has been deprecated, and it does not support setting the color of the selected item on Android. Besides, I want to create my own lib so that I can easily add more features later. So I decided to fork and custom my own wheel picker. To fork a lib, go to the repo of the lib you want to modify, then press the `fork` button on the top right corner.
+4. [The lib](https://www.npmjs.com/package/@gregfrench/react-native-wheel-picker) I use for my project support a `Wheel Picker` component, but it has been deprecated, and it does not support setting the color of the selected item on Android. Besides, I want to create my own lib so that I can easily add more features later. So I decided to fork and custom my own wheel picker. To fork a lib, go to the repo of the lib you want to modify, then press the `fork` button on the top right corner.
 ![](/Post-Resources/npm/fork.png "")
 
-5. After forking successfully, you should see the repo from your account repositories. Next, clone the cone to your computer, and do the modification.
+5. After forking successfully, you should see the repo from on your dashboard. Next, clone the code to your computer, and add your new features.
 In my case, I need to add a new feature that supports setting the color for the selected item (Refer to [this PR](https://github.com/GregFrench/react-native-wheel-picker/pull/7/commits/b8bf478f3e4ffb7fb5be4e2f524e730678775e50))
 ![](/Post-Resources/npm/fork-repo.png "")
 
