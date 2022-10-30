@@ -66,10 +66,6 @@
                         "icon": "fab fa-github",
                         "url": "https://github.com/ppoffice"
                     },
-                    "Facebook": {
-                        "icon": "fab fa-facebook",
-                        "url": "https://facebook.com"
-                    },
                     "Twitter": {
                         "icon": "fab fa-twitter",
                         "url": "https://twitter.com"
