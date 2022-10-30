@@ -180,6 +180,9 @@ widgets:
             Github:
                 icon: fab fa-github
                 url: 'https://github.com/uynguyen'
+            Facebook:
+                icon: fab fa-facebook
+                url: 'https://www.facebook.com/UyNguyen505'
             Twitter:
                 icon: fab fa-linkedin
                 url: 'https://www.linkedin.com/in/uynguyen505'
