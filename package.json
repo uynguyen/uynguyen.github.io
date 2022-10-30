@@ -1,7 +1,8 @@
 {
-  "name": "hexo-site",
-  "version": "0.0.0",
   "private": true,
+  "homepage" : "https://uynguyen.github.io/",
+  "name": "uy nguyen blog",
+  "version": "0.1.0",
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
