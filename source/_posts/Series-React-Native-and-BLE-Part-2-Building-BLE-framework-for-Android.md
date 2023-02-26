@@ -6,11 +6,15 @@ tags: [BLE, Bluetooth, Android]
 
 ![](/Post-Resources/RN-BLE/cover2.png "")
 
-iOS and Android are the two primary mobile technology OS (operating systems). When working with Bluetooth, we need support for both platforms. We created a BLE framework in part 1 of this series and connected it to the UI - React Native part. In this tutorial, part 2, we will define a new SDK for Android and link it to the UI as we did on iOS.
+When it comes to mobile technology, iOS and Android are the two dominant operating systems that power the majority of smartphones and tablets worldwide. As developers, it is essential that we have the knowledge and tools to work with both platforms effectively. This is especially true when it comes to utilizing Bluetooth technology, which is a crucial component of many modern mobile applications.
+In part 1 of this tutorial series, we created a BLE (Bluetooth Low Energy) framework that could be connected to the UI using React Native. However, this framework only worked on iOS, which meant that we needed to develop a separate solution for Android.
+In part 2 of this tutorial series, we will be focusing on defining a new SDK for Android and linking it to the UI, just as we did on iOS. This will allow us to fully support both operating systems and provide a seamless Bluetooth experience for all users, regardless of their device of choice.
 <!-- more -->
 
 ## Create new Android SDK
-The very first step is creating your own Bluetooth library. Normally, engineers tend to use an open-source such as [RxAndroidBle](https://github.com/dariuszseweryn/RxAndroidBle) or [Android-BLE-Library powered by Nordic](https://github.com/NordicSemiconductor/Android-BLE-Library). However, the main goal of this tutorial is to guide you on how to create a new Android module and link it to React Native. It not only applies to Bluetooth but also to any library you need to use in your app. The other goal is to have a foundation knowledge of Android BLE in case you need to modify something or create your own feature which has not been supported in the market.
+The very first step is to create your own Bluetooth library. Normally, engineers tend to use an open-source library such as [RxAndroidBle](https://github.com/dariuszseweryn/RxAndroidBle) or [Android-BLE-Library powered by Nordic](https://github.com/NordicSemiconductor/Android-BLE-Library). However, the main goal of this tutorial is to guide you on how to create a new Android module and link it to React Native. This not only applies to Bluetooth but also to any library that you need to use in your app. The other goal is to gain foundational knowledge of Android BLE in case you need to modify something or create your own feature that has not been supported in the market.
+
+By creating your own Bluetooth library, you have the freedom to customize and tailor the library to your specific needs. This can provide significant advantages over using pre-existing libraries, as you can optimize the library for your particular use case and avoid potential compatibility issues.
 
 From your project, go to `File > New > New Module > Fill in the information`. 
 A new library will be added to your project.
@@ -170,12 +174,20 @@ requestLocation = (grantedCallback, deniedCallback) => {
 ```
 
 ## Result
-As we use the same code for Android and iOS from React Native part, so we don't need to modify the React Native part from the previous tutorial. As long as you follow the same protocol we defined, everything should work as expected.
+Since we use the same code for both Android and iOS in the React Native part, there is no need to modify the React Native code from the previous tutorial. As long as you follow to the protocol we defined, everything should function as intended.
+
+By maintaining a consistent protocol across both platforms, we can ensure that the code is easily portable and that any changes made to one platform will not affect the other. This can significantly streamline the development process and reduce the risk of errors or compatibility issues.
+
 ![](/Post-Resources/RN-BLE/android_scan_result.png "")
 
 ## Conclusion
-We finally learned how to create your own Bluetooth library and use it on your React Native project. From now on, when adding new features, we only need to implement the logic in Native Code, and no longer have to develop the UI part twice. Is this nice? :)
-Happy coding.
+After spending countless hours researching and experimenting, we have finally learned how to create our own Bluetooth library and use it in our React Native project. With this newfound knowledge, the process of adding new features has become significantly easier and more efficient. We only need to implement the logic in Native Code instead of having to develop the UI part twice.
+
+This has not only saved us a tremendous amount of time and effort but also allowed us to focus more on enhancing the functionality of our app. We can now dedicate more resources to developing new features, optimizing existing ones, and improving the overall user experience.
+
+Moreover, our newfound ability to create custom libraries has opened up a whole new world of possibilities for our development team. We can now leverage our knowledge of React Native to create even more advanced and innovative features, all while maintaining a streamlined development process.
+
+Happy coding!
 
 ## Refs
 - [Android Native Modules](https://reactnative.dev/docs/native-modules-android).
