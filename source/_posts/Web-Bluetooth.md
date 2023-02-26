@@ -79,12 +79,6 @@ services.forEach(async (e) => {
 });
 ```
 
-- Listen to notification
-```bash
-await char.stopNotifications();
-await char.startNotifications();
-```
-
 - Read & write value:
   `BluetoothRemoteGATTCharacteristic.readValue()`: This API is used to read the value of a characteristic.
   `BluetoothRemoteGATTCharacteristic.writeValue(value)`: This API is used to write a value to a characteristic.
@@ -109,11 +103,17 @@ device.addEventListener('characteristicvaluechanged', () => {
 });
 ```
 
+- Listen to notification
+```bash
+await char.stopNotifications();
+await char.startNotifications();
+```
+
 ![](/Post-Resources/PlayRolesInCoreBluetooth/Programming_Flow_BLE.png)
 
-### A Simple example
+### A simple example
 
-At [Web Bluetooth example](https://uibluetooth.web.app/), I have created a user-friendly website that showcases a set of APIs with a simple demo. This demo website provides developers with an easy-to-use interface for testing and understanding the functionality of the APIs. By accessing this demo website, developers can quickly gain insights into how the APIs can be integrated into their applications.
+At [Web Bluetooth example](https://uibluetooth.web.app/), I have created a simple website that showcases a set of APIs. This demo website provides developers with an easy-to-use interface for testing and understanding the functionality of the APIs. By accessing this demo website, developers can quickly gain insights into how the APIs can be integrated into their applications.
 
 By default, the web scan all nearby devices.
 ![](/Post-Resources/WebBluetooth/example_scanning.png "Banner")
@@ -126,16 +126,16 @@ Here is the UI after the connection has been established successfully.
 
 
 ### More samples
-You can find more examples via this video
+You can find more examples and ideas via this video
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/303045191?h=18cde570de" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 <p><a href="https://vimeo.com/303045191">WebBluetooth demos for Bluetooth.rocks</a> from <a href="https://vimeo.com/rakaz">Niels Leenheer</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
 ### Limitations
-- For security purposes, we can not automatically scan and connect to a specified device, the user must manually scan and select a device from the scanning dialog. The user decides whether the web app is allowed to connect, and to which device it is allowed to connect.
+- For security purposes, we can not automatically scan and connect to a specified device. The user decides whether the web app is allowed to connect, and to which device it is allowed to connect.
 - HTTPS Connection: Web Bluetooth requires a secure HTTPS connection to function properly. This means that the web application must be hosted on a secure server with a valid SSL certificate. If the application is not hosted on a secure server, the user will not be able to connect to Bluetooth devices.
 - Platforms: Web Bluetooth is supported in Chrome on desktop and mobile (Require Android 6+, does not support iOS), Opera, and some versions of Microsoft Edge. It's important to note that Web Bluetooth may not work in older or outdated browsers.
 - Customization: Unfortunately, it's not possible to customize the scan dialog of Web Bluetooth to show additional information beyond the default options. The Web Bluetooth API is designed to provide a simple and consistent interface for developers, and the scan dialog is intentionally kept simple to maintain this simplicity.
-- Performance: It's widely recognized that the stability of Bluetooth connections on native Android apps is often not as reliable as on iOS, and can be affected by factors such as the phone model, manufacturer, and version of Android being used. As a result, it's important to manage expectations when it comes to the performance of Web Bluetooth applications on Android devices.
+- Performance: It's widely recognized that the stability of Bluetooth connections on native Android apps is often not as reliable as on iOS, and can be affected by factors such as the phone model, manufacturer, and version of Android being used. As a result, it's important to note that Web Bluetooth does not function as well as native apps, especially on Android devices.
 
 ### Tips & best practices
 Here are some tips and best practices for optimizing the performance of Web Bluetooth applications:
@@ -145,7 +145,7 @@ Here are some tips and best practices for optimizing the performance of Web Blue
 - Use caching: Caching can be used to store data that is frequently accessed by your application. This can reduce the number of read operations and improve the performance of your application.
 - Optimize the scanning process: Scanning for devices can be a resource-intensive operation. Therefore, it's important to optimize the scanning process by reducing the scanning time and filtering the results to only include relevant devices.
 - Test your application on different devices: Test your application on different devices to ensure that it performs well across different platforms and hardware configurations.
-- 
+
 ### Final thought
 Despite these limitations, Web Bluetooth remains a promising technology with many potential use cases. Developers who are interested in using Web Bluetooth should carefully consider these limitations and design their applications accordingly.
 
