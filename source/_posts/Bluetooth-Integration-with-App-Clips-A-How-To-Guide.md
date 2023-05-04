@@ -192,7 +192,7 @@ To enable showing Appclip card in Safari and iMessage, config the following line
 - Validate parameters: Make sure that your App Clip validates all parameters that are passed to it. This will help to ensure that your App Clip functions properly and that users are not able to exploit any vulnerabilities.
 - In addition to scanning QR codes, displaying on Safari, and sharing via iMessage, Apple offers several other methods to launch App Clips, such as tapping a link in the Maps app, location-based suggestions from Siri Suggestions, and NFC tags. To ensure that users can easily discover your App Clip, it is important to leverage the appropriate launch method and optimize for discoverability. By doing so, you can increase the chances of users finding and engaging with your App Clip.
 
-## Next steps
+## Next step
 In the upcoming tutorial, I will provide you with detailed instructions on how to publish your App Clip and configure it to run on Safari, Maps, and iMessage. However, please note that App Clips can only be launched when they are published in the App Store. Therefore, I cannot demonstrate the process until my App Clip passes Apple's review process. 😝
 
 ## Conclusion
