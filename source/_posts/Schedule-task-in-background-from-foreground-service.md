@@ -155,11 +155,7 @@ The choice between `AlarmManager` and `WorkManager` depends on your specific use
 
 **Error Handling and Retry Mechanism**
    - `AlarmManager`: It doesn't provide built-in mechanisms for handling task failures or automatic retries.
-   - `WorkManager`: It offers robust error handling, retry mechanisms, and backoff policies. `WorkManager` can automatically retry failed tasks with configurable constraints and exponential backoff.
-
-**Advanced Features**
-   - `AlarmManager`: It primarily focuses on scheduling and executing tasks at specific times or intervals.
-   - `WorkManager`: It offers additional features like deferrable work, chained tasks, observing task status, constraints management, and compatibility with `LiveData` and `ViewModel`. It provides a more comprehensive framework for managing background tasks.
+   - `WorkManager`: `WorkManager` can automatically retry failed tasks with configurable constraints.
 
 In general, if you need precise timing, immediate execution, or the ability to wake up the device from sleep mode, `AlarmManager` might be the better choice. On the other hand, if you require power efficiency, flexible task scheduling, error handling, and compatibility across different Android versions, `WorkManager` is a more suitable option.
 In some cases, you may even use both `AlarmManager` and `WorkManager` together, depending on the specific requirements of your app. For example, you can use `AlarmManager` for time-sensitive tasks and `WorkManager` for power-efficient background processing.
