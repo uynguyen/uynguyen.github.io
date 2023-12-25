@@ -1,6 +1,5 @@
 ---
 title: Core Bluetooth on WatchOS
-date: 2023-11-25 12:27:24
 tags: [WatchOS, BLE]
 ---
 
