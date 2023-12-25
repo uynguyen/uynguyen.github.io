@@ -3,7 +3,7 @@ title: Core Bluetooth on WatchOS
 tags: [WatchOS, BLE]
 ---
 
-![](/Post-Resources/watchos/banner.png "WatchOS")
+![](/Post-Resources/watchos/banner.png "WatchOS banner")
 Ever thought about adding a Watch App to your product? Wondering how to make CoreBluetooth work on your Watch App? You're in the right place! This tutorial is your go-to guide. In this post, we'll take you step by step through the process of smoothly bringing in data from Bluetooth gadgets into your Apple Watch apps.
 
 <!-- more -->
