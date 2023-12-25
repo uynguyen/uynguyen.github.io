@@ -110,7 +110,7 @@ article:
     # Whether to show thumbnail image for every article
     thumbnail: true
     # Whether to show estimated article reading time
-    readtime: true
+    readtime: false
 # Search plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Search/
 search:
@@ -207,10 +207,10 @@ widgets:
         position: left
         type: recent_posts
     # Archives widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: archives
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #     position: left
+    #     type: archives
     # Tags widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
