@@ -85,7 +85,7 @@ struct ContentView: View {
 
 ## Conclusion
 
-In a nutshell, by learning how to connect your Apple Watch to Bluetooth devices, you've boosted your watch's features. This tutorial has guided you through using Core Bluetooth on watchOS, handling common problems along the way. Whether you're a pro or a beginner, we've broken it down for you. Now, your Watch App not only works well but also impresses users. As you keep making apps, use these skills to create cool and smooth experiences. Cheers to making your mark in the tech world!
+In a nutshell, by learning how to connect your Apple Watch to Bluetooth devices, you've boosted your watch's features. This tutorial has guided you through using Core Bluetooth on watchOS, handling common problems along the way. Whether you're a pro or a beginner, we've broken it down for you. Now, your Watch App not only works well but also impresses users. As you keep making apps, use these skills to create cool and smooth experiences. Happy coding!
 
 ## References
 
