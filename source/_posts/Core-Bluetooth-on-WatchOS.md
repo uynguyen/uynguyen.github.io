@@ -13,15 +13,19 @@ Learn how to tap into the power of Bluetooth devices to boost your Apple Watch u
 **_Environments: XCode 15.0.1, iOS 17.0.3, WatchOS 10.1.1, Swift 5._**
 
 ## Set up project
+
 Start by going to your project settings, then select `File` > `New Target` > `Watch OS` > `App`, and fill in the required fields. Once done, Xcode will seamlessly integrate a new watch app project into your existing workspace.
 
+![](/Post-Resources/watchos/create_project.png "Create project")
+
 ## Bluetooth config
+
 Essentially, all methods and Bluetooth events on WatchOS closely resemble those on iOS. If you already have a `BluetoothManager` class that handles various Bluetooth functions, such as initiating scanning or connecting to a peripheral, and manages Bluetooth delegates, you're in good shape.
 
 ```swift
 class BluetoothManager : NSObject, CBCentralManagerDelegate {
     private var central: CBCentralManager!
-    
+
     override init() {
         super.init()
         central = CBCentralManager(
@@ -30,11 +34,11 @@ class BluetoothManager : NSObject, CBCentralManagerDelegate {
             options: [:]
         )
     }
-    
+
     func startScanning() {
         central.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
     }
-    
+
     func connect(periperal: CBPeripheral) {
         central.connect(periperal)
     }
@@ -62,6 +66,7 @@ struct ContentView: View {
 ```
 
 ## Important notes
+
 - To test your project's Bluetooth functionality, it's essential to run it on a real Apple Watch since the simulator doesn't support Bluetooth.
 - Keep in mind that the connection time on the Apple Watch can be influenced by the device's battery status, even if low power mode is not enabled.
 - Ensure that you manually add the necessary capability to the Watch App plist file. This step is crucial; otherwise, your app won't be able to scan, connect, or execute any Bluetooth commands when it's in the background.
@@ -74,7 +79,13 @@ struct ContentView: View {
 ```
 
 - Unlike Bluetooth on iOS, where you can leverage State preservation and restoration to awaken the app if it has been terminated by the system due to Bluetooth events (see Best practice: [Best practice: How to deal with Bluetooth Low Energy in background](/2018/07/23/Best-practice-How-to-deal-with-Bluetooth-Low-Energy-in-background/)), it's important to note that there is no equivalent State preservation and restoration mechanism on watchOS.
-![](/Post-Resources/watchos/state_preservation.png "State Preservation & Restoration")
+  ![](/Post-Resources/watchos/state_preservation.png "State Preservation & Restoration")
+- The connection time on iOS and WatchOS is quite equal. I measured the Connect API by performing 200 calls (same devices, same testing environment). The average on iOS is approximately 0.69 seconds, while on WatchOS, it is 0.78 seconds.
+  ![](/Post-Resources/watchos/connection_report.png "Connection report")
+
+## Conclusion
+
+In a nutshell, by learning how to connect your Apple Watch to Bluetooth devices, you've boosted your watch's features. This tutorial has guided you through using Core Bluetooth on watchOS, handling common problems along the way. Whether you're a pro or a beginner, we've broken it down for you. Now, your Watch App not only works well but also impresses users. As you keep making apps, use these skills to create cool and smooth experiences. Cheers to making your mark in the tech world!
 
 ## References
 
