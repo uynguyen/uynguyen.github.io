@@ -5,7 +5,7 @@ tags:
 ---
 ![](/Post-Resources/protobuf/banner.png "banner")
 
-I have worked on Bluetooth products, including wearables and smart locks. Facilitating the transfer of messages between system components is a crucial aspect due to differences in programming languages, the necessity for consistency, and limitations on data transfer size. To address these challenges, we utilize [Protocol Buffers](https://github.com/protocolbuffers/protobuf).
+I have worked on Bluetooth products, including wearable devices and smart locks. Facilitating the transfer of messages between system components is a crucial aspect due to differences in programming languages, the necessity for consistency, and limitations on data transfer size. To address these challenges, we utilize [Protocol Buffers](https://github.com/protocolbuffers/protobuf).
 Protocol Buffers, also known as Protobuf, is a language-agnostic data serialization format developed by Google. It is designed to be efficient, extensible, and user-friendly. In this tutorial, we will cover the basics of creating a simple Protocol Buffers message, defining a schema, and generating code in various programming languages.
 
 <!-- more --> 
@@ -93,3 +93,6 @@ Below is how the generated files look in different languages.
 
 ## Summary
 In summary, while `protobuf` offers significant advantages in terms of efficiency and performance, its adoption should be considered based on the specific requirements and constraints of the project. It's essential to weigh the pros and cons and choose the serialization format that best aligns with your project's goals and constraints.
+
+## Ref
+- (Protocol Buffers Documentation)[https://protobuf.dev/overview/]
