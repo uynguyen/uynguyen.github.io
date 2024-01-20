@@ -3,7 +3,7 @@ title: React Native In My Real World
 date: 2017-12-01 11:46:47
 tags: [ReactNative, CrossPlatform]
 ---
-![](/Post-Resources/ReactNative/Banner.jpg "Ahihi")
+![](/Post-Resources/ReactNative/Banner.jpg "Banner")
 React Native was introduced in January of 2015 at React.js Con: The first public preview. In March of 2015, React Native is open and available on Github. After releasing, React Native quickly becomes popular and is constantly updated by thousands of developers in the world. Currently, React Native is one of the [most stars repositories](https://github.com/search?p=2&q=stars%3A%3E1&s=stars&type=Repositories) on Github.
 <!-- more --> 
 # Threads
