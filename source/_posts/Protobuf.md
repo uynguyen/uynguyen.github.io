@@ -90,7 +90,7 @@ Below is how the generated files look in different languages.
 - **Human Readability**: `Protobuf` binary format is not human-readable, which can make debugging and troubleshooting more challenging compared to `JSON`. `JSON` plain text format allows developers to inspect the data easily.
 - **Debugging Complexity**: Due to the binary nature of protobuf, debugging can be more complex when compared to `JSON`. Specialized tools are often needed to inspect the content of protobuf-encoded messages.
 - **Less Common in Web Technologies**: `JSON` is more prevalent in web development and is natively supported by many web APIs. If interoperability with web technologies is a top priority, `JSON` might be a more natural choice.
-- **Complexity in Nested Structures**: Dealing with nested structures in protobuf messages can sometimes be less intuitive than in `JSON`. Care must be taken when designing nested structures to avoid unnecessary complexity.
+- **Complexity in Nested Structures**: Dealing with nested structures in `protobuf` messages can sometimes be less intuitive than in `JSON`. Care must be taken when designing nested structures to avoid unnecessary complexity.
 
 ## Summary
 In summary, while `protobuf` offers significant advantages in terms of efficiency and performance, its adoption should be considered based on the specific requirements and constraints of the project. It's essential to weigh the pros and cons and choose the serialization format that best aligns with your project's goals and constraints.
