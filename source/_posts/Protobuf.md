@@ -96,4 +96,4 @@ Below is how the generated files look in different languages.
 In summary, while `protobuf` offers significant advantages in terms of efficiency and performance, its adoption should be considered based on the specific requirements and constraints of the project. It's essential to weigh the pros and cons and choose the serialization format that best aligns with your project's goals and constraints.
 
 ## Ref
-- (Protocol Buffers Documentation)[https://protobuf.dev/overview/]
+- [Protocol Buffers Documentation](https://protobuf.dev/overview/)
