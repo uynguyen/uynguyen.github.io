@@ -16,11 +16,12 @@ To install the protobuf compiler, follow the instructions outlined in [protobuf-
 ![](/Post-Resources/protobuf/flow.png "flow")
 
 Step to set up:
-- Install the protobuf compiler. On Mac, use brew: brew install protobuf
-- Validate if the installation completed successfully: protoc --version.
-- Installing the Code Generator Plugin: Protobuf supports several different programming languages. You need to find and install the code generator for the specific language depending on which programming languages are used in your project. For example, for Swift, use `swift-protobuf`: `brew install swift-protobuf`. For JavaScript, use `npm install -g protoc-gen-js``.
-- Compile .proto files to generate code for specific languages.
-```
+- Install the protobuf compiler. On Mac, use brew: `brew install protobuf`
+- Validate if the installation completed successfully: `protoc --version`.
+- Installing the Code Generator Plugin: Protobuf supports several different programming languages. You need to find and install the code generator for the specific language depending on which programming languages are used in your project. For example, for Swift, use `swift-protobuf`: `brew install swift-protobuf`. For JavaScript, use `npm install -g protoc-gen-js`.
+- Compile `.proto` files to generate code for specific languages.
+
+```bash
 nguyenuy@192  ~/Desktop/protobuf  protoc --js_out=. example.proto
 nguyenuy@192  ~/Desktop/protobuf  protoc --java_out=. example.proto
 nguyenuy@192  ~/Desktop/protobuf  protoc --cpp_out=. example.proto
