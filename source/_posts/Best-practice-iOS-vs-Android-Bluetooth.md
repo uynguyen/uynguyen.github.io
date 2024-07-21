@@ -18,10 +18,10 @@ To have a better visualization, I made an image below to summarize of the flow t
 
 ![](/Post-Resources/IOSAndroid/flow.png "iOS & Android flow")
 
-At first glance, the two flows appear quite similar. However, the Android flow includes extra steps. Although the connection process is more complex on Android compared to iOS, it provides greater control over the returned data. Let’s break down the flow into three major steps for discussion: `Discovery`, `Preparation`, `Interaction`, and `Termination`. Each of these steps involves specific actions and considerations that contribute to the overall functionality and efficiency of the connection process.
+At first glance, the two flows appear quite similar. However, the Android flow includes extra steps. Although the connection process is more complex on Android compared to iOS, it provides greater control over the returned data. Let’s break down the flow into three major steps for discussion: `Scanning`, `Getting Ready`, `Interacting`, and `Closing`. Each of these steps involves specific actions and considerations that contribute to the overall functionality and efficiency of the connection process.
 
-## Discovery
-In the discovery phase, the processes are quite similar between Android and iOS, from initiating a scan to creating a connection.
+## Scanning
+In the scanning phase, the processes are quite similar between Android and iOS, from initiating a scan to creating a connection.
 
 The main difference is that there is more information about the peripheral in the scan result on Android than on iOS. The most interesting value is the MAC address of the device. iOS does not expose this value and instead provides a random UUID.
 UUIDs on iOS are generated per application and per device pairing, and their lifespan is tied to the session or until the device is forgotten, so do not rely on it to identify or reconnect to your devices. iOS does not expose the MAC address for several reasons, primarily related to privacy and security. By hiding the MAC address, Apple ensures that apps and third parties cannot misuse this information for tracking or profiling users and also helps prevent illegal activities by attackers.
@@ -32,7 +32,7 @@ Another important note is that the Android OS prevents scan start-stops more tha
 
 The last common value is the signal strength value, `RSSI (Received Signal Strength Indicator)`, which indicates how far the device is from the phone. The range is from -30 to -99; the closer the value is to -30, the closer the device.
 
-## Preparation
+## Getting Ready
 Once your device has been discovered, the next step is to make it ready so you can perform read and write actions. There are two different approaches to making a device “ready.”
 
 The first approach is `action on-demand`, which involves doing nothing until necessary. This means you don’t need to discover services/characteristics or set notifications until your application performs read or write commands. The advantage is a shorter connection phase, as your application doesn’t need to discover all services and characteristics, set notifications, or handle errors if any fail. The disadvantage is that the first read or write operation will take more time.
@@ -101,7 +101,7 @@ private final BluetoothGattCallback gattCallback = new BluetoothGattCallback() {
 };
 ```
 
-## Interaction
+## Interacting
 Upon completing all the steps above successfully, your device is now ready to use. You can read values from a characteristic, transfer data to a specific one, or read the RSSI value to determine the distance. Make sure you handle the value changes properly by checking from which characteristic the value comes.
 
 It is worth mentioning that on iOS, if your application transfers a large amount of data to the device (e.g., transferring a file), you should wait for the next `peripheralIsReady` event to be triggered before sending the next packet. Continuously sending multiple packets without waiting for this event might put pressure on the queueing buffers, leading to missing packet.
@@ -112,7 +112,7 @@ func peripheralIsReady(toSendWriteWithoutResponse peripheral: CBPeripheral) {
 }
 ```
 
-## Termination
+## Closing
 Once again, the disconnection step on iOS is very simple. You just need to call the `cancelPeripheralConnection` method.
 
 On Android, you need to do more than one operation: `disconnect` the device and `close` the Bluetooth GATT. Remember that calling `disconnect` only cancels the connection with the peripheral, it does not release all the resources (e.g., available slots in the Bluetooth stack) until you call `close`. You use `disconnect` when you want to temporarily end the connection but might reconnect to the device later without needing to fully reset the GATT configuration. You use `close` when you are done with the Bluetooth connection entirely and want to ensure all resources are cleaned up.
