@@ -28,7 +28,7 @@ UUIDs on iOS are generated per application and per device pairing, and their lif
 
 One possible solution to overcome this limitation is to include your own unique identifier in the advertising packet, which will be available on all platforms.
 
-Another important note is that the Android OS prevents scan start-stops more than approximately five times in 30 seconds (please note that this value varies from device to device). Calling the startScan method too frequently in a short time will lead to no devices being discovered.
+Another important note is that the Android OS prevents scan start-stops more than approximately 5 times in 30 seconds (please note that this value varies from device to device). Calling the `startScan` method too frequently in a short time will lead to no devices being discovered.
 
 The last common value is the signal strength value, `RSSI (Received Signal Strength Indicator)`, which indicates how far the device is from the phone. The range is from -30 to -99; the closer the value is to -30, the closer the device.
 
