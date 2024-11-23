@@ -8,11 +8,11 @@ tags: [CoreBluetooh, BLE]
 
 In modern times, Bluetooth plays a crucial role in connecting devices seamlessly. From fitness trackers to smart home devices, Bluetooth Low Energy (BLE) allows devices to communicate efficiently while reducing power consumption. However, with the rise of wireless communication, ensuring security has become a key concern. Two core concepts of Bluetooth security are **Pairing** and **Bonding**, which are often misunderstood in the context of BLE.
 
+<!-- more -->
+
 Ensuring that devices pair and bond securely is critical for protecting sensitive data. Improper implementation of these processes can lead to several types of attacks. For example, attackers can intercept communications and steal valuable information.
 
 In this blog, we'll explore what pairing and bonding are, why they are important for security, and how they work in practice, particularly for mobile applications.
-
-<!-- more -->
 
 ## Low level: Security Manager (SM)
 At the core of BLE security is the Security Manager (SM), a crucial component that manages various security functions. The SM handles the exchange of security keys and ensures that all data transmitted between devices is encrypted and protected from unauthorized access.
@@ -120,3 +120,4 @@ Bluetooth pairing and bonding are foundational processes that enable secure comm
 
 - Kevin Townsend, Carles Cufí, Akiba, Robert Davidson - Getting Started with Bluetooth Low Energy\_ Tools and Techniques for Low-Power Networking-O'Reilly Media (2014)
 - [How iOS and Android Handle Connections with BLE Human Interface Devices, Punch Through](https://punchthrough.com/ble-human-interface-device-connections-on-ios-and-android)
+- [BLE Pairing and Bonding](https://technotes.kynetics.com/2018/BLE_Pairing_and_bonding/)
