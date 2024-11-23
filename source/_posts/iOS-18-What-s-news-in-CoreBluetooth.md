@@ -88,10 +88,10 @@ The user will now see a list of discovered devices and can select one to begin t
 private func handleSessionEvent(event: ASAccessoryEvent) {
     switch event.eventType {
         case .accessoryAdded, .accessoryChanged:
-            guard let dice = event.accessory else { return }
+            guard let device = event.accessory else { return }
             # Save your device
         case .activated:
-            guard let dice = session.accessories.first else { return }
+            guard let device = session.accessories.first else { return }
             # Save your device
         case .accessoryRemoved:
             # Clean up
