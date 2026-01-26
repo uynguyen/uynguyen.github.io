@@ -52,10 +52,11 @@ $navbar-item-margin-h ?= 0
     img
         max-height: $logo-height
 
-/* Language Switcher Dropdown */
-.navbar-main
-    .navbar-menu
-        overflow: visible !important
+/* Desktop Language Switcher Dropdown */
++from($navbar-breakpoint)
+    .navbar-main
+        .navbar-menu
+            overflow: visible !important
 
 .language-switcher
     position: relative
@@ -89,3 +90,128 @@ $navbar-item-margin-h ?= 0
     &.has-dropdown.is-active
         .navbar-dropdown
             display: block
+
+/* Mobile Toolbar */
+.mobile-toolbar
+    background-color: white
+    border-bottom: 1px solid #eee
+    padding: 0.5rem 0
+
+    .mobile-toolbar-content
+        display: flex
+        justify-content: center
+        gap: 1rem
+
+    .mobile-toolbar-btn
+        display: flex
+        align-items: center
+        gap: 0.5rem
+        padding: 0.5rem 1rem
+        background-color: #f5f5f5
+        border: 1px solid #ddd
+        border-radius: 20px
+        color: #4a4a4a
+        font-size: 0.9rem
+        cursor: pointer
+        transition: all 0.2s ease
+
+        &:hover,
+        &:active
+            background-color: #e8e8e8
+
+        i
+            font-size: 1rem
+
+/* Mobile Language Picker Modal */
+.language-picker-overlay
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 99999
+    display: none
+
+    &.is-active
+        display: block
+
+.language-picker-backdrop
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: rgba(0, 0, 0, 0.5)
+    animation: fadeIn 0.2s ease
+
+.language-picker-modal
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: white
+    border-radius: 16px 16px 0 0
+    animation: slideUp 0.3s ease
+    max-height: 80vh
+    overflow-y: auto
+
+.language-picker-header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 1rem 1.25rem
+    border-bottom: 1px solid #eee
+    font-weight: 600
+    font-size: 1.1rem
+
+.language-picker-close
+    background: none
+    border: none
+    font-size: 1.25rem
+    color: #888
+    cursor: pointer
+    padding: 0.25rem
+
+    &:hover
+        color: #333
+
+.language-picker-options
+    padding: 0.5rem 0
+
+.language-picker-option
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 1rem 1.25rem
+    color: #333
+    text-decoration: none
+    transition: background-color 0.2s ease
+
+    &:hover
+        background-color: #f5f5f5
+
+    &.is-active
+        color: $primary
+        font-weight: 600
+
+        .fa-check
+            color: $primary
+
+    .lang-name
+        font-size: 1rem
+
+    .fa-check
+        font-size: 0.9rem
+
+/* Animations */
+@keyframes fadeIn
+    from
+        opacity: 0
+    to
+        opacity: 1
+
+@keyframes slideUp
+    from
+        transform: translateY(100%)
+    to
+        transform: translateY(0)

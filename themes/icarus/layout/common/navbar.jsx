@@ -31,52 +31,102 @@ class Navbar extends Component {
             langSwitcherTitle
         } = this.props;
 
-        return <nav class="navbar navbar-main">
-            <div class="container">
-                <div class="navbar-brand justify-content-center">
-                    <a class="navbar-item navbar-logo" href={siteUrl}>
-                        {logo && logo.text ? logo.text : <img src={logoUrl} alt={siteTitle} height="28" />}
-                    </a>
-                </div>
-                <div class="navbar-menu">
-                    {Object.keys(menu).length ? <div class="navbar-start">
-                        {Object.keys(menu).map(name => {
-                            const item = menu[name];
-                            return <a class={classname({ 'navbar-item': true, 'is-active': item.active })} href={item.url}>{name}</a>;
-                        })}
-                    </div> : null}
-                    <div class="navbar-end">
-                        {Object.keys(links).length ? <Fragment>
-                            {Object.keys(links).map(name => {
-                                const link = links[name];
-                                return <a class="navbar-item" target="_blank" rel="noopener" title={name} href={link.url}>
-                                    {link.icon ? <i class={link.icon}></i> : name}
-                                </a>;
+        const currentLangName = languages.find(l => l.code === currentLang)?.name || 'Language';
+
+        return <Fragment>
+            <nav class="navbar navbar-main">
+                <div class="container">
+                    <div class="navbar-brand justify-content-center">
+                        <a class="navbar-item navbar-logo" href={siteUrl}>
+                            {logo && logo.text ? logo.text : <img src={logoUrl} alt={siteTitle} height="28" />}
+                        </a>
+                    </div>
+                    <div class="navbar-menu">
+                        {Object.keys(menu).length ? <div class="navbar-start">
+                            {Object.keys(menu).map(name => {
+                                const item = menu[name];
+                                return <a class={classname({ 'navbar-item': true, 'is-active': item.active })} href={item.url}>{name}</a>;
                             })}
-                        </Fragment> : null}
-                        {languages && languages.length > 0 ?
-                            <div class="navbar-item has-dropdown is-hoverable language-switcher">
-                                <a class="navbar-link" title={langSwitcherTitle}>
-                                    <i class="fas fa-globe"></i>
-                                </a>
-                                <div class="navbar-dropdown is-right">
-                                    {languages.map(lang => (
-                                        <a class={classname({'navbar-item': true, 'is-active': lang.code === currentLang})}
-                                           href={lang.url}>{lang.name}</a>
-                                    ))}
+                        </div> : null}
+                        <div class="navbar-end">
+                            {Object.keys(links).length ? <Fragment>
+                                {Object.keys(links).map(name => {
+                                    const link = links[name];
+                                    return <a class="navbar-item" target="_blank" rel="noopener" title={name} href={link.url}>
+                                        {link.icon ? <i class={link.icon}></i> : name}
+                                    </a>;
+                                })}
+                            </Fragment> : null}
+                            {/* Desktop language switcher */}
+                            {languages && languages.length > 0 ?
+                                <div class="navbar-item has-dropdown is-hoverable language-switcher is-hidden-mobile">
+                                    <a class="navbar-link" title={langSwitcherTitle}>
+                                        <i class="fas fa-globe"></i>
+                                    </a>
+                                    <div class="navbar-dropdown is-right">
+                                        {languages.map(lang => (
+                                            <a class={classname({'navbar-item': true, 'is-active': lang.code === currentLang})}
+                                               href={lang.url}>{lang.name}</a>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
+                            : null}
+                            {showToc ? <a class="navbar-item is-hidden-tablet catalogue" title={tocTitle} href="javascript:;">
+                                <i class="fas fa-list-ul"></i>
+                            </a> : null}
+                            {/* Desktop search */}
+                            {showSearch ? <a class="navbar-item search is-hidden-mobile" title={searchTitle} href="javascript:;">
+                                <i class="fas fa-search"></i>
+                            </a> : null}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            {/* Mobile toolbar - separate row for language and search */}
+            <div class="mobile-toolbar is-hidden-tablet">
+                <div class="container">
+                    <div class="mobile-toolbar-content">
+                        {languages && languages.length > 0 ?
+                            <button class="mobile-toolbar-btn" id="mobile-lang-btn" title={langSwitcherTitle}>
+                                <i class="fas fa-globe"></i>
+                                <span>{currentLangName}</span>
+                            </button>
                         : null}
-                        {showToc ? <a class="navbar-item is-hidden-tablet catalogue" title={tocTitle} href="javascript:;">
-                            <i class="fas fa-list-ul"></i>
-                        </a> : null}
-                        {showSearch ? <a class="navbar-item search" title={searchTitle} href="javascript:;">
-                            <i class="fas fa-search"></i>
-                        </a> : null}
+                        {showSearch ?
+                            <button class="mobile-toolbar-btn search" title={searchTitle}>
+                                <i class="fas fa-search"></i>
+                                <span>{searchTitle}</span>
+                            </button>
+                        : null}
                     </div>
                 </div>
             </div>
-        </nav>;
+
+            {/* Mobile language picker modal */}
+            {languages && languages.length > 0 ?
+                <div class="language-picker-overlay" id="lang-picker-overlay">
+                    <div class="language-picker-backdrop"></div>
+                    <div class="language-picker-modal">
+                        <div class="language-picker-header">
+                            <span>{langSwitcherTitle}</span>
+                            <button class="language-picker-close" id="lang-picker-close">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="language-picker-options">
+                            {languages.map(lang => (
+                                <a class={classname({'language-picker-option': true, 'is-active': lang.code === currentLang})}
+                                   href={lang.url}>
+                                    <span class="lang-name">{lang.name}</span>
+                                    {lang.code === currentLang ? <i class="fas fa-check"></i> : null}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            : null}
+        </Fragment>;
     }
 }
 
@@ -120,15 +170,10 @@ module.exports = cacheComponent(Navbar, 'common.navbar', props => {
         // Extract post slug from the current page
         let postSlug = null;
         if (isPost && page.source) {
-            // Get the filename without extension and path
-            // page.source is like "_posts/My-Post-Title.md" or "vi/posts/My-Post-Title.md"
             const sourceParts = page.source.split('/');
             const filename = sourceParts[sourceParts.length - 1];
             postSlug = filename.replace(/\.md$/, '');
         } else if (isPost && pagePath) {
-            // Fallback: extract slug from path
-            // English: "2025/04/02/post-slug/index.html" -> "post-slug"
-            // Vietnamese/Spanish: "vi/posts/post-slug/index.html" -> "post-slug"
             const pathParts = pagePath.split('/').filter(p => p && p !== 'index.html');
             if (pathParts.length > 0) {
                 postSlug = pathParts[pathParts.length - 1];
@@ -140,11 +185,7 @@ module.exports = cacheComponent(Navbar, 'common.navbar', props => {
             let langUrl;
 
             if (isPost && postSlug) {
-                // Build URL to the same post in the selected language
                 if (langCode === 'en') {
-                    // English posts use the default Hexo permalink: /YYYY/MM/DD/slug/
-                    // We can't easily reconstruct the date, so link to home
-                    // OR we can try to find the post date from page object
                     if (page.date) {
                         const date = new Date(page.date);
                         const year = date.getFullYear();
@@ -155,11 +196,9 @@ module.exports = cacheComponent(Navbar, 'common.navbar', props => {
                         langUrl = url_for('/');
                     }
                 } else {
-                    // Vietnamese/Spanish posts use: /lang/posts/slug/
                     langUrl = url_for(`/${langCode}/posts/${postSlug}/`);
                 }
             } else {
-                // Not a post page, link to language home
                 if (langCode === 'en') {
                     langUrl = url_for('/');
                 } else {

@@ -189,4 +189,39 @@
             link.target = '_blank';
         });
     }
+
+    // Mobile Language Picker
+    const $langPickerOverlay = $('#lang-picker-overlay');
+    const $langBtn = $('#mobile-lang-btn');
+    const $langPickerClose = $('#lang-picker-close');
+    const $langPickerBackdrop = $('.language-picker-backdrop');
+
+    function openLangPicker() {
+        $langPickerOverlay.addClass('is-active');
+        $('body').css('overflow', 'hidden');
+    }
+
+    function closeLangPicker() {
+        $langPickerOverlay.removeClass('is-active');
+        $('body').css('overflow', '');
+    }
+
+    if ($langBtn.length) {
+        $langBtn.on('click', openLangPicker);
+    }
+
+    if ($langPickerClose.length) {
+        $langPickerClose.on('click', closeLangPicker);
+    }
+
+    if ($langPickerBackdrop.length) {
+        $langPickerBackdrop.on('click', closeLangPicker);
+    }
+
+    // Mobile Search button - trigger the same searchbox as desktop
+    $('.mobile-toolbar .search').on('click', function() {
+        $('.searchbox').addClass('show');
+        $('.searchbox-input').focus();
+    });
+
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));
