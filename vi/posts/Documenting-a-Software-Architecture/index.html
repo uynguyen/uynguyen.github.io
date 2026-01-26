@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.0"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Tài liệu hóa Kiến trúc Phần mềm - Uy Nguyen</title><meta description="Rõ ràng là việc tài liệu hóa kiến trúc là một trong những công việc nhàm chán quan trọng nhất của Kỹ thuật Phần mềm."><meta property="og:type" content="blog"><meta property="og:title" content="Tài liệu hóa Kiến trúc Phần mềm"><meta property="og:url" content=":year/:month/:day/:title/"><meta property="og:site_name" content="Uy Nguyen"><meta property="og:description" content="Rõ ràng là việc tài liệu hóa kiến trúc là một trong những công việc nhàm chán quan trọng nhất của Kỹ thuật Phần mềm."><meta property="og:locale" content="vi_VN"><meta property="article:published_time" content="2018-04-11T15:19:20.000Z"><meta property="article:modified_time" content="2026-01-26T06:49:48.782Z"><meta property="article:author" content="Uy Nguyen"><meta property="article:tag" content="UML"><meta property="article:tag" content="Software Architecture"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/Post-Resources/UML/Banner.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://uynguyen.github.io/vi/posts/Documenting-a-Software-Architecture/index.html"},"headline":"Uy Nguyen","image":["https://uynguyen.github.io/Post-Resources/UML/Banner.png","https://uynguyen.github.io/Post-Resources/UML/UML-Diagram-Types.png","https://uynguyen.github.io/Post-Resources/UML/Class.png","https://uynguyen.github.io/Post-Resources/UML/Imple.png","https://uynguyen.github.io/Post-Resources/UML/Inher.png","https://uynguyen.github.io/Post-Resources/UML/Depen.png","https://uynguyen.github.io/Post-Resources/UML/Ass.png","https://uynguyen.github.io/Post-Resources/UML/Agg.png","https://uynguyen.github.io/Post-Resources/UML/Compo.png","https://uynguyen.github.io/Post-Resources/UML/Ex-Class-Diagram.png","https://uynguyen.github.io/Post-Resources/UML/Ex-Object-Diagram.png","https://uynguyen.github.io/Post-Resources/UML/Activity-Symbols.png","https://uynguyen.github.io/Post-Resources/UML/Sequence-Symbols.png","https://uynguyen.github.io/Post-Resources/UML/State-Machine-Diagram.png","https://uynguyen.github.io/Post-Resources/UML/Ex-State-Machine.png","https://uynguyen.github.io/Post-Resources/UML/Usecase-Diagram.png","https://uynguyen.github.io/Post-Resources/UML/Ex-Association-Usecase.png","https://uynguyen.github.io/Post-Resources/UML/shopping-process-bpmn.png"],"datePublished":"2018-04-11T15:19:20.000Z","dateModified":"2026-01-26T06:49:48.782Z","author":{"@type":"Person","name":"Uy Nguyen"},"description":"Rõ ràng là việc tài liệu hóa kiến trúc là một trong những công việc nhàm chán quan trọng nhất của Kỹ thuật Phần mềm."}</script><link rel="canonical" href="https://uynguyen.github.io/vi/posts/Documenting-a-Software-Architecture/index.html"><link rel="icon" href="/Post-Resources/UyNguyen.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><meta property="og:image" content="/Post-Resources/UML/Banner.png"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-163508356-1" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-163508356-1');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/Post-Resources/UyNguyen.jpg" alt="Uy Nguyen" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><div class="navbar-item has-dropdown is-hoverable language-switcher"><a class="navbar-link" title="Language"><i class="fas fa-globe"></i></a><div class="navbar-dropdown is-right"><a class="navbar-item" href="/2018/04/11/Documenting-a-Software-Architecture/">English</a><a class="navbar-item is-active" href="/vi/posts/Documenting-a-Software-Architecture/">Tiếng Việt</a><a class="navbar-item" href="/es/posts/Documenting-a-Software-Architecture/">Español</a></div></div><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"></div></div><h1 class="title is-3 is-size-4-mobile">Tài liệu hóa Kiến trúc Phần mềm</h1><div class="content"><p><img src="/Post-Resources/UML/Banner.png" alt=""><br>Rõ ràng là việc tài liệu hóa kiến trúc là một trong những công việc <del>nhàm chán</del> quan trọng nhất của Kỹ thuật Phần mềm.</p>
+<a id="more"></a>
+<h2 id="Mot-hoat-dong-hai-mat"><a href="#Mot-hoat-dong-hai-mat" class="headerlink" title="Một hoạt động hai mặt"></a>Một hoạt động hai mặt</h2><p>Có nhiều lý do tốt để chúng ta phải tài liệu hóa các dự án phần mềm của mình:</p>
+<ul>
+<li>Các thành viên khác có thể hiểu và đánh giá thiết kế của phần mềm này.</li>
+<li>Chúng ta có thể hiểu những gì đã triển khai khi quay lại sau một khoảng thời gian nhất định.</li>
+<li>Chúng ta có thể phân tích thiết kế để đánh giá hiệu năng của hệ thống, ngăn ngừa lỗi xảy ra trước khi bắt đầu giai đoạn triển khai.</li>
+</ul>
+<p>Việc tài liệu hóa kiến trúc cũng có một số nhược điểm, như:</p>
+<ul>
+<li>Tài liệu sẽ dần trở nên lỗi thời so với code. Việc giữ cho tài liệu kiến trúc cập nhật thường là một hoạt động bị bỏ qua, đặc biệt dưới áp lực trong một dự án.</li>
+<li>Tài liệu hóa <em>tốn thời gian</em> và <em>tốn kém</em>.<br />
+
+</li>
+</ul>
+<p>Vậy khi nào chúng ta nên tài liệu hóa kiến trúc phần mềm?<br>Có rất nhiều yếu tố cần xem xét để quyết định có cần tài liệu hóa hay không. Các dự án ít có triển vọng tồn tại lâu dài có lẽ không cần nhiều tài liệu. Yếu tố khác cần xem xét khi tài liệu hóa là nhu cầu của các bên liên quan trong dự án, bao gồm các vai trò khác nhau như developer, tester, manager, v.v. Trong một team nhỏ, tài liệu có thể ở mức tối thiểu và có thể được thay thế bằng giao tiếp trực tiếp, giúp tiết kiệm thời gian. Tuy nhiên, trong một team lớn, tài liệu trở nên quan trọng hơn để mô tả hệ thống, đặc biệt là các công ty hoạt động ở nhiều quốc gia và nhiều văn phòng. Do đó, điều quan trọng là phải suy nghĩ kỹ trước khi tài liệu hóa vì nó tốn thời gian để phát triển và duy trì cùng với các dự án.<br>Trong bài viết này, tôi sẽ giới thiệu cho bạn ngôn ngữ phổ biến nhất để tài liệu hóa kiến trúc phần mềm: Unified Modeling Language.</p>
+<h2 id="Unified-Modeling-Language-UML"><a href="#Unified-Modeling-Language-UML" class="headerlink" title="Unified Modeling Language (UML)"></a>Unified Modeling Language (UML)</h2><p>UML là một ngôn ngữ mô hình hóa của Kỹ thuật Phần mềm. Nó cung cấp một cách tiêu chuẩn để trực quan hóa thiết kế của một hệ thống hoặc ứng dụng. UML bao gồm cả biểu đồ cấu trúc và biểu đồ hành vi để biểu diễn một hệ thống phần mềm:</p>
+<ul>
+<li>Biểu đồ cấu trúc mô tả kiến trúc tĩnh của hệ thống.</li>
+<li>Biểu đồ hành vi hiển thị các tương tác giữa các thực thể bên trong hệ thống.</li>
+</ul>
+<p><img src="/Post-Resources/UML/UML-Diagram-Types.png" alt=""></p>
+<p>Lưu ý rằng tôi chưa bao giờ sử dụng <em>Component diagrams</em>, <em>Package diagram</em>, <em>Deployment diagrams</em>, <em>Profile Diagram</em>, <em>Composite Structure diagrams</em>, <em>Communication diagrams</em>, <em>Interaction Overview diagrams</em> và <em>Timing diagrams</em> nên tôi sẽ bỏ qua các biểu đồ này trong bài viết này.</p>
+<h3 id="Bieu-do-cau-truc"><a href="#Bieu-do-cau-truc" class="headerlink" title="Biểu đồ cấu trúc"></a>Biểu đồ cấu trúc</h3><h4 id="Class-diagrams"><a href="#Class-diagrams" class="headerlink" title="Class diagrams"></a><em>Class diagrams</em></h4><p>Class diagram mô tả cấu trúc của một hệ thống bằng cách hiển thị các mối quan hệ giữa các class. Nó cũng hiển thị các thuộc tính và phương thức của mỗi class. Mục đích chính của class diagrams là để có cái nhìn tổng quan về hệ thống.</p>
+<p><img src="/Post-Resources/UML/Class.png" alt=""></p>
+<p>Trong đó vis = visibility</p>
+<table>
+<thead>
+<tr>
+<th>Cú pháp</th>
+<th align="center">Loại visibility</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td align="center">Public           <td rowspan=4>Nếu một biến hoặc phương thức là static,  <br/> nó phải được gạch chân.</td></td>
+</tr>
+<tr>
+<td>#</td>
+<td align="center">Protected</td>
+</tr>
+<tr>
+<td>-</td>
+<td align="center">Private</td>
+</tr>
+<tr>
+<td>~</td>
+<td align="center">Package</td>
+</tr>
+</tbody></table>
+<p>Các dòng sau giới thiệu một số mối quan hệ chính trong Class diagrams.</p>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th align="center">Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Implementation</td>
+<td align="center">Class B triển khai các hành vi được định nghĩa trong Class A. <br/><img src="/Post-Resources/UML/Imple.png" alt=""></td>
+</tr>
+<tr>
+<td>Inheritance</td>
+<td align="center">Class B có mối quan hệ IS-A với Class A, hay chúng ta có thể nói Class B là một loại của Class A. <br/><img src="/Post-Resources/UML/Inher.png" alt=""></td>
+</tr>
+<tr>
+<td>Dependency</td>
+<td align="center">Nó tồn tại giữa hai phần tử nếu thay đổi định nghĩa của một phần tử có thể gây ra thay đổi cho phần tử kia. <br/><img src="/Post-Resources/UML/Depen.png" alt=""></td>
+</tr>
+<tr>
+<td>Association</td>
+<td align="center">Một association nhị phân (với hai đầu) thường được biểu diễn dưới dạng một đường thẳng. <br/> Nó chỉ ra rằng Class A chứa một hoặc nhiều thuộc tính thuộc về Class B, hoặc ngược lại. <br/><img src="/Post-Resources/UML/Ass.png" alt=""></td>
+</tr>
+<tr>
+<td>Aggregation</td>
+<td align="center">Nó là một trường hợp đặc biệt của Association. Chúng ta có thể nói Class A được aggregation với Class B nếu Object X là một instance của Class A bị hủy nhưng Object Y là một instance của Class B vẫn tồn tại. <br/><img src="/Post-Resources/UML/Agg.png" alt=""> <br/> Ở đây, vòng đời của cả Employee và Department độc lập với nhau. Employees có thể tồn tại mà không cần department.</td>
+</tr>
+<tr>
+<td>Composition</td>
+<td align="center">Nó là một trường hợp đặc biệt của Aggregation nhưng mạnh hơn mối quan hệ Aggregation. Nếu Object X là một instance của Class A bị hủy, Object Y là một instance của Class B cũng sẽ bị hủy. Chúng ta cũng nói Composition là mối quan hệ HAS-A.<br/><img src="/Post-Resources/UML/Compo.png" alt=""> <br/> Ở đây, nếu chúng ta xóa đối tượng vehicle thì tất cả các engine sẽ tự động bị xóa. Các engine không có vòng đời độc lập, nó phụ thuộc vào vòng đời của đối tượng vehicle.</td>
+</tr>
+</tbody></table>
+<p><img src="/Post-Resources/UML/Ex-Class-Diagram.png" alt=""></p>
+<center>Một ví dụ về class diagram.</center>
+
+<h4 id="Instance-diagrams-Object-diagrams"><a href="#Instance-diagrams-Object-diagrams" class="headerlink" title="Instance diagrams (Object diagrams)"></a><em>Instance diagrams (Object diagrams)</em></h4><p>Về cơ bản, instance diagram tương tự như class diagram mà nó phụ thuộc vào. Tuy nhiên, instance diagram chỉ là một snapshot của hệ thống tại một thời điểm nào đó, và nó hiển thị những giá trị mà các object đó chứa tại thời điểm được chỉ định. Instance diagrams thường được sử dụng để tạo prototype của một hệ thống, và để hiểu hệ thống rõ hơn từ góc nhìn thực tế.<br>Các ký hiệu và notation của instance diagrams có thể được sử dụng trong class diagrams.</p>
+<p>Ví dụ<br><img src="/Post-Resources/UML/Ex-Object-Diagram.png" alt=""></p>
+<center>Chuyển đổi từ class diagram sang instance diagram.</center>
+
+<h3 id="Bieu-do-hanh-vi"><a href="#Bieu-do-hanh-vi" class="headerlink" title="Biểu đồ hành vi"></a>Biểu đồ hành vi</h3><h4 id="Activity-diagrams"><a href="#Activity-diagrams" class="headerlink" title="Activity diagrams"></a><em>Activity diagrams</em></h4><p>Activity diagram hiển thị luồng từ một activity này sang activity khác (Một activity là một chức năng được thực hiện bởi hệ thống). Lưu ý rằng các message không được bao gồm trong activity diagrams.<br>Activity diagram thường được sử dụng để mô tả mức cao của hệ thống, chủ yếu cho người dùng kinh doanh hoặc người không có chuyên môn kỹ thuật. Nó cũng có thể mô tả các bước trong một use case diagram.<br>Các ký hiệu và thành phần cơ bản:<br><img src="/Post-Resources/UML/Activity-Symbols.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu cơ bản</th>
+<th align="center">Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Start point</td>
+<td align="center">Nó đại diện cho trạng thái hành động ban đầu.</td>
+</tr>
+<tr>
+<td>Activity</td>
+<td align="center">Nó đại diện cho một activity của quy trình.</td>
+</tr>
+<tr>
+<td>Condition</td>
+<td align="center">Sử dụng ký hiệu này khi một activity yêu cầu một quyết định trước khi chuyển sang activity tiếp theo</td>
+</tr>
+<tr>
+<td>Synchronization</td>
+<td align="center">Nó chỉ ra rằng nhiều activity được thực hiện đồng thời.</td>
+</tr>
+<tr>
+<td>Time event</td>
+<td align="center">Điều này đề cập đến một sự kiện dừng luồng trong một khoảng thời gian.</td>
+</tr>
+<tr>
+<td>Interrupting Edge</td>
+<td align="center">Một sự kiện làm gián đoạn luồng.</td>
+</tr>
+<tr>
+<td>End Point</td>
+<td align="center">Nó đại diện cho trạng thái hành động cuối cùng.</td>
+</tr>
+</tbody></table>
+<h4 id="Sequence-diagrams"><a href="#Sequence-diagrams" class="headerlink" title="Sequence diagrams"></a><em>Sequence diagrams</em></h4><p>Sequence diagram hiển thị cách các object và component tương tác với nhau để hoàn thành một chức năng.<br>Các ký hiệu và thành phần cơ bản:<br><img src="/Post-Resources/UML/Sequence-Symbols.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu cơ bản</th>
+<th align="center">Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Actor</td>
+<td align="center">Nó hiển thị các thực thể tương tác với hệ thống.</td>
+</tr>
+<tr>
+<td>Object</td>
+<td align="center">Nó đại diện cho một object trong UML.</td>
+</tr>
+<tr>
+<td>Activation box</td>
+<td align="center">Nó đại diện cho thời gian cần thiết để hoàn thành một tác vụ.</td>
+</tr>
+<tr>
+<td>Loop</td>
+<td align="center">Nó chỉ ra các câu lệnh lặp.</td>
+</tr>
+<tr>
+<td>Alternative</td>
+<td align="center">Nó chỉ ra các câu lệnh điều kiện.</td>
+</tr>
+<tr>
+<td>Parallel</td>
+<td align="center">Mỗi tác vụ trong frame đại diện cho một thread thực thi được thực hiện song song.</td>
+</tr>
+<tr>
+<td>Synchronous message</td>
+<td align="center">Người gửi phải đợi phản hồi cho một message trước khi tiếp tục. Biểu đồ nên hiển thị cả lời gọi và phản hồi.</td>
+</tr>
+<tr>
+<td>Asynchronous message</td>
+<td align="center">Người gửi không cần đợi phản hồi cho một message trước khi tiếp tục.</td>
+</tr>
+<tr>
+<td>Return message</td>
+<td align="center">Các message được trả lời cho các lời gọi.</td>
+</tr>
+<tr>
+<td>Delete object</td>
+<td align="center">Nó chỉ ra rằng object sẽ bị hủy.</td>
+</tr>
+</tbody></table>
+<h4 id="State-Machine-diagrams"><a href="#State-Machine-diagrams" class="headerlink" title="State Machine diagrams"></a><em>State Machine diagrams</em></h4><p>Mục đích chính của state machine diagrams là hiển thị sự thay đổi trạng thái của một object trong suốt vòng đời của nó.</p>
+<p><img src="/Post-Resources/UML/State-Machine-Diagram.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu cơ bản</th>
+<th align="center">Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>State</td>
+<td align="center">Một state đại diện cho một tình huống trong vòng đời của một object.</td>
+</tr>
+<tr>
+<td>Initial State</td>
+<td align="center">Trạng thái ban đầu của object.</td>
+</tr>
+<tr>
+<td>Final State</td>
+<td align="center">Trạng thái cuối cùng của object.</td>
+</tr>
+</tbody></table>
+<p>Ví dụ sau đây cho thấy sự chuyển đổi trạng thái của một đơn hàng.</p>
+<p><img src="/Post-Resources/UML/Ex-State-Machine.png" alt=""></p>
+<h4 id="Use-Case-diagrams"><a href="#Use-Case-diagrams" class="headerlink" title="Use Case diagrams"></a><em>Use Case diagrams</em></h4><p>Use-case diagram hiển thị cách người dùng hoặc các ứng dụng bên ngoài khác tương tác với hệ thống. Nó cũng hiển thị phạm vi của hệ thống.</p>
+<p><img src="/Post-Resources/UML/Usecase-Diagram.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu cơ bản</th>
+<th align="center">Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Actors</td>
+<td align="center">Họ đại diện cho người dùng hoặc hệ thống bên ngoài tương tác với hệ thống của chúng ta.</td>
+</tr>
+<tr>
+<td>Use cases</td>
+<td align="center">Họ đại diện cho các cách sử dụng khác nhau mà người dùng có thể có.</td>
+</tr>
+<tr>
+<td>Associations</td>
+<td align="center">Có hai loại association: Actor-use case và use case - use case. <br /> Một Actor - use case association chỉ ra actor nào được liên kết với use case nào. <br /> Một Use case - Use case association hiển thị mối quan hệ của hai use case: <br /> - <em>Include</em>: Một use case “include” một use case khác nếu đó là một hành động bắt buộc của use case đó.<br /> - <em>Extend</em>: Một use case “extend” một use case khác nếu đó là một cách sử dụng tùy chọn của use case đó. <br /> - <em>Generalization</em>: Use case kế thừa cấu trúc, hành vi và các mối quan hệ của một use case khác. <img src="/Post-Resources/UML/Ex-Association-Usecase.png" alt=""></td>
+</tr>
+</tbody></table>
+<h2 id="Ban-da-tung-nghe-ve-Business-Process-Model-and-Notation-hay-BPMN-chua"><a href="#Ban-da-tung-nghe-ve-Business-Process-Model-and-Notation-hay-BPMN-chua" class="headerlink" title="Bạn đã từng nghe về Business Process Model and Notation (hay BPMN) chưa?"></a>Bạn đã từng nghe về Business Process Model and Notation (hay BPMN) chưa?</h2><p>“Business Process Model and Notation (BPMN) là một tiêu chuẩn cho việc mô hình hóa quy trình kinh doanh, cung cấp một ký hiệu đồ họa để chỉ định các quy trình kinh doanh trong Business Process Diagram (BPD).” (<a href="https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation">Wiki</a>).<br>Các mục tiêu chính của BPMN là:</p>
+<ul>
+<li>Cung cấp một bộ ký hiệu tiêu chuẩn mà các bên liên quan kinh doanh có thể hiểu được.</li>
+<li>Thường được sử dụng để định nghĩa logic kinh doanh vì nó có các khái niệm về sự kiện hoàn chỉnh hơn và hỗ trợ trao đổi message bất đồng bộ, điều quan trọng trong xử lý kinh doanh. BPMN tương tự như activity diagram từ UML.</li>
+</ul>
+<p>Một ví dụ về BPMN.<br><img src="/Post-Resources/UML/shopping-process-bpmn.png" alt=""></p>
+<center>Một quy trình mua sắm được mô tả bằng BPMN (Nguồn từ Google image)</center>
+## Sự khác biệt giữa UML và BPMN, nên sử dụng cái nào?
+Chúng ta sử dụng BPMN để mô tả hệ thống ở mức cao, không quan tâm nhiều đến chi tiết tính toán. Ngược lại, UML được sử dụng để định nghĩa chi tiết của hệ thống này, nó được xây dựng như thế nào? nó được tổ chức như thế nào? nó tương tác với các component khác như thế nào? dữ liệu được xử lý như thế nào? v.v.
+
+<h2 id="Ket-luan"><a href="#Ket-luan" class="headerlink" title="Kết luận"></a>Kết luận</h2><p>Trong bài viết này, tôi đã cho bạn thấy các ý tưởng chung về một số UML diagram phổ biến, và cho bạn thấy sự khác biệt chính giữa UML và BPMN. Tất nhiên, vẫn còn rất nhiều mục đích và notation của các biểu đồ đó mà tôi không thể liệt kê hết ở đây vì phạm vi của bài viết này.<br>Nếu bạn quan tâm đến UML, bạn có thể tải tài liệu đầy đủ của UML <a href="https://www.omg.org/spec/UML/">tại đây (Phiên bản mới nhất của UML là 2.5.1)</a>.<br>Cảm ơn bạn đã đọc.</p>
+<h2 id="Tai-lieu-tham-khao"><a href="#Tai-lieu-tham-khao" class="headerlink" title="Tài liệu tham khảo"></a>Tài liệu tham khảo</h2><p>[1] Essential Software Architecture (2011, Springer-Verlag Berlin Heidelberg)Ian Gorton (auth.), Chapter 8 Documenting a Software Architecture.</p>
+</div><div class="article-tags size-small is-uppercase mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/"></a><a class="link-muted mr-2" rel="tag" href="/"></a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9474199d6bcc0012d5bba6&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" href="https://ko-fi.com/uynguyen" style="background-color:rgba(255,128,62,.87);border-color:transparent;color:white;" target="_blank" rel="noopener"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button is-warning donate" onclick="document.getElementById(&#039;paypal-donate-form&#039;).submit()"><span class="icon is-small"><i class="fab fa-paypal"></i></span><span>Paypal</span></a><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form"><input type="hidden" name="cmd" value="_donations"><input type="hidden" name="business" value="uynguyen.itus@gmail.com"><input type="hidden" name="currency_code" value="USD"></form></div></div></div><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://uynguyen.github.io/vi/posts/Documenting-a-Software-Architecture/index.html';
+            this.page.identifier = 'vi/posts/Documenting-a-Software-Architecture/index.html';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'uynguyen-github-io' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="is-rounded" src="/Post-Resources/UyNguyen.jpg" alt="Uy Nguyen"></figure><p class="title is-size-4 is-block line-height-inherit">Uy Nguyen</p><p class="is-size-6 is-block">Software engineer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-envelope mr-1"></i><span>uynguyen.itus@gmail.com</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">58</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">33</p></a></div></div></nav><div class="level"><a class="level-item button is-rounded" style="background-color:#f14668e3;color:white;font-weight:bold;" href="https://ko-fi.com/uynguyen" target="_blank" rel="noopener">if 👍 then Buy me a Coffee</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/uynguyen"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://www.linkedin.com/in/uynguyen505"><i class="fab fa-linkedin"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://uynguyen.github.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Uy Nguyen</span></span><span class="level-right"><span class="level-item tag">uynguyen.github.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2025-04-02T11:03:38.000Z">2025-04-02</time></p><p class="title is-6"><a class="link-muted" href="/2025/04/02/Bluetooth-security-Implement-authentication/">Securing Bluetooth Communication: Implementing Authentication and Encryption Flows</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2024-11-03T03:33:53.000Z">2024-11-03</time></p><p class="title is-6"><a class="link-muted" href="/2024/11/03/iOS-18-What-s-news-in-CoreBluetooth/">iOS 18: What&#039;s news in CoreBluetooth?</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2024-08-31T03:38:32.000Z">2024-08-31</time></p><p class="title is-6"><a class="link-muted" href="/2024/08/31/Bluetooth-security-Pairing-and-Bonding/">Bluetooth security: Pairing and Bonding</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2024-08-04T05:10:39.000Z">2024-08-04</time></p><p class="title is-6"><a class="link-muted" href="/2024/08/04/Android-Bluetooth-A-Pitfall/">Android Bluetooth: A Pitfall</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2024-06-30T03:48:09.000Z">2024-06-30</time></p><p class="title is-6"><a class="link-muted" href="/2024/06/30/Best-practice-iOS-vs-Android-Bluetooth/">Best practice: iOS vs Android Bluetooth</a></p><p class="is-uppercase"></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Android/"><span class="tag">Android</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Appclip/"><span class="tag">Appclip</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BLE/"><span class="tag">BLE</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Bluetooth/"><span class="tag">Bluetooth</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Books/"><span class="tag">Books</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Cocoa/"><span class="tag">Cocoa</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Concurrency/"><span class="tag">Concurrency</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Conference/"><span class="tag">Conference</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Core-Data/"><span class="tag">Core Data</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CoreBluetooh/"><span class="tag">CoreBluetooh</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CrossPlatform/"><span class="tag">CrossPlatform</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Design-Patterns/"><span class="tag">Design Patterns</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DispatchQueue/"><span class="tag">DispatchQueue</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Memory-management/"><span class="tag">Memory management</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Notification/"><span class="tag">Notification</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Objective-C/"><span class="tag">Objective-C</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Operations/"><span class="tag">Operations</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ReactNative/"><span class="tag">ReactNative</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Software-Architecture/"><span class="tag">Software Architecture</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Study/"><span class="tag">Study</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Swift/"><span class="tag">Swift</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/UI/"><span class="tag">UI</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/UIStackView/"><span class="tag">UIStackView</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/UML/"><span class="tag">UML</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vendor/"><span class="tag">Vendor</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WatchOS/"><span class="tag">WatchOS</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Web-Bluetooth/"><span class="tag">Web Bluetooth</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/books/"><span class="tag">books</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iBeacon/"><span class="tag">iBeacon</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/macOS/"><span class="tag">macOS</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/Post-Resources/UyNguyen.jpg" alt="Uy Nguyen" height="28"></a><p class="size-small"><span>&copy; Uy Nguyen</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("vi");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://uynguyen.github.io',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

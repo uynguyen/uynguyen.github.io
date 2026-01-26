@@ -10867,6 +10867,47 @@ article.article .content blockquote footer strong + cite {
 .navbar-logo img {
   max-height: 1.75rem;
 }
+.navbar-main .navbar-menu {
+  overflow: visible !important;
+}
+.language-switcher {
+  position: relative;
+}
+.language-switcher.has-dropdown .navbar-link {
+  padding-right: 0.5rem;
+}
+.language-switcher.has-dropdown .navbar-link::after {
+  display: none;
+}
+.language-switcher.has-dropdown .navbar-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 9999;
+  min-width: 120px;
+  padding: 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background-color: #fff;
+  display: none;
+}
+.language-switcher.has-dropdown .navbar-dropdown .navbar-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #4a4a4a;
+}
+.language-switcher.has-dropdown .navbar-dropdown .navbar-item:hover {
+  background-color: #fcee09;
+  color: #fff;
+}
+.language-switcher.has-dropdown .navbar-dropdown .navbar-item.is-active {
+  background-color: #fefcd3;
+  font-weight: bold;
+}
+.language-switcher.has-dropdown:hover .navbar-dropdown,
+.language-switcher.has-dropdown.is-active .navbar-dropdown {
+  display: block;
+}
 @media screen and (max-width: 768px) {
   footer.footer .level-start {
     text-align: center;
