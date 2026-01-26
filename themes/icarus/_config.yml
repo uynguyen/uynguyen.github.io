@@ -83,6 +83,15 @@ navbar:
     #     Download on GitHub:
     #         icon: fab fa-github
     #         url: 'https://github.com/ppoffice/hexo-theme-icarus'
+# Language switcher configurations
+language_switcher:
+    # Enable language switcher in navbar
+    enabled: true
+    # Available languages with their display names
+    languages:
+        en: English
+        vi: Tiếng Việt
+        es: Español
 # Page footer configurations
 footer:
     # Links to be shown on the right of the footer section

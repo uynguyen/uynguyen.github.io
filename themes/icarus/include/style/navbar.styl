@@ -51,3 +51,41 @@ $navbar-item-margin-h ?= 0
 .navbar-logo
     img
         max-height: $logo-height
+
+/* Language Switcher Dropdown */
+.navbar-main
+    .navbar-menu
+        overflow: visible !important
+
+.language-switcher
+    position: relative
+    &.has-dropdown
+        .navbar-link
+            padding-right: $navbar-item-padding-h
+            &::after
+                display: none
+        .navbar-dropdown
+            position: absolute
+            top: 100%
+            right: 0
+            z-index: 9999
+            min-width: 120px
+            padding: 0
+            border-radius: 4px
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15)
+            background-color: white
+            display: none
+            .navbar-item
+                display: block
+                padding: 0.5rem 1rem
+                color: #4a4a4a
+                &:hover
+                    background-color: $primary
+                    color: white
+                &.is-active
+                    background-color: lighten($primary, 40%)
+                    font-weight: bold
+    &.has-dropdown:hover,
+    &.has-dropdown.is-active
+        .navbar-dropdown
+            display: block

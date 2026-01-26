@@ -1,4 +1,5 @@
 common:
+    language: 'Language'
     archive:
         one: 'Archive'
         other: 'Archives'

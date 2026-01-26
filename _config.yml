@@ -8,7 +8,10 @@ subtitle: Be a Software Engineer, not a Coder.
 description: Be a Software Engineer, not a Coder.
 keywords:
 author: Uy Nguyen
-language: en
+language:
+  - en
+  - vi
+  - es
 timezone: ''
 
 # URL

@@ -25,7 +25,10 @@ class Navbar extends Component {
             showToc,
             tocTitle,
             showSearch,
-            searchTitle
+            searchTitle,
+            languages,
+            currentLang,
+            langSwitcherTitle
         } = this.props;
 
         return <nav class="navbar navbar-main">
@@ -51,6 +54,19 @@ class Navbar extends Component {
                                 </a>;
                             })}
                         </Fragment> : null}
+                        {languages && languages.length > 0 ?
+                            <div class="navbar-item has-dropdown is-hoverable language-switcher">
+                                <a class="navbar-link" title={langSwitcherTitle}>
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                                <div class="navbar-dropdown is-right">
+                                    {languages.map(lang => (
+                                        <a class={classname({'navbar-item': true, 'is-active': lang.code === currentLang})}
+                                           href={lang.url}>{lang.name}</a>
+                                    ))}
+                                </div>
+                            </div>
+                        : null}
                         {showToc ? <a class="navbar-item is-hidden-tablet catalogue" title={tocTitle} href="javascript:;">
                             <i class="fas fa-list-ul"></i>
                         </a> : null}
@@ -67,7 +83,7 @@ class Navbar extends Component {
 module.exports = cacheComponent(Navbar, 'common.navbar', props => {
     const { config, helper, page } = props;
     const { url_for, _p, __ } = helper;
-    const { logo, title, navbar, widgets, search } = config;
+    const { logo, title, navbar, widgets, search, language_switcher } = config;
 
     const hasTocWidget = Array.isArray(widgets) && widgets.find(widget => widget.type === 'toc');
     const showToc = (config.toc === true || page.toc) && hasTocWidget && ['page', 'post'].includes(page.layout);
@@ -93,6 +109,72 @@ module.exports = cacheComponent(Navbar, 'common.navbar', props => {
         });
     }
 
+    // Language switcher logic
+    const languages = [];
+    const currentLang = page.lang || page.language || (Array.isArray(config.language) ? config.language[0] : config.language) || 'en';
+
+    if (language_switcher && language_switcher.enabled && language_switcher.languages) {
+        const pagePath = page.path || '';
+        const isPost = page.layout === 'post';
+
+        // Extract post slug from the current page
+        let postSlug = null;
+        if (isPost && page.source) {
+            // Get the filename without extension and path
+            // page.source is like "_posts/My-Post-Title.md" or "vi/posts/My-Post-Title.md"
+            const sourceParts = page.source.split('/');
+            const filename = sourceParts[sourceParts.length - 1];
+            postSlug = filename.replace(/\.md$/, '');
+        } else if (isPost && pagePath) {
+            // Fallback: extract slug from path
+            // English: "2025/04/02/post-slug/index.html" -> "post-slug"
+            // Vietnamese/Spanish: "vi/posts/post-slug/index.html" -> "post-slug"
+            const pathParts = pagePath.split('/').filter(p => p && p !== 'index.html');
+            if (pathParts.length > 0) {
+                postSlug = pathParts[pathParts.length - 1];
+            }
+        }
+
+        Object.keys(language_switcher.languages).forEach(langCode => {
+            const langName = language_switcher.languages[langCode];
+            let langUrl;
+
+            if (isPost && postSlug) {
+                // Build URL to the same post in the selected language
+                if (langCode === 'en') {
+                    // English posts use the default Hexo permalink: /YYYY/MM/DD/slug/
+                    // We can't easily reconstruct the date, so link to home
+                    // OR we can try to find the post date from page object
+                    if (page.date) {
+                        const date = new Date(page.date);
+                        const year = date.getFullYear();
+                        const month = String(date.getMonth() + 1).padStart(2, '0');
+                        const day = String(date.getDate()).padStart(2, '0');
+                        langUrl = url_for(`/${year}/${month}/${day}/${postSlug}/`);
+                    } else {
+                        langUrl = url_for('/');
+                    }
+                } else {
+                    // Vietnamese/Spanish posts use: /lang/posts/slug/
+                    langUrl = url_for(`/${langCode}/posts/${postSlug}/`);
+                }
+            } else {
+                // Not a post page, link to language home
+                if (langCode === 'en') {
+                    langUrl = url_for('/');
+                } else {
+                    langUrl = url_for('/' + langCode + '/');
+                }
+            }
+
+            languages.push({
+                code: langCode,
+                name: langName,
+                url: langUrl
+            });
+        });
+    }
+
     return {
         logo,
         logoUrl: url_for(logo),
@@ -103,6 +185,9 @@ module.exports = cacheComponent(Navbar, 'common.navbar', props => {
         showToc,
         tocTitle: _p('widget.catalogue', Infinity),
         showSearch: search && search.type,
-        searchTitle: __('search.search')
+        searchTitle: __('search.search'),
+        languages,
+        currentLang,
+        langSwitcherTitle: __('common.language') || 'Language'
     };
 });

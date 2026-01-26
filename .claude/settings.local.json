@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs:*)",
+      "Bash(npm install:*)",
+      "Bash(hexo clean:*)",
+      "Bash(hexo generate:*)",
+      "Bash(pkill:*)",
+      "Bash(curl:*)",
+      "Bash(wc:*)",
+      "Bash(node --version:*)",
+      "Bash(lsof:*)"
+    ]
+  }
+}

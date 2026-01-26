@@ -1,4 +1,5 @@
 common:
+    language: 'Ngôn ngữ'
     archive:
         one: 'Archive'
         other: 'Archives'
