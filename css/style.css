@@ -10866,8 +10866,10 @@ article.article .content blockquote footer strong + cite {
 .navbar-logo img {
   max-height: 1.75rem;
 }
-.navbar-main .navbar-menu {
-  overflow: visible !important;
+@media screen and (min-width: 1088px) {
+  .navbar-main .navbar-menu {
+    overflow: visible !important;
+  }
 }
 .language-switcher {
   position: relative;
@@ -10906,6 +10908,180 @@ article.article .content blockquote footer strong + cite {
 .language-switcher.has-dropdown:hover .navbar-dropdown,
 .language-switcher.has-dropdown.is-active .navbar-dropdown {
   display: block;
+}
+.mobile-toolbar {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0;
+}
+.mobile-toolbar .mobile-toolbar-content {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.mobile-toolbar .mobile-toolbar-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  color: #4a4a4a;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mobile-toolbar .mobile-toolbar-btn:hover,
+.mobile-toolbar .mobile-toolbar-btn:active {
+  background-color: #e8e8e8;
+}
+.mobile-toolbar .mobile-toolbar-btn i {
+  font-size: 1rem;
+}
+.language-picker-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+  display: none;
+}
+.language-picker-overlay.is-active {
+  display: block;
+}
+.language-picker-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  animation: fadeIn 0.2s ease;
+}
+.language-picker-modal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-radius: 16px 16px 0 0;
+  animation: slideUp 0.3s ease;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.language-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.language-picker-close {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #888;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+.language-picker-close:hover {
+  color: #333;
+}
+.language-picker-options {
+  padding: 0.5rem 0;
+}
+.language-picker-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.language-picker-option:hover {
+  background-color: #f5f5f5;
+}
+.language-picker-option.is-active {
+  color: #3273dc;
+  font-weight: 600;
+}
+.language-picker-option.is-active .fa-check {
+  color: #3273dc;
+}
+.language-picker-option .lang-name {
+  font-size: 1rem;
+}
+.language-picker-option .fa-check {
+  font-size: 0.9rem;
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@-o-keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 @media screen and (max-width: 768px) {
   footer.footer .level-start {
