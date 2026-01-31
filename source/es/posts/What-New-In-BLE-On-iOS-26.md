@@ -4,6 +4,7 @@ date: 2026-01-30 10:00:00
 tags: [iOS, BLE, WWDC26]
 lang: es
 layout: post
+permalink: es/posts/What-New-In-BLE-On-iOS-26/
 ---
 
 ![](/Post-Resources/BLEiOS26/cover.png "Banner")

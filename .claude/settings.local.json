@@ -9,7 +9,11 @@
       "Bash(curl:*)",
       "Bash(wc:*)",
       "Bash(node --version:*)",
-      "Bash(lsof:*)"
+      "Bash(lsof:*)",
+      "Bash(source ~/.nvm/nvm.sh)",
+      "Bash(nvm use:*)",
+      "Bash(npx hexo clean:*)",
+      "Bash(npx hexo generate)"
     ]
   }
 }
