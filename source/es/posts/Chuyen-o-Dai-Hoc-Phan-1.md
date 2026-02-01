@@ -3,7 +3,6 @@ title: Historias de la Universidad (Parte 1)
 date: 2017-09-25 19:53:30
 tags: [Vendor, Study]
 layout: post
-permalink: es/posts/Chuyen-o-Dai-Hoc-Phan-1/
 lang: es
 ---
 Anoche, mientras navegaba por Facebook, apareció una publicación de un estudiante de primer año en la página de Confesiones de mi universidad. El estudiante compartía sobre sus experiencias estudiando en la Universidad.

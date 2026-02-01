@@ -3,7 +3,6 @@ title: Co gi moi trong iPad OS 14?
 date: 2020-06-26 11:54:08
 tags:
 layout: post
-permalink: vi/posts/What-s-new-in-iPad-OS-14/
 lang: vi
 ---
 

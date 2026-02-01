@@ -3,7 +3,6 @@ title: Fork y publicar tu biblioteca personalizada en npm - React Native Wheel P
 date: 2022-03-26 10:00:26
 tags:
 layout: post
-permalink: es/posts/Fork-and-publish-your-custom-lib-to-npm/
 lang: es
 ---
 

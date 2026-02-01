@@ -3,7 +3,6 @@ title: Tạo và Phân phối Private Libraries với Cocoapods
 date: 2017-09-25 11:38:40
 tags: iOS
 layout: post
-permalink: vi/posts/Create-and-Distribute-Private-Libraries-with-Cocoapods/
 lang: vi
 ---
 

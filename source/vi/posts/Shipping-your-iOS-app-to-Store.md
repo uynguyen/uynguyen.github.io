@@ -3,7 +3,6 @@ title: Đưa ứng dụng iOS của bạn lên Store
 date: 2018-12-13 17:34:08
 tags:
 layout: post
-permalink: vi/posts/Shipping-your-iOS-app-to-Store/
 lang: vi
 ---
 ![](/Post-Resources/Delivery/delivery.png "Delivery")

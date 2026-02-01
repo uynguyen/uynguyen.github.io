@@ -3,7 +3,6 @@ title: 'Thực hành tốt nhất: iBeacon'
 date: 2018-08-18 21:17:47
 tags: [BLE, iOS, iBeacon]
 layout: post
-permalink: vi/posts/Best-practice-iBeacon/
 lang: vi
 ---
 ![](/Post-Resources/ibeacon/ibeacon.png "Delivery")

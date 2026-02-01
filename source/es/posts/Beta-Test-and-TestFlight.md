@@ -3,7 +3,6 @@ title: Beta Test y TestFlight
 date: 2020-04-14 21:25:25
 tags:
 layout: post
-permalink: es/posts/Beta-Test-and-TestFlight/
 lang: es
 ---
 ![](/Post-Resources/TestFlight/Cover.png "TestFlight")

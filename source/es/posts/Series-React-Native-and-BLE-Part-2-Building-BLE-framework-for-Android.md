@@ -3,7 +3,6 @@ title: 'Serie React Native y BLE: Parte 2 - Construyendo un framework BLE para A
 date: 2022-02-13 10:57:24
 tags: [BLE, Bluetooth, Android]
 layout: post
-permalink: es/posts/Series-React-Native-and-BLE-Part-2-Building-BLE-framework-for-Android/
 lang: es
 ---
 

@@ -3,7 +3,6 @@ title: React Native en Mi Mundo Real
 date: 2017-12-01 11:46:47
 tags: [ReactNative, CrossPlatform]
 layout: post
-permalink: es/posts/React-Native-In-My-Real-World/
 lang: es
 ---
 ![](/Post-Resources/ReactNative/Banner.jpg "Banner")

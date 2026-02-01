@@ -3,7 +3,6 @@ title: 'Thực tiễn tốt nhất: Xử lý nền iOS - Background App Refresh 
 date: 2020-09-26 21:53:32
 tags:
 layout: post
-permalink: vi/posts/Best-practice-iOS-background-processing-Background-App-Refresh-Task/
 lang: vi
 ---
 

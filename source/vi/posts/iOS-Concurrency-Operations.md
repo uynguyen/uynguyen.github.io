@@ -3,7 +3,6 @@ title: 'iOS Concurrency Nâng cao: Operations [1]'
 date: 2020-05-16 20:54:36
 tags: [iOS, Concurrency, Operations]
 layout: post
-permalink: vi/posts/iOS-Concurrency-Operations/
 lang: vi
 ---
 

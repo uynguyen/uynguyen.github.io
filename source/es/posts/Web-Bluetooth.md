@@ -3,7 +3,6 @@ title: Web Bluetooth
 date: 2022-10-30 14:55:24
 tags: [Web Bluetooth, Bluetooth]
 layout: post
-permalink: es/posts/Web-Bluetooth/
 lang: es
 ---
 

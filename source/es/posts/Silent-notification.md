@@ -3,7 +3,6 @@ title: Notificaciones silenciosas
 date: 2021-08-06 19:59:44
 tags: [iOS, Notification]
 layout: post
-permalink: es/posts/Silent-notification/
 lang: es
 ---
 

@@ -3,7 +3,6 @@ title: Todo Sobre Alamofire
 date: 2020-07-12 20:20:11
 tags:
 layout: post
-permalink: es/posts/All-About-Alamofire/
 lang: es
 ---
 

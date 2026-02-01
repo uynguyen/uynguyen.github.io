@@ -3,7 +3,6 @@ title: Programación Asíncrona en Swift
 date: 2018-01-16 21:32:45
 tags: [Swift, iOS]
 layout: post
-permalink: es/posts/Asynchronous-Programming-in-Swift/
 lang: es
 ---
 ![](/Post-Resources/PromiseKIT/PromiseKIT.png "")

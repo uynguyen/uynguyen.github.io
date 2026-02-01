@@ -3,7 +3,6 @@ title: "Mejores prácticas: iOS vs Android Bluetooth"
 date: 2024-06-30 10:48:09
 tags: [BLE, iOS, Android]
 layout: post
-permalink: es/posts/Best-practice-iOS-vs-Android-Bluetooth/
 lang: es
 ---
 

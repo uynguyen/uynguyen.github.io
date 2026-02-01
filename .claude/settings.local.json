@@ -13,7 +13,9 @@
       "Bash(source ~/.nvm/nvm.sh)",
       "Bash(nvm use:*)",
       "Bash(npx hexo clean:*)",
-      "Bash(npx hexo generate)"
+      "Bash(npx hexo generate)",
+      "Bash(grep:*)",
+      "Bash(# Test if the vi and es URLs return content echo \"\"Testing VI post:\"\" curl -s -o /dev/null -w \"\"%{http_code}\"\" http://localhost:4000/vi/2026/01/31/Bluetooth-Callback-vs-Reactive-Programming/ echo \"\"\"\" echo \"\"Testing ES post:\"\" curl -s -o /dev/null -w \"\"%{http_code}\"\" http://localhost:4000/es/2026/01/31/Bluetooth-Callback-vs-Reactive-Programming/ echo \"\"\"\" # Check if these files exist in public folder echo \"\"\"\" echo \"\"Files in public:\"\" ls -la public/vi/2026/01/31/)"
     ]
   }
 }

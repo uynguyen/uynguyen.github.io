@@ -3,7 +3,6 @@ title: Silent notification
 date: 2021-08-06 19:59:44
 tags: [iOS, Notification]
 layout: post
-permalink: vi/posts/Silent-notification/
 lang: vi
 ---
 

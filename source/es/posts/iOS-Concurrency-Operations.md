@@ -3,7 +3,6 @@ title: 'Concurrencia Avanzada en iOS: Operations [1]'
 date: 2020-05-16 20:54:36
 tags: [iOS, Concurrency, Operations]
 layout: post
-permalink: es/posts/iOS-Concurrency-Operations/
 lang: es
 ---
 

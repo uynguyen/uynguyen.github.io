@@ -184,19 +184,17 @@ module.exports = cacheComponent(Navbar, 'common.navbar', props => {
             const langName = language_switcher.languages[langCode];
             let langUrl;
 
-            if (isPost && postSlug) {
+            if (isPost && postSlug && page.date) {
                 if (langCode === 'en') {
-                    if (page.date) {
-                        const date = new Date(page.date);
-                        const year = date.getFullYear();
-                        const month = String(date.getMonth() + 1).padStart(2, '0');
-                        const day = String(date.getDate()).padStart(2, '0');
-                        langUrl = url_for(`/${year}/${month}/${day}/${postSlug}/`);
-                    } else {
-                        langUrl = url_for('/');
-                    }
+                    // English posts use date-based URLs
+                    const date = new Date(page.date);
+                    const year = date.getFullYear();
+                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                    const day = String(date.getDate()).padStart(2, '0');
+                    langUrl = url_for(`/${year}/${month}/${day}/${postSlug}/`);
                 } else {
-                    langUrl = url_for(`/${langCode}/posts/${postSlug}/`);
+                    // Translated posts are pages at /{lang}/posts/{slug}.html
+                    langUrl = url_for(`/${langCode}/posts/${postSlug}.html`);
                 }
             } else {
                 if (langCode === 'en') {

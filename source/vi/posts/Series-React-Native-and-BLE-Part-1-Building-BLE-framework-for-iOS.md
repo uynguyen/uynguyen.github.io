@@ -3,7 +3,6 @@ title: "Chuỗi bài React Native và BLE: Phần 1 - Xây dựng BLE framework 
 date: 2021-12-25 18:16:08
 tags:
 layout: post
-permalink: vi/posts/Series-React-Native-and-BLE-Part-1-Building-BLE-framework-for-iOS/
 lang: vi
 ---
 

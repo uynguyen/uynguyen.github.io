@@ -3,7 +3,6 @@ title: 'iOS: Giới thiệu Stack Views Lập trình'
 date: 2020-07-18 17:00:08
 tags: [UI, UIStackView, iOS]
 layout: post
-permalink: vi/posts/iOS-Introducing-Stack-Views/
 lang: vi
 ---
 

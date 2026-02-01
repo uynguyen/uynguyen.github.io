@@ -3,7 +3,6 @@ title: 'Reseña del libro: Swift Apprentice - Raywenderlich'
 date: 2020-02-26 22:05:30
 tags:
 layout: post
-permalink: es/posts/Review-book-Swift-Apprentice-Raywenderlich/
 lang: es
 ---
 ![](/Post-Resources/SwiftApprentice/banner.png "SwiftApprentice")

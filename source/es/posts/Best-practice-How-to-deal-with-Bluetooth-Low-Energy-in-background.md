@@ -3,7 +3,6 @@ title: 'Mejores prácticas: Cómo manejar Bluetooth Low Energy en segundo plano'
 date: 2018-07-23 18:26:27
 tags: [iOS, BLE]
 layout: post
-permalink: es/posts/Best-practice-How-to-deal-with-Bluetooth-Low-Energy-in-background/
 lang: es
 ---
 ## Prefacio

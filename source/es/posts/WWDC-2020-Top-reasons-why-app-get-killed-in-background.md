@@ -3,7 +3,6 @@ title: 'WWDC 2020 - Principales razones por las que una aplicacion es terminada 
 date: 2021-02-25 19:03:28
 tags:
 layout: post
-permalink: es/posts/WWDC-2020-Top-reasons-why-app-get-killed-in-background/
 lang: es
 ---
 ![](/Post-Resources/AppGetKilled/AppGetKilled.png "AppGetKilled")

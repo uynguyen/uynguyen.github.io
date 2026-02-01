@@ -3,7 +3,6 @@ title: "iOS 18: ¿Qué hay de nuevo en CoreBluetooth?"
 date: 2024-11-03 10:33:53
 tags:
 layout: post
-permalink: es/posts/iOS-18-What-s-news-in-CoreBluetooth/
 lang: es
 ---
 

@@ -3,7 +3,6 @@ title: 'Reseña del Libro: Clean Code'
 date: 2017-10-20 04:09:39
 tags: [books, study]
 layout: post
-permalink: es/posts/Review-Book-Clean-Code/
 lang: es
 ---
 Este es un libro que me regaló hace mucho tiempo un antiguo colega, que también es uno de mis amigos cercanos. Este es uno de los libros de software que más me gustan pero que no tuve oportunidad de comprar cuando era estudiante.

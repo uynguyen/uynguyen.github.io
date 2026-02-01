@@ -3,7 +3,6 @@ title: 'Mejores prácticas: Proceso avanzado de escaneo BLE en iOS'
 date: 2020-08-23 09:51:43
 tags: [iOS, BLE]
 layout: post
-permalink: es/posts/Best-practice-Advanced-BLE-scanning-process-on-iOS/
 lang: es
 ---
 

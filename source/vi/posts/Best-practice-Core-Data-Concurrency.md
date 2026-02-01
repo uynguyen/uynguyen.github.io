@@ -3,7 +3,6 @@ title: 'Best practice: Core Data Concurrency'
 date: 2019-09-01 10:13:01
 tags: [Core Data, iOS, Concurrency]
 layout: post
-permalink: vi/posts/Best-practice-Core-Data-Concurrency/
 lang: vi
 ---
 

@@ -3,7 +3,6 @@ title: Enviando tu aplicación iOS a la Store
 date: 2018-12-13 17:34:08
 tags:
 layout: post
-permalink: es/posts/Shipping-your-iOS-app-to-Store/
 lang: es
 ---
 ![](/Post-Resources/Delivery/delivery.png "Delivery")

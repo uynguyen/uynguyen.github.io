@@ -3,7 +3,6 @@ title: 'Seguridad en Comunicaciones Bluetooth: Implementando Flujos de Autentica
 date: 2025-04-02 18:03:38
 tags: [CoreBluetooh, BLE]
 layout: post
-permalink: es/posts/Bluetooth-security-Implement-authentication/
 lang: es
 ---
 

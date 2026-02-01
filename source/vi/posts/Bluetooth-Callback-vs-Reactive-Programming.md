@@ -4,7 +4,6 @@ date: 2026-01-31 10:00:00
 tags: [iOS, Android, BLE, RxSwift, RxJava, Reactive]
 lang: vi
 layout: post
-permalink: vi/posts/Bluetooth-Callback-vs-Reactive-Programming/
 ---
 
 ![](/Post-Resources/BLEReactive/cover.png "Banner")

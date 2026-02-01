@@ -3,7 +3,6 @@ title: Crash Sớm trong Swift
 date: 2019-01-19 11:59:38
 tags: [iOS, Swift]
 layout: post
-permalink: vi/posts/Crash-early-in-Swift/
 lang: vi
 ---
 ![](/Post-Resources/Crashing/crashing.png "Crashing")

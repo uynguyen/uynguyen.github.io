@@ -3,7 +3,6 @@ title: 'Mejores practicas: Concurrencia en Core Data'
 date: 2019-09-01 10:13:01
 tags: [Core Data, iOS, Concurrency]
 layout: post
-permalink: es/posts/Best-practice-Core-Data-Concurrency/
 lang: es
 ---
 

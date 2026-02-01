@@ -3,7 +3,6 @@ title: 'Mejores prácticas: procesamiento en segundo plano en iOS - Background A
 date: 2020-09-26 21:53:32
 tags:
 layout: post
-permalink: es/posts/Best-practice-iOS-background-processing-Background-App-Refresh-Task/
 lang: es
 ---
 

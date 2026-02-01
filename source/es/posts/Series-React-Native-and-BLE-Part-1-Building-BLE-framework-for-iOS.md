@@ -3,7 +3,6 @@ title: "Serie React Native y BLE: Parte 1 - Construyendo un framework BLE para i
 date: 2021-12-25 18:16:08
 tags:
 layout: post
-permalink: es/posts/Series-React-Native-and-BLE-Part-1-Building-BLE-framework-for-iOS/
 lang: es
 ---
 

@@ -3,7 +3,6 @@ title: 'Thực hành tốt nhất: Cách xử lý Bluetooth Low Energy ở chế
 date: 2018-07-23 18:26:27
 tags: [iOS, BLE]
 layout: post
-permalink: vi/posts/Best-practice-How-to-deal-with-Bluetooth-Low-Energy-in-background/
 lang: vi
 ---
 ## Lời mở đầu

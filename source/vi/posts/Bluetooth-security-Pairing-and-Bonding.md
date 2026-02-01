@@ -3,7 +3,6 @@ title: "Bảo mật Bluetooth: Pairing và Bonding"
 date: 2024-08-31 10:38:32
 tags: [CoreBluetooh, BLE]
 layout: post
-permalink: vi/posts/Bluetooth-security-Pairing-and-Bonding/
 lang: vi
 ---
 

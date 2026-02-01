@@ -3,7 +3,6 @@ title: Dos semanas en Fossil Group en EE.UU.
 date: 2019-05-19 01:44:03
 tags:
 layout: post
-permalink: es/posts/Two-weeks-at-Fossil-Group-in-the-US/
 lang: es
 ---
 

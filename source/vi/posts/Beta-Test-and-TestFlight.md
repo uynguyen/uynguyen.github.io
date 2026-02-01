@@ -3,7 +3,6 @@ title: Beta Test và TestFlight
 date: 2020-04-14 21:25:25
 tags:
 layout: post
-permalink: vi/posts/Beta-Test-and-TestFlight/
 lang: vi
 ---
 ![](/Post-Resources/TestFlight/Cover.png "TestFlight")

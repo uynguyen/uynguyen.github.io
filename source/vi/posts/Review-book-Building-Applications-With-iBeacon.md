@@ -3,7 +3,6 @@ title: 'Review sach: Building Applications With iBeacon'
 date: 2020-06-14 21:13:41
 tags: [Books, Study, BLE, iBeacon]
 layout: post
-permalink: vi/posts/Review-book-Building-Applications-With-iBeacon/
 lang: vi
 ---
 ![](/Post-Resources/ibeacons/ibeacon-cover.png "SwiftApprentice")

@@ -3,7 +3,6 @@ title: Tích hợp Google Drive vào ứng dụng iOS
 date: 2019-02-15 20:00:50
 tags:
 layout: post
-permalink: vi/posts/Integrate-Google-Drive-to-iOS-app/
 lang: vi
 ---
 ![](/Post-Resources/GoogleDrive/GoogleDrive.png "Cover")

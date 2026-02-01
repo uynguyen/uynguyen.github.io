@@ -3,7 +3,6 @@ title: Đóng Vai Trò Central Và Peripheral Với CoreBluetooth
 date: 2018-02-21 21:01:26
 tags: [iOS, CoreBluetooh, BLE]
 layout: post
-permalink: vi/posts/Play-Central-And-Peripheral-Roles-With-CoreBluetooth/
 lang: vi
 ---
 ## Giới thiệu

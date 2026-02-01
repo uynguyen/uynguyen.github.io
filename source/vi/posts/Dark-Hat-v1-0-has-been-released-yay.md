@@ -3,7 +3,6 @@ title: 'Dark Hat - Phiên bản 1.0 đã được phát hành'
 date: 2021-07-25 19:35:30
 tags:
 layout: post
-permalink: vi/posts/Dark-Hat-v1-0-has-been-released-yay/
 lang: vi
 ---
 

@@ -3,7 +3,6 @@ title: Programar tareas en segundo plano desde un servicio en primer plano
 date: 2023-07-22 21:56:13
 tags:
 layout: post
-permalink: es/posts/Schedule-task-in-background-from-foreground-service/
 lang: es
 ---
 ![](/Post-Resources/ScheduleTask/banner.png "ScheduleTask")

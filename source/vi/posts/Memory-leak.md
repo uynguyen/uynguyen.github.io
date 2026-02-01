@@ -3,7 +3,6 @@ title: Memory Leak
 date: 2018-09-12 11:09:15
 tags: [iOS, Memory management]
 layout: post
-permalink: vi/posts/Memory-leak/
 lang: vi
 ---
 ![](/Post-Resources/MemoryLeak/Cover.png "")

@@ -2,7 +2,6 @@
 title: Hola Mundo
 date: 2017-08-01 20:44:18
 layout: post
-permalink: es/posts/hello-world/
 lang: es
 ---
 ¡Bienvenido al [blog de Uy Nguyen](https://uynguyen.github.io/)!

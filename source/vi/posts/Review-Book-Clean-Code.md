@@ -3,7 +3,6 @@ title: 'Review Sach: Clean Code'
 date: 2017-10-20 04:09:39
 tags: [books, study]
 layout: post
-permalink: vi/posts/Review-Book-Clean-Code/
 lang: vi
 ---
 Day la cuon sach toi duoc tang tu lau boi mot dong nghiep cu, nguoi cung la mot trong nhung nguoi ban than cua toi. Day la mot trong nhung cuon sach ve phan mem ma toi thich nhat nhung khong co co hoi mua khi con la sinh vien.

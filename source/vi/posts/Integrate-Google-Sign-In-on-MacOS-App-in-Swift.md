@@ -3,7 +3,6 @@ title: Tích hợp Google Sign In trên ứng dụng MacOS bằng Swift
 date: 2019-12-11 21:28:10
 tags: [macOS, Swift, Cocoa]
 layout: post
-permalink: vi/posts/Integrate-Google-Sign-In-on-MacOS-App-in-Swift/
 lang: vi
 ---
 ![](/Post-Resources/GGSignIn-Mac/gg_banner.jpg "banner")

@@ -2,7 +2,6 @@
 title: Core Bluetooth en WatchOS
 tags: [WatchOS, BLE]
 layout: post
-permalink: es/posts/Core-Bluetooth-on-WatchOS/
 lang: es
 ---
 

@@ -3,7 +3,6 @@ title: Protobuf en la practica
 date: 2024-01-12 16:07:40
 tags:
 layout: post
-permalink: es/posts/Protobuf/
 lang: es
 ---
 ![](/Post-Resources/protobuf/banner.png "banner")

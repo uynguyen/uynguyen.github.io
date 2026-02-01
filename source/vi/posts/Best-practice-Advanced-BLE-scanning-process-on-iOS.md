@@ -3,7 +3,6 @@ title: 'Best practice: Quy trình quét BLE nâng cao trên iOS'
 date: 2020-08-23 09:51:43
 tags: [iOS, BLE]
 layout: post
-permalink: vi/posts/Best-practice-Advanced-BLE-scanning-process-on-iOS/
 lang: vi
 ---
 

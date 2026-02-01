@@ -3,7 +3,6 @@ title: Lập Trình Bất Đồng Bộ trong Swift
 date: 2018-01-16 21:32:45
 tags: [Swift, iOS]
 layout: post
-permalink: vi/posts/Asynchronous-Programming-in-Swift/
 lang: vi
 ---
 ![](/Post-Resources/PromiseKIT/PromiseKIT.png "")

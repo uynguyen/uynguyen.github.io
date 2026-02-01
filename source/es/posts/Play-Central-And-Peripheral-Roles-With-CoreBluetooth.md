@@ -3,7 +3,6 @@ title: Desempeñar Roles de Central y Periférico con CoreBluetooth
 date: 2018-02-21 21:01:26
 tags: [iOS, CoreBluetooh, BLE]
 layout: post
-permalink: es/posts/Play-Central-And-Peripheral-Roles-With-CoreBluetooth/
 lang: es
 ---
 ## Introducción

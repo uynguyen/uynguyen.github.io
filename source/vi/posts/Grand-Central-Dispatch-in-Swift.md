@@ -3,7 +3,6 @@ title: Grand Central Dispatch trong Swift
 date: 2018-01-04 11:43:23
 tags: ["iOS", "DispatchQueue"]
 layout: post
-permalink: vi/posts/Grand-Central-Dispatch-in-Swift/
 lang: vi
 ---
 ![](/Post-Resources/GCD/Banner.png "")

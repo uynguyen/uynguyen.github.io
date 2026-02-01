@@ -3,7 +3,6 @@ title: Chuyện ở Đại Học (Phần 1)
 date: 2017-09-25 19:53:30
 tags: [Vendor, Study]
 layout: post
-permalink: vi/posts/Chuyen-o-Dai-Hoc-Phan-1/
 lang: vi
 ---
 Tối hôm qua vô tình lướt Facebook thì trang Confession của trường mình hiện lên bài post của một bạn k17, bạn tâm sự về chuyện học ở Đại Học.

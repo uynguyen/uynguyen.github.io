@@ -3,7 +3,6 @@ title: 'Android Bluetooth: Una Trampa'
 date: 2024-08-04 12:10:39
 tags: [Android, Bluetooth]
 layout: post
-permalink: es/posts/Android-Bluetooth-A-Pitfall/
 lang: es
 ---
 

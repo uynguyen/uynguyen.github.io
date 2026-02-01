@@ -3,7 +3,6 @@ title: 'iOS Concurrency Nâng Cao: Async Operations [2]'
 date: 2020-05-30 17:02:31
 tags: [Concurrency, Operations, iOS]
 layout: post
-permalink: vi/posts/Advanced-iOS-Concurrency-Async-Operations-2/
 lang: vi
 ---
 

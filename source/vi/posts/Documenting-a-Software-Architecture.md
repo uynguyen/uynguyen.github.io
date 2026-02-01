@@ -3,7 +3,6 @@ title: Tài liệu hóa Kiến trúc Phần mềm
 date: 2018-04-11 22:19:20
 tags: [UML, Software Architecture]
 layout: post
-permalink: vi/posts/Documenting-a-Software-Architecture/
 lang: vi
 ---
 ![](/Post-Resources/UML/Banner.png "")

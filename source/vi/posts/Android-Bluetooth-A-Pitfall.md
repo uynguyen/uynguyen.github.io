@@ -3,7 +3,6 @@ title: 'Android Bluetooth: Một cạm bẫy'
 date: 2024-08-04 12:10:39
 tags: [Android, Bluetooth]
 layout: post
-permalink: vi/posts/Android-Bluetooth-A-Pitfall/
 lang: vi
 ---
 

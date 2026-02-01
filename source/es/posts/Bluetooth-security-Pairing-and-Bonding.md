@@ -3,7 +3,6 @@ title: "Seguridad Bluetooth: Emparejamiento y Vinculación"
 date: 2024-08-31 10:38:32
 tags: [CoreBluetooh, BLE]
 layout: post
-permalink: es/posts/Bluetooth-security-Pairing-and-Bonding/
 lang: es
 ---
 

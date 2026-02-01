@@ -3,7 +3,6 @@ title: Fork và publish thư viện tùy chỉnh của bạn lên npm - React Na
 date: 2022-03-26 10:00:26
 tags:
 layout: post
-permalink: vi/posts/Fork-and-publish-your-custom-lib-to-npm/
 lang: vi
 ---
 

@@ -3,7 +3,6 @@ title: React Native trong thế giới thực của tôi
 date: 2017-12-01 11:46:47
 tags: [ReactNative, CrossPlatform]
 layout: post
-permalink: vi/posts/React-Native-In-My-Real-World/
 lang: vi
 ---
 ![](/Post-Resources/ReactNative/Banner.jpg "Banner")

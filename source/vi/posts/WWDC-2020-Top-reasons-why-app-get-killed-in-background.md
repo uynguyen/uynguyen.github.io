@@ -3,7 +3,6 @@ title: 'WWDC 2020 - Những lý do hàng đầu khiến ứng dụng bị kill �
 date: 2021-02-25 19:03:28
 tags:
 layout: post
-permalink: vi/posts/WWDC-2020-Top-reasons-why-app-get-killed-in-background/
 lang: vi
 ---
 ![](/Post-Resources/AppGetKilled/AppGetKilled.png "AppGetKilled")

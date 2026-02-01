@@ -3,7 +3,6 @@ title: Bluetooth Low Energy en iOS
 date: 2017-10-13 10:21:46
 tags: [iOS, CoreBluetooh, BLE]
 layout: post
-permalink: es/posts/Bluetooth-Low-Energy-On-iOS/
 lang: es
 ---
 El framework Core Bluetooth (CB) permite que las aplicaciones de iOS y MacOS se comuniquen con dispositivos BLE. Tus aplicaciones pueden descubrir, explorar y controlar dispositivos BLE, como monitores de frecuencia cardíaca, rastreadores o relojes híbridos.

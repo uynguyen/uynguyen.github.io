@@ -3,7 +3,6 @@ title: 'Dark Hat - v1.0 ha sido lanzado'
 date: 2021-07-25 19:35:30
 tags:
 layout: post
-permalink: es/posts/Dark-Hat-v1-0-has-been-released-yay/
 lang: es
 ---
 

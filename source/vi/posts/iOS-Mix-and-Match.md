@@ -3,7 +3,6 @@ title: 'iOS: Mix and Match'
 date: 2020-01-30 17:33:16
 tags:
 layout: post
-permalink: vi/posts/iOS-Mix-and-Match/
 lang: vi
 ---
 ![](/Post-Resources/MixMatch/mix-match-banner.png "")

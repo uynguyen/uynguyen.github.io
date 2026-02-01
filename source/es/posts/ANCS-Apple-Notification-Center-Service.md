@@ -3,7 +3,6 @@ title: 'ANCS: Apple Notification Center Service'
 date: 2018-09-20 18:29:02
 tags: [Swift, iOS]
 layout: post
-permalink: es/posts/ANCS-Apple-Notification-Center-Service/
 lang: es
 ---
 ## Prefacio

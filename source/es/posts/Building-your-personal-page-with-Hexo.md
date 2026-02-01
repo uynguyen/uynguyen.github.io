@@ -3,7 +3,6 @@ title: Construyendo tu página personal con Hexo
 date: 2020-04-27 20:56:51
 tags: Hexo
 layout: post
-permalink: es/posts/Building-your-personal-page-with-Hexo/
 lang: es
 ---
 ![](/Post-Resources/Hexo/Cover.png "Hexo")

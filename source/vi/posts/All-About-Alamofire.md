@@ -3,7 +3,6 @@ title: Tất Tần Tật Về Alamofire
 date: 2020-07-12 20:20:11
 tags:
 layout: post
-permalink: vi/posts/All-About-Alamofire/
 lang: vi
 ---
 

@@ -3,7 +3,6 @@ title: 'Reseña del libro: Building Applications With iBeacon'
 date: 2020-06-14 21:13:41
 tags: [Books, Study, BLE, iBeacon]
 layout: post
-permalink: es/posts/Review-book-Building-Applications-With-iBeacon/
 lang: es
 ---
 ![](/Post-Resources/ibeacons/ibeacon-cover.png "SwiftApprentice")

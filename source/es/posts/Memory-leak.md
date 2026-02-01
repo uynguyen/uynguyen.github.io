@@ -3,7 +3,6 @@ title: Fuga de memoria
 date: 2018-09-12 11:09:15
 tags: [iOS, Memory management]
 layout: post
-permalink: es/posts/Memory-leak/
 lang: es
 ---
 ![](/Post-Resources/MemoryLeak/Cover.png "")

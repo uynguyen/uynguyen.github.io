@@ -3,7 +3,6 @@ title: ¿Qué hay de nuevo de App Clip en iOS 17?
 date: 2023-11-09 20:18:20
 tags:
 layout: post
-permalink: es/posts/What-s-new-of-Appclip-on-iOS-17/
 lang: es
 ---
 

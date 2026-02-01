@@ -2,7 +2,6 @@
 title: Xin Chào
 date: 2017-08-01 20:44:18
 layout: post
-permalink: vi/posts/hello-world/
 lang: vi
 ---
 Chào mừng bạn đến với [blog của Uy Nguyen](https://uynguyen.github.io/)!

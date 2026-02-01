@@ -3,7 +3,6 @@ title: Big Endian vs Little Endian
 date: 2018-04-30 10:51:30
 tags: [Swift, Objective-C, iOS]
 layout: post
-permalink: es/posts/Big-Endian-vs-Little-Endian/
 lang: es
 ---
 ![](/Post-Resources/Endian/cover.png "Endian cover")

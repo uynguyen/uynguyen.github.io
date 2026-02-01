@@ -3,7 +3,6 @@ title: 'Bảo mật giao tiếp Bluetooth: Triển khai luồng xác thực và 
 date: 2025-04-02 18:03:38
 tags: [CoreBluetooh, BLE]
 layout: post
-permalink: vi/posts/Bluetooth-security-Implement-authentication/
 lang: vi
 ---
 

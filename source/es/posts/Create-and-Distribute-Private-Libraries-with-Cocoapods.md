@@ -3,7 +3,6 @@ title: Crear y Distribuir Bibliotecas Privadas con Cocoapods
 date: 2017-09-25 11:38:40
 tags: iOS
 layout: post
-permalink: es/posts/Create-and-Distribute-Private-Libraries-with-Cocoapods/
 lang: es
 ---
 

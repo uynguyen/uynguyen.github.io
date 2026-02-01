@@ -3,7 +3,6 @@ title: Protobuf trong thực tế
 date: 2024-01-12 16:07:40
 tags:
 layout: post
-permalink: vi/posts/Protobuf/
 lang: vi
 ---
 ![](/Post-Resources/protobuf/banner.png "banner")

@@ -3,7 +3,6 @@ title: Lên lịch tác vụ ở chế độ nền từ foreground service
 date: 2023-07-22 21:56:13
 tags:
 layout: post
-permalink: vi/posts/Schedule-task-in-background-from-foreground-service/
 lang: vi
 ---
 ![](/Post-Resources/ScheduleTask/banner.png "ScheduleTask")

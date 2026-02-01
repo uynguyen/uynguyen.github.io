@@ -3,7 +3,6 @@ title: Trabajando con Thread Safe en iOS
 date: 2018-06-05 21:03:32
 tags: [iOS, Concurrency]
 layout: post
-permalink: es/posts/Working-In-Thread-Safe-on-iOS/
 lang: es
 ---
 

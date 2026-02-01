@@ -3,7 +3,6 @@ title: Hội nghị Swift Summit tại San Francisco 2017
 date: 2017-11-29 09:36:20
 tags: [Conference, Swift, iOS]
 layout: post
-permalink: vi/posts/Swift-Summit-conference-in-San-Francisco-2017/
 lang: vi
 ---
 

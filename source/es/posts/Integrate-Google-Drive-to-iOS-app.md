@@ -3,7 +3,6 @@ title: Integrar Google Drive en una app iOS
 date: 2019-02-15 20:00:50
 tags:
 layout: post
-permalink: es/posts/Integrate-Google-Drive-to-iOS-app/
 lang: es
 ---
 ![](/Post-Resources/GoogleDrive/GoogleDrive.png "Cover")

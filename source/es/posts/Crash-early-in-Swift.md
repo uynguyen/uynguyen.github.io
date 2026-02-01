@@ -3,7 +3,6 @@ title: Fallar temprano en Swift
 date: 2019-01-19 11:59:38
 tags: [iOS, Swift]
 layout: post
-permalink: es/posts/Crash-early-in-Swift/
 lang: es
 ---
 ![](/Post-Resources/Crashing/crashing.png "Crashing")

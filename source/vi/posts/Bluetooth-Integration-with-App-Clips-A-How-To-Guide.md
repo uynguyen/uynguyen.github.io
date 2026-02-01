@@ -3,7 +3,6 @@ title: 'Tích hợp Bluetooth với App Clips: Hướng dẫn chi tiết'
 date: 2023-03-25 10:14:11
 tags: [Bluetooth, Appclip, iOS]
 layout: post
-permalink: vi/posts/Bluetooth-Integration-with-App-Clips-A-How-To-Guide/
 lang: vi
 ---
 ![](/Post-Resources/Appclip/banner.png "Appclip")

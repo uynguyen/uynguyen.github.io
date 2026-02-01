@@ -3,7 +3,6 @@ title: "Reseña del libro: RxSwift Reactive Programming with Swift"
 date: 2020-09-26 21:51:41
 tags:
 layout: post
-permalink: es/posts/Review-book-RxSwift-Reactive-Programming-with-Swift/
 lang: es
 ---
 

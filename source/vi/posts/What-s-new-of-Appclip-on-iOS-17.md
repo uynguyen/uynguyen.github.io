@@ -3,7 +3,6 @@ title: Co gi moi cua App Clip tren iOS 17?
 date: 2023-11-09 20:18:20
 tags:
 layout: post
-permalink: vi/posts/What-s-new-of-Appclip-on-iOS-17/
 lang: vi
 ---
 

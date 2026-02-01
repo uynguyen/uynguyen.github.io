@@ -3,7 +3,6 @@ title: Xây dựng trang cá nhân của bạn với Hexo
 date: 2020-04-27 20:56:51
 tags: Hexo
 layout: post
-permalink: vi/posts/Building-your-personal-page-with-Hexo/
 lang: vi
 ---
 ![](/Post-Resources/Hexo/Cover.png "Hexo")

@@ -3,7 +3,6 @@ title: Notificaciones Remotas
 date: 2021-04-08 18:22:07
 tags: [iOS, Notification]
 layout: post
-permalink: es/posts/Remote-Notification/
 lang: es
 ---
 
