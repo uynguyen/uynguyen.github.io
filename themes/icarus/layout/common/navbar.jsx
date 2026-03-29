@@ -78,6 +78,10 @@ class Navbar extends Component {
                             {showSearch ? <a class="navbar-item search is-hidden-mobile" title={searchTitle} href="javascript:;">
                                 <i class="fas fa-search"></i>
                             </a> : null}
+                            {/* Dark mode toggle — desktop */}
+                            <a class="navbar-item dark-mode-toggle is-hidden-mobile" href="javascript:;" title="Switch to dark mode">
+                                <i class="fas fa-moon"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -99,6 +103,11 @@ class Navbar extends Component {
                                 <span>{searchTitle}</span>
                             </button>
                         : null}
+                        {/* Dark mode toggle — mobile */}
+                        <button class="mobile-toolbar-btn dark-mode-toggle" title="Switch to dark mode">
+                            <i class="fas fa-moon"></i>
+                            <span>Theme</span>
+                        </button>
                     </div>
                 </div>
             </div>

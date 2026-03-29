@@ -17,6 +17,43 @@ class Profile extends Component {
         </div>;
     }
 
+    renderDonates(donates) {
+        if (!donates || !donates.length) {
+            return null;
+        }
+        return <div style={{
+            'background': 'linear-gradient(135deg, #fff8f5, #fff3ee)',
+            'border': '2px solid rgba(255,107,53,0.25)',
+            'border-radius': '8px',
+            'box-shadow': '0 4px 16px rgba(255,107,53,0.12)',
+            'padding': '1rem',
+            'margin-top': '1rem',
+            'text-align': 'center',
+        }}>
+            <p style={{ 'font-size': '1.3rem', 'margin-bottom': '0.2rem' }}>☕</p>
+            <p style={{
+                'font-size': '0.85rem',
+                'font-weight': '600',
+                'color': '#cc4a1a',
+                'margin-bottom': '0.75rem',
+            }}>{this.props.donateTitle}</p>
+            <div class="buttons is-centered" style={{ 'margin-bottom': '0.4rem' }}>
+                {donates.map(({ url, label }) => (
+                    <a class="button is-rounded donate" href={url} target="_blank" rel="noopener" style={{
+                        'background': 'linear-gradient(135deg, #ff6b35, #f7c59f)',
+                        'color': 'white',
+                        'font-weight': 'bold',
+                        'border': 'none',
+                        'box-shadow': '0 4px 12px rgba(255,107,53,0.4)',
+                    }}>{label}</a>
+                ))}
+            </div>
+            <p style={{ 'font-size': '0.75rem', 'color': '#999', 'margin': '0' }}>
+                Your support helps me keep writing and sharing 🙏
+            </p>
+        </div>;
+    }
+
     render() {
         const {
             avatar,
@@ -25,9 +62,8 @@ class Profile extends Component {
             authorTitle,
             location,
             counter,
-            followLink,
-            followTitle,
-            socialLinks
+            socialLinks,
+            donates,
         } = this.props;
         return <div class="card widget">
             <div class="card-content">
@@ -72,11 +108,7 @@ class Profile extends Component {
                         </div>
                     </div>
                 </nav>
-                {followLink ? <div class="level">
-                    <a style={{'background-color': '#f14668e3',
-                                'color': 'white',
-                                'font-weight': 'bold'}} class="level-item button is-rounded" href={followLink} target="_blank" rel="noopener">{followTitle}</a>
-                </div> : null}
+                {this.renderDonates(donates)}
                 {socialLinks ? this.renderSocialLinks(socialLinks) : null}
             </div>
         </div>;
@@ -84,7 +116,7 @@ class Profile extends Component {
 }
 
 Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
-    const { site, helper, widget } = props;
+    const { site, helper, widget, config } = props;
     const {
         avatar,
         gravatar,
@@ -92,7 +124,6 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
         author = props.config.author,
         author_title,
         location,
-        follow_link,
         social_links
     } = widget;
     const { url_for, _p, __ } = helper;
@@ -126,6 +157,12 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
         };
     }) : null;
 
+    const donateServices = Array.isArray(config.donates) ? config.donates : [];
+    const donates = donateServices.map(service => ({
+        url: url_for(service.url),
+        label: __('donate.' + service.type),
+    })).filter(d => d.url);
+
     return {
         avatar: getAvatar(),
         avatarRounded: avatar_rounded,
@@ -149,8 +186,8 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
                 url: url_for('/tags')
             }
         },
-        followLink: url_for(follow_link),
-        followTitle: "if 👍 then Buy me a Coffee",//__('widget.follow'),
+        donates,
+        donateTitle: __('donate.title'),
         socialLinks
     };
 });

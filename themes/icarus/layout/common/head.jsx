@@ -145,8 +145,12 @@ module.exports = class extends Component {
             {hlTheme ? <link rel="stylesheet" href={cdn('highlight.js', '9.12.0', 'styles/' + hlTheme + '.css')} /> : null}
             <link rel="stylesheet" href={fontCssUrl[variant]} />
             <link rel="stylesheet" href={url_for('/css/' + variant + '.css')} />
+            <link rel="stylesheet" href={url_for('/css/dark.css')} />
+            {/* Inline: apply saved/system theme immediately to prevent FOUC */}
+            <script dangerouslySetInnerHTML={{ __html: `(function(){var s=localStorage.getItem('uy-theme');var p=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';if(s==='dark'||(s==='light'?false:p==='dark')){document.documentElement.setAttribute('data-theme','dark');}})();` }} />
             <meta property="og:image" content={openGraphImages[0] ?? ''}/>
             <Plugins site={site} config={config} helper={helper} page={page} head={true} />
+            <script src={url_for('/js/dark-mode.js')} defer={true}></script>
 
             {adsenseClientId ? <script data-ad-client={adsenseClientId}
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async={true}></script> : null}

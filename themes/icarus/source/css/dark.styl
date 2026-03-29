@@ -1,0 +1,376 @@
+/* =======================================================
+   Dark Mode Overrides
+   Applied when: html[data-theme="dark"]
+   ======================================================= */
+
+html[data-theme="dark"] {
+
+    /* --- Base --- */
+    body {
+        background-color: #1a1b2e;
+        color: #c8c9d4;
+    }
+
+    .title, .subtitle {
+        color: #e4e5f0;
+    }
+
+    .heading {
+        color: #777;
+    }
+
+    a:not(.button):not(.navbar-item):not(.navbar-link):not(.tag):not(.pagination-link):not(.pagination-previous):not(.pagination-next) {
+        color: #7eb3ff;
+    }
+
+    a:not(.button):not(.navbar-item):not(.navbar-link):not(.tag):not(.pagination-link):not(.pagination-previous):not(.pagination-next):hover {
+        color: #a8ccff;
+    }
+
+    hr {
+        background-color: rgba(255,255,255,0.08);
+    }
+
+    /* --- Navbar --- */
+
+    /* The root <nav> element */
+    .navbar-main {
+        background-color: #13141c !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.5) !important;
+    }
+
+    /* On mobile Bulma sets background-color on .navbar-menu, not on .navbar */
+    .navbar-main .navbar-menu {
+        background-color: #13141c !important;
+        box-shadow: none !important;
+    }
+
+    /* Brand row (logo area) also needs a background on mobile */
+    .navbar-main .navbar-brand {
+        background-color: #13141c;
+    }
+
+    .navbar-item, .navbar-link {
+        color: #c0c1cc !important;
+    }
+
+    .navbar-item:hover, .navbar-item.is-active,
+    .navbar-link:hover, .navbar-link.is-active {
+        background-color: rgba(255,255,255,0.07) !important;
+        color: #ffffff !important;
+    }
+
+    /* Keep active link indicator transparent */
+    .navbar-item.is-active {
+        background-color: transparent !important;
+    }
+
+    .navbar-dropdown {
+        background-color: #1e1f2e !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.5) !important;
+        border-top: none !important;
+    }
+
+    .language-switcher .navbar-dropdown .navbar-item {
+        color: #c0c1cc !important;
+    }
+
+    .language-switcher .navbar-dropdown .navbar-item:hover {
+        background-color: rgba(255,255,255,0.08) !important;
+        color: #ffffff !important;
+    }
+
+    /* --- Mobile toolbar (the second bar below the navbar) --- */
+    .mobile-toolbar {
+        background-color: #13141c;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .mobile-toolbar-btn {
+        background-color: #252836;
+        border: 1px solid rgba(255,255,255,0.1);
+        color: #c0c1cc;
+    }
+
+    .mobile-toolbar-btn:hover,
+    .mobile-toolbar-btn:active {
+        background-color: #2e2f42;
+        color: #ffffff;
+    }
+
+    /* --- Mobile language picker --- */
+    .language-picker-modal {
+        background-color: #1e1f2e;
+    }
+
+    .language-picker-header {
+        border-bottom-color: rgba(255,255,255,0.08);
+        color: #e4e5f0;
+    }
+
+    .language-picker-close {
+        color: #777;
+    }
+
+    .language-picker-close:hover {
+        color: #c0c1cc;
+    }
+
+    .language-picker-option {
+        color: #c0c1cc;
+    }
+
+    .language-picker-option:hover {
+        background-color: rgba(255,255,255,0.07);
+    }
+
+    /* --- Cards --- */
+    .card {
+        background-color: #252836;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+    }
+
+    .card-content {
+        color: #c0c1cc;
+    }
+
+    .menu-label {
+        color: #777;
+    }
+
+    /* --- Footer --- */
+    .footer {
+        background-color: #13141c;
+        color: #666;
+    }
+
+    .footer a {
+        color: #666;
+    }
+
+    .footer a:hover {
+        color: #c0c1cc;
+    }
+
+    /* --- Articles --- */
+    article.media .media-content .title {
+        color: #e4e5f0;
+    }
+
+    article.article .article-meta,
+    article.article .article-tags {
+        color: #666 !important;
+    }
+
+    article.article .content {
+        color: #c8c9d4;
+    }
+
+    article.article .content h1,
+    article.article .content h2,
+    article.article .content h3,
+    article.article .content h4,
+    article.article .content h5,
+    article.article .content h6 {
+        color: #e4e5f0;
+    }
+
+    article.article .content a:not(.button) {
+        color: #7eb3ff;
+    }
+
+    article.article .content blockquote {
+        background-color: rgba(255,255,255,0.04);
+        border-left-color: #444;
+    }
+
+    article.article .content table thead th {
+        background-color: rgba(255,255,255,0.07);
+        color: #e4e5f0;
+        border-color: rgba(255,255,255,0.1);
+    }
+
+    article.article .content table td {
+        border-color: rgba(255,255,255,0.08);
+        color: #c0c1cc;
+    }
+
+    article.article .content table tr:nth-child(even) {
+        background-color: rgba(255,255,255,0.03);
+    }
+
+    /* --- Code blocks --- */
+    pre {
+        background-color: #1e1f2e !important;
+    }
+
+    .article .content pre code,
+    .article .content code {
+        background-color: rgba(255,255,255,0.07);
+        color: #c8c9d4;
+    }
+
+    .article .content pre code {
+        background-color: transparent;
+    }
+
+    figure.highlight {
+        background-color: #1e1f2e;
+    }
+
+    figure.highlight .gutter {
+        border-right-color: rgba(255,255,255,0.06);
+    }
+
+    figure.highlight pre {
+        background-color: #1e1f2e !important;
+    }
+
+    .hljs {
+        background: #1e1f2e;
+    }
+
+    /* --- Tags --- */
+    .tag:not(.is-primary):not(.is-link):not(.is-info):not(.is-success):not(.is-warning):not(.is-danger) {
+        background-color: #2e2f42;
+        color: #aaa;
+    }
+
+    /* --- Buttons --- */
+    .button.is-light {
+        background-color: #2e2f42;
+        color: #c0c1cc;
+        border-color: transparent;
+    }
+
+    .button.is-light:hover {
+        background-color: #363748;
+        color: #e4e5f0;
+    }
+
+    .button.is-transparent {
+        color: #888;
+    }
+
+    .button.is-transparent:hover {
+        color: #c0c1cc;
+        background-color: rgba(255,255,255,0.07);
+    }
+
+    /* --- Pagination --- */
+    .pagination-previous, .pagination-next,
+    .pagination-link {
+        background-color: #252836;
+        border-color: rgba(255,255,255,0.12);
+        color: #c0c1cc;
+    }
+
+    .pagination-previous:hover, .pagination-next:hover,
+    .pagination-link:hover {
+        background-color: #2e2f42;
+        border-color: rgba(255,255,255,0.2);
+        color: #e4e5f0;
+    }
+
+    .pagination-link.is-current {
+        background-color: #4a6fa5;
+        border-color: #4a6fa5;
+        color: #ffffff;
+    }
+
+    .pagination-ellipsis {
+        color: #666;
+    }
+
+    /* --- Post navigation --- */
+    .post-navigation .heading {
+        color: #666;
+    }
+
+    .post-navigation a {
+        color: #7eb3ff;
+    }
+
+    /* --- Timeline --- */
+    .timeline .timeline-item::before {
+        background-color: rgba(255,255,255,0.1);
+    }
+
+    /* --- Search box --- */
+    .searchbox {
+        background-color: #252836;
+    }
+
+    .searchbox .searchbox-input {
+        background-color: #252836;
+        color: #c0c1cc;
+        border-bottom-color: rgba(255,255,255,0.1);
+    }
+
+    .searchbox .searchbox-input::placeholder {
+        color: #555;
+    }
+
+    .searchbox .searchbox-result-section-title {
+        color: #666;
+        border-bottom-color: rgba(255,255,255,0.08);
+    }
+
+    .searchbox .searchbox-result-item {
+        color: #c0c1cc;
+    }
+
+    .searchbox .searchbox-result-item:hover,
+    .searchbox .searchbox-result-item.is-active {
+        background-color: rgba(255,255,255,0.07);
+    }
+
+    .searchbox .searchbox-result-item .searchbox-result-item-title {
+        color: #e4e5f0;
+    }
+
+    .searchbox .searchbox-result-item .searchbox-result-item-preview {
+        color: #888;
+    }
+
+    /* --- Tag cloud --- */
+    .tagcloud a {
+        color: #888;
+    }
+
+    .tagcloud a:hover {
+        color: #7eb3ff;
+    }
+
+    /* --- Widget: recent posts --- */
+    .article.media .media-content .article-meta {
+        color: #666;
+    }
+
+    /* --- Dividers / media borders --- */
+    .media + .media {
+        border-top-color: rgba(255,255,255,0.08);
+    }
+
+    /* --- Back-to-top button --- */
+    #back-to-top {
+        background-color: #4a6fa5;
+        color: #ffffff;
+    }
+
+    /* --- Donate card dark mode override --- */
+    .card[style*="linear-gradient(135deg, #fff8f5"] {
+        background: linear-gradient(135deg, #2a2233, #251d30) !important;
+        border-color: rgba(255,107,53,0.3) !important;
+    }
+
+    /* --- Dark mode toggle button --- */
+    .dark-mode-toggle {
+        color: #c0c1cc;
+    }
+
+    .dark-mode-toggle:hover {
+        color: #ffffff;
+        background-color: rgba(255,255,255,0.07);
+    }
+}
