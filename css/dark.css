@@ -112,6 +112,10 @@ html[data-theme="dark"] .footer a {
 html[data-theme="dark"] .footer a:hover {
   color: #c0c1cc;
 }
+html[data-theme="dark"] .ping-badge {
+  background-color: #0096c7;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
 html[data-theme="dark"] article.media .media-content .title {
   color: #e4e5f0;
 }
@@ -121,6 +125,9 @@ html[data-theme="dark"] article.article .article-tags {
 }
 html[data-theme="dark"] article.article .content {
   color: #c8c9d4;
+}
+html[data-theme="dark"] article.article .content strong {
+  color: #e4e5f0;
 }
 html[data-theme="dark"] article.article .content h1,
 html[data-theme="dark"] article.article .content h2,
@@ -224,32 +231,61 @@ html[data-theme="dark"] .timeline .timeline-item::before {
   background-color: rgba(255,255,255,0.1);
 }
 html[data-theme="dark"] .searchbox {
+  background-color: rgba(0,0,0,0.6);
+}
+html[data-theme="dark"] .searchbox .searchbox-container {
+  background-color: #1e1f2e;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+html[data-theme="dark"] .searchbox .searchbox-header {
   background-color: #252836;
 }
 html[data-theme="dark"] .searchbox .searchbox-input {
   background-color: #252836;
   color: #c0c1cc;
-  border-bottom-color: rgba(255,255,255,0.1);
 }
 html[data-theme="dark"] .searchbox .searchbox-input::placeholder {
   color: #555;
 }
+html[data-theme="dark"] .searchbox .searchbox-close:hover {
+  background-color: rgba(255,255,255,0.07);
+}
+html[data-theme="dark"] .searchbox .searchbox-body {
+  background-color: #1e1f2e;
+  border-top-color: rgba(255,255,255,0.08);
+}
+html[data-theme="dark"] .searchbox .searchbox-result-section {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+html[data-theme="dark"] .searchbox .searchbox-result-section header,
 html[data-theme="dark"] .searchbox .searchbox-result-section-title {
   color: #666;
-  border-bottom-color: rgba(255,255,255,0.08);
 }
 html[data-theme="dark"] .searchbox .searchbox-result-item {
   color: #c0c1cc;
 }
-html[data-theme="dark"] .searchbox .searchbox-result-item:hover,
-html[data-theme="dark"] .searchbox .searchbox-result-item.is-active {
+html[data-theme="dark"] .searchbox .searchbox-result-item:not(.disabled):not(.active):not(:active):hover {
   background-color: rgba(255,255,255,0.07);
 }
+html[data-theme="dark"] .searchbox .searchbox-result-title,
 html[data-theme="dark"] .searchbox .searchbox-result-item .searchbox-result-item-title {
   color: #e4e5f0;
 }
+html[data-theme="dark"] .searchbox .searchbox-result-preview,
 html[data-theme="dark"] .searchbox .searchbox-result-item .searchbox-result-item-preview {
   color: #888;
+}
+html[data-theme="dark"] .searchbox .searchbox-footer {
+  background-color: #1e1f2e;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+html[data-theme="dark"] .searchbox .searchbox-pagination-link {
+  background-color: #252836;
+  color: #c0c1cc;
+  box-shadow: none;
+}
+html[data-theme="dark"] .searchbox .searchbox-pagination-item:not(.active):not(.disabled) .searchbox-pagination-link:hover {
+  background-color: #2e2f42;
 }
 html[data-theme="dark"] .tagcloud a {
   color: #888;
