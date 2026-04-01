@@ -166,6 +166,10 @@ html[data-theme="dark"] {
         color: #c8c9d4;
     }
 
+    article.article .content strong {
+        color: #e4e5f0;
+    }
+
     article.article .content h1,
     article.article .content h2,
     article.article .content h3,
@@ -298,39 +302,76 @@ html[data-theme="dark"] {
 
     /* --- Search box --- */
     .searchbox {
+        background-color: rgba(0,0,0,0.6);
+    }
+
+    .searchbox .searchbox-container {
+        background-color: #1e1f2e;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    }
+
+    .searchbox .searchbox-header {
         background-color: #252836;
     }
 
     .searchbox .searchbox-input {
         background-color: #252836;
         color: #c0c1cc;
-        border-bottom-color: rgba(255,255,255,0.1);
     }
 
     .searchbox .searchbox-input::placeholder {
         color: #555;
     }
 
+    .searchbox .searchbox-close:hover {
+        background-color: rgba(255,255,255,0.07);
+    }
+
+    .searchbox .searchbox-body {
+        background-color: #1e1f2e;
+        border-top-color: rgba(255,255,255,0.08);
+    }
+
+    .searchbox .searchbox-result-section {
+        border-bottom-color: rgba(255,255,255,0.08);
+    }
+
+    .searchbox .searchbox-result-section header,
     .searchbox .searchbox-result-section-title {
         color: #666;
-        border-bottom-color: rgba(255,255,255,0.08);
     }
 
     .searchbox .searchbox-result-item {
         color: #c0c1cc;
     }
 
-    .searchbox .searchbox-result-item:hover,
-    .searchbox .searchbox-result-item.is-active {
+    .searchbox .searchbox-result-item:not(.disabled):not(.active):not(:active):hover {
         background-color: rgba(255,255,255,0.07);
     }
 
+    .searchbox .searchbox-result-title,
     .searchbox .searchbox-result-item .searchbox-result-item-title {
         color: #e4e5f0;
     }
 
+    .searchbox .searchbox-result-preview,
     .searchbox .searchbox-result-item .searchbox-result-item-preview {
         color: #888;
+    }
+
+    .searchbox .searchbox-footer {
+        background-color: #1e1f2e;
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .searchbox .searchbox-pagination-link {
+        background-color: #252836;
+        color: #c0c1cc;
+        box-shadow: none;
+    }
+
+    .searchbox .searchbox-pagination-item:not(.active):not(.disabled) .searchbox-pagination-link:hover {
+        background-color: #2e2f42;
     }
 
     /* --- Tag cloud --- */
