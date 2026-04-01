@@ -62,13 +62,13 @@ Once connected, the **Device Inspector** gives you a complete map of the GATT pr
 ## Visualize Live Sensor Data
 
 <div style="display:flex; align-items:flex-start; gap:2rem; margin:2rem 0; flex-wrap:wrap;">
-  <div style="flex:0 0 260px; max-width:260px; min-width:180px;">
-    <img src="/Post-Resources/SignalHub/dashboard.png" style="width:100%; border-radius:12px;" alt="Sensor Dashboard"/>
-  </div>
-  <div style="flex:1; min-width:200px;">
+  <div style="flex:1; min-width:200px; order:2;">
     <p>The <strong>Sensor Dashboard</strong> turns live BLE data into dynamic charts with real-time updates. Visualize heart rate, ECG, accelerometer readings, or any custom characteristic — spot trends, anomalies, and timing issues at a glance instead of decoding raw bytes by hand.</p>
     <p>Subscribe to <strong>Live Notifications</strong> on any characteristic and monitor data streams continuously. Ideal for event-driven firmware validation or catching intermittent behavior that only appears under real conditions.</p>
     <p>Charts update in real time and support multiple channels simultaneously, so you can correlate signals without switching screens.</p>
+  </div>
+  <div style="flex:0 0 260px; max-width:260px; min-width:180px; order:3;">
+    <img src="/Post-Resources/SignalHub/dashboard.png" style="width:100%; border-radius:12px;" alt="Sensor Dashboard"/>
   </div>
 </div>
 
@@ -97,13 +97,13 @@ Once connected, the **Device Inspector** gives you a complete map of the GATT pr
 ## Smart Settings for Serious Work
 
 <div style="display:flex; align-items:flex-start; gap:2rem; margin:2rem 0; flex-wrap:wrap;">
-  <div style="flex:0 0 260px; max-width:260px; min-width:180px;">
-    <img src="/Post-Resources/SignalHub/settings.png" style="width:100%; border-radius:12px;" alt="Settings"/>
-  </div>
-  <div style="flex:1; min-width:200px;">
+  <div style="flex:1; min-width:200px; order:2;">
     <p>Signal Hub is built to stay out of your way when you need to focus. <strong>Optimized Auto Reconnect</strong>, <strong>Advanced Background Restoration</strong>, and <strong>Named Device filters</strong> mean the app stays connected and responsive even as you switch contexts.</p>
     <p>Configure once and trust it to behave. The settings surface only what matters — connection behavior, display preferences, and device management — without burying you in options.</p>
     <p><strong>Firmware Update (DFU)</strong> support lets you flash device firmware directly from the app for supported devices — no laptop, no cables, no ceremony.</p>
+  </div>
+  <div style="flex:0 0 260px; max-width:260px; min-width:180px; order:3;">
+    <img src="/Post-Resources/SignalHub/settings.png" style="width:100%; border-radius:12px;" alt="Settings"/>
   </div>
 </div>
 
