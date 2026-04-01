@@ -19,12 +19,16 @@ hexo.extend.generator.register('lang-index', function(locals) {
             const pageLang = page.lang || page.language || 'en';
             const isPost = page.layout === 'post';
             return isPost && pageLang === lang;
-        }).sort('-date');
+        });
 
         if (langPosts.length === 0) return;
 
-        // Convert to array for pagination
-        const postsArray = langPosts.toArray();
+        // Convert to array and apply ping-aware sort: pinned first, then by date desc
+        const all = langPosts.toArray();
+        const postsArray = [
+            ...all.filter(p => p.ping === true).sort((a, b) => b.date - a.date),
+            ...all.filter(p => p.ping !== true).sort((a, b) => b.date - a.date)
+        ];
         const totalPages = Math.ceil(postsArray.length / perPage);
 
         for (let i = 0; i < totalPages; i++) {

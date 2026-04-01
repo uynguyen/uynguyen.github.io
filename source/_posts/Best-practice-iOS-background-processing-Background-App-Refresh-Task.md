@@ -1,53 +1,57 @@
 ---
 title: 'Best practice: iOS background processing - Background App Refresh Task'
 date: 2020-09-26 21:53:32
-tags:
+tags: [iOS, BLE]
+ping: true
 ---
 
 ![](/Post-Resources/RefreshInBg/RefreshAppBg.png "Cover")
 
-Unlike Android, iOS has restrictions for the use of background processing in an attempt of improving battery life and user experience. When your apps enter to background mode, it's time developers get out of control of their app. How and when your app gets a chance to execute your task totally depends on the system. At the heart of iOS, Apple uses its own internally-complex algorithm to determines which apps are allowed to run in the background, based on various factors such as the pattern of user activity, current battery state, etc.
-In this tutorial, we will learn how to request periodic execution time on iOS. After understanding how it works, we will apply this technique to a BLE-based app in some specific cases in the next tutorial.
-Let's rock!
+Unlike Android, iOS restricts background processing in an effort to improve battery life and user experience. When your app enters background mode, developers lose direct control over it. How and when your app gets a chance to execute a task depends entirely on the system. At its core, iOS uses an internally complex algorithm to determine which apps are allowed to run in the background, based on factors such as user activity patterns, current battery state, and more.
+
+In this tutorial, we will learn how to request periodic background execution time on iOS. After understanding how it works, we will apply this technique to a BLE-based app in some specific cases in the next tutorial.
+
+Let's get started!
 
 <!-- more --> 
 
 ## Foundational knowledge
-Before taking deep dive into practice, it's good to understand how iOS manages application states. It's been the first time Apple officially announces a video that describes top factors contributing to the app launch times at WWDC ([WWDC 2020 - Background execution demystified](https://developer.apple.com/videos/play/wwdc2020/10063/?fbclid=IwAR1_oejf0JY9B8yV4d9riMAH4MQsLasO86iVjhwqmAruw2v64_utbuGZIEc)). To summarize, Apple designs iOS in a way allowing applications to keep its content up to date on one hand. On the other hand, iOS must adapt to its major goals: 
+Before diving into practice, it helps to understand how iOS manages application states. Apple officially presented a video at WWDC describing the top factors that affect background execution ([WWDC 2020 - Background execution demystified](https://developer.apple.com/videos/play/wwdc2020/10063/?fbclid=IwAR1_oejf0JY9B8yV4d9riMAH4MQsLasO86iVjhwqmAruw2v64_utbuGZIEc)). Apple designed iOS to balance two competing concerns: keeping app content up to date, while adapting to its core goals:
+
 - **Battery life**: allowing background execution while maintaining all-day battery life.
-- **Performance**: ensure background execution does not have any negative effect on active usage.
-- **Privacy**: Users should be aware of background tasks based on their particular usage patterns.
-- **Respecting user intent**: if a user takes a certain action, make sure the system responds to correctly.
+- **Performance**: ensuring background execution does not negatively affect active usage.
+- **Privacy**: users should be aware of background tasks based on their particular usage patterns.
+- **Respecting user intent**: if a user takes a certain action, the system should respond correctly.
 
-With these goals in mind, here are the top 7 factors that play a role in system scheduling of background execution.
+With these goals in mind, here are the top 7 factors that influence how the system schedules background execution.
 
-- **Critical low battery**: When the phone is about to run out of battery (< 20%), background execution will be pause by the system to avoid battery usage.
-- **Low power mode**: When users change to phone to low power mode, the user explicitly indicates that the system should preserve battery for critical tasks only. 
-- **Background App refresh setting**: The user can toggle the setting to allow or not a specified app can run background tasks.
+- **Critical low battery**: When the phone is about to run out of battery (< 20%), background execution will be paused by the system to conserve power.
+- **Low power mode**: When users switch to low power mode, they are explicitly signaling the system to preserve battery for critical tasks only.
+- **Background App refresh setting**: The user can toggle this setting to allow or disallow a specific app from running background tasks.
 ![](/Post-Resources/RefreshInBg/app_refresh_setting.png "App refresh setting")
-- **App usage**: There is a limit of resources on the phone so that the system must priorities which apps it should allocate resources for. Typically, apps that the user uses the most. Apple also mentioned to "On-device predictive engine" that learns which apps the user often uses and when. The on-device predictive engine will rely on this information to priorities background execution.
-- **App switcher**: Only apps are visible in App Switcher have opportunities to run background tasks.
-- **System budget**: Ensure background activities do not drain battery and data plans, there is a limit of battery and data of background execution throughout the day.
-- **Rate limit**: The system performs sone rate-limiting per launch.
+- **App usage**: Resources on the phone are limited, so the system must prioritize which apps to allocate resources to — typically those the user opens most often. Apple also introduced an "on-device predictive engine" that learns which apps the user frequently uses and when, and uses that information to prioritize background execution.
+- **App switcher**: Only apps visible in the App Switcher have opportunities to run background tasks.
+- **System budget**: To prevent background activities from draining battery and data plans, there is a daily limit on background execution time and data usage.
+- **Rate limiting**: The system applies some rate-limiting per launch.
 
-and some other factors: Airplane mode, device temperature, display, device lock state, etc.
+Additional factors include: Airplane mode, device temperature, display state, device lock state, and more.
 
 ![](/Post-Resources/RefreshInBg/factors.png "Factors")
 
 ## Capabilities
-Make sure your app has added these following capabilities
+Make sure your app has the following capabilities enabled.
 
 ![](/Post-Resources/RefreshInBg/BG-Capabilities.png "Capability")
 
 ## Prior to iOS 13
-It's quite simple to set up a background fetch prior to iOS 13.
-Inside the `application(_:didFinishLaunchingWithOptions)` method, we should add the following command.
+Setting up a background fetch before iOS 13 is straightforward.
+Inside the `application(_:didFinishLaunchingWithOptions)` method, add the following line.
 ```swift
 UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
 ```
-The `setMinimumBackgroundFetchInterval` specifies the minimum amount of time that must elapse between background fetch executions. However, the exact timing of the event is up to the system. Generally, `UIApplicationBackgroundFetchIntervalMinimum` is a good default value to use.
+`setMinimumBackgroundFetchInterval` specifies the minimum amount of time that must elapse between background fetch executions. However, the exact timing is ultimately up to the system. In most cases, `UIApplicationBackgroundFetchIntervalMinimum` is a sensible default.
 
-Once your app has a chance to perform background tasks, the event `application(_:,performFetchWithCompletionHandler)` will be triggered.
+Once your app gets a chance to perform background tasks, the `application(_:performFetchWithCompletionHandler)` event will be triggered.
 ```swift
 func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
     Logger.shared.debug("\(Date().toString()) perfom bg fetch")
@@ -55,17 +59,18 @@ func application(_ application: UIApplication, performFetchWithCompletionHandler
 }
 ```
 
-**Don't forget to call `completionHandler` callback. If you do not call this callback, the system does not aware your task has been completed, which leads to limiting your app from waking up on the next events**
+**Always call the `completionHandler` callback. If you do not, the system will not know your task has completed, which will limit how often your app is woken up for future events.**
 
-To simulate background fetch, from the tab bar > Debug > Simulate background fetch. Note that it works only when running on real devices.
+To simulate a background fetch, go to the tab bar > Debug > Simulate Background Fetch. Note that this only works on a real device.
 
 ![](/Post-Resources/RefreshInBg/simulate_bg_fetch.png "Simulate background fetch")
 
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/oOysGc_f0pA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## iOS 13+, Advance Background processing - WWDC 2019 and Background execution demystified - WWDC 2020
-[At WWDC 2019](https://developer.apple.com/videos/play/wwdc2019/707/), Apple introduced a new framework for scheduling background work: `BackgroundTasks`. This new framework does better support for tasks that are needed to be done in the background. There are two kinds of tasks supported by `BackgroundTasks` framework: `BGAppRefreshTaskRequest`, and `BGProcessingTaskRequest`. With the presence of the new framework, Apple marked deprecated on the old one from iOS 13, and no longer support on MacOS.
-Firstly, we have to register the identifiers of background tasks executed in our app. Open `info.plist` file, and add the following information.
+## iOS 13+, Advanced Background Processing — WWDC 2019 and WWDC 2020
+[At WWDC 2019](https://developer.apple.com/videos/play/wwdc2019/707/), Apple introduced a new framework for scheduling background work: `BackgroundTasks`. This framework provides better support for tasks that need to run in the background. It supports two task types: `BGAppRefreshTaskRequest` and `BGProcessingTaskRequest`. With this new framework, Apple deprecated the old background fetch API starting from iOS 13, and dropped support for it on macOS.
+
+First, register the identifiers of your background tasks in `info.plist`.
 ```bash
 <key>BGTaskSchedulerPermittedIdentifiers</key>
 <array>
@@ -74,17 +79,16 @@ Firstly, we have to register the identifiers of background tasks executed in our
 </array>
 ```
 
-Forget the above step leading to a crash at runtime.
+Skipping this step will cause a crash at runtime:
 ```swift
 2020-10-11 08:24:40.648838+0700 TestBgTask[275:5188] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'No launch handler registered for task with identifier com.example.bgRefresh'
 ```
 
-`BGAppRefreshTaskRequest` is used when you need to execute a task in the background in a short time. 
-Refresh tasks like fetching social media feed, new emails, latest stock prices, etc are appropriate to schedule by `BGAppRefreshTaskRequest`. 30s is the time the system allows your task to execute per launch.
+Use `BGAppRefreshTaskRequest` when you need to execute a short background task — for example, fetching a social media feed, new emails, or the latest stock prices. The system grants up to **30 seconds** of execution time per launch.
 
-Several minutes of run times to finish your work when you register a `BGProcessingTaskRequest`. Tasks such as Core ML training on the device should be registered by a `BGProcessingTaskRequest`.
+A `BGProcessingTaskRequest` grants several minutes of run time for heavier work, such as Core ML training on-device.
 
-To register background tasks, inside the `application(_:didFinishLaunchingWithOptions)` method, we should add the following command.
+To register background tasks, add the following inside `application(_:didFinishLaunchingWithOptions)`.
 
 ```swift
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -133,7 +137,7 @@ To register background tasks, inside the `application(_:didFinishLaunchingWithOp
 }
 ```
 
-One more thing that needs to be done. When the app enters to the background, we will start scheduling background tasks.
+When the app enters the background, schedule both tasks so the system knows to run them later.
 
 ```swift
 func applicationDidEnterBackground(_ application: UIApplication) {
@@ -145,16 +149,16 @@ func applicationDidEnterBackground(_ application: UIApplication) {
 }
 ```
 
-**As always, It's important to call `task.setTaskCompleted(success: true)` as quick as possible**.
-You might notice that after calling `task.setTaskCompleted(success: true)`, we need to call `self.scheduleAppRefresh()` and `self.scheduleBackgroundProcessing()` again to re-schedule these tasks to the system.
+**Always call `task.setTaskCompleted(success: true)` as quickly as possible.**
+Note that after calling it, you need to call `self.scheduleAppRefresh()` and `self.scheduleBackgroundProcessing()` again to re-schedule these tasks for the next cycle.
 
 ### Simulate background task and background processing
-Fortunately, Apple supports a way to trigger background execution.
-After submitting your task to the system, pause the application by any break point. Then, enter the following command to the Xcode console.
+Apple provides a way to trigger background execution during development.
+After submitting your task to the system, pause the app at any breakpoint. Then enter the following command in the Xcode console.
 ```bash
 e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"YOUR_REFRESH_TASK_ID || YOUR_PROCESSING_TASK_ID"]
 ```
-The output should be
+The output should look like this:
 ```swift
 2020-10-11 08:53:58.628667+0700 TestBgTask[381:17115] 💚-2020-10-11 08:53:58.628 +0700 Start schedule app refresh
 (lldb) e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"com.example.bgRefresh"]
@@ -169,33 +173,34 @@ The output should be
 
 
 ## Expectation vs Reality
-You might expect that background execution would be evenly distributes through out the day.
+You might expect background execution to be evenly distributed throughout the day.
 ![](/Post-Resources/RefreshInBg/Expectation.png "Expectation")
 
-However, here is what we observe in reality. Because of the 7 factors I introduced at the beginning of this tutorial, the "On-device predictive engine" learns the user usage pattern and understands that the user typically opens the app in the morning, lunchtime, and in the evening. That's why the system will allow your background tasks to launch just before the user foregrounds the app. Other factors that affect the result are if the user toggled "Low power mode", or if the phone fell into the critical low battery state.
+However, here is what we actually observe. Because of the 7 factors introduced above, the on-device predictive engine learns the user's usage patterns — for example, that they typically open the app in the morning, at lunchtime, and in the evening. The system will therefore schedule background tasks to run just before the user brings the app to the foreground. Other factors that affect the result include the user enabling Low Power Mode, or the device reaching a critically low battery state.
 ![](/Post-Resources/RefreshInBg/Reality.png "Reality")
 
-## Best advices
-- Background tasks will not be run until the first device unlocks after the reboot.
-- We can check if the user is in low power mode:
+## Best Practices
+- Background tasks will not run until the device is unlocked for the first time after a reboot.
+- You can check whether the user has Low Power Mode enabled:
 ```swift
 ProcessInfo.processInfo.isLowPowerModeEnabled
 NSProcessInfoPowerStateDidChange
 ```
-- We also can check the "background refresh setting" status.
+- You can also check the Background App Refresh status:
 ```swift
 UIApplication.shared.backgroundRefreshStatus
 UIApplication.backgroundStatusDidChangeNotification
 ```
-- Minimize data usage: Using thumbnails instead of full images, and only download what's really necessary.
-- Minimize power consumption: avoid unnecessary hardware usage such as GPS, accelerometer, etc. Also, make sure you complete the task as soon as possible.
-- Use `BackgroundURLSession` to offload the work from the app to the system.
+- Minimize data usage: use thumbnails instead of full images, and only download what is truly necessary.
+- Minimize power consumption: avoid unnecessary hardware usage such as GPS or the accelerometer. Complete the task as quickly as possible.
+- Use `BackgroundURLSession` to offload network work from the app to the system.
 
 ## Summary
-In this post, we take a deep dive into what factors contributed to your background executions, and understand are key differences between `BGAppRefreshTaskRequest` and  `BGProcessingTaskRequest`. We also take a demo project to see how it actually works in reality. 
-Next time, you can choose what kind of request is most appropriate to your tasks, and how you can respond gracefully to your user's intent.
-Hopefully, the information that this post brings in helps you build better applications: freshness and optimization.
-There is another technique to wake your app up, silent notification. We will talk about it in the next tutorial.
+In this post, we explored the factors that influence background execution, and understood the key differences between `BGAppRefreshTaskRequest` and `BGProcessingTaskRequest`. We also walked through a demo project to see how it works in practice.
+
+Now you can choose the right request type for your task and respond gracefully to the user's intent.
+There is another technique to wake your app — silent push notifications. We will cover that in the next tutorial.
+
 Happy weekend!
 
 ## References

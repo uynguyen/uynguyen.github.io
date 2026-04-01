@@ -28,6 +28,10 @@ module.exports = class extends Component {
         return <Fragment>
             {/* Main content */}
             <div class="card">
+                {/* Ping badge */}
+                {index && page.ping === true ? <span class="ping-badge" title="Pinned">
+                    <i class="fas fa-thumbtack"></i>
+                </span> : null}
                 {/* Thumbnail */}
                 {has_thumbnail(page) ? <div class="card-image">
                     {index ? <a href={url_for(page.link || page.path)} class="image is-7by3">

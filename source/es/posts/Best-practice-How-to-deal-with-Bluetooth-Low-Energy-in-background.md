@@ -3,32 +3,33 @@ title: 'Mejores prácticas: Cómo manejar Bluetooth Low Energy en segundo plano'
 date: 2018-07-23 18:26:27
 tags: [iOS, BLE]
 layout: post
+ping: true
 lang: es
 ---
 ## Prefacio
-Cuando trabajas con CoreBluetooth, ¿alguna vez te has preguntado cómo la aplicación BLE en iOS puede sobrevivir cuando es terminada por el sistema? ¿Cómo podemos traerla de vuelta al segundo plano? ¿Hay algo como un servicio en Android que pueda durar para siempre? Puedes encontrar la respuesta a todas estas preguntas en esta publicación. ¡Sigue leyendo!
+Cuando trabajas con CoreBluetooth, ¿alguna vez te has preguntado cómo puede sobrevivir una app BLE en iOS cuando el sistema la termina? ¿Cómo podemos traerla de vuelta al segundo plano? ¿Hay algo parecido a un servicio de Android que pueda ejecutarse indefinidamente? Puedes encontrar la respuesta a todas estas preguntas en este artículo. ¡Sigue leyendo!
 ![](/Post-Resources/BackgroundProcessing/Cover.png "")
 <!-- more -->
 ## Ciclo de vida de la aplicación en iOS
-Antes de obtener una comprensión profunda de cómo podemos mantener nuestra aplicación en segundo plano, es bueno comenzar con el ciclo de vida de la aplicación en iOS.
-Como ya sabrás, hay cinco estados principales de cada aplicación iOS.
+Antes de profundizar en cómo mantener nuestra app activa en segundo plano, conviene repasar el ciclo de vida de las aplicaciones iOS.
+Cada app iOS tiene cinco estados principales.
 ![](/Post-Resources/BackgroundProcessing/iOS_App_LifeCycle.png "Ciclo de vida de la aplicación iOS")
-*Not running* La aplicación no ha sido lanzada o estaba ejecutándose pero fue terminada por el sistema o el usuario.
-*Inactive* Es el estado inicial antes de que la aplicación realmente haga la transición a un estado diferente.
-*Active* La aplicación se está ejecutando en primer plano y recibiendo eventos del usuario.
-*Background* La aplicación está en segundo plano y es invisible para el usuario. Sin embargo, una aplicación que solicita tiempo de ejecución adicional puede permanecer en este estado por un período de tiempo. Además, la aplicación hará la transición al estado inactivo antes de entrar en el modo de segundo plano.
-*Suspended* La aplicación está en segundo plano pero no se le permite ejecutar ningún código. La aplicación es movida a este estado automáticamente por el sistema y no recibirá ningún evento antes de que el sistema lo haga. Cuando las aplicaciones en primer plano necesitan más memoria, el sistema puede terminar las aplicaciones suspendidas para hacer más espacio para las aplicaciones en primer plano. Ten en cuenta que no podemos predecir cuándo la aplicación suspendida será terminada por el sistema. Después de ser terminada, la aplicación regresa al estado not running.
+*Not running* — La app no ha sido lanzada, o estaba en ejecución pero fue terminada por el sistema o el usuario.
+*Inactive* — El estado de transición antes de que la app pase a otro estado.
+*Active* — La app se ejecuta en primer plano y recibe eventos del usuario.
+*Background* — La app está en segundo plano e invisible para el usuario. Una app que solicita tiempo de ejecución adicional puede permanecer en este estado por un tiempo. La app pasa por el estado inactivo antes de entrar en modo de segundo plano.
+*Suspended* — La app está en segundo plano y no puede ejecutar ningún código. El sistema la mueve a este estado automáticamente y la app no recibirá eventos. Cuando las apps en primer plano necesitan más memoria, el sistema puede terminar apps suspendidas para liberar espacio. No podemos predecir cuándo ocurrirá esto. Tras ser terminada, la app vuelve al estado not running.
 
 <center>
 
-![](/Post-Resources/BackgroundProcessing/AppCycle.gif "Ejemplo de ciclo de vida de aplicación iOS")
+![](/Post-Resources/BackgroundProcessing/AppCycle.gif "Ejemplo del ciclo de vida de una app iOS")
 
 </center>
 
 ## Problemas de BLE con el ciclo de vida de la aplicación
-Como se mencionó, cuando la aplicación entra en segundo plano, la aplicación podría ser terminada por el sistema si necesita liberar recursos para otras aplicaciones. A diferencia del SO Android, después de ser eliminada por el sistema, podemos reiniciar un servicio para mantener tu aplicación viva. En iOS, una vez que la aplicación es terminada por el sistema, no hay forma de traerla de vuelta al segundo plano. Como resultado, cualquier evento Bluetooth que se despache desde el dispositivo nunca llegará a la aplicación. Significa que tu aplicación podría perder las indicaciones que son activadas por los usuarios, como reproducir una pista de música en su teléfono al presionar botones físicos desde un dispositivo BLE.
+Como se mencionó, cuando la app pasa al segundo plano puede ser terminada por el sistema si necesita liberar recursos para otras aplicaciones. A diferencia de Android — donde podemos reiniciar un servicio tras un kill del sistema — en iOS no hay forma de recuperar la app una vez que el sistema la ha terminado. Como resultado, cualquier evento Bluetooth enviado desde un dispositivo nunca llegará a la app. Esto significa que la app podría perder indicaciones activadas por el usuario — por ejemplo, reproducir una pista musical al presionar un botón físico en un dispositivo BLE.
 
-Apple da un ejemplo llamado ["Smart door"](https://developer.apple.com/library/archive/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/CoreBluetoothBackgroundProcessingForIOSApps/PerformingTasksWhileYourAppIsInTheBackground.html#//apple_ref/doc/uid/TP40013257-CH7-SW10) (Puerta inteligente). La idea principal de este ejemplo es tener una interacción automática entre la aplicación y la cerradura de la puerta. Imagina que estamos desarrollando una aplicación que puede bloquear y desbloquear automáticamente la puerta cuando el usuario entra y sale de su casa, respectivamente. Sin embargo, el principal problema de esta implementación es mantener la conexión entre los dos, el teléfono y la cerradura de la puerta. Mientras usan su teléfono, los usuarios hacen una variedad de acciones en el teléfono: abrir / cerrar aplicaciones, alternar la configuración de Bluetooth, entrar en modo avión, reiniciar el teléfono, etc. Estas interacciones pueden llevar a que nuestra aplicación sea eliminada por el sistema, para siempre. En este caso, la aplicación no podrá reconectarse a la cerradura cuando el usuario regrese a casa, y el usuario podría no poder abrir la puerta.
+Apple ilustra este problema con el ejemplo de la ["Smart door"](https://developer.apple.com/library/archive/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/CoreBluetoothBackgroundProcessingForIOSApps/PerformingTasksWhileYourAppIsInTheBackground.html#//apple_ref/doc/uid/TP40013257-CH7-SW10) (puerta inteligente). La idea es una app que bloquea y desbloquea automáticamente la puerta cuando el usuario sale y regresa a casa. El reto central es mantener la conexión entre el teléfono y la cerradura mientras el usuario usa el móvil — abriendo y cerrando apps, activando o desactivando Bluetooth, entrando en modo avión, reiniciando el teléfono, etc. Cualquiera de estas acciones puede provocar que el sistema mate nuestra app de forma permanente. En ese caso, la app no podrá reconectarse a la cerradura cuando el usuario llegue a casa.
 
 <center>
 
@@ -36,13 +37,15 @@ Apple da un ejemplo llamado ["Smart door"](https://developer.apple.com/library/a
 
 </center>
 
-Para lidiar con este problema, Apple proporciona un método llamado *State Preservation and Restoration* (Preservación y Restauración de Estado) (procesamiento en segundo plano de CoreBluetooth). *State Preservation and Restoration* está integrado en CoreBluetooth y permite que nuestra aplicación pueda ser relanzada en segundo plano cuando es terminada por el sistema.
-En resumen, iOS toma una instantánea de todos los objetos relacionados con Bluetooth que estaban en marcha en nuestra aplicación. Posteriormente, si hay algún evento Bluetooth relacionado con los objetos Bluetooth con los que nuestra aplicación estaba interactuando llega al teléfono, nuestra aplicación será despertada de la tumba. ¡Eso es increíble!
+Para resolver esto, Apple proporciona *State Preservation and Restoration* (procesamiento en segundo plano de CoreBluetooth). Esta funcionalidad está integrada en CoreBluetooth y permite que nuestra app sea relanzada en segundo plano cuando el sistema la termina.
+
+En esencia, iOS toma una instantánea de todos los objetos relacionados con Bluetooth que estaban activos en la app. Si posteriormente llega al teléfono un evento Bluetooth relacionado con esos objetos, el sistema despertará la app desde su estado terminado. Es una capacidad muy poderosa.
 
 ## Implementar State Preservation and Restoration
 
-Para demostrar la técnica de State Preservation and Restoration en iOS, voy a reutilizar el código fuente de la publicación anterior [Desempeñar Roles de Central y Periférico con CoreBluetooth](/2018/02/21/Play-Central-And-Peripheral-Roles-With-CoreBluetooth/) pero agregaremos más código a los proyectos para hacerlo mágico.
-Primero, configuro mi iPad para actuar como un Periférico con un uuid "1FA2FD8A-17E0-4D3B-AF45-305DA6130E39", que se genera a través del comando `uuidgen` en Mac. Luego, hago que comience a hacer advertising con el nombre local "iPad". Si hay una conexión establecida por un central manager, los logs de entrada/salida se imprimirán para saber si la conexión se realizó exitosamente.
+Para demostrar esta técnica, reutilizaré el código fuente del artículo anterior [Desempeñar Roles de Central y Periférico con CoreBluetooth](/2018/02/21/Play-Central-And-Peripheral-Roles-With-CoreBluetooth/) y añadiré el código necesario para habilitar la restauración en segundo plano.
+
+Primero, configuro mi iPad para actuar como Periférico con UUID "1FA2FD8A-17E0-4D3B-AF45-305DA6130E39", generado con el comando `uuidgen` en Mac. Lo hago empezar a hacer advertising con el nombre local "iPad". Cuando un central manager establece una conexión, se imprimen logs de entrada/salida para confirmar que la conexión fue exitosa.
 
 <center>
 
@@ -50,9 +53,10 @@ Primero, configuro mi iPad para actuar como un Periférico con un uuid "1FA2FD8A
 
 </center>
 
-Cuando se toca el botón "Send Notify", la aplicación notificará una cadena de datos "Say something cool!" a través del "463FED21-DA93-45E7-B00F-B5CD99775150" que está definido como una característica notificable encriptada de la aplicación al central manager conectado.
+Al tocar el botón "Send Notify", la app notifica la cadena "Say something cool!" a través de la característica "463FED21-DA93-45E7-B00F-B5CD99775150" — definida como una característica notificable encriptada — al central manager conectado.
 
-Lo siguiente que necesitamos hacer es volver a la aplicación Central Manager y crear un Restore Identifier para los objetos CBCentralManager que serán tomados por el sistema operativo cuando la aplicación sea terminada, elegí la cadena "YourUniqueIdentifierKey". A continuación, implementaremos el `willRestoreState` proporcionado por Apple.
+A continuación, en la app Central Manager, crea un Restore Identifier para el objeto `CBCentralManager` — yo usé la cadena "YourUniqueIdentifierKey". Esto indica a CoreBluetooth que preserve este manager cuando la app sea terminada. Luego implementa el delegado `willRestoreState`:
+
 ```swift
 public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
     LocalNotification.shared.showNotification(id: "willrestorestate", title: "Manager will restore state", body: "", timeInterval: 1.0)
@@ -73,9 +77,9 @@ public func centralManager(_ central: CBCentralManager, willRestoreState dict: [
     }
 }
 ```
-Aquí, cuando se llama a `centralManager(_:, willRestoreState)`, reproduciré una pista de sonido y mostraré una ventana emergente con el nombre del periférico despertado para informar que la aplicación realmente fue despertada por el sistema. Dentro del método, también podemos obtener un diccionario lleno de información de estado. Cuando lo recuperamos con la clave CBCentralManagerRestoredStatePeripheralsKey, esto contiene cosas como un array de CBPeripheral, que contiene todos los periféricos que estaban conectados o pendientes de conexión en el momento en que la aplicación fue terminada por el sistema. Aquí, itero a través del array de periféricos, verifico si está mi periférico de interés, luego inicializo un `Device` y lo establezco de nuevo en la variable `connectedDevice` para poder recibir valores actualizados del periférico.
+Cuando se llama a `centralManager(_:willRestoreState:)`, reproduzco un sonido y muestro una notificación local con el nombre del periférico restaurado, confirmando que el sistema despertó la app. El parámetro `dict` contiene una instantánea completa del estado Bluetooth. Con la clave `CBCentralManagerRestoredStatePeripheralsKey` obtenemos un array de `CBPeripheral` — todos los periféricos que estaban conectados o pendientes de conexión cuando la app fue terminada. Itero sobre ellos, encuentro el periférico que me interesa y lo restauro en la variable `connectedDevice` para seguir recibiendo actualizaciones.
 
-También agrego el código que mostrará una notificación local en el delegado `appDidFinishLaunching` y en el método `peripheral(:didUpdateValueFor:chacracteristic)` para pruebas.
+También añado notificaciones locales en `appDidFinishLaunching` y en `peripheral(_:didUpdateValueFor:characteristic:)` para las pruebas:
 
 ```swift
 func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
@@ -96,18 +100,19 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     return true
 }
 ```
-¡Es hora de ejecutar nuestro experimento! Voy a usar dos métodos para simular la terminación de la aplicación en segundo plano por el sistema.
-El primero es usando XCode.
-- Ejecuta la aplicación desde Xcode.
-- Detén la aplicación presionando el botón "Stop" desde Xcode.
-- Reinicia la aplicación desde Xcode.
+Es hora de ejecutar el experimento. Uso dos métodos para simular la terminación en segundo plano por parte del sistema.
 
-El segundo es haciendo los siguientes pasos:
-- Presiona el botón home para hacer que la aplicación entre en segundo plano.
-- Mantén presionado el botón de encendido hasta que veas "deslizar para apagar".
-- Suelta el botón de encendido y mantén presionado el botón home por aproximadamente 5s (hasta que veas que tu pantalla de inicio reapareció).
+**Método 1 — usando Xcode:**
+- Ejecuta la app desde Xcode.
+- Detén la app pulsando el botón "Stop".
+- Reinicia la app desde Xcode.
 
-En la siguiente demostración, verás que uso ambos para probar. ¡Veamos algo genial suceder!
+**Método 2 — usando el hardware:**
+- Pulsa el botón Home para mover la app al segundo plano.
+- Mantén pulsado el botón de encendido hasta que aparezca "deslizar para apagar".
+- Suelta el botón de encendido y mantén pulsado el botón Home unos 5 segundos hasta que reaparezca la pantalla de inicio.
+
+En la demo siguiente uso ambos métodos. ¡Mira lo que ocurre!
 
 <center>
 
@@ -130,20 +135,21 @@ Aquí está el log impreso desde Xcode.
 Message from debugger: Terminated due to signal 9
 ```
 
-Primero, me conecté al dispositivo iPad, luego simulé la terminación por Xcode (Relanzar la aplicación desde Xcode), después de eso ves que el delegado `centralManager(_:, willRestoreState)` fue activado por la ventana emergente. Más tarde, simulé la terminación usando el segundo método, cuando la pantalla de inicio reapareció, una cosa es segura: la aplicación fue terminada. A continuación, presioné el botón "Send notify" desde el iPad (Que estaba actuando como Periférico) para enviar un evento BLE a la aplicación. Sorprendentemente, `centralManager(_:, willRestoreState)` fue llamado inmediatamente como podemos ver que apareció una notificación local, luego otra mostró los datos BLE recibidos del periférico (La cadena "Say something cool!"). ¡Realmente funcionó! ¡La aplicación ahora puede durar para siempre! Pero espera un minuto, no es tan simple. Este enfoque todavía tiene algunas limitaciones que discutiremos más adelante en esta publicación.
+Me conecté al iPad, simulé la terminación con Xcode y confirmé que `centralManager(_:willRestoreState:)` fue activado mediante el popup. Luego usé el Método 2 — al reaparecer la pantalla de inicio, la app estaba definitivamente terminada. Pulsé "Send Notify" en el iPad (actuando como Periférico) para enviar un evento BLE. De inmediato, `centralManager(_:willRestoreState:)` fue llamado — apareció una notificación local y luego otra mostrando los datos BLE recibidos del periférico — la cadena "Say something cool!". Funcionó. La app puede sobrevivir a la terminación.
 
-Como habrás notado, hay una diferencia entre las dos formas que usé para simular la terminación en segundo plano, cuando la aplicación fue relanzada desde la primera forma, el valor de option del delegado `application(application:didFinishLaunchingWithOptions:)` siempre es nil, mientras que podíamos extraer el `[UIApplicationLaunchOptionsKey.bluetoothCentrals` usando la segunda forma (El valor de `launchOptions?[UIApplicationLaunchOptionsKey.bluetoothCentrals]` devolverá la cadena "YourUniqueIdentifierKey"). No sé la razón por la que sucedió. Pero una cosa es segura: el segundo enfoque es mejor que el primero ya que coincide con el documento de Apple. *"Cuando tu aplicación es relanzada por el sistema, puedes recuperar todos los identificadores de restauración para los objetos central manager que el sistema estaba preservando para tu aplicación".*
+Hay una observación interesante: con el Método 1 (reinicio desde Xcode), el parámetro `launchOptions` en `application(_:didFinishLaunchingWithOptions:)` siempre es nil. Con el Método 2 podemos extraer `UIApplicationLaunchOptionsKey.bluetoothCentrals` (el valor devuelve "YourUniqueIdentifierKey"). El Método 2 es la simulación más precisa porque se ajusta a la documentación de Apple: *"Cuando el sistema relanza tu app, puedes recuperar todos los identificadores de restauración de los objetos central manager que el sistema preservaba para tu app."*
 
-Entonces, en `application(application:didFinishLaunchingWithOptions:)`, podemos obtener una lista de UUID que representan todos los objetos CBCentralManager que estaban activos cuando la aplicación fue terminada y que Core Bluetooth e iOS tomaron mientras estabas terminado. Usa UIApplicationLaunchOptionsBluetoothCentralsKey para obtener cualquier central que hayamos instanciado antes de ser eliminados. Recorre el array de centralManagerUUID y encuentra el que coincida con el Restoration Identifier que nos interesa.
+En `application(_:didFinishLaunchingWithOptions:)`, usa `UIApplicationLaunchOptionsBluetoothCentralsKey` para obtener un array de UUIDs que representan todos los `CBCentralManager` que Core Bluetooth estaba preservando. Recorre el array y encuentra el que coincida con tu Restoration Identifier para reinicializar el manager.
 
 ## Limitaciones
-### Cuando el usuario fuerza el cierre de la aplicación desde la vista de tareas múltiples
-Si el usuario fuerza el cierre de la aplicación desde la vista de tareas múltiples, no hay oportunidad para que la aplicación se despierte del evento de restauración. Pero afortunadamente, hay otra tecnología que podemos aprovechar para poner la aplicación de nuevo en segundo plano llamada "iBeacon". En la próxima publicación, te guiaré sobre cómo implementar esta interesante tecnología en nuestra aplicación.
+### Cuando el usuario cierra la app por la fuerza desde el selector de apps
+Si el usuario cierra la app por la fuerza desde el selector de apps, no hay posibilidad de que la app sea despertada mediante state restoration. Sin embargo, existe otra tecnología que podemos aprovechar para volver al segundo plano: **iBeacon**. En el próximo artículo veremos cómo implementarla.
 
 ### Cuando el usuario reinicia el teléfono
-Si el usuario reinicia el teléfono, la aplicación será eliminada para siempre. Aprovechando CoreLocation, podemos resolver el problema. En la próxima parte, te mostraré cómo hacerlo.
+Si el usuario reinicia el teléfono, la app será terminada de forma permanente. Podemos resolver esto mediante CoreLocation, lo cual cubriremos en la siguiente parte.
 
 ## Reflexiones finales
 
-En esta publicación, recorrimos el ciclo de vida de la aplicación iOS, también te mostré cómo mantener la aplicación viva incluso cuando fue terminada por el sistema. Los contenidos de esta publicación son realmente interesantes y se forman a partir de mis experimentos de trabajo reales.
-Espero que encuentres útil esta publicación.
+En este artículo repasamos el ciclo de vida de la aplicación iOS y exploramos cómo mantener una app BLE activa incluso después de que el sistema la termine. El contenido proviene directamente de experiencia real de trabajo.
+
+Espero que este artículo te resulte útil.

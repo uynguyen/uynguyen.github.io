@@ -2,6 +2,7 @@
 title: "Giới Thiệu Signal Hub: Bộ Công Cụ BLE Chuyên Nghiệp Dành Cho Lập Trình Viên và Nhà Sản Xuất IoT"
 date: 2026-04-01 10:00:00
 tags: [BLE, Bluetooth, iOS, IoT, Tools, Mobile]
+ping: true
 layout: post
 lang: vi
 ---

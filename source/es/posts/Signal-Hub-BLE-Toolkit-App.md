@@ -2,6 +2,7 @@
 title: "Presentamos Signal Hub: El Kit de Herramientas BLE Profesional para Desarrolladores y Makers de IoT"
 date: 2026-04-01 10:00:00
 tags: [BLE, Bluetooth, iOS, IoT, Tools, Mobile]
+ping: true
 layout: post
 lang: es
 ---

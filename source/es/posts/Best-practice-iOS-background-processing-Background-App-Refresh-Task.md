@@ -1,55 +1,59 @@
 ---
 title: 'Mejores prácticas: procesamiento en segundo plano en iOS - Background App Refresh Task'
 date: 2020-09-26 21:53:32
-tags:
+tags: [iOS, BLE]
+ping: true
 layout: post
 lang: es
 ---
 
 ![](/Post-Resources/RefreshInBg/RefreshAppBg.png "Cover")
 
-A diferencia de Android, iOS tiene restricciones para el uso del procesamiento en segundo plano en un intento de mejorar la duración de la batería y la experiencia del usuario. Cuando tus aplicaciones entran en modo de segundo plano, es el momento en que los desarrolladores pierden el control de su aplicación. Cómo y cuándo tu aplicación tiene la oportunidad de ejecutar tu tarea depende totalmente del sistema. En el corazón de iOS, Apple usa su propio algoritmo internamente complejo para determinar qué aplicaciones pueden ejecutarse en segundo plano, basándose en varios factores como el patrón de actividad del usuario, el estado actual de la batería, etc.
-En este tutorial, aprenderemos cómo solicitar tiempo de ejecución periódica en iOS. Después de entender cómo funciona, aplicaremos esta técnica a una aplicación basada en BLE en algunos casos específicos en el próximo tutorial.
+A diferencia de Android, iOS restringe el procesamiento en segundo plano para mejorar la duración de la batería y la experiencia del usuario. Cuando una app entra en modo de segundo plano, los desarrolladores pierden el control directo sobre ella. Cómo y cuándo la app puede ejecutar una tarea depende completamente del sistema. En esencia, iOS usa un algoritmo complejo para determinar qué apps pueden ejecutarse en segundo plano, basándose en factores como los patrones de actividad del usuario, el estado de la batería y más.
+
+En este tutorial aprenderemos cómo solicitar tiempo de ejecución en segundo plano en iOS. Una vez comprendido el funcionamiento, aplicaremos esta técnica a una app basada en BLE en el siguiente tutorial.
+
 ¡Comencemos!
 
 <!-- more -->
 
 ## Conocimiento fundamental
-Antes de sumergirnos profundamente en la práctica, es bueno entender cómo iOS gestiona los estados de la aplicación. Es la primera vez que Apple anuncia oficialmente un video que describe los principales factores que contribuyen a los tiempos de lanzamiento de la aplicación en WWDC ([WWDC 2020 - Background execution demystified](https://developer.apple.com/videos/play/wwdc2020/10063/?fbclid=IwAR1_oejf0JY9B8yV4d9riMAH4MQsLasO86iVjhwqmAruw2v64_utbuGZIEc)). Para resumir, Apple diseña iOS de una manera que permite a las aplicaciones mantener su contenido actualizado por un lado. Por otro lado, iOS debe adaptarse a sus objetivos principales:
-- **Duración de la batería**: permitir la ejecución en segundo plano mientras se mantiene la batería durante todo el día.
-- **Rendimiento**: asegurar que la ejecución en segundo plano no tenga ningún efecto negativo en el uso activo.
-- **Privacidad**: Los usuarios deben estar al tanto de las tareas en segundo plano basándose en sus patrones de uso particulares.
-- **Respetar la intención del usuario**: si un usuario realiza cierta acción, asegurarse de que el sistema responda correctamente.
+Antes de entrar en la práctica, conviene entender cómo iOS gestiona los estados de la aplicación. Apple presentó en WWDC un video que describe los principales factores que afectan la ejecución en segundo plano ([WWDC 2020 - Background execution demystified](https://developer.apple.com/videos/play/wwdc2020/10063/?fbclid=IwAR1_oejf0JY9B8yV4d9riMAH4MQsLasO86iVjhwqmAruw2v64_utbuGZIEc)). Apple diseñó iOS para equilibrar dos objetivos en competencia: mantener el contenido de la app actualizado, mientras se adapta a sus metas fundamentales:
 
-Con estos objetivos en mente, aquí están los 7 principales factores que juegan un papel en la programación del sistema de la ejecución en segundo plano.
+- **Duración de la batería**: permitir la ejecución en segundo plano manteniendo la batería para todo el día.
+- **Rendimiento**: garantizar que la ejecución en segundo plano no afecte negativamente el uso activo.
+- **Privacidad**: los usuarios deben ser conscientes de las tareas en segundo plano según sus patrones de uso.
+- **Respetar la intención del usuario**: si el usuario realiza una acción, el sistema debe responder correctamente.
 
-- **Batería críticamente baja**: Cuando el teléfono está a punto de quedarse sin batería (< 20%), la ejecución en segundo plano será pausada por el sistema para evitar el uso de batería.
-- **Modo de bajo consumo**: Cuando los usuarios cambian el teléfono a modo de bajo consumo, el usuario indica explícitamente que el sistema debe preservar la batería solo para tareas críticas.
-- **Configuración de Background App Refresh**: El usuario puede alternar la configuración para permitir o no que una aplicación específica ejecute tareas en segundo plano.
+Los 7 factores principales que influyen en cómo el sistema programa la ejecución en segundo plano son:
+
+- **Batería críticamente baja**: cuando el teléfono está a punto de quedarse sin batería (< 20%), el sistema pausará la ejecución en segundo plano para conservar energía.
+- **Modo de bajo consumo**: cuando el usuario activa este modo, indica explícitamente al sistema que preserve la batería solo para tareas críticas.
+- **Configuración de Background App Refresh**: el usuario puede activar o desactivar esta opción para permitir o no que una app específica ejecute tareas en segundo plano.
 ![](/Post-Resources/RefreshInBg/app_refresh_setting.png "App refresh setting")
-- **Uso de la aplicación**: Hay un límite de recursos en el teléfono, por lo que el sistema debe priorizar a qué aplicaciones debe asignar recursos. Típicamente, las aplicaciones que el usuario usa más. Apple también mencionó el "motor predictivo en el dispositivo" que aprende qué aplicaciones usa frecuentemente el usuario y cuándo. El motor predictivo en el dispositivo se basará en esta información para priorizar la ejecución en segundo plano.
-- **App switcher**: Solo las aplicaciones visibles en el App Switcher tienen oportunidades de ejecutar tareas en segundo plano.
-- **Presupuesto del sistema**: Para asegurar que las actividades en segundo plano no agoten la batería y los planes de datos, hay un límite de batería y datos de ejecución en segundo plano a lo largo del día.
-- **Límite de tasa**: El sistema realiza algún límite de tasa por lanzamiento.
+- **Uso de la app**: los recursos del teléfono son limitados, por lo que el sistema debe priorizar las apps que el usuario usa más. Apple introdujo además un "motor predictivo en el dispositivo" que aprende qué apps usa el usuario y cuándo, para priorizar la ejecución en segundo plano.
+- **App Switcher**: solo las apps visibles en el App Switcher tienen oportunidad de ejecutar tareas en segundo plano.
+- **Presupuesto del sistema**: para evitar que las actividades en segundo plano agoten la batería y los datos, existe un límite diario de tiempo de ejecución y uso de datos en segundo plano.
+- **Rate limiting**: el sistema aplica cierta limitación de frecuencia por lanzamiento.
 
-y algunos otros factores: Modo avión, temperatura del dispositivo, pantalla, estado de bloqueo del dispositivo, etc.
+Otros factores incluyen: modo avión, temperatura del dispositivo, estado de la pantalla, estado de bloqueo del dispositivo, entre otros.
 
 ![](/Post-Resources/RefreshInBg/factors.png "Factors")
 
 ## Capacidades
-Asegúrate de que tu aplicación haya agregado las siguientes capacidades
+Asegúrate de que tu app tenga habilitadas las siguientes capacidades.
 
 ![](/Post-Resources/RefreshInBg/BG-Capabilities.png "Capability")
 
 ## Antes de iOS 13
-Es bastante simple configurar un background fetch antes de iOS 13.
-Dentro del método `application(_:didFinishLaunchingWithOptions)`, debemos agregar el siguiente comando.
+Configurar un background fetch antes de iOS 13 es sencillo.
+Dentro del método `application(_:didFinishLaunchingWithOptions)`, agrega la siguiente línea.
 ```swift
 UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
 ```
-El `setMinimumBackgroundFetchInterval` especifica la cantidad mínima de tiempo que debe transcurrir entre las ejecuciones de background fetch. Sin embargo, el momento exacto del evento depende del sistema. Generalmente, `UIApplicationBackgroundFetchIntervalMinimum` es un buen valor predeterminado para usar.
+`setMinimumBackgroundFetchInterval` especifica el tiempo mínimo que debe transcurrir entre ejecuciones de background fetch. El momento exacto depende del sistema. En la mayoría de los casos, `UIApplicationBackgroundFetchIntervalMinimum` es un valor predeterminado razonable.
 
-Una vez que tu aplicación tiene la oportunidad de realizar tareas en segundo plano, se activará el evento `application(_:,performFetchWithCompletionHandler)`.
+Una vez que la app tiene oportunidad de ejecutar tareas en segundo plano, se activará el evento `application(_:performFetchWithCompletionHandler)`.
 ```swift
 func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
     Logger.shared.debug("\(Date().toString()) perfom bg fetch")
@@ -57,17 +61,18 @@ func application(_ application: UIApplication, performFetchWithCompletionHandler
 }
 ```
 
-**No olvides llamar al callback `completionHandler`. Si no llamas a este callback, el sistema no sabe que tu tarea ha sido completada, lo que lleva a limitar que tu aplicación se despierte en los próximos eventos**
+**Siempre llama al callback `completionHandler`. Si no lo haces, el sistema no sabrá que la tarea terminó, lo que limitará la frecuencia con la que la app se despierta en el futuro.**
 
-Para simular background fetch, desde la barra de pestañas > Debug > Simulate background fetch. Ten en cuenta que solo funciona cuando se ejecuta en dispositivos reales.
+Para simular un background fetch, ve a la barra de pestañas > Debug > Simulate Background Fetch. Ten en cuenta que esto solo funciona en dispositivos reales.
 
 ![](/Post-Resources/RefreshInBg/simulate_bg_fetch.png "Simulate background fetch")
 
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/oOysGc_f0pA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## iOS 13+, Procesamiento en segundo plano avanzado - WWDC 2019 y Background execution demystified - WWDC 2020
-[En WWDC 2019](https://developer.apple.com/videos/play/wwdc2019/707/), Apple introdujo un nuevo framework para programar trabajo en segundo plano: `BackgroundTasks`. Este nuevo framework ofrece mejor soporte para tareas que necesitan hacerse en segundo plano. Hay dos tipos de tareas soportadas por el framework `BackgroundTasks`: `BGAppRefreshTaskRequest` y `BGProcessingTaskRequest`. Con la presencia del nuevo framework, Apple marcó como obsoleto el antiguo desde iOS 13, y ya no lo soporta en MacOS.
-Primero, debemos registrar los identificadores de las tareas en segundo plano ejecutadas en nuestra aplicación. Abre el archivo `info.plist`, y agrega la siguiente información.
+## iOS 13+, Procesamiento en segundo plano avanzado — WWDC 2019 y WWDC 2020
+[En WWDC 2019](https://developer.apple.com/videos/play/wwdc2019/707/), Apple introdujo un nuevo framework para programar trabajo en segundo plano: `BackgroundTasks`. Este framework ofrece mejor soporte para tareas que necesitan ejecutarse en segundo plano. Admite dos tipos de tareas: `BGAppRefreshTaskRequest` y `BGProcessingTaskRequest`. Con este framework, Apple marcó como obsoleta la API de background fetch anterior desde iOS 13 y eliminó su soporte en macOS.
+
+Primero, registra los identificadores de tus tareas en segundo plano en `info.plist`.
 ```bash
 <key>BGTaskSchedulerPermittedIdentifiers</key>
 <array>
@@ -76,17 +81,16 @@ Primero, debemos registrar los identificadores de las tareas en segundo plano ej
 </array>
 ```
 
-Olvidar el paso anterior lleva a un crash en tiempo de ejecución.
+Omitir este paso causará un crash en tiempo de ejecución:
 ```swift
 2020-10-11 08:24:40.648838+0700 TestBgTask[275:5188] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'No launch handler registered for task with identifier com.example.bgRefresh'
 ```
 
-`BGAppRefreshTaskRequest` se usa cuando necesitas ejecutar una tarea en segundo plano en poco tiempo.
-Tareas de actualización como obtener el feed de redes sociales, nuevos correos electrónicos, últimos precios de acciones, etc. son apropiadas para programar con `BGAppRefreshTaskRequest`. 30s es el tiempo que el sistema permite que tu tarea se ejecute por lanzamiento.
+Usa `BGAppRefreshTaskRequest` para tareas en segundo plano cortas — por ejemplo, obtener el feed de redes sociales, nuevos correos o los últimos precios de acciones. El sistema concede hasta **30 segundos** de ejecución por lanzamiento.
 
-Varios minutos de tiempo de ejecución para terminar tu trabajo cuando registras un `BGProcessingTaskRequest`. Tareas como entrenamiento de Core ML en el dispositivo deben registrarse con un `BGProcessingTaskRequest`.
+Un `BGProcessingTaskRequest` otorga varios minutos de tiempo de ejecución para trabajo más pesado, como entrenamiento de Core ML en el dispositivo.
 
-Para registrar tareas en segundo plano, dentro del método `application(_:didFinishLaunchingWithOptions)`, debemos agregar el siguiente comando.
+Para registrar las tareas en segundo plano, agrega lo siguiente dentro de `application(_:didFinishLaunchingWithOptions)`.
 
 ```swift
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -135,7 +139,7 @@ Para registrar tareas en segundo plano, dentro del método `application(_:didFin
 }
 ```
 
-Una cosa más que necesita hacerse. Cuando la aplicación entra en segundo plano, comenzaremos a programar las tareas en segundo plano.
+Cuando la app entra en segundo plano, programa ambas tareas para que el sistema sepa que debe ejecutarlas más adelante.
 
 ```swift
 func applicationDidEnterBackground(_ application: UIApplication) {
@@ -147,16 +151,16 @@ func applicationDidEnterBackground(_ application: UIApplication) {
 }
 ```
 
-**Como siempre, es importante llamar a `task.setTaskCompleted(success: true)` lo más rápido posible**.
-Podrías notar que después de llamar a `task.setTaskCompleted(success: true)`, necesitamos llamar a `self.scheduleAppRefresh()` y `self.scheduleBackgroundProcessing()` nuevamente para reprogramar estas tareas en el sistema.
+**Siempre llama a `task.setTaskCompleted(success: true)` lo antes posible.**
+Ten en cuenta que después de llamarlo, debes volver a llamar a `self.scheduleAppRefresh()` y `self.scheduleBackgroundProcessing()` para reprogramar las tareas en el siguiente ciclo.
 
 ### Simular background task y background processing
-Afortunadamente, Apple soporta una forma de activar la ejecución en segundo plano.
-Después de enviar tu tarea al sistema, pausa la aplicación con cualquier breakpoint. Luego, ingresa el siguiente comando en la consola de Xcode.
+Apple ofrece una forma de activar la ejecución en segundo plano durante el desarrollo.
+Después de enviar la tarea al sistema, pausa la app en cualquier breakpoint. Luego ingresa el siguiente comando en la consola de Xcode.
 ```bash
 e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"YOUR_REFRESH_TASK_ID || YOUR_PROCESSING_TASK_ID"]
 ```
-La salida debería ser
+La salida debería verse así:
 ```swift
 2020-10-11 08:53:58.628667+0700 TestBgTask[381:17115] 💚-2020-10-11 08:53:58.628 +0700 Start schedule app refresh
 (lldb) e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"com.example.bgRefresh"]
@@ -174,31 +178,32 @@ La salida debería ser
 Podrías esperar que la ejecución en segundo plano se distribuyera uniformemente a lo largo del día.
 ![](/Post-Resources/RefreshInBg/Expectation.png "Expectation")
 
-Sin embargo, esto es lo que observamos en la realidad. Debido a los 7 factores que introduje al principio de este tutorial, el "motor predictivo en el dispositivo" aprende el patrón de uso del usuario y entiende que el usuario típicamente abre la aplicación en la mañana, a la hora del almuerzo y en la noche. Por eso el sistema permitirá que tus tareas en segundo plano se lancen justo antes de que el usuario ponga la aplicación en primer plano. Otros factores que afectan el resultado son si el usuario activó el "Modo de bajo consumo", o si el teléfono cayó en estado de batería críticamente baja.
+Sin embargo, esto es lo que observamos en la práctica. Gracias a los 7 factores mencionados, el motor predictivo aprende los patrones del usuario — por ejemplo, que suele abrir la app por la mañana, al mediodía y por la noche. Por eso el sistema programa las tareas en segundo plano para ejecutarse justo antes de que el usuario lleve la app al primer plano. Otros factores que influyen son si el usuario activó el Modo de bajo consumo o si el teléfono alcanzó un nivel de batería críticamente bajo.
 ![](/Post-Resources/RefreshInBg/Reality.png "Reality")
 
-## Mejores consejos
-- Las tareas en segundo plano no se ejecutarán hasta el primer desbloqueo del dispositivo después del reinicio.
-- Podemos verificar si el usuario está en modo de bajo consumo:
+## Mejores prácticas
+- Las tareas en segundo plano no se ejecutarán hasta el primer desbloqueo del dispositivo tras un reinicio.
+- Puedes comprobar si el usuario tiene activado el Modo de bajo consumo:
 ```swift
 ProcessInfo.processInfo.isLowPowerModeEnabled
 NSProcessInfoPowerStateDidChange
 ```
-- También podemos verificar el estado de la "configuración de background refresh".
+- También puedes comprobar el estado del Background App Refresh:
 ```swift
 UIApplication.shared.backgroundRefreshStatus
 UIApplication.backgroundStatusDidChangeNotification
 ```
-- Minimizar el uso de datos: Usar miniaturas en lugar de imágenes completas, y solo descargar lo que realmente es necesario.
-- Minimizar el consumo de energía: evitar el uso innecesario de hardware como GPS, acelerómetro, etc. También, asegúrate de completar la tarea lo antes posible.
-- Usar `BackgroundURLSession` para descargar el trabajo de la aplicación al sistema.
+- Minimiza el uso de datos: usa miniaturas en lugar de imágenes completas y descarga solo lo estrictamente necesario.
+- Minimiza el consumo de energía: evita el uso innecesario de hardware como GPS o el acelerómetro. Completa la tarea lo antes posible.
+- Usa `BackgroundURLSession` para delegar el trabajo de red del sistema operativo.
 
 ## Resumen
-En esta publicación, profundizamos en qué factores contribuyen a tus ejecuciones en segundo plano, y entendemos las diferencias clave entre `BGAppRefreshTaskRequest` y `BGProcessingTaskRequest`. También tomamos un proyecto demo para ver cómo funciona realmente en la práctica.
-La próxima vez, puedes elegir qué tipo de solicitud es más apropiada para tus tareas, y cómo puedes responder graciosamente a la intención de tu usuario.
-Esperamos que la información que trae esta publicación te ayude a construir mejores aplicaciones: frescura y optimización.
-Hay otra técnica para despertar tu aplicación, la notificación silenciosa. Hablaremos de ello en el próximo tutorial.
-¡Feliz fin de semana!
+En este artículo exploramos los factores que influyen en la ejecución en segundo plano y las diferencias clave entre `BGAppRefreshTaskRequest` y `BGProcessingTaskRequest`. También recorrimos un proyecto demo para ver cómo funciona en la práctica.
+
+Ahora puedes elegir el tipo de solicitud adecuado para tu tarea y responder de forma adecuada a la intención del usuario.
+Existe otra técnica para despertar una app — las notificaciones silenciosas. La veremos en el próximo tutorial.
+
+¡Buen fin de semana!
 
 ## Referencias
 1. [Background execution demystified WWDC 2020](https://developer.apple.com/videos/play/wwdc2020/10063)
