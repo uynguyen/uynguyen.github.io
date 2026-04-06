@@ -1,5 +1,5 @@
 ---
-title: 'Flutter Background Isolates: Xử lý song song thực sự mà không chặn UI'
+title: 'Flutter Background Isolates: Xử lý song song mà không ảnh hưởng UI'
 date: 2026-04-05 09:00:00
 tags: [Flutter, Dart, Concurrency, BLE, Background]
 layout: post
@@ -87,7 +87,7 @@ List<Device> parseDevices(String jsonString) {
 final devices = await compute(parseDevices, rawJson);
 ```
 
-**Giới hạn quan trọng:** hàm top-level (hoặc static method) truyền vào `compute` không thể capture closure từ môi trường của main isolate. Nó phải là một hàm thuần túy.
+**Giới hạn quan trọng:** hàm top-level (hoặc static method) truyền vào `compute` không thể capture closure từ môi trường của main isolate.
 
 ---
 
@@ -363,7 +363,7 @@ sendPort.send(TransferableTypedData.fromList([largeUint8List]));
 
 ### 5. Luôn gọi `BackgroundIsolateBinaryMessenger.ensureInitialized()` đầu tiên
 
-Nếu isolate cần truy cập native plugin, đây phải là **dòng đầu tiên** nó thực thi. Mọi lời gọi plugin trước đó sẽ ném `MissingPluginException`.
+Nếu isolate cần truy cập native plugin, đây phải là **dòng đầu tiên** nó thực thi. Mọi lời gọi plugin trước đó sẽ gây `MissingPluginException`.
 
 ```dart
 void _myIsolate(RootIsolateToken token) async {
@@ -394,7 +394,7 @@ errorPort.listen((error) {
 
 ### 7. Luôn đóng ReceivePort khi không còn dùng
 
-`ReceivePort` đang mở ngăn isolate được garbage collect. Đóng chúng tường minh khi xong.
+`ReceivePort` đang mở ngăn isolate được garbage collect. Đóng khi xong.
 
 ```dart
 final port = ReceivePort();
@@ -410,9 +410,9 @@ Background isolate là câu trả lời của Dart cho bài toán concurrency: x
 
 Với ứng dụng BLE trong Flutter, đây là công cụ không thể thiếu. Luồng dữ liệu liên tục từ thiết bị được kết nối có thể được parse, giải mã và lọc trên một isolate chuyên dụng trong khi UI hoàn toàn mượt mà. Với Flutter 3.7+, isolate đó thậm chí có thể gọi native plugin trực tiếp, loại bỏ rào cản cuối cùng cho các kiến trúc BLE nền mạnh mẽ trong Flutter.
 
-Quy tắc vàng đơn giản: **nếu nó chặn main thread hơn một frame, hãy chuyển sang isolate.**
+Quy tắc vàng: **nếu nó block main thread hơn một frame, hãy chuyển sang isolate.**
 
-Chúc cuối tuần vui vẻ!
+Cuối tuần vui vẻ!
 
 ---
 
