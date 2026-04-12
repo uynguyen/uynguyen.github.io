@@ -148,9 +148,9 @@ donates:
 # Share plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
 share:
-    type: sharethis
-    # URL to the ShareThis share plugin script
-    install_url: 'https://platform-api.sharethis.com/js/sharethis.js#property=5e9474199d6bcc0012d5bba6&product=inline-share-buttons'
+    type: false
+    # Disabled — ShareThis was hijacking outbound links (e.g. App Store) with spam redirects
+    # install_url: 'https://platform-api.sharethis.com/js/sharethis.js#property=5e9474199d6bcc0012d5bba6&product=inline-share-buttons'
 # Sidebar configurations.
 # Please be noted that a sidebar is only visible when it has at least one widget
 sidebar:
