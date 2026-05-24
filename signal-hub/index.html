@@ -211,6 +211,73 @@ h1.hero-title .accent {
   z-index: -1;
 }
 
+/* ---------- Demo video ---------- */
+.demo-section {
+  padding: 80px 28px 120px;
+  text-align: center;
+  position: relative;
+}
+.demo-eyebrow {
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.demo-title {
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 800; letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.demo-lead {
+  font-size: clamp(16px, 1.3vw, 18px);
+  color: var(--ink-3);
+  max-width: 620px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.demo-frame {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #0a0a0f;
+  box-shadow:
+    0 30px 80px -20px rgba(0,0,0,0.45),
+    0 12px 36px -12px rgba(35,182,230,0.32),
+    0 0 0 1px rgba(255,255,255,0.5) inset;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+}
+.demo-frame:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 40px 100px -20px rgba(0,0,0,0.55),
+    0 18px 50px -12px rgba(2,211,154,0.38),
+    0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+.demo-frame::before {
+  content: '';
+  position: absolute; inset: -60px -60px -80px -60px;
+  background:
+    radial-gradient(45% 35% at 25% 100%, rgba(35,182,230,0.28) 0%, transparent 65%),
+    radial-gradient(45% 35% at 75% 100%, rgba(2,211,154,0.28) 0%, transparent 65%);
+  filter: blur(24px);
+  z-index: -1;
+}
+.demo-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0a0a0f;
+}
+.demo-caption {
+  margin-top: 22px;
+  font-size: 13.5px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
 /* ---------- Section ---------- */
 section.section {
   padding: 120px 28px;
@@ -449,6 +516,7 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       <a href="#workflows">Workflows</a>
       <a href="#simulate">Simulate</a>
       <a href="#export">Export</a>
+      <a href="#demo">Demo</a>
     </div>
     <a class="nav-cta" href="#get">Get Signal Hub</a>
   </div>
@@ -467,14 +535,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
     </p>
     <div class="hero-cta reveal delay-3">
       <a class="btn btn-primary" href="#get">Download for macOS →</a>
-      <a class="btn btn-ghost" href="#workflows">See it in action</a>
+      <a class="btn btn-ghost" href="#demo">Watch demo →</a>
     </div>
   </div>
 
   <div class="hero-showcase reveal">
     <div class="device-glow"></div>
     <div class="device-frame">
-      <img src="/Post-Resources/SignalHubMac/01_home.png" alt="Signal Hub for Mac — concurrent BLE connections">
+      <img src="/Post-Resources/SignalHubMac/00-intro.png" alt="Signal Hub for Mac — concurrent BLE connections">
     </div>
   </div>
 </header>
@@ -660,6 +728,23 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       <div class="stat"><div class="stat-num">1-click</div><div class="stat-label">PNG &amp; video export</div></div>
     </div>
   </div>
+</section>
+
+<!-- Demo video -->
+<section class="demo-section" id="demo">
+  <div class="demo-eyebrow reveal">See it move</div>
+  <h2 class="demo-title reveal delay-1">A 60-second tour.</h2>
+  <p class="demo-lead reveal delay-2">
+    Concurrent connections, workflows, simulator, export — all in motion. The fastest way to feel what Signal Hub actually does.
+  </p>
+  <div class="demo-frame reveal delay-2">
+    <video class="demo-video" autoplay muted loop playsinline preload="metadata" poster="/Post-Resources/SignalHubMac/00-intro.png">
+      <source src="/Post-Resources/SignalHubMac/1.0.1.mov" type="video/quicktime">
+      <source src="/Post-Resources/SignalHubMac/1.0.1.mov" type="video/mp4">
+      Your browser doesn't support inline video. <a href="/Post-Resources/SignalHubMac/1.0.1.mov">Download the demo</a>.
+    </video>
+  </div>
+  <div class="demo-caption reveal delay-3">Signal Hub 1.0.1 — recorded on macOS Sonoma</div>
 </section>
 
 <!-- CTA -->
