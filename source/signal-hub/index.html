@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Signal Hub for Mac — The BLE workbench, reimagined</title>
+<meta name="description" content="Signal Hub is a Mac app for engineers working with Bluetooth Low Energy. Manage concurrent connections, design visual workflows, simulate devices, and export beautiful documentation — all in one place.">
+<link rel="icon" href="/Post-Resources/SignalHubMac/logo-transparent.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fafafa;
+  --bg-alt: #f3f4f6;
+  --bg-dark: #0a0a0f;
+  --ink: #0a0a0f;
+  --ink-2: #1d1d1f;
+  --ink-3: #424246;
+  --muted: #6e6e73;
+  --line: rgba(0, 0, 0, 0.08);
+  --accent: #23b6e6;
+  --accent-2: #02d39a;
+  --accent-3: #02d39a;
+  --green: #02d39a;
+  --orange: #23b6e6;
+  --pink: #02d39a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(250, 250, 250, 0.72);
+  border-bottom: 1px solid var(--line);
+  transition: background 0.3s ease;
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; letter-spacing: -0.01em; font-size: 16px;
+}
+.nav-logo {
+  width: 32px; height: 32px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(35, 182, 230, 0.25));
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.92; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+.hero-logo {
+  width: 96px; height: 96px;
+  display: block;
+  margin: 0 auto 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 36px rgba(2, 211, 154, 0.32))
+          drop-shadow(0 6px 18px rgba(35, 182, 230, 0.32));
+  animation: heroLogoFloat 6s ease-in-out infinite;
+}
+@keyframes heroLogoFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+.nav-links {
+  display: flex; gap: 28px; font-size: 13.5px; color: var(--ink-3);
+}
+.nav-links a { transition: color .2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  font-size: 13px; font-weight: 600;
+  padding: 8px 16px; border-radius: 999px;
+  background: var(--ink); color: #fff;
+  transition: transform .2s, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0,0,0,0.18); }
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  padding: 160px 28px 80px;
+  text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: -10% -10% auto -10%; height: 70%;
+  background:
+    radial-gradient(60% 50% at 20% 30%, rgba(35, 182, 230, 0.20) 0%, transparent 60%),
+    radial-gradient(50% 50% at 80% 20%, rgba(2, 211, 154, 0.18) 0%, transparent 65%),
+    radial-gradient(50% 50% at 50% 80%, rgba(35, 182, 230, 0.14) 0%, transparent 65%);
+  filter: blur(10px);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatGrad 18s ease-in-out infinite;
+}
+@keyframes floatGrad {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(2%, -3%) scale(1.04); }
+}
+.hero-inner { position: relative; max-width: 980px; margin: 0 auto; z-index: 1; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--ink-3);
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(8px);
+  margin-bottom: 28px;
+}
+.eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 4px rgba(2,211,154,0.22); }
+h1.hero-title {
+  font-size: clamp(40px, 6.5vw, 84px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  background: linear-gradient(180deg, var(--ink) 0%, #2a2a2e 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+h1.hero-title .accent {
+  background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 50%, var(--accent-3) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  background-size: 200% 200%;
+  animation: shimmer 8s ease infinite;
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.hero-sub {
+  font-size: clamp(17px, 1.6vw, 21px);
+  color: var(--ink-3);
+  max-width: 700px;
+  margin: 26px auto 0;
+  line-height: 1.55;
+}
+.hero-cta {
+  margin-top: 38px;
+  display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: center;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 15px; font-weight: 600;
+  padding: 13px 24px; border-radius: 999px;
+  transition: transform .2s ease, box-shadow .25s ease, background .2s;
+}
+.btn-primary {
+  background: var(--ink); color: #fff;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(0,0,0,0.28); }
+.btn-ghost {
+  color: var(--ink-2);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.6);
+}
+.btn-ghost:hover { background: #fff; transform: translateY(-2px); }
+
+/* Hero device showcase */
+.hero-showcase {
+  margin-top: 70px;
+  position: relative;
+  max-width: 1080px;
+  margin-left: auto; margin-right: auto;
+  padding: 0 28px;
+}
+.device-frame {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 80px -20px rgba(0,0,0,0.35),
+    0 10px 30px -10px rgba(35,182,230,0.28),
+    0 0 0 1px rgba(255,255,255,0.5) inset;
+  transform: perspective(1600px) rotateX(6deg);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.device-frame.in-view { transform: perspective(1600px) rotateX(0deg); }
+.device-frame img { display: block; width: 100%; height: auto; }
+.device-glow {
+  position: absolute; inset: -40px -40px -80px -40px;
+  background: radial-gradient(50% 40% at 50% 100%, rgba(2,211,154,0.32) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
+}
+
+/* ---------- Section ---------- */
+section.section {
+  padding: 120px 28px;
+  position: relative;
+}
+section.section.alt { background: var(--bg-alt); }
+section.section.dark { background: var(--bg-dark); color: #fff; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.section.dark .section-eyebrow { color: var(--accent-3); }
+.section-title {
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.028em;
+  line-height: 1.08;
+  margin-bottom: 18px;
+}
+.section-lead {
+  font-size: clamp(17px, 1.4vw, 20px);
+  color: var(--ink-3);
+  max-width: 640px;
+  line-height: 1.6;
+}
+.section.dark .section-lead { color: #b6b6bf; }
+
+/* Feature row */
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+.feature-row.reverse { grid-template-columns: 1.2fr 1fr; }
+.feature-row.reverse .feature-text { order: 2; }
+@media (max-width: 880px) {
+  .feature-row, .feature-row.reverse {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .feature-row.reverse .feature-text { order: 0; }
+}
+.feature-text h2 {
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 800; letter-spacing: -0.025em;
+  line-height: 1.1; margin-bottom: 16px;
+}
+.feature-text p {
+  font-size: 17px; color: var(--ink-3); line-height: 1.65;
+}
+.section.dark .feature-text p { color: #b6b6bf; }
+.feature-list {
+  list-style: none; margin-top: 22px;
+}
+.feature-list li {
+  display: flex; gap: 12px; align-items: flex-start;
+  margin-top: 10px; font-size: 15.5px; color: var(--ink-2);
+}
+.section.dark .feature-list li { color: #d5d5dd; }
+.feature-list li::before {
+  content: ''; flex-shrink: 0;
+  width: 18px; height: 18px; margin-top: 3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  position: relative;
+  box-shadow: 0 4px 10px rgba(35,182,230,0.32);
+}
+.feature-visual {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 60px -18px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(0,0,0,0.04);
+}
+.feature-visual img { display: block; width: 100%; height: auto; }
+.section.dark .feature-visual {
+  box-shadow:
+    0 30px 80px -10px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.06);
+}
+
+/* Feature chip tags */
+.chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px;
+}
+.chip {
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em;
+  padding: 6px 12px; border-radius: 999px;
+  background: rgba(35,182,230,0.10);
+  color: var(--accent);
+  border: 1px solid rgba(35,182,230,0.20);
+}
+.section.dark .chip {
+  background: rgba(2,211,154,0.10);
+  color: var(--accent-2);
+  border-color: rgba(2,211,154,0.24);
+}
+
+/* ---------- Grid of small cards ---------- */
+.mini-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  margin-top: 56px;
+}
+@media (max-width: 880px) {
+  .mini-grid { grid-template-columns: 1fr; }
+}
+.mini-card {
+  padding: 28px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.section.dark .mini-card {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.07);
+}
+.mini-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -10px rgba(0,0,0,0.18);
+}
+.mini-icon {
+  width: 46px; height: 46px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 22px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 20px -6px rgba(35,182,230,0.5);
+}
+.mini-card:nth-child(2) .mini-icon { background: linear-gradient(135deg, var(--accent-2), var(--accent)); box-shadow: 0 8px 20px -6px rgba(2,211,154,0.5); }
+.mini-card:nth-child(3) .mini-icon { background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 8px 20px -6px rgba(35,182,230,0.5); }
+.mini-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+.mini-card p { font-size: 14.5px; color: var(--ink-3); line-height: 1.55; }
+.section.dark .mini-card p { color: #a3a3ad; }
+
+/* ---------- Stats bar ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 40px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(35,182,230,0.07), rgba(2,211,154,0.07));
+  border: 1px solid var(--line);
+  margin-top: 60px;
+}
+@media (max-width: 760px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+.stat { text-align: center; padding: 10px; }
+.stat-num {
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800; letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.stat-label { font-size: 13.5px; color: var(--ink-3); margin-top: 4px; font-weight: 500; }
+
+/* ---------- CTA ---------- */
+.cta {
+  padding: 120px 28px;
+  text-align: center;
+  background: linear-gradient(135deg, #0a0a0f 0%, #131325 60%, #1c1c3a 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(50% 50% at 20% 50%, rgba(35,182,230,0.28) 0%, transparent 60%),
+    radial-gradient(40% 50% at 80% 30%, rgba(2,211,154,0.22) 0%, transparent 60%);
+  filter: blur(20px);
+}
+.cta-inner { position: relative; max-width: 760px; margin: 0 auto; }
+.cta h2 {
+  font-size: clamp(34px, 5vw, 60px);
+  font-weight: 800; letter-spacing: -0.028em;
+  line-height: 1.1;
+}
+.cta p {
+  margin-top: 18px;
+  font-size: 18px; color: #b6b6bf;
+  max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.6;
+}
+.cta .hero-cta { margin-top: 36px; }
+.cta .btn-primary { background: #fff; color: var(--ink); box-shadow: 0 18px 40px rgba(0,0,0,0.4); }
+.cta .btn-ghost { color: #fff; background: transparent; border-color: rgba(255,255,255,0.18); }
+.cta .btn-ghost:hover { background: rgba(255,255,255,0.06); }
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 50px 28px 60px;
+  text-align: center;
+  background: var(--bg-dark);
+  color: #6e6e7a;
+  font-size: 13px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer a { color: #b6b6bf; }
+.footer a:hover { color: #fff; }
+.footer-links { margin-top: 14px; display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- Reveal animation ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+.reveal.delay-1 { transition-delay: 0.12s; }
+.reveal.delay-2 { transition-delay: 0.22s; }
+.reveal.delay-3 { transition-delay: 0.34s; }
+
+/* parallax floating */
+.float-y { transition: transform 0.1s linear; will-change: transform; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">
+      <img class="nav-logo" src="/Post-Resources/SignalHubMac/logo-transparent.png" alt="Signal Hub logo">
+      Signal Hub
+    </a>
+    <div class="nav-links">
+      <a href="#connect">Connect</a>
+      <a href="#workflows">Workflows</a>
+      <a href="#simulate">Simulate</a>
+      <a href="#export">Export</a>
+    </div>
+    <a class="nav-cta" href="#get">Get Signal Hub</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <img class="hero-logo reveal" src="/Post-Resources/SignalHubMac/logo-transparent.png" alt="Signal Hub">
+    <h1 class="hero-title reveal delay-1">
+      The BLE workbench,<br>
+      <span class="accent">reimagined for Mac.</span>
+    </h1>
+    <p class="hero-sub reveal delay-2">
+      Scan, connect, and interact with many Bluetooth Low Energy devices at once.
+      Design visual workflows that run on real hardware. Simulate, document, and ship — all from a single elegant app.
+    </p>
+    <div class="hero-cta reveal delay-3">
+      <a class="btn btn-primary" href="#get">Download for macOS →</a>
+      <a class="btn btn-ghost" href="#workflows">See it in action</a>
+    </div>
+  </div>
+
+  <div class="hero-showcase reveal">
+    <div class="device-glow"></div>
+    <div class="device-frame">
+      <img src="/Post-Resources/SignalHubMac/01_home.png" alt="Signal Hub for Mac — concurrent BLE connections">
+    </div>
+  </div>
+</header>
+
+<!-- Feature 1: Concurrent BLE -->
+<section class="section" id="connect">
+  <div class="container">
+    <div class="feature-row">
+      <div class="feature-text">
+        <div class="section-eyebrow reveal">Concurrent BLE</div>
+        <h2 class="reveal delay-1">Many devices.<br>One calm cockpit.</h2>
+        <p class="reveal delay-2">
+          Signal Hub treats every BLE connection as a first-class citizen. Scan the room,
+          connect to multiple peripherals in parallel, and switch between them without losing context.
+          Read, write, and subscribe to characteristics with one click — and watch traffic stream in real time.
+        </p>
+        <ul class="feature-list reveal delay-3">
+          <li>Concurrent scan & connect across as many devices as your radio can hold</li>
+          <li>Per-device sessions with live characteristic explorer and notification stream</li>
+          <li>Smart filters: name, RSSI, service UUID, manufacturer data</li>
+          <li>Auto-reconnect, pairing, and bond management built in</li>
+        </ul>
+        <div class="chips reveal delay-3">
+          <span class="chip">Scan</span>
+          <span class="chip">Connect</span>
+          <span class="chip">GATT explorer</span>
+          <span class="chip">Notifications</span>
+        </div>
+      </div>
+      <div class="feature-visual reveal delay-2">
+        <img src="/Post-Resources/SignalHubMac/01_home.png" alt="Concurrent BLE connections">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 2: Workflow Builder -->
+<section class="section alt" id="workflows">
+  <div class="container">
+    <div class="feature-row reverse">
+      <div class="feature-visual reveal">
+        <img src="/Post-Resources/SignalHubMac/03_workflow.png" alt="Visual workflow builder">
+      </div>
+      <div class="feature-text">
+        <div class="section-eyebrow reveal">Visual workflows</div>
+        <h2 class="reveal delay-1">Your test plan,<br>drawn into reality.</h2>
+        <p class="reveal delay-2">
+          Drag, drop, and connect nodes to compose any BLE flow — handshake, OTA, telemetry,
+          edge cases. Each node is a real BLE action. Hit run, and Signal Hub executes the entire
+          workflow against your device, with full visibility into every step.
+        </p>
+        <ul class="feature-list reveal delay-3">
+          <li>Composable nodes: scan, connect, write, read, wait, branch, assert</li>
+          <li>Loop, retry, and conditional logic without writing a line of code</li>
+          <li>Run once or schedule for regression — the workflow is the spec</li>
+          <li>Version-controlled workspaces keep the team in sync</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature-row" style="margin-top: 120px;">
+      <div class="feature-text">
+        <div class="section-eyebrow reveal">Workspaces</div>
+        <h2 class="reveal delay-1">A home<br>for every project.</h2>
+        <p class="reveal delay-2">
+          Organize devices, workflows, and notes into <strong>workspaces</strong>. Each one is a
+          self-contained context — switch projects with a click. Share a workspace with a teammate
+          and they pick up exactly where you left off.
+        </p>
+        <ul class="feature-list reveal delay-3">
+          <li>Per-workspace devices, workflows, and assets</li>
+          <li>Local-first storage with export anywhere</li>
+          <li>Built for teams: open the same workspace, get the same view</li>
+        </ul>
+      </div>
+      <div class="feature-visual reveal delay-2">
+        <img src="/Post-Resources/SignalHubMac/02_workflow.png" alt="Workspace management">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 3: Real device binding -->
+<section class="section">
+  <div class="container">
+    <div class="feature-row reverse">
+      <div class="feature-visual reveal">
+        <img src="/Post-Resources/SignalHubMac/05-device.png" alt="Bind real devices to workflow nodes">
+      </div>
+      <div class="feature-text">
+        <div class="section-eyebrow reveal">Live binding</div>
+        <h2 class="reveal delay-1">Bind real devices<br>to every node — live.</h2>
+        <p class="reveal delay-2">
+          Connect a workflow to physical hardware in seconds. Pick a discovered peripheral,
+          bind it to a node, and watch the workflow drive the device for real — no scripts, no fixtures,
+          no detours through a terminal.
+        </p>
+        <ul class="feature-list reveal delay-3">
+          <li>Real-time binding of any discovered peripheral to any node</li>
+          <li>Inspect responses, latency, and characteristic values as the workflow runs</li>
+          <li>Step through, pause, and re-run — debug like you would code</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 4: Simulator -->
+<section class="section dark" id="simulate">
+  <div class="container">
+    <div class="feature-row">
+      <div class="feature-text">
+        <div class="section-eyebrow reveal">Built-in simulator</div>
+        <h2 class="reveal delay-1">No hardware?<br>No problem.</h2>
+        <p class="reveal delay-2">
+          The built-in BLE simulator stands in for any peripheral. Mock services, characteristics,
+          and responses — including the gnarly edge cases that real hardware refuses to reproduce.
+          Build, test, and demo your workflows before the prototype hits your desk.
+        </p>
+        <ul class="feature-list reveal delay-3">
+          <li>Define virtual peripherals with any service / characteristic shape</li>
+          <li>Scripted responses, delays, and failure modes — reproduce real bugs on demand</li>
+          <li>Mix and match: real devices and simulated ones in the same workflow</li>
+        </ul>
+        <div class="chips reveal delay-3">
+          <span class="chip">Mock services</span>
+          <span class="chip">Scripted responses</span>
+          <span class="chip">Edge cases</span>
+        </div>
+      </div>
+      <div class="feature-visual reveal delay-2">
+        <img src="/Post-Resources/SignalHubMac/06-simulate.png" alt="Simulate real devices">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature 5: Export & Share -->
+<section class="section alt" id="export">
+  <div class="container">
+    <div class="feature-row reverse">
+      <div class="feature-visual reveal">
+        <img src="/Post-Resources/SignalHubMac/04-png.png" alt="Export workflows as PNG and video">
+      </div>
+      <div class="feature-text">
+        <div class="section-eyebrow reveal">Share &amp; document</div>
+        <h2 class="reveal delay-1">Beautiful artifacts,<br>one click away.</h2>
+        <p class="reveal delay-2">
+          Export any workflow as a high-resolution PNG, a screen recording, or a compact summary —
+          ready to drop into a PR, a spec, or a customer report. Documentation becomes a
+          by-product of building, not a chore.
+        </p>
+        <ul class="feature-list reveal delay-3">
+          <li>One-click PNG export with crisp typography and clear edges</li>
+          <li>Video export of a live workflow run for demos and bug reports</li>
+          <li>Auto-generated run summaries: steps, timings, outcomes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mini-grid">
+      <div class="mini-card reveal">
+        <div class="mini-icon">✦</div>
+        <h3>PNG export</h3>
+        <p>Workflows rendered at retina resolution, ready for documentation, PRs, or slide decks.</p>
+      </div>
+      <div class="mini-card reveal delay-1">
+        <div class="mini-icon">▶</div>
+        <h3>Video capture</h3>
+        <p>Record a live run with all device traffic overlaid. Perfect for demos and bug reports.</p>
+      </div>
+      <div class="mini-card reveal delay-2">
+        <div class="mini-icon">≡</div>
+        <h3>Run summaries</h3>
+        <p>Every workflow run produces a structured summary — steps, timing, results, errors.</p>
+      </div>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Concurrent devices</div></div>
+      <div class="stat"><div class="stat-num">0</div><div class="stat-label">Lines of code required</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Local-first</div></div>
+      <div class="stat"><div class="stat-num">1-click</div><div class="stat-label">PNG &amp; video export</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="get">
+  <div class="cta-inner">
+    <h2 class="reveal">Build with BLE, finally enjoyable.</h2>
+    <p class="reveal delay-1">
+      Signal Hub is in private beta on macOS. If you spend your days talking to BLE peripherals,
+      we'd love to hand you the keys.
+    </p>
+    <div class="hero-cta reveal delay-2">
+      <a class="btn btn-primary" href="mailto:uynguyen.itus@gmail.com?subject=Signal%20Hub%20Mac%20%E2%80%94%20Private%20Beta">Request beta access</a>
+      <a class="btn btn-ghost" href="/">Back to the blog</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>Designed &amp; built by <a href="/">Uy Nguyen</a> — crafted for engineers who live in the BLE stack.</div>
+  <div class="footer-links">
+    <a href="/">Blog</a>
+    <a href="/archives">Archives</a>
+    <a href="mailto:uynguyen.itus@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Reveal on scroll
+  var els = document.querySelectorAll('.reveal, .device-frame');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  } else {
+    els.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
+  // Nav background on scroll
+  var nav = document.querySelector('.nav');
+  function onScroll() {
+    if (window.scrollY > 20) {
+      nav.style.background = 'rgba(250, 250, 250, 0.92)';
+    } else {
+      nav.style.background = 'rgba(250, 250, 250, 0.72)';
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Subtle parallax on hero showcase
+  var showcase = document.querySelector('.hero-showcase');
+  if (showcase) {
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY;
+      if (y < 700) {
+        showcase.style.transform = 'translateY(' + (y * 0.08) + 'px)';
+      }
+    }, { passive: true });
+  }
+})();
+</script>
+
+</body>
+</html>

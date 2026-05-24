@@ -82,7 +82,7 @@ module.exports = class extends Component {
                     {/* Tags */}
                     {!index && page.tags && page.tags.length ? <div class="article-tags size-small is-uppercase mb-4">
                         <span class="mr-2">#</span>
-                        {page.tags.map(tag => {
+                        {(typeof page.tags.toArray === 'function' ? page.tags.toArray() : Array.from(page.tags)).map(tag => {
                             return <a class="link-muted mr-2" rel="tag" href={url_for(tag.path)}>{tag.name}</a>;
                         })}
                     </div> : null}
