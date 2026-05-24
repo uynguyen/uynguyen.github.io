@@ -3,7 +3,7 @@ title: 'Signal Hub for Mac — the BLE workbench, reimagined'
 date: 2026-05-24 10:00:00
 tags: [BLE, macOS, SignalHub]
 link: /signal-hub/
-thumbnail: /Post-Resources/SignalHubMac/01_home.png
+thumbnail: /Post-Resources/SignalHubMac/00-intro.png
 ping: true
 ---
 
