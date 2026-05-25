@@ -278,6 +278,232 @@ h1.hero-title .accent {
   letter-spacing: 0.02em;
 }
 
+/* ---------- Nodes reference ---------- */
+.nodes-section {
+  padding: 120px 28px;
+  background: var(--bg-alt);
+  position: relative;
+}
+.nodes-header {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.nodes-header .section-eyebrow { color: var(--accent-2); }
+.nodes-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.01em;
+  color: #fff;
+  padding: 11px 22px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 8px 22px -8px rgba(35,182,230,0.45),
+              0 0 0 1px rgba(255,255,255,0.18) inset;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+.nodes-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px -8px rgba(35,182,230,0.55),
+              0 0 0 1px rgba(255,255,255,0.22) inset;
+}
+.nodes-toggle:active { transform: translateY(0); }
+.nodes-toggle-chevron {
+  width: 8px; height: 8px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+  margin-top: -3px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nodes-toggle[aria-expanded="true"] .nodes-toggle-chevron {
+  transform: rotate(-135deg);
+  margin-top: 3px;
+}
+.nodes-collection {
+  margin-top: 48px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nodes-collection.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.nodes-category {
+  max-width: 1100px;
+  margin: 0 auto 40px;
+}
+.nodes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  grid-auto-flow: dense;
+}
+@media (max-width: 980px) { .nodes-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px) { .nodes-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .nodes-grid { grid-template-columns: 1fr; } }
+.nodes-category-head {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 16px 6px;
+}
+.nodes-category-head::before {
+  content: '';
+  width: 24px; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 2px;
+}
+.nodes-category-head .count {
+  font-size: 11px; letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 500;
+}
+.node-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+.node-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -10px rgba(0,0,0,0.12);
+  border-color: rgba(35,182,230,0.32);
+}
+.node-item[open] {
+  grid-column: 1 / -1;
+  transform: none;
+  box-shadow: 0 14px 40px -14px rgba(0,0,0,0.18);
+  border-color: rgba(35,182,230,0.36);
+}
+.node-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 16px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+  min-height: 116px;
+  user-select: none;
+  transition: background 0.15s ease;
+  outline: none;
+  position: relative;
+}
+.node-item summary::-webkit-details-marker { display: none; }
+.node-item summary::marker { display: none; content: ''; }
+.node-item summary:hover { background: rgba(35,182,230,0.04); }
+.node-item[open] summary {
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 22px;
+  min-height: 0;
+}
+.node-item:focus-within { outline: none; }
+.node-badge {
+  width: 30px; height: 30px; flex-shrink: 0;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 13px;
+  letter-spacing: -0.01em;
+  box-shadow: 0 4px 10px -3px rgba(35,182,230,0.45);
+}
+.node-name {
+  font-size: 14.5px; font-weight: 600; letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.node-item[open] .node-name {
+  font-size: 15.5px;
+  flex: 0 0 auto;
+  min-width: 160px;
+}
+.node-tagline {
+  font-size: 12.5px; color: var(--ink-3);
+  line-height: 1.45;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.node-item[open] .node-tagline {
+  flex: 1;
+  font-size: 13.5px;
+  white-space: nowrap;
+  display: block;
+  -webkit-line-clamp: initial;
+}
+.node-chevron {
+  position: absolute;
+  top: 22px; right: 18px;
+  width: 8px; height: 8px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform 0.25s ease, top 0.2s ease;
+}
+.node-item[open] .node-chevron {
+  position: static;
+  transform: rotate(-135deg);
+  margin-top: 3px;
+  margin-left: auto;
+  border-color: var(--ink-3);
+}
+.node-body {
+  padding: 0 22px 22px 70px;
+  border-top: 1px solid var(--line);
+  margin-top: -1px;
+  padding-top: 16px;
+}
+.node-body p.node-summary {
+  font-size: 14.5px; color: var(--ink-2);
+  line-height: 1.65;
+  margin: 0 0 14px;
+}
+.node-block-head {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 18px 0 8px;
+}
+.node-attr { margin-bottom: 8px; padding-left: 12px; border-left: 2px solid rgba(35,182,230,0.32); }
+.node-attr-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+.node-attr-detail { font-size: 13.5px; color: var(--ink-3); line-height: 1.55; margin-top: 2px; }
+.node-example {
+  margin-bottom: 8px;
+  padding: 10px 14px;
+  background: rgba(2,211,154,0.07);
+  border-left: 3px solid var(--accent-2);
+  border-radius: 4px 8px 8px 4px;
+}
+.node-example-title { font-size: 12.5px; font-weight: 700; color: #0a8a65; margin-bottom: 4px; }
+.node-example-body { font-size: 13.5px; color: var(--ink-2); line-height: 1.55; white-space: pre-line; }
+.node-body code {
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Source Code Pro', monospace;
+  font-size: 12.5px;
+  padding: 1.5px 6px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 5px;
+  color: var(--ink);
+}
+.node-example code {
+  background: rgba(2,211,154,0.16);
+  color: #0a8a65;
+}
+@media (max-width: 720px) {
+  .node-item[open] .node-tagline { display: none; }
+  .node-item[open] .node-name { min-width: 0; flex: 1; }
+  .node-body { padding-left: 22px; }
+}
+
 /* ---------- Section ---------- */
 section.section {
   padding: 120px 28px;
@@ -730,6 +956,892 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
   </div>
 </section>
 
+<!-- Workflow nodes reference -->
+<section class="nodes-section" id="nodes">
+  <div class="nodes-header">
+    <div class="section-eyebrow reveal">Workflow nodes</div>
+    <h2 class="section-title reveal delay-1" style="font-size: clamp(28px, 3.6vw, 46px);">38 building blocks.<br>One workflow.</h2>
+    <p class="section-lead reveal delay-2" style="margin-left: auto; margin-right: auto;">
+      Each node is a single BLE action — scan, connect, read, branch, wait. Snap them together on the canvas and you've described a complete protocol exchange, ready to run on a real device or the built-in simulator.
+    </p>
+    <button class="nodes-toggle reveal delay-3" id="nodes-toggle-all" aria-expanded="false" aria-controls="nodes-collection">
+      <span class="nodes-toggle-label">Show all nodes</span>
+      <span class="nodes-toggle-chevron"></span>
+    </button>
+  </div>
+
+  <div class="nodes-collection" id="nodes-collection" hidden>
+
+  <!-- Control -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Control <span class="count">— 2 nodes</span></div>
+    <div class="nodes-grid">
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">S</span>
+        <span class="node-name">Start</span>
+        <span class="node-tagline">Entry point of the workflow.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Entry point of the workflow. Exactly one Start node is allowed — execution begins here when you press Run.</p>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Every workflow</div>
+          <div class="node-example-body">Drop a Start node, wire its output into your first real step (Start Scan, Connect, etc.). Without it, Run is disabled.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">E</span>
+        <span class="node-name">End</span>
+        <span class="node-tagline">Terminates a branch cleanly.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Terminates a branch cleanly. Optional — branches that reach a dead end also stop, but End makes the intent explicit.</p>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Mark a success path</div>
+          <div class="node-example-body">If/true → HTTP Request → End. The End makes "this branch is done" visible in the run log.</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  <!-- Triggers -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Triggers <span class="count">— 6 nodes</span></div>
+    <div class="nodes-grid">
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">▸</span>
+        <span class="node-name">On Device Discovered</span>
+        <span class="node-tagline">Blocks until a matching advertisement is seen.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Blocks until a peripheral advertisement matches the configured filters (name substring, manufacturer-data hex prefix, RSSI threshold). Auto-starts a scan unless disabled.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Name match</div><div class="node-attr-detail">Case-insensitive substring required in the advertised local name. Empty = don't filter on name.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Manufacturer (hex)</div><div class="node-attr-detail">Hex prefix the device's manufacturer data must start with. Common pattern: <code>4C00</code> for Apple beacons.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Min RSSI</div><div class="node-attr-detail">Drop advertisements weaker than this dBm value. Off = no threshold.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Auto scan</div><div class="node-attr-detail">When on, starts a scan on entry and stops it on match. Turn off if an upstream Start Scan already configured filters.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Timeout (s)</div><div class="node-attr-detail">Maximum wait. Empty = wait forever.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable that receives the matched device address.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Wait for a known sensor</div>
+          <div class="node-example-body">On Device Discovered (name=<code>SignalHub</code>, rssi ≥ -75) → Connect (uses stored mac).</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">▸</span>
+        <span class="node-name">On Device Connected</span>
+        <span class="node-tagline">Blocks until a connect event fires.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Blocks until a connect event fires. Optionally filters by mac so the trigger only resumes when a specific device comes online.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Device address</div><div class="node-attr-detail">Optional mac. Empty = match any connect.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Timeout (s)</div><div class="node-attr-detail">Maximum wait. Empty = wait forever.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable that receives the connected device address.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Coordinate with external connect</div>
+          <div class="node-example-body">On Device Connected (mac=<code>AA:BB:…</code>) → Discover Services → Read Char.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">▸</span>
+        <span class="node-name">On Device Disconnected</span>
+        <span class="node-tagline">Blocks until a disconnect event fires.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Blocks until a disconnect event fires. Used to react to peripherals dropping the link without polling.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Device address</div><div class="node-attr-detail">Optional mac. Empty = match any disconnect.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Timeout (s)</div><div class="node-attr-detail">Maximum wait. Empty = wait forever.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable receiving the disconnected mac.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Telemetry on drop</div>
+          <div class="node-example-body">On Device Disconnected → HTTP Request (alert).</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">▸</span>
+        <span class="node-name">On Notification</span>
+        <span class="node-tagline">Blocks until a matching notification arrives.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Blocks until a characteristic notification matches the optional hex prefix. Auto-subscribes to the characteristic before listening so a separate Subscribe step isn't required.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Target characteristic. Must be notifiable or indicatable.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Match prefix (hex)</div><div class="node-attr-detail">Optional hex prefix the payload must start with. Empty = match any notification.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Timeout (s)</div><div class="node-attr-detail">Maximum wait. Empty = wait forever.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable that receives the matched payload as hex.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Wait for boot notification</div>
+          <div class="node-example-body">Connect → On Notification (uuid=…, match=<code>AA01</code>) → continue.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⏱</span>
+        <span class="node-name">Timer</span>
+        <span class="node-tagline">Wait on a delay, interval, or exact date.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Waits on a time condition before continuing. <strong>After delay</strong> = one-shot wait. <strong>Interval</strong> = self-looping periodic tick that runs forever until stopped. <strong>Exact date</strong> = wait until an ISO-8601 timestamp.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Mode</div><div class="node-attr-detail">After delay: wait N seconds, then take edge 1 once. Interval: fire repeatedly on each N-second boundary. Exact date: wait until ISO-8601 timestamp.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Seconds</div><div class="node-attr-detail">Delay or interval length for After / Interval modes.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Date (ISO-8601)</div><div class="node-attr-detail">Used in Exact date mode (e.g. <code>2026-12-31T23:00:00Z</code>). Past dates fire immediately.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Name</div><div class="node-attr-detail">Optional identifier referenced by a Stop Timer node. Defaults to the node's label.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Forever-periodic poll</div>
+          <div class="node-example-body">Start → Timer (interval, 5s) → Read Char. The Read fires every 5s; press Stop to end the workflow.</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">Bounded periodic poll</div>
+          <div class="node-example-body">Repeat (10) → Timer (after, 5s) → Read Char. Body executes exactly 10 times spaced 5s apart.</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">Scheduled run</div>
+          <div class="node-example-body">Start → Timer (exactDate, <code>2026-12-31T23:00:00Z</code>) → Start Scan → …</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">◾</span>
+        <span class="node-name">Stop Timer</span>
+        <span class="node-tagline">Cancels a running Timer by name.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Cancels a running Timer node addressed by name. The targeted timer's pending wait is disposed immediately, no more ticks fire. Other branches and timers keep running.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Timer name</div><div class="node-attr-detail">Must match the target Timer node's Name field. Stopping by name lets one workflow run many timers and cancel them independently.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Stop on condition</div>
+          <div class="node-example-body">Timer (name=poll, interval, 5s) → Read Char → If (battery, &lt;, 5) → true: Stop Timer (poll) → HTTP alert.</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">Race two timers</div>
+          <div class="node-example-body">Parallel → branch 1: Timer (name=A, interval, 1s) → … ; branch 2: Timer (name=B, after, 30s) → Stop Timer (A). After 30s the fast poller stops.</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  <!-- Scan -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Scan <span class="count">— 2 nodes</span></div>
+    <div class="nodes-grid">
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⌁</span>
+        <span class="node-name">Start Scan</span>
+        <span class="node-tagline">Begins a BLE scan asynchronously.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Begins a BLE scan. Continues running asynchronously; subsequent steps execute immediately without waiting for results.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Service UUID</div><div class="node-attr-detail">Optional. When set, only devices advertising this service appear in scan results. Empty = scan everything.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Allow duplicates</div><div class="node-attr-detail">When on, the same device produces multiple advertisement events. Useful for live RSSI tracking; off for one-shot discovery.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Find a known device by service</div>
+          <div class="node-example-body">Start Scan (svc=180D) → Delay 3s → Stop Scan → Connect (mac from scan results).</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">◾</span>
+        <span class="node-name">Stop Scan</span>
+        <span class="node-tagline">Stops an in-progress scan.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Stops an in-progress scan. Pair with Start Scan when you want a bounded discovery window.</p>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Bounded scan</div>
+          <div class="node-example-body">Start Scan → Delay 5s → Stop Scan. Without Stop Scan the radio keeps scanning until the workflow ends.</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  <!-- Connection -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Connection <span class="count">— 2 nodes</span></div>
+    <div class="nodes-grid">
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⇆</span>
+        <span class="node-name">Connect</span>
+        <span class="node-tagline">Connects to a peripheral by MAC.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Connects to a peripheral by MAC. Resolves on "connected" — i.e. CoreBluetooth fired didConnect and the link is up.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Device</div><div class="node-attr-detail">Pick from the live device list (populated by Start Scan / known devices). The selected MAC becomes the workflow's active device for downstream BLE steps.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Connect then read</div>
+          <div class="node-example-body">Connect (chosen device) → Discover Services → Read Char (battery level).</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">Reconnect on disconnect</div>
+          <div class="node-example-body">Try/Catch around Connect. On the catch path, Delay 1s → Connect again.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⇎</span>
+        <span class="node-name">Disconnect</span>
+        <span class="node-tagline">Closes the active connection.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Closes the active connection. Always good practice at the end of a workflow so the peripheral is free for other apps.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Device</div><div class="node-attr-detail">Defaults to the active device. Override only if you've connected to multiple peripherals in the same workflow.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Clean teardown</div>
+          <div class="node-example-body">… → Read Char → Disconnect → End.</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  <!-- Discovery -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Discovery <span class="count">— 2 nodes</span></div>
+    <div class="nodes-grid">
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">▤</span>
+        <span class="node-name">Discover Services</span>
+        <span class="node-tagline">Enumerate the peripheral's services.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Asks the peripheral to enumerate its services. Required before reading/writing characteristics on most devices.</p>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Standard prep</div>
+          <div class="node-example-body">Connect → Discover Services → Discover Characteristics → Read Char.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">▥</span>
+        <span class="node-name">Discover Characteristics</span>
+        <span class="node-tagline">Enumerate characteristics under each service.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Enumerates the characteristics under each discovered service. Run after Discover Services.</p>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Walk the GATT</div>
+          <div class="node-example-body">Connect → Discover Services → Discover Characteristics. Now Read/Write/Subscribe can target any UUID.</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  <!-- I/O -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Read / Write <span class="count">— 4 nodes</span></div>
+    <div class="nodes-grid">
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">↓</span>
+        <span class="node-name">Read Char</span>
+        <span class="node-tagline">Read a characteristic's current value.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Reads the current value of a characteristic. Resolves with raw bytes; the bytes are stored in <code>lastReadHex</code> and (optionally) into a named variable.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Standard short (<code>0x2A19</code>) or 128-bit UUID. The picker fills this in from the discovered list.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Value format / endian</div><div class="node-attr-detail">How the result is decoded for display on the node card. Doesn't change <code>lastReadHex</code> — only the human-readable view.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable name. The decoded value is stored under this name for use by downstream If / Transform steps.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Battery snapshot</div>
+          <div class="node-example-body">Connect → Discover … → Read Char (<code>0x2A19</code>, format=UInt8, store as=battery).</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">Conditional logic</div>
+          <div class="node-example-body">Read Char → If (variable=battery, &lt;, 20) → HTTP Request ("low battery").</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">↑</span>
+        <span class="node-name">Write Char</span>
+        <span class="node-tagline">Write bytes to a characteristic.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Writes bytes to a characteristic. Supports hex (<code>DE AD</code>) or text payloads, and chooses write-with/without-response automatically based on the characteristic's properties.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Target characteristic.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Payload</div><div class="node-attr-detail">Hex bytes (<code>DE AD BE EF</code>) or <code>${var}</code> interpolations. The executor chunks payloads larger than the negotiated MTU automatically.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Wake a sensor</div>
+          <div class="node-example-body">Connect → Discover … → Write Char (<code>0xFF03</code>, payload=<code>01</code>).</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">Send a variable</div>
+          <div class="node-example-body">Set Variable (cmd=<code>AA01</code>) → Write Char (payload=<code>${cmd}</code>).</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">↓</span>
+        <span class="node-name">Read Descriptor</span>
+        <span class="node-tagline">Read a GATT descriptor value.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Reads a GATT descriptor (e.g. Characteristic User Description <code>0x2901</code>, Format <code>0x2904</code>, or the current notify-state bits in the CCCD <code>0x2902</code>).</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Parent characteristic.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Descriptor UUID</div><div class="node-attr-detail">Standard short (<code>0x2901</code>, <code>0x2902</code>, <code>0x2904</code>) or 128-bit UUID.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Value format / endian</div><div class="node-attr-detail">Decoding for the result display.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Read a friendly name</div>
+          <div class="node-example-body">Read Descriptor (char=…, desc=<code>0x2901</code>, format=text).</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">↑</span>
+        <span class="node-name">Write Descriptor</span>
+        <span class="node-tagline">Write to a GATT descriptor (not CCCD).</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Writes bytes to a writable GATT descriptor. ⚠️ macOS blocks writes to the CCCD (<code>0x2902</code>) — use Subscribe instead. Useful for the rare devices that expose other writable descriptors.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Parent characteristic.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Descriptor UUID</div><div class="node-attr-detail">Target descriptor — anything other than <code>0x2902</code>.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Payload (hex)</div><div class="node-attr-detail">Bytes to write.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Set custom config</div>
+          <div class="node-example-body">Write Descriptor (char=…, desc=<code>0xFFD1</code>, payload=<code>01</code>).</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  <!-- Notify -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Notify <span class="count">— 2 nodes</span></div>
+    <div class="nodes-grid">
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">◉</span>
+        <span class="node-name">Subscribe</span>
+        <span class="node-tagline">Enable notifications on a characteristic.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Enables notifications/indications on a characteristic. Subsequent notifications populate <code>lastReadHex</code> and fire Wait Notification steps.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Target characteristic. Must be notifiable or indicatable.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Live stream</div>
+          <div class="node-example-body">Subscribe (heart rate) → Wait Notification (5s) → Set Variable (hr = lastReadHex). Loop with Repeat.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">○</span>
+        <span class="node-name">Unsubscribe</span>
+        <span class="node-tagline">Turn off notifications for a characteristic.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Turns off notifications for a characteristic. Useful when a workflow has multiple subscribe/unsubscribe phases.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Same UUID as the Subscribe step you want to stop.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Bounded listen window</div>
+          <div class="node-example-body">Subscribe → Delay 10s → Unsubscribe → Disconnect.</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  <!-- Flow -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Flow <span class="count">— 7 nodes</span></div>
+    <div class="nodes-grid">
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">↻</span>
+        <span class="node-name">Repeat</span>
+        <span class="node-tagline">Loop N times, then take the exit edge.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Loops its first output edge N times, then takes the second output (exit) once. Body executions are numbered (<code>#1</code>, <code>#2</code>, …) in the run log.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Times</div><div class="node-attr-detail">Number of iterations of the body branch before falling through to the exit branch.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Poll a value</div>
+          <div class="node-example-body">Repeat (10) → body: Read Char → Delay 1s. Exit: Disconnect.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⏳</span>
+        <span class="node-name">Delay</span>
+        <span class="node-tagline">Pause this branch for N seconds.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Pauses the branch for a fixed duration. Other parallel branches keep running.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Duration (s)</div><div class="node-attr-detail">Seconds to wait before continuing. Floats are fine (0.25 = 250 ms).</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Settle after connect</div>
+          <div class="node-example-body">Connect → Delay 0.5s → Discover Services (some peripherals need a beat).</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⑂</span>
+        <span class="node-name">Parallel</span>
+        <span class="node-tagline">Fan out into concurrent branches.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Fans out into multiple branches that run concurrently. Each outgoing edge starts its own execution token.</p>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Read two characteristics at once</div>
+          <div class="node-example-body">Parallel → branch 1: Read Char A; branch 2: Read Char B → Join (waits for both).</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⨝</span>
+        <span class="node-name">Join</span>
+        <span class="node-tagline">Wait for every incoming branch.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Counterpart to Parallel: waits until every incoming edge has delivered a token before continuing downstream.</p>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Fan-out / fan-in</div>
+          <div class="node-example-body">Parallel → 3 branches do Read/Read/HTTP → Join → continue.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⛨</span>
+        <span class="node-name">Try / Catch</span>
+        <span class="node-tagline">Recover from failures on a branch.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Wraps its protected branch (edge 0). If any downstream step on that branch fails, execution jumps to the catch branch (edge 1) instead of failing the workflow.</p>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Reconnect on transient failure</div>
+          <div class="node-example-body">Try/Catch → protected: Read Char; catch: Delay 1s → Connect → Read Char again.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">↺</span>
+        <span class="node-name">Retry</span>
+        <span class="node-tagline">Retry a branch up to N attempts.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Wraps a branch in a retry loop. If anything downstream of edge 0 errors, the executor delays then re-enters edge 0 — up to <code>attempts</code> total tries before falling through to edge 1 (the give-up branch).</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Attempts</div><div class="node-attr-detail">Total tries (1 = no retry; the branch runs once and any failure falls through immediately).</div></div>
+        <div class="node-attr"><div class="node-attr-name">Backoff (s)</div><div class="node-attr-detail">Delay applied before each retry. Doesn't apply before the first attempt.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Reconnect on flaky link</div>
+          <div class="node-example-body">Retry (3 attempts, 1s) → protected: Connect → Read; give-up: HTTP alert.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">∞</span>
+        <span class="node-name">Endless</span>
+        <span class="node-tagline">Park a branch indefinitely.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Parks the current branch indefinitely. The workflow stays in the running state until the user hits Stop, so concurrent triggers (timer, on-notification, on-device-discovered) can keep firing. Has no outgoing edges.</p>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Notification-only flow</div>
+          <div class="node-example-body">Start → Connect → Subscribe → Endless. A parallel On Notification trigger reacts to inbound packets for as long as the run lasts.</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">Background poller</div>
+          <div class="node-example-body">Start → Timer (every 30s) → Read Char → Append CSV; in parallel: Endless. The Endless branch keeps the run alive so the timer keeps ticking.</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  <!-- Logic -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Logic <span class="count">— 3 nodes</span></div>
+    <div class="nodes-grid">
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">?</span>
+        <span class="node-name">If</span>
+        <span class="node-tagline">Branch on a condition.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Branches on a condition. Edge 0 = true, edge 1 = false. Compares a Source (variable, last RSSI, last hex, isConnected) against a Right-hand value using the chosen operator.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Source</div><div class="node-attr-detail">What the left-hand value is: <code>variable</code> looks up a stored variable; <code>lastRSSI</code> / <code>lastReadHex</code> / <code>isConnected</code> use runtime state.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Variable Name</div><div class="node-attr-detail">Only shown when Source = variable. The name to look up.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Operator</div><div class="node-attr-detail"><code>=</code>, <code>≠</code>, <code>&lt;</code>, <code>≤</code>, <code>&gt;</code>, <code>≥</code>, <code>contains</code>, <code>starts with</code>. Numeric ops parse both sides as numbers; others compare as strings.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Right-hand value</div><div class="node-attr-detail">Literal value (with <code>${var}</code> interpolation). When both sides start with <code>0x</code> they're auto-normalized for hex comparison.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Low-battery alert</div>
+          <div class="node-example-body">Read Char (store as=battery) → If (variable=battery, &lt;, 20) → true: HTTP Request.</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">Match a hex response</div>
+          <div class="node-example-body">Subscribe → Wait Notification → If (lastReadHex, =, <code>0x AA 01</code>) → true: continue.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">◔</span>
+        <span class="node-name">Wait Notification</span>
+        <span class="node-tagline">Block until a notification arrives.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Blocks the branch until a notification arrives on the characteristic, or the timeout elapses. The received bytes populate <code>lastReadHex</code>.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Must already be Subscribed.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Match (hex)</div><div class="node-attr-detail">Optional. If set, ignore notifications that don't equal these bytes.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Timeout (s)</div><div class="node-attr-detail">Maximum wait. Leave empty for no timeout.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable name for the received bytes.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Wait for ack byte</div>
+          <div class="node-example-body">Write Char (cmd) → Wait Notification (match=<code>0x AA</code>, timeout=2) → If on lastReadHex.</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">✓</span>
+        <span class="node-name">Assert</span>
+        <span class="node-tagline">Fail the branch if a condition is false.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Checks a condition and fails the step if it's false. Same operand/operator semantics as the If node, but doesn't branch — it terminates the branch on failure (or jumps to the nearest Try/Catch / Retry catch edge).</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Source / Operator / Value</div><div class="node-attr-detail">Same as If. Compares a variable, lastRSSI, lastReadHex, or isConnected against a literal value.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Message</div><div class="node-attr-detail">Optional human-readable message included in the failure entry. Defaults to the operand-vs-expected summary.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Guard before write</div>
+          <div class="node-example-body">Read MTU (store as=mtu) → Assert (variable=mtu, ≥, 100) → Write Char (large payload).</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">Sanity check protocol</div>
+          <div class="node-example-body">On Notification (store as=ack) → Assert (variable=ack, starts with, <code>0xAA01</code>, msg=<code>bad ack</code>).</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  <!-- Data -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Data <span class="count">— 3 nodes</span></div>
+    <div class="nodes-grid">
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">=</span>
+        <span class="node-name">Set Variable</span>
+        <span class="node-tagline">Store a value into a named variable.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Stores a value into a named variable so later steps can reference it. The source can be a literal, another variable, last RSSI, last hex, or the connection state.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Variable Name</div><div class="node-attr-detail">Destination. Pick something the If / Transform / payload steps will reference.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Source</div><div class="node-attr-detail">Where the value comes from: <code>variable</code> (literal or another variable), <code>lastRSSI</code>, <code>lastReadHex</code>, <code>isConnected</code>.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Literal</div><div class="node-attr-detail">Only shown when Source = variable. If the text matches an existing variable name, that variable's value is used; otherwise it's stored as a literal string.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Snapshot RSSI</div>
+          <div class="node-example-body">Read RSSI → Set Variable (name=rssi_at_start, source=lastRSSI).</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">Literal flag</div>
+          <div class="node-example-body">Set Variable (name=mode, source=variable, literal=<code>night</code>) → If (variable=mode, =, night).</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⇒</span>
+        <span class="node-name">Transform</span>
+        <span class="node-tagline">Convert hex ↔ UInt / Float / UTF-8.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Converts a hex string into a decoded value (UInt8 / UInt16 / Float / UTF-8 / sliced bytes) or vice versa. Reads from <code>lastReadHex</code> if no input variable is set.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Operation</div><div class="node-attr-detail">hexToUtf8 (auto-trims NUL / whitespace), utf8ToHex, hexToUInt8/16/Int16/Float32 (LE/BE), hexSlice (offset + length).</div></div>
+        <div class="node-attr"><div class="node-attr-name">Input</div><div class="node-attr-detail">Source variable name. Empty = use lastReadHex.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Output</div><div class="node-attr-detail">Destination variable name. Required.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Offset / Length</div><div class="node-attr-detail">For hexSlice only. Byte offset from the start, and how many bytes to keep (0 = to end).</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Decode a version string</div>
+          <div class="node-example-body">Read Char → Transform (hexToUtf8, output=version) → If (variable=version, =, 3.4.4).</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">First-byte command</div>
+          <div class="node-example-body">Subscribe → Wait Notif → Transform (hexSlice, offset=0, length=1, output=cmd_byte) → If (variable=cmd_byte, =, <code>0xAA</code>).</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">▦</span>
+        <span class="node-name">Payload Parser</span>
+        <span class="node-tagline">Parse a packet into named fields.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Parses a hex payload into multiple named fields in one node — replaces a chain of Transform nodes when you have a structured packet with several offsets.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Input</div><div class="node-attr-detail">Source variable name. Empty = use lastReadHex.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Fields</div><div class="node-attr-detail">One field per line: <code>name  offset  length  type  [endian]</code>. Types: hex, utf8, ascii, uint8/int8, uint16/int16, uint32/int32, float32, float64. <code>length</code> of 0 = to end. Endian (LE/BE) only required for multi-byte numeric types.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Sensor packet</div>
+          <div class="node-example-body">Read Char → Payload Parser:
+  temp 0 2 int16 LE
+  hum  2 1 uint8
+  flag 3 1 hex</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  <!-- Link -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Link <span class="count">— 2 nodes</span></div>
+    <div class="nodes-grid">
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">∿</span>
+        <span class="node-name">Read RSSI</span>
+        <span class="node-tagline">Read the current connection RSSI.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Reads the current RSSI of the active connection. Stored in the <code>lastRSSI</code> runtime slot and (optionally) into a named variable.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable name.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Range check</div>
+          <div class="node-example-body">Read RSSI → If (lastRSSI, &lt;, -85) → true: HTTP "link weak".</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">‖</span>
+        <span class="node-name">Read MTU</span>
+        <span class="node-tagline">Read the negotiated ATT MTU.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Reads the negotiated ATT MTU. macOS CoreBluetooth doesn't expose an API to <em>request</em> a specific MTU — this step just surfaces what the OS negotiated at connect time.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable name for the MTU integer.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Chunk sizing diagnostics</div>
+          <div class="node-example-body">Connect → Read MTU (store as=mtu) → HTTP Request (body uses <code>${mtu}</code>).</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  <!-- Egress -->
+  <div class="nodes-category reveal">
+    <div class="nodes-category-head">Egress <span class="count">— 3 nodes</span></div>
+    <div class="nodes-grid">
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">◐</span>
+        <span class="node-name">HTTP Request</span>
+        <span class="node-tagline">Send an HTTP request.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Sends an HTTP request to a URL with optional headers and body. Variables are interpolated with <code>${name}</code>.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">URL</div><div class="node-attr-detail">Full URL with <code>${var}</code> allowed.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Method</div><div class="node-attr-detail">GET / POST / PUT / DELETE / PATCH.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Headers</div><div class="node-attr-detail">Key: value pairs, one per line. Values support <code>${var}</code>.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Body</div><div class="node-attr-detail">Raw body string. <code>${var}</code> interpolation applies.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Ship a reading</div>
+          <div class="node-example-body">Read Char (store as=temp) → HTTP Request (POST https://api.x/ingest, body=<code>{"temp":${temp}}</code>).</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">▦</span>
+        <span class="node-name">Append CSV</span>
+        <span class="node-tagline">Append a row to a CSV file.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Appends a row to a CSV file on disk. Creates the file with the configured header on first run.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">File path</div><div class="node-attr-detail">Absolute path to the CSV file.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Header</div><div class="node-attr-detail">Comma-separated column names. Written once when the file is created.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Row</div><div class="node-attr-detail">Comma-separated values. <code>${var}</code> interpolation applies.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Telemetry log</div>
+          <div class="node-example-body">Loop: Read RSSI → Append CSV (header=<code>ts,rssi</code>, row=<code>${now},${rssi}</code>).</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⇣</span>
+        <span class="node-name">Save File</span>
+        <span class="node-tagline">Write a payload to disk in one shot.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Writes a payload to disk in one shot (overwrites if exists). Use for snapshots, not append-style logs.</p>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">File path</div><div class="node-attr-detail">Absolute path to the destination.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Content</div><div class="node-attr-detail">Raw text content with <code>${var}</code> interpolation.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Dump last read</div>
+          <div class="node-example-body">Read Char → Save File (path=<code>/tmp/last.bin</code>, content=<code>${lastReadHex}</code>).</div>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+
+  </div>
+</section>
+
 <!-- Demo video -->
 <section class="demo-section" id="demo">
   <div class="demo-eyebrow reveal">See it move</div>
@@ -809,6 +1921,35 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         showcase.style.transform = 'translateY(' + (y * 0.08) + 'px)';
       }
     }, { passive: true });
+  }
+
+  // Workflow node reference: reveal/hide the whole node collection
+  var nodesToggle = document.getElementById('nodes-toggle-all');
+  var nodesCollection = document.getElementById('nodes-collection');
+  if (nodesToggle && nodesCollection) {
+    var nodesLabel = nodesToggle.querySelector('.nodes-toggle-label');
+    nodesToggle.addEventListener('click', function () {
+      var expanded = nodesToggle.getAttribute('aria-expanded') === 'true';
+      var next = !expanded;
+      nodesToggle.setAttribute('aria-expanded', String(next));
+      if (nodesLabel) {
+        nodesLabel.textContent = next ? 'Hide all nodes' : 'Show all nodes';
+      }
+      if (next) {
+        nodesCollection.hidden = false;
+        // next frame so the transition runs
+        requestAnimationFrame(function () {
+          nodesCollection.classList.add('is-visible');
+        });
+      } else {
+        nodesCollection.classList.remove('is-visible');
+        var onEnd = function () {
+          nodesCollection.hidden = true;
+          nodesCollection.removeEventListener('transitionend', onEnd);
+        };
+        nodesCollection.addEventListener('transitionend', onEnd);
+      }
+    });
   }
 })();
 </script>
