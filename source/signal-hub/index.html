@@ -335,6 +335,81 @@ h1.hero-title .accent {
   opacity: 1;
   transform: translateY(0);
 }
+
+.nodes-request {
+  max-width: 720px;
+  margin: 48px auto 0;
+  padding: 32px 36px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(35,182,230,0.08), rgba(2,211,154,0.08));
+  border: 1px solid rgba(35,182,230,0.22);
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.nodes-request::before {
+  content: '';
+  position: absolute;
+  top: -40%; right: -10%;
+  width: 60%; height: 180%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(2,211,154,0.18) 0%, transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+.nodes-request-icon {
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 26px; font-weight: 300;
+  box-shadow: 0 10px 24px -8px rgba(35,182,230,0.45);
+  position: relative;
+  z-index: 1;
+}
+.nodes-request-body {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+.nodes-request-title {
+  font-size: 18px; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.nodes-request-text {
+  font-size: 14.5px; color: var(--ink-3);
+  line-height: 1.55;
+}
+.nodes-request-cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px; font-weight: 600;
+  color: #fff;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: var(--ink);
+  box-shadow: 0 8px 22px -8px rgba(0,0,0,0.32);
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+  position: relative;
+  z-index: 1;
+}
+.nodes-request-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -8px rgba(0,0,0,0.4);
+}
+@media (max-width: 640px) {
+  .nodes-request {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    padding: 28px 22px;
+  }
+}
 .nodes-category {
   max-width: 1100px;
   margin: 0 auto 40px;
@@ -1837,6 +1912,16 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </div>
     </details>
     </div>
+  </div>
+
+  <!-- Request a node -->
+  <div class="nodes-request">
+    <div class="nodes-request-icon">+</div>
+    <div class="nodes-request-body">
+      <div class="nodes-request-title">Don't see the node you need?</div>
+      <div class="nodes-request-text">Signal Hub is shaped by the engineers who use it. Tell me what step is missing from your workflow and I'll prioritize it for the next release.</div>
+    </div>
+    <a class="nodes-request-cta" href="mailto:uynguyen.itus@gmail.com?subject=Signal%20Hub%20Mac%20%E2%80%94%20Node%20Request&amp;body=Hi%20Uy%2C%0A%0AI%27d%20love%20to%20see%20a%20node%20in%20Signal%20Hub%20that%20does%3A%0A%0A%5Bwhat%20it%20should%20do%5D%0A%0AMy%20use%20case%3A%0A%0A%5Bthe%20workflow%20you%27re%20trying%20to%20build%5D%0A%0AThanks%21">Request a node →</a>
   </div>
 
   </div>
