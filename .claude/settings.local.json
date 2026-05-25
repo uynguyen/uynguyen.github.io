@@ -21,7 +21,13 @@
       "Bash(node -e ' *)",
       "Bash(command -v nvm)",
       "Read(//Users/nguyenuy/.nvm/versions/node/**)",
-      "Bash(kill 39534)"
+      "Bash(kill 39534)",
+      "Bash(ls /Users/nguyenuy/Documents/blekit/SignalHubMac 2>&1 | head -30)",
+      "Read(//Users/nguyenuy/Documents/blekit/SignalHubMac/**)",
+      "Bash(python3)",
+      "Bash(awk 'NR>=1820 && NR<=1830' /Users/nguyenuy/Documents/Blog/uynguyen.github.io-source/source/signal-hub/index.html)",
+      "Bash(awk -F: '$1 > 1820 && $1 < 1840')",
+      "Bash(awk -F: '$1 > 940 && $1 < 1840')"
     ]
   }
 }
