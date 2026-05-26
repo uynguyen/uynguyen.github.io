@@ -3,8 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Signal Hub for Mac — The BLE workbench, reimagined</title>
-<meta name="description" content="Signal Hub is a Mac app for engineers working with Bluetooth Low Energy. Manage concurrent connections, design visual workflows, simulate devices, and export beautiful documentation — all in one place.">
+<title>Signal Hub for Mac — BLE Workflow Automation &amp; Bluetooth Low Energy Tool</title>
+<meta name="description" content="Signal Hub is a macOS BLE testing &amp; automation tool for Bluetooth Low Energy developers. Build visual workflows, scan and connect to BLE devices concurrently, simulate peripherals, and export PNG &amp; video — all in one elegant Mac app.">
+<meta name="keywords" content="BLE, Bluetooth Low Energy, BLE tool, BLE scanner, BLE automation, BLE workflow, BLE testing, Bluetooth Low Energy Mac app, macOS BLE, Core Bluetooth tool, BLE simulator, BLE debugger, BLE developer tool">
+<meta name="author" content="Uy Nguyen">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://uynguyen.github.io/signal-hub/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Signal Hub">
+<meta property="og:title" content="Signal Hub for Mac — BLE Workflow Automation &amp; Bluetooth Low Energy Tool">
+<meta property="og:description" content="A macOS BLE testing &amp; automation app for Bluetooth Low Energy developers. Visual workflows, concurrent connections, built-in BLE simulator, PNG &amp; video export.">
+<meta property="og:url" content="https://uynguyen.github.io/signal-hub/">
+<meta property="og:image" content="https://uynguyen.github.io/Post-Resources/SignalHubMac/01_home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Signal Hub for Mac — concurrent BLE connections in one elegant Mac app">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Signal Hub for Mac — BLE Workflow Automation Tool">
+<meta name="twitter:description" content="A macOS BLE testing &amp; automation app. Visual workflows, concurrent BLE connections, built-in device simulator, PNG &amp; video export.">
+<meta name="twitter:image" content="https://uynguyen.github.io/Post-Resources/SignalHubMac/01_home.png">
+<meta name="twitter:image:alt" content="Signal Hub for Mac — BLE workflow automation">
+
+<!-- JSON-LD: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Signal Hub",
+  "alternateName": "Signal Hub for Mac",
+  "operatingSystem": "macOS",
+  "applicationCategory": "DeveloperApplication",
+  "applicationSubCategory": "Bluetooth Low Energy (BLE) testing and automation",
+  "description": "A macOS Bluetooth Low Energy (BLE) testing and automation tool for engineers. Scan and connect to BLE devices concurrently, build visual workflows that run on real hardware, simulate peripherals, and export PNG / video documentation.",
+  "url": "https://uynguyen.github.io/signal-hub/",
+  "image": "https://uynguyen.github.io/Post-Resources/SignalHubMac/01_home.png",
+  "screenshot": [
+    "https://uynguyen.github.io/Post-Resources/SignalHubMac/01_home.png",
+    "https://uynguyen.github.io/Post-Resources/SignalHubMac/02_workflow.png",
+    "https://uynguyen.github.io/Post-Resources/SignalHubMac/03_workflow.png",
+    "https://uynguyen.github.io/Post-Resources/SignalHubMac/05-device.png",
+    "https://uynguyen.github.io/Post-Resources/SignalHubMac/06-simulate.png"
+  ],
+  "featureList": [
+    "Concurrent BLE connections",
+    "Visual workflow builder for BLE automation",
+    "Real-device binding to workflow nodes",
+    "Built-in BLE peripheral simulator",
+    "Workspace management",
+    "PNG and video export of workflows"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Uy Nguyen",
+    "url": "https://uynguyen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Uy Nguyen",
+    "url": "https://uynguyen.github.io/"
+  }
+}
+</script>
 <link rel="icon" href="/Post-Resources/SignalHubMac/logo-transparent.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -122,6 +186,17 @@ a { color: inherit; text-decoration: none; }
   50% { transform: translate(2%, -3%) scale(1.04); }
 }
 .hero-inner { position: relative; max-width: 980px; margin: 0 auto; z-index: 1; }
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--ink-3);
+  padding: 7px 16px;
+  margin-bottom: 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(35,182,230,0.10), rgba(2,211,154,0.10));
+  border: 1px solid rgba(35,182,230,0.20);
+  backdrop-filter: blur(8px);
+}
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;
@@ -825,14 +900,17 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
 
 <header class="hero" id="top">
   <div class="hero-inner">
-    <img class="hero-logo reveal" src="/Post-Resources/SignalHubMac/logo-transparent.png" alt="Signal Hub">
+    <img class="hero-logo reveal" src="/Post-Resources/SignalHubMac/logo-transparent.png" alt="Signal Hub — BLE workflow automation tool for Mac">
+    <div class="hero-eyebrow reveal">BLE Testing · Workflow Automation · Device Simulator · macOS</div>
     <h1 class="hero-title reveal delay-1">
       The BLE workbench,<br>
       <span class="accent">reimagined for Mac.</span>
     </h1>
     <p class="hero-sub reveal delay-2">
-      Scan, connect, and interact with many Bluetooth Low Energy devices at once.
-      Design visual workflows that run on real hardware. Simulate, document, and ship — all from a single elegant app.
+      Signal Hub is a <strong>Mac app for Bluetooth Low Energy (BLE) testing and automation</strong>.
+      Scan and connect to many BLE devices at once, build visual workflows that run on real hardware,
+      simulate peripherals when the prototype hasn't shipped, and export PNG / video documentation —
+      all from one elegant macOS app.
     </p>
     <div class="hero-cta reveal delay-3">
       <a class="btn btn-primary" href="#get">Download for macOS →</a>
