@@ -877,6 +877,66 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
 
 /* parallax floating */
 .float-y { transition: transform 0.1s linear; will-change: transform; }
+
+/* ---------- Language switcher ---------- */
+.lang-switch { position: relative; }
+.lang-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: inherit;
+  font-size: 13px; font-weight: 600;
+  color: var(--ink-2);
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.lang-btn:hover { background: #fff; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
+.lang-btn svg { width: 15px; height: 15px; display: block; opacity: .75; }
+.lang-cur { letter-spacing: 0.02em; }
+.lang-caret {
+  width: 6px; height: 6px;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: rotate(45deg);
+  margin-top: -2px;
+  transition: transform .25s ease;
+}
+.lang-switch.open .lang-caret { transform: rotate(-135deg); margin-top: 2px; }
+.lang-menu {
+  position: absolute; top: calc(100% + 8px); right: 0;
+  min-width: 150px;
+  list-style: none; margin: 0; padding: 6px;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px -12px rgba(0,0,0,0.22);
+  opacity: 0; transform: translateY(-6px) scale(0.98);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 200;
+}
+.lang-switch.open .lang-menu { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+.lang-menu li {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  font-size: 13.5px; font-weight: 500;
+  color: var(--ink-2);
+  padding: 9px 12px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+.lang-menu li:hover { background: rgba(35,182,230,0.08); color: var(--ink); }
+.lang-menu li[aria-selected="true"] { color: var(--accent); font-weight: 600; }
+.lang-menu li[aria-selected="true"]::after {
+  content: '✓'; font-size: 12px; color: var(--accent);
+}
+@media (max-width: 720px) {
+  .lang-btn { padding: 6px 10px; font-size: 12.5px; }
+}
 </style>
 </head>
 <body>
@@ -893,6 +953,25 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       <a href="#simulate">Simulate</a>
       <a href="#export">Export</a>
       <a href="#demo">Demo</a>
+    </div>
+    <div class="lang-switch" id="lang-switch">
+      <button class="lang-btn" id="lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M3 12h18"></path>
+          <path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"></path>
+        </svg>
+        <span class="lang-cur">EN</span>
+        <span class="lang-caret"></span>
+      </button>
+      <ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Language">
+        <li role="option" data-lang="en">English</li>
+        <li role="option" data-lang="vi">Tiếng Việt</li>
+        <li role="option" data-lang="es">Español</li>
+        <li role="option" data-lang="pt">Português</li>
+        <li role="option" data-lang="zh">中文</li>
+        <li role="option" data-lang="ja">日本語</li>
+      </ul>
     </div>
     <a class="nav-cta" href="#get">Get Signal Hub</a>
   </div>
@@ -2096,7 +2175,8 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       var next = !expanded;
       nodesToggle.setAttribute('aria-expanded', String(next));
       if (nodesLabel) {
-        nodesLabel.textContent = next ? 'Hide all nodes' : 'Show all nodes';
+        var labelText = next ? 'Hide all nodes' : 'Show all nodes';
+        nodesLabel.textContent = (window.SH_I18N && window.SH_I18N.t) ? window.SH_I18N.t(labelText) : labelText;
       }
       if (next) {
         nodesCollection.hidden = false;
@@ -2116,6 +2196,8 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
   }
 })();
 </script>
+
+<script src="/signal-hub/i18n.js" defer></script>
 
 </body>
 </html>
