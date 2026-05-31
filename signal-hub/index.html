@@ -161,6 +161,7 @@ a { color: inherit; text-decoration: none; }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0,0,0,0.18); }
 @media (max-width: 720px) {
   .nav-links { display: none; }
+  .nav-inner { padding: 12px 18px; }
 }
 
 /* ---------- Hero ---------- */
@@ -961,8 +962,58 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
 .lang-menu li[aria-selected="true"]::after {
   content: '✓'; font-size: 12px; color: var(--accent);
 }
+/* Scrim behind the mobile bottom-sheet (hidden on desktop) */
+.lang-scrim { display: none; }
+
 @media (max-width: 720px) {
-  .lang-btn { padding: 6px 10px; font-size: 12.5px; }
+  /* The switcher is moved out of .nav (by JS) so position:fixed is
+     viewport-relative; float the trigger bottom-right. */
+  .lang-switch {
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 300;
+  }
+  .lang-btn {
+    padding: 10px 15px; font-size: 13.5px;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    box-shadow: 0 12px 30px -8px rgba(0,0,0,0.32), 0 0 0 1px rgba(255,255,255,0.5) inset;
+  }
+
+  /* Dim scrim behind the sheet */
+  .lang-scrim {
+    display: block;
+    position: fixed; inset: 0;
+    background: rgba(10,10,15,0.42);
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 290;
+  }
+  .lang-scrim.show { opacity: 1; pointer-events: auto; }
+
+  /* Bottom-sheet option list */
+  .lang-menu {
+    position: fixed; left: 0; right: 0; bottom: 0; top: auto;
+    width: auto; min-width: 0; max-width: none; margin: 0;
+    padding: 8px 14px calc(16px + env(safe-area-inset-bottom, 0px));
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -14px 44px -12px rgba(0,0,0,0.4);
+    opacity: 1;
+    transform: translateY(100%);
+    transition: transform .32s cubic-bezier(0.2, 0.85, 0.25, 1);
+  }
+  .lang-menu::before {
+    content: ''; display: block;
+    width: 38px; height: 4px; margin: 6px auto 12px;
+    border-radius: 999px; background: rgba(0,0,0,0.18);
+  }
+  .lang-switch.open .lang-menu { transform: translateY(0); }
+  .lang-menu li { padding: 15px 14px; font-size: 16px; border-radius: 12px; }
+  /* caret points up since the sheet rises from the bottom */
+  .lang-caret { transform: rotate(-135deg); margin-top: 2px; }
+  .lang-switch.open .lang-caret { transform: rotate(45deg); margin-top: -2px; }
 }
 </style>
 </head>
