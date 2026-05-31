@@ -1235,7 +1235,7 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
 
   <!-- Control -->
   <div class="nodes-category reveal">
-    <div class="nodes-category-head">Control <span class="count">— 2 nodes</span></div>
+    <div class="nodes-category-head">Control <span class="count">— 3 nodes</span></div>
     <div class="nodes-grid">
     <details class="node-item">
       <summary>
@@ -1278,6 +1278,32 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         <div class="node-example">
           <div class="node-example-title">Mark a success path</div>
           <div class="node-example-body">If/true → HTTP Request → End. The End makes "this branch is done" visible in the run log.</div>
+        </div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">∞</span>
+        <span class="node-name">Endless</span>
+        <span class="node-tagline">Park a branch indefinitely.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Parks the current branch indefinitely. The workflow stays in the running state until the user hits Stop, so concurrent triggers (timer, on-notification, on-device-discovered) can keep firing. Has no outgoing edges.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Start</span><span class="nf-arrow">→</span><span class="nf-chip">Connect</span><span class="nf-arrow">→</span><span class="nf-chip">Subscribe</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Endless</span>
+        </div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Notification-only flow</div>
+          <div class="node-example-body">Start → Connect → Subscribe → Endless. A parallel On Notification trigger reacts to inbound packets for as long as the run lasts.</div>
+        </div>
+        <div class="node-example">
+          <div class="node-example-title">Background poller</div>
+          <div class="node-example-body">Start → Timer (every 30s) → Read Char → Append CSV; in parallel: Endless. The Endless branch keeps the run alive so the timer keeps ticking.</div>
         </div>
       </div>
     </details>
@@ -1884,7 +1910,7 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
 
   <!-- Flow -->
   <div class="nodes-category reveal">
-    <div class="nodes-category-head">Flow <span class="count">— 10 nodes</span></div>
+    <div class="nodes-category-head">Flow <span class="count">— 9 nodes</span></div>
     <div class="nodes-grid">
     <details class="node-item">
       <summary>
@@ -2031,32 +2057,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         <div class="node-example">
           <div class="node-example-title">Reconnect on flaky link</div>
           <div class="node-example-body">Retry (3 attempts, 1s) → protected: Connect → Read; give-up: HTTP alert.</div>
-        </div>
-      </div>
-    </details>
-    <details class="node-item">
-      <summary>
-        <span class="node-badge">∞</span>
-        <span class="node-name">Endless</span>
-        <span class="node-tagline">Park a branch indefinitely.</span>
-        <span class="node-chevron"></span>
-      </summary>
-      <div class="node-body">
-        <p class="node-summary">Parks the current branch indefinitely. The workflow stays in the running state until the user hits Stop, so concurrent triggers (timer, on-notification, on-device-discovered) can keep firing. Has no outgoing edges.</p>
-        <div class="node-block-head">Common flow</div>
-        <div class="node-flow">
-        <span class="nf-chip">Start</span><span class="nf-arrow">→</span><span class="nf-chip">Connect</span><span class="nf-arrow">→</span><span class="nf-chip">Subscribe</span>
-        <span class="nf-arrow">→</span>
-        <span class="nf-chip nf-current">Endless</span>
-        </div>
-        <div class="node-block-head">Example use cases</div>
-        <div class="node-example">
-          <div class="node-example-title">Notification-only flow</div>
-          <div class="node-example-body">Start → Connect → Subscribe → Endless. A parallel On Notification trigger reacts to inbound packets for as long as the run lasts.</div>
-        </div>
-        <div class="node-example">
-          <div class="node-example-title">Background poller</div>
-          <div class="node-example-body">Start → Timer (every 30s) → Read Char → Append CSV; in parallel: Endless. The Endless branch keeps the run alive so the timer keeps ticking.</div>
         </div>
       </div>
     </details>
