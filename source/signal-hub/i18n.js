@@ -3690,6 +3690,26 @@ SH_TRANSLATIONS.ja = {
   var menu = document.getElementById("lang-menu");
   var curLabel = sw ? sw.querySelector(".lang-cur") : null;
 
+  // Mobile: relocate the switcher out of .nav so position:fixed is relative
+  // to the viewport (the nav's backdrop-filter otherwise traps it), and add a
+  // full-screen scrim behind the bottom-sheet menu.
+  var navRight = document.querySelector(".nav-right");
+  var scrim = null;
+  if (sw) {
+    scrim = document.createElement("div");
+    scrim.className = "lang-scrim";
+    document.body.appendChild(scrim);
+  }
+  var mq = window.matchMedia ? window.matchMedia("(max-width: 720px)") : null;
+  function placeSwitch() {
+    if (!sw) return;
+    if (mq && mq.matches) {
+      if (sw.parentNode !== document.body) document.body.appendChild(sw);
+    } else if (navRight && sw.parentNode !== navRight) {
+      navRight.insertBefore(sw, navRight.firstChild);
+    }
+  }
+
   function updateSwitcher(lang) {
     if (curLabel) curLabel.textContent = SHORT[lang] || "EN";
     if (menu) {
@@ -3707,12 +3727,14 @@ SH_TRANSLATIONS.ja = {
       sw.classList.remove("open");
       if (btn) btn.setAttribute("aria-expanded", "false");
     }
+    if (scrim) scrim.classList.remove("show");
   }
   function openMenu() {
     if (sw) {
       sw.classList.add("open");
       if (btn) btn.setAttribute("aria-expanded", "true");
     }
+    if (scrim) scrim.classList.add("show");
   }
 
   function setLang(lang, persist) {
@@ -3743,7 +3765,17 @@ SH_TRANSLATIONS.ja = {
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" || e.keyCode === 27) closeMenu();
     });
+    if (scrim) scrim.addEventListener("click", closeMenu);
+    if (mq) {
+      var onMQ = function () {
+        closeMenu();
+        placeSwitch();
+      };
+      if (mq.addEventListener) mq.addEventListener("change", onMQ);
+      else if (mq.addListener) mq.addListener(onMQ);
+    }
   }
+  placeSwitch();
 
   window.SH_I18N = {
     t: function (enText) {
