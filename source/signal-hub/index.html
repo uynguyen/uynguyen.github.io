@@ -653,6 +653,32 @@ h1.hero-title .accent {
   .node-item[open] .node-name { min-width: 0; flex: 1; }
   .node-body { padding-left: 22px; }
 }
+/* Read-only "Common flow" mini-canvas */
+.node-flow {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  padding: 10px 12px; margin-bottom: 4px;
+  background: rgba(0,0,0,0.025);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 9px; overflow-x: auto;
+}
+.nf-chip {
+  display: inline-flex; align-items: center; white-space: nowrap;
+  font-size: 12px; font-weight: 500; color: var(--ink-3);
+  padding: 5px 9px; border-radius: 7px;
+  background: #fff; border: 1px solid rgba(0,0,0,0.1);
+}
+.nf-current {
+  color: var(--ink); font-weight: 700;
+  background: rgba(35,182,230,0.12);
+  border-color: var(--accent);
+}
+.nf-arrow { color: var(--muted); opacity: 0.6; font-size: 12px; }
+.nf-branches { display: flex; flex-direction: column; gap: 6px; }
+.nf-branch { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.nf-label {
+  font-size: 10px; font-weight: 700; color: var(--ink-3);
+  background: rgba(0,0,0,0.06); border-radius: 999px; padding: 2px 8px;
+}
 
 /* ---------- Section ---------- */
 section.section {
@@ -879,6 +905,7 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
 .float-y { transition: transform 0.1s linear; will-change: transform; }
 
 /* ---------- Language switcher ---------- */
+.nav-right { display: flex; align-items: center; gap: 14px; }
 .lang-switch { position: relative; }
 .lang-btn {
   display: inline-flex; align-items: center; gap: 7px;
@@ -954,6 +981,7 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       <a href="#export">Export</a>
       <a href="#demo">Demo</a>
     </div>
+    <div class="nav-right">
     <div class="lang-switch" id="lang-switch">
       <button class="lang-btn" id="lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -973,7 +1001,8 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         <li role="option" data-lang="ja">日本語</li>
       </ul>
     </div>
-    <a class="nav-cta" href="#get">Get Signal Hub</a>
+      <a class="nav-cta" href="#get">Get Signal Hub</a>
+    </div>
   </div>
 </nav>
 
@@ -1192,7 +1221,7 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
 <section class="nodes-section" id="nodes">
   <div class="nodes-header">
     <div class="section-eyebrow reveal">Workflow nodes</div>
-    <h2 class="section-title reveal delay-1" style="font-size: clamp(28px, 3.6vw, 46px);">38 building blocks.<br>One workflow.</h2>
+    <h2 class="section-title reveal delay-1" style="font-size: clamp(28px, 3.6vw, 46px);">53 building blocks.<br>One workflow.</h2>
     <p class="section-lead reveal delay-2" style="margin-left: auto; margin-right: auto;">
       Each node is a single BLE action — scan, connect, read, branch, wait. Snap them together on the canvas and you've described a complete protocol exchange, ready to run on a real device or the built-in simulator.
     </p>
@@ -1202,7 +1231,7 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
     </button>
   </div>
 
-  <div class="nodes-collection" id="nodes-collection" hidden>
+    <div class="nodes-collection" id="nodes-collection" hidden>
 
   <!-- Control -->
   <div class="nodes-category reveal">
@@ -1217,6 +1246,12 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Entry point of the workflow. Exactly one Start node is allowed — execution begins here when you press Run.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip nf-current">Start</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Connect</span><span class="nf-arrow">→</span><span class="nf-chip">Read Char</span>
+        </div>
         <div class="node-block-head">Example use cases</div>
         <div class="node-example">
           <div class="node-example-title">Every workflow</div>
@@ -1224,7 +1259,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">E</span>
@@ -1234,6 +1268,12 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Terminates a branch cleanly. Optional — branches that reach a dead end also stop, but End makes the intent explicit.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">If</span><span class="nf-arrow">→</span><span class="nf-chip">HTTP Request</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">End</span>
+        </div>
         <div class="node-block-head">Example use cases</div>
         <div class="node-example">
           <div class="node-example-title">Mark a success path</div>
@@ -1246,7 +1286,7 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
 
   <!-- Triggers -->
   <div class="nodes-category reveal">
-    <div class="nodes-category-head">Triggers <span class="count">— 6 nodes</span></div>
+    <div class="nodes-category-head">Triggers <span class="count">— 7 nodes</span></div>
     <div class="nodes-grid">
     <details class="node-item">
       <summary>
@@ -1257,6 +1297,12 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Blocks until a peripheral advertisement matches the configured filters (name substring, manufacturer-data hex prefix, RSSI threshold). Auto-starts a scan unless disabled.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip nf-current">On Device Discovered</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Connect</span><span class="nf-arrow">→</span><span class="nf-chip">Read Char</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Name match</div><div class="node-attr-detail">Case-insensitive substring required in the advertised local name. Empty = don't filter on name.</div></div>
         <div class="node-attr"><div class="node-attr-name">Manufacturer (hex)</div><div class="node-attr-detail">Hex prefix the device's manufacturer data must start with. Common pattern: <code>4C00</code> for Apple beacons.</div></div>
@@ -1271,7 +1317,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">▸</span>
@@ -1281,6 +1326,12 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Blocks until a connect event fires. Optionally filters by mac so the trigger only resumes when a specific device comes online.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip nf-current">On Device Connected</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Discover Services</span><span class="nf-arrow">→</span><span class="nf-chip">Subscribe</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Device address</div><div class="node-attr-detail">Optional mac. Empty = match any connect.</div></div>
         <div class="node-attr"><div class="node-attr-name">Timeout (s)</div><div class="node-attr-detail">Maximum wait. Empty = wait forever.</div></div>
@@ -1292,7 +1343,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">▸</span>
@@ -1302,6 +1352,12 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Blocks until a disconnect event fires. Used to react to peripherals dropping the link without polling.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip nf-current">On Device Disconnected</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Notify Desktop</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Device address</div><div class="node-attr-detail">Optional mac. Empty = match any disconnect.</div></div>
         <div class="node-attr"><div class="node-attr-name">Timeout (s)</div><div class="node-attr-detail">Maximum wait. Empty = wait forever.</div></div>
@@ -1313,7 +1369,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">▸</span>
@@ -1323,6 +1378,12 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Blocks until a characteristic notification matches the optional hex prefix. Auto-subscribes to the characteristic before listening so a separate Subscribe step isn't required.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip nf-current">On Notification</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Transform</span><span class="nf-arrow">→</span><span class="nf-chip">Append CSV</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Target characteristic. Must be notifiable or indicatable.</div></div>
         <div class="node-attr"><div class="node-attr-name">Match prefix (hex)</div><div class="node-attr-detail">Optional hex prefix the payload must start with. Empty = match any notification.</div></div>
@@ -1335,7 +1396,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">⏱</span>
@@ -1345,6 +1405,12 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Waits on a time condition before continuing. <strong>After delay</strong> = one-shot wait. <strong>Interval</strong> = self-looping periodic tick that runs forever until stopped. <strong>Exact date</strong> = wait until an ISO-8601 timestamp.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip nf-current">Timer</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Read RSSI</span><span class="nf-arrow">→</span><span class="nf-chip">Append CSV</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Mode</div><div class="node-attr-detail">After delay: wait N seconds, then take edge 1 once. Interval: fire repeatedly on each N-second boundary. Exact date: wait until ISO-8601 timestamp.</div></div>
         <div class="node-attr"><div class="node-attr-name">Seconds</div><div class="node-attr-detail">Delay or interval length for After / Interval modes.</div></div>
@@ -1365,7 +1431,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">◾</span>
@@ -1375,6 +1440,12 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Cancels a running Timer node addressed by name. The targeted timer's pending wait is disposed immediately, no more ticks fire. Other branches and timers keep running.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Timer</span><span class="nf-arrow">→</span><span class="nf-chip">If</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Stop Timer</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Timer name</div><div class="node-attr-detail">Must match the target Timer node's Name field. Stopping by name lets one workflow run many timers and cancel them independently.</div></div>
         <div class="node-block-head">Example use cases</div>
@@ -1388,12 +1459,40 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⦿</span>
+        <span class="node-name">Capture Ad</span>
+        <span class="node-tagline">Waits for the next advertisement matching the configured filter (mac, name substring, manufacturer prefix) and stashes selected fields into prefixed variables.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Waits for the next advertisement matching the configured filter (mac, name substring, manufacturer prefix) and stashes selected fields into prefixed variables. One-shot — returns as soon as a match arrives.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Start Scan</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Capture Ad</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">If</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Device MAC</div><div class="node-attr-detail">Specific peripheral to wait for. Empty = match by name / mfg instead.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Name contains / Manufacturer prefix</div><div class="node-attr-detail">Substring filter on the advertised name and prefix filter on manufacturer bytes (uppercase hex, no separators). Combined with AND.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Variable prefix</div><div class="node-attr-detail">Prefix for the captured fields: <code>&lt;prefix&gt;_mac</code>, <code>_name</code>, <code>_rssi</code>, <code>_mfg</code>, <code>_services</code>, <code>_connectable</code>. Defaults to <code>ad</code>.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Auto-scan</div><div class="node-attr-detail">Start a scan on entry and stop it on match. Off when an upstream Start Scan is already running.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Timeout</div><div class="node-attr-detail">How long to wait. Off = wait indefinitely.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Adopt the first matching sensor</div><div class="node-example-body">Capture Ad (name~ACME, prefix=ad, timeout=10s) → Connect (mac=${ad_mac}) → Read Char.</div></div>
+        <div class="node-example"><div class="node-example-title">Fingerprint by mfg payload</div><div class="node-example-body">Capture Ad (mfg=4C00, prefix=apple) → Log <code>saw ${apple_name} · ${apple_rssi} dBm</code> → End.</div></div>
+      </div>
+    </details>
     </div>
   </div>
 
-  <!-- Scan -->
+  <!-- Connection -->
   <div class="nodes-category reveal">
-    <div class="nodes-category-head">Scan <span class="count">— 2 nodes</span></div>
+    <div class="nodes-category-head">Connection <span class="count">— 8 nodes</span></div>
     <div class="nodes-grid">
     <details class="node-item">
       <summary>
@@ -1404,6 +1503,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Begins a BLE scan. Continues running asynchronously; subsequent steps execute immediately without waiting for results.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Start</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Start Scan</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Delay</span><span class="nf-arrow">→</span><span class="nf-chip">Stop Scan</span><span class="nf-arrow">→</span><span class="nf-chip">Connect</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Service UUID</div><div class="node-attr-detail">Optional. When set, only devices advertising this service appear in scan results. Empty = scan everything.</div></div>
         <div class="node-attr"><div class="node-attr-name">Allow duplicates</div><div class="node-attr-detail">When on, the same device produces multiple advertisement events. Useful for live RSSI tracking; off for one-shot discovery.</div></div>
@@ -1414,7 +1521,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">◾</span>
@@ -1424,6 +1530,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Stops an in-progress scan. Pair with Start Scan when you want a bounded discovery window.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Start Scan</span><span class="nf-arrow">→</span><span class="nf-chip">Delay</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Stop Scan</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Connect</span>
+        </div>
         <div class="node-block-head">Example use cases</div>
         <div class="node-example">
           <div class="node-example-title">Bounded scan</div>
@@ -1431,13 +1545,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-    </div>
-  </div>
-
-  <!-- Connection -->
-  <div class="nodes-category reveal">
-    <div class="nodes-category-head">Connection <span class="count">— 2 nodes</span></div>
-    <div class="nodes-grid">
     <details class="node-item">
       <summary>
         <span class="node-badge">⇆</span>
@@ -1447,6 +1554,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Connects to a peripheral by MAC. Resolves on "connected" — i.e. CoreBluetooth fired didConnect and the link is up.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Start</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Connect</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Discover Services</span><span class="nf-arrow">→</span><span class="nf-chip">Read Char</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Device</div><div class="node-attr-detail">Pick from the live device list (populated by Start Scan / known devices). The selected MAC becomes the workflow's active device for downstream BLE steps.</div></div>
         <div class="node-block-head">Example use cases</div>
@@ -1460,7 +1575,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">⇎</span>
@@ -1470,6 +1584,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Closes the active connection. Always good practice at the end of a workflow so the peripheral is free for other apps.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Disconnect</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">End</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Device</div><div class="node-attr-detail">Defaults to the active device. Override only if you've connected to multiple peripherals in the same workflow.</div></div>
         <div class="node-block-head">Example use cases</div>
@@ -1479,22 +1601,23 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-    </div>
-  </div>
-
-  <!-- Discovery -->
-  <div class="nodes-category reveal">
-    <div class="nodes-category-head">Discovery <span class="count">— 2 nodes</span></div>
-    <div class="nodes-grid">
     <details class="node-item">
       <summary>
         <span class="node-badge">▤</span>
         <span class="node-name">Discover Services</span>
-        <span class="node-tagline">Enumerate the peripheral's services.</span>
+        <span class="node-tagline">Enumerate the peripheral&#x27;s services.</span>
         <span class="node-chevron"></span>
       </summary>
       <div class="node-body">
         <p class="node-summary">Asks the peripheral to enumerate its services. Required before reading/writing characteristics on most devices.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Connect</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Discover Services</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Discover Characteristics</span>
+        </div>
         <div class="node-block-head">Example use cases</div>
         <div class="node-example">
           <div class="node-example-title">Standard prep</div>
@@ -1502,7 +1625,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">▥</span>
@@ -1512,6 +1634,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Enumerates the characteristics under each discovered service. Run after Discover Services.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Discover Services</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Discover Characteristics</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Read Char</span>
+        </div>
         <div class="node-block-head">Example use cases</div>
         <div class="node-example">
           <div class="node-example-title">Walk the GATT</div>
@@ -1519,22 +1649,82 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">◉</span>
+        <span class="node-name">Subscribe</span>
+        <span class="node-tagline">Enable notifications on a characteristic.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Enables notifications/indications on a characteristic. Subsequent notifications populate <code>lastReadHex</code> and fire Wait Notification steps.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Connect</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Subscribe</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Wait Notification</span><span class="nf-arrow">→</span><span class="nf-chip">Transform</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Target characteristic. Must be notifiable or indicatable.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Live stream</div>
+          <div class="node-example-body">Subscribe (heart rate) → Wait Notification (5s) → Set Variable (hr = lastReadHex). Loop with Repeat.</div>
+        </div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">○</span>
+        <span class="node-name">Unsubscribe</span>
+        <span class="node-tagline">Turn off notifications for a characteristic.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Turns off notifications for a characteristic. Useful when a workflow has multiple subscribe/unsubscribe phases.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Wait Notification</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Unsubscribe</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Disconnect</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Same UUID as the Subscribe step you want to stop.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Bounded listen window</div>
+          <div class="node-example-body">Subscribe → Delay 10s → Unsubscribe → Disconnect.</div>
+        </div>
+      </div>
+    </details>
     </div>
   </div>
 
-  <!-- I/O -->
+  <!-- Read / Write -->
   <div class="nodes-category reveal">
-    <div class="nodes-category-head">Read / Write <span class="count">— 4 nodes</span></div>
+    <div class="nodes-category-head">Read / Write <span class="count">— 6 nodes</span></div>
     <div class="nodes-grid">
     <details class="node-item">
       <summary>
         <span class="node-badge">↓</span>
         <span class="node-name">Read Char</span>
-        <span class="node-tagline">Read a characteristic's current value.</span>
+        <span class="node-tagline">Read a characteristic&#x27;s current value.</span>
         <span class="node-chevron"></span>
       </summary>
       <div class="node-body">
         <p class="node-summary">Reads the current value of a characteristic. Resolves with raw bytes; the bytes are stored in <code>lastReadHex</code> and (optionally) into a named variable.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Connect</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Read Char</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Transform</span><span class="nf-arrow">→</span><span class="nf-chip">If</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Standard short (<code>0x2A19</code>) or 128-bit UUID. The picker fills this in from the discovered list.</div></div>
         <div class="node-attr"><div class="node-attr-name">Value format / endian</div><div class="node-attr-detail">How the result is decoded for display on the node card. Doesn't change <code>lastReadHex</code> — only the human-readable view.</div></div>
@@ -1550,7 +1740,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">↑</span>
@@ -1560,6 +1749,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Writes bytes to a characteristic. Supports hex (<code>DE AD</code>) or text payloads, and chooses write-with/without-response automatically based on the characteristic's properties.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Connect</span><span class="nf-arrow">→</span><span class="nf-chip">Set Variable</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Write Char</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Read Char</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Target characteristic.</div></div>
         <div class="node-attr"><div class="node-attr-name">Payload</div><div class="node-attr-detail">Hex bytes (<code>DE AD BE EF</code>) or <code>${var}</code> interpolations. The executor chunks payloads larger than the negotiated MTU automatically.</div></div>
@@ -1574,7 +1771,58 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">∿</span>
+        <span class="node-name">Read RSSI</span>
+        <span class="node-tagline">Read the current connection RSSI.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Reads the current RSSI of the active connection. Stored in the <code>lastRSSI</code> runtime slot and (optionally) into a named variable.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Connect</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Read RSSI</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">If</span><span class="nf-arrow">→</span><span class="nf-chip">Notify Desktop</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable name.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Range check</div>
+          <div class="node-example-body">Read RSSI → If (lastRSSI, &lt;, -85) → true: HTTP "link weak".</div>
+        </div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">‖</span>
+        <span class="node-name">Read MTU</span>
+        <span class="node-tagline">Read the negotiated ATT MTU.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Reads the negotiated ATT MTU. macOS CoreBluetooth doesn't expose an API to <em>request</em> a specific MTU — this step just surfaces what the OS negotiated at connect time.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Connect</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Read MTU</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Write Char</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable name for the MTU integer.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example">
+          <div class="node-example-title">Chunk sizing diagnostics</div>
+          <div class="node-example-body">Connect → Read MTU (store as=mtu) → HTTP Request (body uses <code>${mtu}</code>).</div>
+        </div>
+      </div>
+    </details>
     <details class="node-item">
       <summary>
         <span class="node-badge">↓</span>
@@ -1584,6 +1832,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Reads a GATT descriptor (e.g. Characteristic User Description <code>0x2901</code>, Format <code>0x2904</code>, or the current notify-state bits in the CCCD <code>0x2902</code>).</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Discover Characteristics</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Read Descriptor</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Log</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Parent characteristic.</div></div>
         <div class="node-attr"><div class="node-attr-name">Descriptor UUID</div><div class="node-attr-detail">Standard short (<code>0x2901</code>, <code>0x2902</code>, <code>0x2904</code>) or 128-bit UUID.</div></div>
@@ -1595,7 +1851,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">↑</span>
@@ -1605,6 +1860,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Writes bytes to a writable GATT descriptor. ⚠️ macOS blocks writes to the CCCD (<code>0x2902</code>) — use Subscribe instead. Useful for the rare devices that expose other writable descriptors.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Discover Characteristics</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Write Descriptor</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Subscribe</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Parent characteristic.</div></div>
         <div class="node-attr"><div class="node-attr-name">Descriptor UUID</div><div class="node-attr-detail">Target descriptor — anything other than <code>0x2902</code>.</div></div>
@@ -1619,53 +1882,9 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
     </div>
   </div>
 
-  <!-- Notify -->
-  <div class="nodes-category reveal">
-    <div class="nodes-category-head">Notify <span class="count">— 2 nodes</span></div>
-    <div class="nodes-grid">
-    <details class="node-item">
-      <summary>
-        <span class="node-badge">◉</span>
-        <span class="node-name">Subscribe</span>
-        <span class="node-tagline">Enable notifications on a characteristic.</span>
-        <span class="node-chevron"></span>
-      </summary>
-      <div class="node-body">
-        <p class="node-summary">Enables notifications/indications on a characteristic. Subsequent notifications populate <code>lastReadHex</code> and fire Wait Notification steps.</p>
-        <div class="node-block-head">Attributes</div>
-        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Target characteristic. Must be notifiable or indicatable.</div></div>
-        <div class="node-block-head">Example use cases</div>
-        <div class="node-example">
-          <div class="node-example-title">Live stream</div>
-          <div class="node-example-body">Subscribe (heart rate) → Wait Notification (5s) → Set Variable (hr = lastReadHex). Loop with Repeat.</div>
-        </div>
-      </div>
-    </details>
-
-    <details class="node-item">
-      <summary>
-        <span class="node-badge">○</span>
-        <span class="node-name">Unsubscribe</span>
-        <span class="node-tagline">Turn off notifications for a characteristic.</span>
-        <span class="node-chevron"></span>
-      </summary>
-      <div class="node-body">
-        <p class="node-summary">Turns off notifications for a characteristic. Useful when a workflow has multiple subscribe/unsubscribe phases.</p>
-        <div class="node-block-head">Attributes</div>
-        <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Same UUID as the Subscribe step you want to stop.</div></div>
-        <div class="node-block-head">Example use cases</div>
-        <div class="node-example">
-          <div class="node-example-title">Bounded listen window</div>
-          <div class="node-example-body">Subscribe → Delay 10s → Unsubscribe → Disconnect.</div>
-        </div>
-      </div>
-    </details>
-    </div>
-  </div>
-
   <!-- Flow -->
   <div class="nodes-category reveal">
-    <div class="nodes-category-head">Flow <span class="count">— 7 nodes</span></div>
+    <div class="nodes-category-head">Flow <span class="count">— 10 nodes</span></div>
     <div class="nodes-grid">
     <details class="node-item">
       <summary>
@@ -1676,6 +1895,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Loops its first output edge N times, then takes the second output (exit) once. Body executions are numbered (<code>#1</code>, <code>#2</code>, …) in the run log.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Connect</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Repeat</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Read Char</span><span class="nf-arrow">→</span><span class="nf-chip">Delay</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Times</div><div class="node-attr-detail">Number of iterations of the body branch before falling through to the exit branch.</div></div>
         <div class="node-block-head">Example use cases</div>
@@ -1685,7 +1912,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">⏳</span>
@@ -1695,6 +1921,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Pauses the branch for a fixed duration. Other parallel branches keep running.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Start Scan</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Delay</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Stop Scan</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Duration (s)</div><div class="node-attr-detail">Seconds to wait before continuing. Floats are fine (0.25 = 250 ms).</div></div>
         <div class="node-block-head">Example use cases</div>
@@ -1704,7 +1938,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">⑂</span>
@@ -1714,6 +1947,13 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Fans out into multiple branches that run concurrently. Each outgoing edge starts its own execution token.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Connect</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Parallel</span>
+        <span class="nf-branches"><span class="nf-branch"><span class="nf-arrow">→</span><span class="nf-chip">Read Char</span><span class="nf-arrow">→</span><span class="nf-chip">Join</span></span><span class="nf-branch"><span class="nf-arrow">→</span><span class="nf-chip">Read RSSI</span><span class="nf-arrow">→</span><span class="nf-chip">Join</span></span></span>
+        </div>
         <div class="node-block-head">Example use cases</div>
         <div class="node-example">
           <div class="node-example-title">Read two characteristics at once</div>
@@ -1721,7 +1961,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">⨝</span>
@@ -1731,6 +1970,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Counterpart to Parallel: waits until every incoming edge has delivered a token before continuing downstream.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Parallel</span><span class="nf-arrow">→</span><span class="nf-chip">Read Char</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Join</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">HTTP Request</span>
+        </div>
         <div class="node-block-head">Example use cases</div>
         <div class="node-example">
           <div class="node-example-title">Fan-out / fan-in</div>
@@ -1738,7 +1985,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">⛨</span>
@@ -1748,6 +1994,13 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Wraps its protected branch (edge 0). If any downstream step on that branch fails, execution jumps to the catch branch (edge 1) instead of failing the workflow.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Start</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Try / Catch</span>
+        <span class="nf-branches"><span class="nf-branch"><span class="nf-arrow">→</span><span class="nf-label">protected</span><span class="nf-arrow">→</span><span class="nf-chip">Connect</span><span class="nf-arrow">→</span><span class="nf-chip">Read Char</span></span><span class="nf-branch"><span class="nf-arrow">→</span><span class="nf-label">catch</span><span class="nf-arrow">→</span><span class="nf-chip">Notify Desktop</span></span></span>
+        </div>
         <div class="node-block-head">Example use cases</div>
         <div class="node-example">
           <div class="node-example-title">Reconnect on transient failure</div>
@@ -1755,7 +2008,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">↺</span>
@@ -1765,6 +2017,13 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Wraps a branch in a retry loop. If anything downstream of edge 0 errors, the executor delays then re-enters edge 0 — up to <code>attempts</code> total tries before falling through to edge 1 (the give-up branch).</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Start</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Retry</span>
+        <span class="nf-branches"><span class="nf-branch"><span class="nf-arrow">→</span><span class="nf-label">attempt</span><span class="nf-arrow">→</span><span class="nf-chip">Connect</span><span class="nf-arrow">→</span><span class="nf-chip">Read Char</span></span><span class="nf-branch"><span class="nf-arrow">→</span><span class="nf-label">gave up</span><span class="nf-arrow">→</span><span class="nf-chip">Notify Desktop</span></span></span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Attempts</div><div class="node-attr-detail">Total tries (1 = no retry; the branch runs once and any failure falls through immediately).</div></div>
         <div class="node-attr"><div class="node-attr-name">Backoff (s)</div><div class="node-attr-detail">Delay applied before each retry. Doesn't apply before the first attempt.</div></div>
@@ -1775,7 +2034,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">∞</span>
@@ -1785,6 +2043,12 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Parks the current branch indefinitely. The workflow stays in the running state until the user hits Stop, so concurrent triggers (timer, on-notification, on-device-discovered) can keep firing. Has no outgoing edges.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Start</span><span class="nf-arrow">→</span><span class="nf-chip">Connect</span><span class="nf-arrow">→</span><span class="nf-chip">Subscribe</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Endless</span>
+        </div>
         <div class="node-block-head">Example use cases</div>
         <div class="node-example">
           <div class="node-example-title">Notification-only flow</div>
@@ -1796,12 +2060,87 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⏸</span>
+        <span class="node-name">Debounce</span>
+        <span class="node-tagline">Trailing-edge debounce for noisy streams.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Trailing-edge debounce for noisy streams. Waits for a quiet period before continuing; a fresh arrival within the window restarts the wait, so a burst of notifications collapses into a single downstream fire once the stream goes quiet.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Wait Notification</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Debounce</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">HTTP Request</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Quiet period (ms)</div><div class="node-attr-detail">Milliseconds of silence required before the latest token proceeds. Each new arrival restarts this timer.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Coalesce a chatty notify stream</div><div class="node-example-body">On Notification (repeat) → Debounce (300 ms) → Read Char → Log. Downstream runs once per burst instead of per packet.</div></div>
+        <div class="node-example"><div class="node-example-title">Settle before acting</div><div class="node-example-body">On Notification → Debounce (500 ms) → HTTP Request. The upload fires only after the device stops sending for half a second.</div></div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⏬</span>
+        <span class="node-name">Throttle</span>
+        <span class="node-tagline">Leading-edge rate limit.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Leading-edge rate limit. The first token through fires downstream immediately, then further tokens are dropped for the cooldown window. The prompt-response counterpart to Debounce — caps how often a path runs without waiting for the stream to go quiet.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Wait Notification</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Throttle</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">HTTP Request</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Cooldown (ms)</div><div class="node-attr-detail">How long the gate stays closed after a token passes. Tokens arriving during this window are dropped.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Rate-limit a dashboard push</div><div class="node-example-body">On Notification (repeat) → Throttle (500 ms) → HTTP Request. Updates the server at most twice a second even under a packet flood.</div></div>
+        <div class="node-example"><div class="node-example-title">Debounce vs Throttle</div><div class="node-example-body">Throttle fires immediately then ignores the rest of the burst; Debounce waits for the burst to end then fires once. Pick Throttle when prompt response matters.</div></div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">∀</span>
+        <span class="node-name">Foreach</span>
+        <span class="node-tagline">Iterates an array variable, running the body edge once per element with the current item (and index) exposed as variables.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Iterates an array variable, running the body edge once per element with the current item (and index) exposed as variables. Cleaner than Repeat + manual index arithmetic.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">JSON Extract</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Foreach</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Write Char</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Array variable</div><div class="node-attr-detail">Holds the list to iterate — a JSON array (e.g. from JSON Extract / HTTP), or a comma/newline-separated list.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Item variable</div><div class="node-attr-detail">Receives the current element on each pass. Defaults to <code>item</code>.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Index variable</div><div class="node-attr-detail">Optional — receives the current 0-based index.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Edges</div><div class="node-attr-detail">Edge 0 = body (per item); edge 1 = done. Wire the body's end back to this node, the same as Repeat.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Replay a command list</div><div class="node-example-body">HTTP Request (store=resp) → JSON Extract (path=cmds, out=cmds) → Foreach (array=cmds, item=cmd) → Base64 (Decode, in=cmd, out=raw) → Write Char (<code>${raw}</code>); body loops back to Foreach.</div></div>
+        <div class="node-example"><div class="node-example-title">Iterate a CSV line</div><div class="node-example-body">Set Variable (vals=<code>1, 2, 3</code>) → Foreach (array=vals, item=v, index=i) → Log <code>row ${i} = ${v}</code>.</div></div>
+      </div>
+    </details>
     </div>
   </div>
 
   <!-- Logic -->
   <div class="nodes-category reveal">
-    <div class="nodes-category-head">Logic <span class="count">— 3 nodes</span></div>
+    <div class="nodes-category-head">Logic <span class="count">— 4 nodes</span></div>
     <div class="nodes-grid">
     <details class="node-item">
       <summary>
@@ -1812,6 +2151,13 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Branches on a condition. Edge 0 = true, edge 1 = false. Compares a Source (variable, last RSSI, last hex, isConnected) against a Right-hand value using the chosen operator.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span><span class="nf-arrow">→</span><span class="nf-chip">Transform</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">If</span>
+        <span class="nf-branches"><span class="nf-branch"><span class="nf-arrow">→</span><span class="nf-label">true</span><span class="nf-arrow">→</span><span class="nf-chip">Notify Desktop</span></span><span class="nf-branch"><span class="nf-arrow">→</span><span class="nf-label">false</span><span class="nf-arrow">→</span><span class="nf-chip">End</span></span></span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Source</div><div class="node-attr-detail">What the left-hand value is: <code>variable</code> looks up a stored variable; <code>lastRSSI</code> / <code>lastReadHex</code> / <code>isConnected</code> use runtime state.</div></div>
         <div class="node-attr"><div class="node-attr-name">Variable Name</div><div class="node-attr-detail">Only shown when Source = variable. The name to look up.</div></div>
@@ -1828,7 +2174,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">◔</span>
@@ -1838,6 +2183,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Blocks the branch until a notification arrives on the characteristic, or the timeout elapses. The received bytes populate <code>lastReadHex</code>.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Subscribe</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Wait Notification</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Transform</span><span class="nf-arrow">→</span><span class="nf-chip">Append CSV</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Characteristic UUID</div><div class="node-attr-detail">Must already be Subscribed.</div></div>
         <div class="node-attr"><div class="node-attr-name">Match (hex)</div><div class="node-attr-detail">Optional. If set, ignore notifications that don't equal these bytes.</div></div>
@@ -1850,7 +2203,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">✓</span>
@@ -1860,6 +2212,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Checks a condition and fails the step if it's false. Same operand/operator semantics as the If node, but doesn't branch — it terminates the branch on failure (or jumps to the nearest Try/Catch / Retry catch edge).</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span><span class="nf-arrow">→</span><span class="nf-chip">Transform</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Assert</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">End</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Source / Operator / Value</div><div class="node-attr-detail">Same as If. Compares a variable, lastRSSI, lastReadHex, or isConnected against a literal value.</div></div>
         <div class="node-attr"><div class="node-attr-name">Message</div><div class="node-attr-detail">Optional human-readable message included in the failure entry. Defaults to the operand-vs-expected summary.</div></div>
@@ -1874,12 +2234,36 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⎇</span>
+        <span class="node-name">Switch</span>
+        <span class="node-tagline">N-way branch.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">N-way branch. Compares an input against one value per line and follows the matching outgoing edge. If nothing matches, the LAST outgoing edge fires as the default.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span><span class="nf-arrow">→</span><span class="nf-chip">Transform</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Switch</span>
+        <span class="nf-branches"><span class="nf-branch"><span class="nf-arrow">→</span><span class="nf-label">case 0</span><span class="nf-arrow">→</span><span class="nf-chip">Write Char</span></span><span class="nf-branch"><span class="nf-arrow">→</span><span class="nf-label">case 1</span><span class="nf-arrow">→</span><span class="nf-chip">HTTP Request</span></span><span class="nf-branch"><span class="nf-arrow">→</span><span class="nf-label">default</span><span class="nf-arrow">→</span><span class="nf-chip">Log</span></span></span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Source</div><div class="node-attr-detail">What to compare — variable, last RSSI, last read (hex), or <code>isConnected</code>. Same set the If node supports.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Cases</div><div class="node-attr-detail">One value per line. The Nth line maps to the Nth outgoing edge. Wire one extra outgoing edge for the default fall-through.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Dispatch by status byte</div><div class="node-example-body">Read Char (status byte) → Switch (source=lastReadHex, cases:   0x00   0x01   0x02) Edges in document order → OK path / busy path / error path / default path.</div></div>
+        <div class="node-example"><div class="node-example-title">Per-device routing</div><div class="node-example-body">Set Variable (name=devType, src=isConnected) → Switch (source=variable, var=devType, cases:   true   false)</div></div>
+      </div>
+    </details>
     </div>
   </div>
 
   <!-- Data -->
   <div class="nodes-category reveal">
-    <div class="nodes-category-head">Data <span class="count">— 3 nodes</span></div>
+    <div class="nodes-category-head">Data <span class="count">— 13 nodes</span></div>
     <div class="nodes-grid">
     <details class="node-item">
       <summary>
@@ -1890,6 +2274,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Stores a value into a named variable so later steps can reference it. The source can be a literal, another variable, last RSSI, last hex, or the connection state.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Set Variable</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">If</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Variable Name</div><div class="node-attr-detail">Destination. Pick something the If / Transform / payload steps will reference.</div></div>
         <div class="node-attr"><div class="node-attr-name">Source</div><div class="node-attr-detail">Where the value comes from: <code>variable</code> (literal or another variable), <code>lastRSSI</code>, <code>lastReadHex</code>, <code>isConnected</code>.</div></div>
@@ -1905,7 +2297,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">⇒</span>
@@ -1915,6 +2306,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Converts a hex string into a decoded value (UInt8 / UInt16 / Float / UTF-8 / sliced bytes) or vice versa. Reads from <code>lastReadHex</code> if no input variable is set.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Transform</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">If</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Operation</div><div class="node-attr-detail">hexToUtf8 (auto-trims NUL / whitespace), utf8ToHex, hexToUInt8/16/Int16/Float32 (LE/BE), hexSlice (offset + length).</div></div>
         <div class="node-attr"><div class="node-attr-name">Input</div><div class="node-attr-detail">Source variable name. Empty = use lastReadHex.</div></div>
@@ -1931,7 +2330,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">▦</span>
@@ -1941,6 +2339,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Parses a hex payload into multiple named fields in one node — replaces a chain of Transform nodes when you have a structured packet with several offsets.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Payload Parser</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Append CSV</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">Input</div><div class="node-attr-detail">Source variable name. Empty = use lastReadHex.</div></div>
         <div class="node-attr"><div class="node-attr-name">Fields</div><div class="node-attr-detail">One field per line: <code>name  offset  length  type  [endian]</code>. Types: hex, utf8, ascii, uint8/int8, uint16/int16, uint32/int32, float32, float64. <code>length</code> of 0 = to end. Endian (LE/BE) only required for multi-byte numeric types.</div></div>
@@ -1954,58 +2360,266 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-    </div>
-  </div>
-
-  <!-- Link -->
-  <div class="nodes-category reveal">
-    <div class="nodes-category-head">Link <span class="count">— 2 nodes</span></div>
-    <div class="nodes-grid">
     <details class="node-item">
       <summary>
-        <span class="node-badge">∿</span>
-        <span class="node-name">Read RSSI</span>
-        <span class="node-tagline">Read the current connection RSSI.</span>
+        <span class="node-badge">≣</span>
+        <span class="node-name">Log</span>
+        <span class="node-tagline">Writes a free-form message into the run log.</span>
         <span class="node-chevron"></span>
       </summary>
       <div class="node-body">
-        <p class="node-summary">Reads the current RSSI of the active connection. Stored in the <code>lastRSSI</code> runtime slot and (optionally) into a named variable.</p>
-        <div class="node-block-head">Attributes</div>
-        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable name.</div></div>
-        <div class="node-block-head">Example use cases</div>
-        <div class="node-example">
-          <div class="node-example-title">Range check</div>
-          <div class="node-example-body">Read RSSI → If (lastRSSI, &lt;, -85) → true: HTTP "link weak".</div>
+        <p class="node-summary">Writes a free-form message into the run log. References to <code>${var}</code> are resolved against the live variable store at run time, so the same node prints the current value of any variable wired upstream.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Log</span>
         </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Message</div><div class="node-attr-detail">Plain text. <code>${name}</code> is substituted with the value of the variable <code>name</code>; unknown variables are left as-is so typos are easy to spot.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Print a read value</div><div class="node-example-body">Read Char → Transform (hexToUInt8, output=batt) → Log (<code>battery=${batt}%</code>).</div></div>
+        <div class="node-example"><div class="node-example-title">Mark a branch</div><div class="node-example-body">Drop a Log on each path out of an If node (<code>took true branch</code> / <code>took false branch</code>) so the run log shows which way the decision went.</div></div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
-        <span class="node-badge">‖</span>
-        <span class="node-name">Read MTU</span>
-        <span class="node-tagline">Read the negotiated ATT MTU.</span>
+        <span class="node-badge">ƒ</span>
+        <span class="node-name">Expression</span>
+        <span class="node-tagline">Evaluates an arithmetic expression and stores the numeric result.</span>
         <span class="node-chevron"></span>
       </summary>
       <div class="node-body">
-        <p class="node-summary">Reads the negotiated ATT MTU. macOS CoreBluetooth doesn't expose an API to <em>request</em> a specific MTU — this step just surfaces what the OS negotiated at connect time.</p>
-        <div class="node-block-head">Attributes</div>
-        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Optional variable name for the MTU integer.</div></div>
-        <div class="node-block-head">Example use cases</div>
-        <div class="node-example">
-          <div class="node-example-title">Chunk sizing diagnostics</div>
-          <div class="node-example-body">Connect → Read MTU (store as=mtu) → HTTP Request (body uses <code>${mtu}</code>).</div>
+        <p class="node-summary">Evaluates an arithmetic expression and stores the numeric result. Only <code>+ − × ÷</code> and parentheses are allowed; variable references are spliced via <code>${var}</code> before evaluation.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Transform</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Expression</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Append CSV</span>
         </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Expression</div><div class="node-attr-detail">Plain math. Examples: <code>1 + 2 * 3</code>, <code>${a} + ${b}</code>, <code>(${rssi} + 100) / 10</code>.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Output variable</div><div class="node-attr-detail">Destination variable for the result. Empty = just record the value on the node card without storing.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Scale a raw reading</div><div class="node-example-body">Read Char → Transform (hexToInt16LE, output=raw) → Expression (<code>${raw} * 0.1</code>, output=temp_c).</div></div>
+        <div class="node-example"><div class="node-example-title">Running tally</div><div class="node-example-body">On Notification (store as=p) → Expression (<code>${total} + 1</code>, output=total).</div></div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">#</span>
+        <span class="node-name">Counter</span>
+        <span class="node-tagline">Increments (or resets) a named variable.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Increments (or resets) a named variable. Reads the existing value as a number, adds <code>Delta</code>, writes the new value back. An unset variable starts at 0.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Wait Notification</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Counter</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Append CSV</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Variable name</div><div class="node-attr-detail">The variable to increment. Created automatically on the first hit.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Delta</div><div class="node-attr-detail">How much to add each pass. Negatives decrement; floats are allowed for running averages.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Reset to 0</div><div class="node-attr-detail">When on, the node zeroes the variable instead of incrementing. Useful at the top of a Repeat body to clear last iteration's state.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Count notifications</div><div class="node-example-body">On Notification (repeat) → Counter (name=hits, delta=1). Pair with Append CSV to log the running total.</div></div>
+        <div class="node-example"><div class="node-example-title">Bail out after N</div><div class="node-example-body">On Notification → Counter (name=n) → If (variable=n, ≥, 10) → Disconnect on the true edge.</div></div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⏲</span>
+        <span class="node-name">Stopwatch</span>
+        <span class="node-tagline">Wall-clock measurement.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Wall-clock measurement. <code>Start</code> records the current time against a named slot; <code>Stop</code> computes the elapsed milliseconds since the matching Start and (optionally) writes the value to a variable for downstream nodes.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip nf-current">Stopwatch</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Connect</span><span class="nf-arrow">→</span><span class="nf-chip">Read Char</span><span class="nf-arrow">→</span><span class="nf-chip nf-current">Stopwatch</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Action</div><div class="node-attr-detail">Start opens a slot; Stop closes it. An unmatched Stop is an error — name your slots so the pair matches.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Name</div><div class="node-attr-detail">Logical name shared between Start and Stop. Empty = use the node's Label. Multiple named stopwatches can be active concurrently.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Store as</div><div class="node-attr-detail">Variable to receive the elapsed-ms value on Stop. Empty = just record the value on the node card.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Benchmark a write</div><div class="node-example-body">Stopwatch (start, name=write) → Write Char (large payload) → Stopwatch (stop, name=write, store as=write_ms) → Log (<code>took ${write_ms} ms</code>).</div></div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">✦</span>
+        <span class="node-name">Notify Desktop</span>
+        <span class="node-tagline">Posts a notification to macOS Notification Center.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Posts a notification to macOS Notification Center. First run prompts for permission; subsequent runs reuse the granted status. Title and body support <code>${var}</code> substitution.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read RSSI</span><span class="nf-arrow">→</span><span class="nf-chip">If</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Notify Desktop</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Title</div><div class="node-attr-detail">Short notification heading. Supports ${var}.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Body</div><div class="node-attr-detail">Multiline body text. Supports ${var}.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Play sound</div><div class="node-attr-detail">Uses the macOS default notification sound when on. Off = silent banner.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Low-battery alert</div><div class="node-example-body">Read Char (battery) → Transform → If (battery &lt; 20) → Notify Desktop (title=<code>Low battery</code>, body=<code>${name} is at ${battery}%</code>).</div></div>
+        <div class="node-example"><div class="node-example-title">Disconnect heads-up</div><div class="node-example-body">On Device Disconnected (repeat) → Notify Desktop (title=<code>Device lost</code>, body=<code>${mac}</code>).</div></div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⊕</span>
+        <span class="node-name">CRC</span>
+        <span class="node-tagline">Computes a CRC checksum over a hex payload variable.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Computes a CRC checksum over a hex payload variable. Supports CRC-8, CRC-16/CCITT-FALSE, CRC-16/Modbus, and CRC-32 — the four shapes nearly every vendor BLE protocol uses for trailing checksum bytes.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Set Variable</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">CRC</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Write Char</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Algorithm</div><div class="node-attr-detail">Pick the variant the peripheral expects. CCITT-FALSE serialises big-endian; Modbus serialises little-endian; CRC-32 is the IEEE 802.3 variant.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Input variable</div><div class="node-attr-detail">Hex string to checksum. Empty = use the most recent characteristic read.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Output variable</div><div class="node-attr-detail">Destination variable. Stored in the same <code>0x XX XX …</code> hex format reads produce, so a downstream Write accepts it without conversion.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Sign an outbound frame</div><div class="node-example-body">Set Variable (name=payload, literal=<code>0xA1 02 03 04</code>) → CRC (CRC-16/Modbus, in=payload, out=crc) → Write Char (<code>${payload} ${crc}</code>).</div></div>
+        <div class="node-example"><div class="node-example-title">Verify an incoming frame</div><div class="node-example-body">Read Char → CRC (CRC-16/CCITT-FALSE, out=expected) → Assert (variable=expected, ==, <code>0x00 00</code>).</div></div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">{}</span>
+        <span class="node-name">JSON Extract</span>
+        <span class="node-tagline">Pulls a single value out of a JSON string by dotted path.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Pulls a single value out of a JSON string by dotted path. Designed to consume the response body the HTTP node stores under its "Store as" variable without a Transform chain.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">HTTP Request</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">JSON Extract</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">If</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Input variable</div><div class="node-attr-detail">Variable holding the JSON text. Typically the same name as the HTTP node's Store-as field.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Path</div><div class="node-attr-detail"><code>data.battery</code>, <code>items.0.name</code>, <code>headers.content-type</code>. Numeric segments index arrays; everything else is an object key. Sub-objects re-serialize as JSON so you can chain a second Extract.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Output variable</div><div class="node-attr-detail">Destination variable. Strings/numbers/booleans coerce naturally; null becomes empty string.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Parse an API response</div><div class="node-example-body">HTTP (POST, store as=resp) → JSON Extract (in=resp, path=<code>data.battery</code>, out=batt) → If (variable=batt, &lt;, 20) → Notify Desktop.</div></div>
+        <div class="node-example"><div class="node-example-title">Read a nested array element</div><div class="node-example-body">JSON Extract (in=resp, path=<code>devices.0.firmware</code>, out=fw).</div></div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⚂</span>
+        <span class="node-name">Random</span>
+        <span class="node-tagline">Generates a random integer in a range or a random hex byte string and stores it to a variable.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Generates a random integer in a range or a random hex byte string and stores it to a variable. Useful for jitter delays, payload fuzzing, and stress tests.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip nf-current">Random</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">Write Char</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Mode</div><div class="node-attr-detail">Integer (inclusive <code>[min, max]</code>) or hex bytes.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Min / Max</div><div class="node-attr-detail">Range bounds for integer mode. Order is auto-normalized.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Byte count</div><div class="node-attr-detail">Number of random bytes for hex-bytes mode.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Output variable</div><div class="node-attr-detail">Destination variable.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Random retry jitter</div><div class="node-example-body">Random (50…500, out=jitter) → Delay (<code>${jitter}</code> ms… actually seconds via Expression <code>${jitter} / 1000</code>) → Connect.</div></div>
+        <div class="node-example"><div class="node-example-title">Payload fuzzing</div><div class="node-example-body">Random (hex bytes, count=16, out=payload) → Write Char (<code>${payload}</code>).</div></div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⠿</span>
+        <span class="node-name">Base64</span>
+        <span class="node-tagline">Converts between raw bytes and a Base64 string — encode bytes to Base64, or decode Base64 back to bytes.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Converts between raw bytes and a Base64 string — encode bytes to Base64, or decode Base64 back to bytes. Saves the Transform-chain workaround for the Base64 payloads many BLE and REST APIs expect.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Base64</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">HTTP Request</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Direction</div><div class="node-attr-detail">Encode (bytes → Base64) or Decode (Base64 → bytes).</div></div>
+        <div class="node-attr"><div class="node-attr-name">Payload bytes are</div><div class="node-attr-detail">How the non-Base64 side is read/written: Hex bytes (the BLE default, <code>0x XX …</code>) or UTF-8 text.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Input variable</div><div class="node-attr-detail">Source value. Empty = use the most recent characteristic read.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Output variable</div><div class="node-attr-detail">Destination variable. Empty = just record the result on the node card.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Encode a frame for a REST call</div><div class="node-example-body">Read Char → Base64 (Encode, payload=Hex, out=b64) → HTTP Request (body=<code>{"data":"${b64}"}</code>).</div></div>
+        <div class="node-example"><div class="node-example-title">Decode a Base64 command</div><div class="node-example-body">HTTP Request (store=resp) → JSON Extract (path=cmd, out=cmdB64) → Base64 (Decode, payload=Hex, in=cmdB64, out=cmd) → Write Char (<code>${cmd}</code>).</div></div>
+      </div>
+    </details>
+    <details class="node-item">
+      <summary>
+        <span class="node-badge">⊞</span>
+        <span class="node-name">Bit Mask</span>
+        <span class="node-tagline">Extracts or sets a bit field within a value — the common &quot;status byte packs several flags&quot; shape of BLE protocols, without hand-rolling shift/mask arithmetic in an Expression node.</span>
+        <span class="node-chevron"></span>
+      </summary>
+      <div class="node-body">
+        <p class="node-summary">Extracts or sets a bit field within a value — the common "status byte packs several flags" shape of BLE protocols, without hand-rolling shift/mask arithmetic in an Expression node.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Bit Mask</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">If</span>
+        </div>
+        <div class="node-block-head">Attributes</div>
+        <div class="node-attr"><div class="node-attr-name">Direction</div><div class="node-attr-detail">Extract (pull a field out) or Set (write a field into the value, leaving other bits intact).</div></div>
+        <div class="node-attr"><div class="node-attr-name">Input variable</div><div class="node-attr-detail">Read as big-endian hex bytes. Empty = use the most recent characteristic read.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Bit offset</div><div class="node-attr-detail">Least-significant bit of the field. 0 = the LSB of the whole value.</div></div>
+        <div class="node-attr"><div class="node-attr-name">Field width</div><div class="node-attr-detail">How many bits the field spans (1–64).</div></div>
+        <div class="node-attr"><div class="node-attr-name">Value to set</div><div class="node-attr-detail">Set mode only — the value written into the field (masked to the field width).</div></div>
+        <div class="node-attr"><div class="node-attr-name">Output variable</div><div class="node-attr-detail">Extract stores a decimal number; Set stores hex bytes of the same width, ready for a Write.</div></div>
+        <div class="node-block-head">Example use cases</div>
+        <div class="node-example"><div class="node-example-title">Read a flag bit</div><div class="node-example-body">Read Char → Bit Mask (Extract, offset=0, width=1, out=fmt) → If (fmt == 1) … — pull the value-format bit out of a Heart Rate flags byte.</div></div>
+        <div class="node-example"><div class="node-example-title">Set a control bit</div><div class="node-example-body">Set Variable (ctrl=<code>0x00</code>) → Bit Mask (Set, offset=3, width=1, value=1, in=ctrl, out=ctrl) → Write Char (<code>${ctrl}</code>).</div></div>
       </div>
     </details>
     </div>
   </div>
 
-  <!-- Egress -->
+  <!-- External -->
   <div class="nodes-category reveal">
-    <div class="nodes-category-head">Egress <span class="count">— 3 nodes</span></div>
+    <div class="nodes-category-head">External <span class="count">— 3 nodes</span></div>
     <div class="nodes-grid">
-
     <details class="node-item">
       <summary>
         <span class="node-badge">◐</span>
@@ -2015,6 +2629,14 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Sends an HTTP request to a URL with optional headers and body. Variables are interpolated with <code>${name}</code>.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span><span class="nf-arrow">→</span><span class="nf-chip">Transform</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">HTTP Request</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip">JSON Extract</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">URL</div><div class="node-attr-detail">Full URL with <code>${var}</code> allowed.</div></div>
         <div class="node-attr"><div class="node-attr-name">Method</div><div class="node-attr-detail">GET / POST / PUT / DELETE / PATCH.</div></div>
@@ -2027,7 +2649,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">▦</span>
@@ -2037,6 +2658,12 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Appends a row to a CSV file on disk. Creates the file with the configured header on first run.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">Read Char</span><span class="nf-arrow">→</span><span class="nf-chip">Transform</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Append CSV</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">File path</div><div class="node-attr-detail">Absolute path to the CSV file.</div></div>
         <div class="node-attr"><div class="node-attr-name">Header</div><div class="node-attr-detail">Comma-separated column names. Written once when the file is created.</div></div>
@@ -2048,7 +2675,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
         </div>
       </div>
     </details>
-
     <details class="node-item">
       <summary>
         <span class="node-badge">⇣</span>
@@ -2058,6 +2684,12 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       </summary>
       <div class="node-body">
         <p class="node-summary">Writes a payload to disk in one shot (overwrites if exists). Use for snapshots, not append-style logs.</p>
+        <div class="node-block-head">Common flow</div>
+        <div class="node-flow">
+        <span class="nf-chip">HTTP Request</span>
+        <span class="nf-arrow">→</span>
+        <span class="nf-chip nf-current">Save File</span>
+        </div>
         <div class="node-block-head">Attributes</div>
         <div class="node-attr"><div class="node-attr-name">File path</div><div class="node-attr-detail">Absolute path to the destination.</div></div>
         <div class="node-attr"><div class="node-attr-name">Content</div><div class="node-attr-detail">Raw text content with <code>${var}</code> interpolation.</div></div>
@@ -2071,7 +2703,8 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
     </div>
   </div>
 
-  <!-- Request a node -->
+  </div>
+
   <div class="nodes-request">
     <div class="nodes-request-icon">+</div>
     <div class="nodes-request-body">
@@ -2098,7 +2731,6 @@ section.section.dark { background: var(--bg-dark); color: #fff; }
       Your browser doesn't support inline video. <a href="/Post-Resources/SignalHubMac/1.0.1.mov">Download the demo</a>.
     </video>
   </div>
-  <div class="demo-caption reveal delay-3">Signal Hub 1.0.1 — recorded on macOS Sonoma</div>
 </section>
 
 <!-- CTA -->
