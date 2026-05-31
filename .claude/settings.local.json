@@ -27,7 +27,15 @@
       "Bash(python3)",
       "Bash(awk 'NR>=1820 && NR<=1830' /Users/nguyenuy/Documents/Blog/uynguyen.github.io-source/source/signal-hub/index.html)",
       "Bash(awk -F: '$1 > 1820 && $1 < 1840')",
-      "Bash(awk -F: '$1 > 940 && $1 < 1840')"
+      "Bash(awk -F: '$1 > 940 && $1 < 1840')",
+      "Bash(node --check source/signal-hub/i18n.js)",
+      "Bash(node -e \"global.window={}; global.document={createElement:\\(\\)=>\\({}\\),getElementById:\\(\\)=>null,querySelectorAll:\\(\\)=>[],documentElement:{},addEventListener:\\(\\)=>{}}; global.navigator={language:'en'}; global.localStorage={getItem:\\(\\)=>null,setItem:\\(\\)=>{}}; require\\('./source/signal-hub/i18n.js'\\); const L=['vi','es','pt','zh','ja']; L.forEach\\(l=>console.log\\(l, Object.keys\\(window.SH_TRANSLATIONS[l]\\).length, 'keys'\\)\\);\")",
+      "Bash(node *)",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(cd *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }

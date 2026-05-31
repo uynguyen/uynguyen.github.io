@@ -127,502 +127,853 @@ SH_TRANSLATIONS.vi = {
   "Hide all nodes": "Ẩn tất cả node",
   // Category headers
   "Control — 3 nodes": "Điều khiển — 3 node",
-  "Triggers — 6 nodes": "Trình kích hoạt — 6 node",
-  "Scan — 2 nodes": "Quét — 2 node",
-  "Connection — 2 nodes": "Kết nối — 2 node",
-  "Discovery — 2 nodes": "Khám phá — 2 node",
-  "Read / Write — 4 nodes": "Đọc / Ghi — 4 node",
-  "Notify — 2 nodes": "Thông báo — 2 node",
-  "Flow — 9 nodes": "Luồng — 9 node",
+  "Triggers — 6 nodes": "Triggers — 6 node",
+  "Scan — 2 nodes": "Scan — 2 node",
+  "Connection — 2 nodes": "Connection — 2 node",
+  "Discovery — 2 nodes": "Discovery — 2 node",
+  "Read / Write — 4 nodes": "Read / Write — 4 node",
+  "Notify — 2 nodes": "Notify — 2 node",
+  "Flow — 9 nodes": "Flow — 9 node",
   "Logic — 3 nodes": "Logic — 3 node",
   "Data — 3 nodes": "Dữ liệu — 3 node",
   "Link — 2 nodes": "Liên kết — 2 node",
   "Egress — 3 nodes": "Đầu ra — 3 node",
   // Shared block heads
   Attributes: "Thuộc tính",
-  "Example use cases": "Ví dụ sử dụng",
+  "Example use cases": "Sử dụng",
   // Node: Start
-  "Entry point of the workflow.": "Điểm bắt đầu của quy trình.",
+  "Entry point of the workflow.": "Điểm khởi đầu của workflow.",
   "Entry point of the workflow. Exactly one Start node is allowed — execution begins here when you press Run.":
-    "Điểm bắt đầu của quy trình. Chỉ cho phép đúng một node Start — quá trình thực thi bắt đầu từ đây khi bạn nhấn Run.",
-  "Every workflow": "Mọi quy trình",
+    "Điểm khởi đầu của workflow. Chỉ được phép có một Start node duy nhất — quá trình thực thi sẽ bắt đầu từ đây khi bạn nhấn Run.",
+  "Every workflow": "Mọi workflow",
   "Drop a Start node, wire its output into your first real step (Start Scan, Connect, etc.). Without it, Run is disabled.":
-    "Đặt một node Start, nối đầu ra của nó vào bước thực sự đầu tiên (Start Scan, Connect, v.v.). Không có nó, Run sẽ bị vô hiệu hóa.",
-  // Node: End
-  "Terminates a branch cleanly.": "Kết thúc một nhánh gọn gàng.",
+    "Thêm một Start node và kết nối output của nó với bước đầu tiên trong workflow (Start Scan, Connect, v.v.). Nếu thiếu Start node, nút Run sẽ bị vô hiệu hóa.",
+  "Terminates a branch cleanly.": "Kết thúc một nhánh một cách rõ ràng.",
+
   "Terminates a branch cleanly. Optional — branches that reach a dead end also stop, but End makes the intent explicit.":
-    "Kết thúc một nhánh gọn gàng. Tùy chọn — các nhánh đi đến ngõ cụt cũng dừng lại, nhưng End thể hiện ý định một cách rõ ràng.",
-  "Mark a success path": "Đánh dấu một đường thành công",
-  'If/true → HTTP Request → End. The End makes "this branch is done" visible in the run log.':
-    'If/true → HTTP Request → End. End làm cho "nhánh này đã xong" hiển thị rõ trong nhật ký chạy.',
-  // Node: On Device Discovered
+    "Kết thúc một nhánh một cách rõ ràng. Đây là node tùy chọn — các nhánh đi đến ngõ cụt cũng sẽ dừng lại, nhưng End giúp thể hiện rõ chủ đích của workflow.",
+
+  "Mark a success path": "Đánh dấu nhánh thành công",
+
+  "If/true → HTTP Request → End. The End makes \"this branch is done\" visible in the run log.":
+    "If/true → HTTP Request → End. Node End giúp hiển thị rõ trong run log rằng \"nhánh này đã hoàn tất\".",
+
   "Blocks until a matching advertisement is seen.":
-    "Chặn cho đến khi thấy một advertisement khớp.",
+    "Chờ cho đến khi phát hiện một advertisement phù hợp.",
+
   "Blocks until a peripheral advertisement matches the configured filters (name substring, manufacturer-data hex prefix, RSSI threshold). Auto-starts a scan unless disabled.":
-    "Chặn cho đến khi advertisement của thiết bị ngoại vi khớp các bộ lọc đã cấu hình (chuỗi con của tên, tiền tố hex của manufacturer data, ngưỡng RSSI). Tự động bắt đầu quét trừ khi bị tắt.",
+    "Chờ cho đến khi advertisement của peripheral khớp với các bộ lọc đã cấu hình (chuỗi con của tên, tiền tố hex của manufacturer data, ngưỡng RSSI). Tự động bắt đầu scan nếu không bị tắt.",
+
   "Name match": "Khớp tên",
+
   "Case-insensitive substring required in the advertised local name. Empty = don't filter on name.":
-    "Chuỗi con không phân biệt hoa thường bắt buộc có trong local name được quảng bá. Để trống = không lọc theo tên.",
-  "Manufacturer (hex)": "Nhà sản xuất (hex)",
+    "Chuỗi con không phân biệt chữ hoa/thường phải xuất hiện trong local name được quảng bá. Để trống = không lọc theo tên.",
+
+  "Manufacturer (hex)": "Manufacturer (hex)",
+
   "Hex prefix the device's manufacturer data must start with. Common pattern: 4C00 for Apple beacons.":
-    "Tiền tố hex mà manufacturer data của thiết bị phải bắt đầu bằng. Mẫu phổ biến: <code>4C00</code> cho beacon của Apple.",
+    "Tiền tố hex mà manufacturer data của thiết bị phải bắt đầu bằng. Ví dụ phổ biến: 4C00 cho beacon của Apple.",
+
   "Min RSSI": "RSSI tối thiểu",
+
   "Drop advertisements weaker than this dBm value. Off = no threshold.":
-    "Bỏ qua advertisement yếu hơn giá trị dBm này. Tắt = không có ngưỡng.",
-  "Auto scan": "Tự động quét",
+    "Bỏ qua các advertisement có RSSI thấp hơn giá trị dBm này. Tắt = không áp dụng ngưỡng.",
+
+  "Auto scan": "Tự động scan",
+
   "When on, starts a scan on entry and stops it on match. Turn off if an upstream Start Scan already configured filters.":
-    "Khi bật, bắt đầu quét lúc vào node và dừng khi khớp. Tắt đi nếu một node Start Scan phía trước đã cấu hình bộ lọc.",
+    "Khi bật, node sẽ tự động bắt đầu scan khi được thực thi và dừng khi tìm thấy kết quả phù hợp. Tắt tùy chọn này nếu một node Start Scan trước đó đã cấu hình bộ lọc.",
+
   "Timeout (s)": "Thời gian chờ (giây)",
+
   "Maximum wait. Empty = wait forever.":
-    "Thời gian chờ tối đa. Để trống = chờ mãi mãi.",
-  "Store as": "Lưu thành",
+    "Thời gian chờ tối đa. Để trống = chờ vô thời hạn.",
+
+  "Store as": "Lưu vào biến",
+
   "Optional variable that receives the matched device address.":
-    "Biến tùy chọn nhận địa chỉ thiết bị đã khớp.",
-  "Wait for a known sensor": "Chờ một cảm biến đã biết",
+    "Biến tùy chọn dùng để lưu địa chỉ của thiết bị đã khớp.",
+
+  "Wait for a known sensor": "Chờ một sensor đã biết",
+
   "On Device Discovered (name=SignalHub, rssi ≥ -75) → Connect (uses stored mac).":
-    "On Device Discovered (name=<code>SignalHub</code>, rssi ≥ -75) → Connect (dùng mac đã lưu).",
-  // Node: On Device Connected
-  "Blocks until a connect event fires.": "Chặn cho đến khi có sự kiện kết nối.",
+    "On Device Discovered (name=SignalHub, rssi ≥ -75) → Connect (sử dụng mac đã lưu).",
+
+  "Blocks until a connect event fires.":
+    "Chờ cho đến khi xảy ra sự kiện kết nối.",
+
   "Blocks until a connect event fires. Optionally filters by mac so the trigger only resumes when a specific device comes online.":
-    "Chặn cho đến khi có sự kiện kết nối. Có thể lọc theo mac để trình kích hoạt chỉ tiếp tục khi một thiết bị cụ thể online.",
+    "Chờ cho đến khi xảy ra sự kiện kết nối. Có thể lọc theo mac để trigger chỉ tiếp tục khi một thiết bị cụ thể kết nối thành công.",
+
   "Device address": "Địa chỉ thiết bị",
+
   "Optional mac. Empty = match any connect.":
-    "Mac tùy chọn. Để trống = khớp mọi kết nối.",
+    "Mac tùy chọn. Để trống = khớp với mọi kết nối.",
+
   "Optional variable that receives the connected device address.":
-    "Biến tùy chọn nhận địa chỉ thiết bị đã kết nối.",
+    "Biến tùy chọn dùng để lưu địa chỉ của thiết bị đã kết nối.",
+
   "Coordinate with external connect": "Phối hợp với kết nối bên ngoài",
+
   "On Device Connected (mac=AA:BB:…) → Discover Services → Read Char.":
-    "On Device Connected (mac=<code>AA:BB:…</code>) → Discover Services → Read Char.",
-  // Node: On Device Disconnected
+    "On Device Connected (mac=AA:BB:…) → Discover Services → Read Char.",
+
   "Blocks until a disconnect event fires.":
-    "Chặn cho đến khi có sự kiện ngắt kết nối.",
+    "Chờ cho đến khi xảy ra sự kiện ngắt kết nối.",
+
   "Blocks until a disconnect event fires. Used to react to peripherals dropping the link without polling.":
-    "Chặn cho đến khi có sự kiện ngắt kết nối. Dùng để phản ứng khi thiết bị ngoại vi rớt liên kết mà không cần thăm dò liên tục.",
+    "Chờ cho đến khi xảy ra sự kiện ngắt kết nối. Hữu ích khi cần phản ứng với việc peripheral mất kết nối mà không cần polling liên tục.",
+
   "Optional mac. Empty = match any disconnect.":
-    "Mac tùy chọn. Để trống = khớp mọi lần ngắt kết nối.",
+    "Mac tùy chọn. Để trống = khớp với mọi lần ngắt kết nối.",
+
   "Optional variable receiving the disconnected mac.":
-    "Biến tùy chọn nhận mac đã ngắt kết nối.",
-  "Telemetry on drop": "Telemetry khi rớt kết nối",
+    "Biến tùy chọn dùng để lưu mac của thiết bị đã ngắt kết nối.",
+
+  "Telemetry on drop": "Telemetry khi mất kết nối",
+
   "On Device Disconnected → HTTP Request (alert).":
-    "On Device Disconnected → HTTP Request (cảnh báo).",
-  // Node: On Notification
+    "On Device Disconnected → HTTP Request (alert).",
+
   "Blocks until a matching notification arrives.":
-    "Chặn cho đến khi có một notification khớp.",
+    "Chờ cho đến khi nhận được notification phù hợp.",
+
   "Blocks until a characteristic notification matches the optional hex prefix. Auto-subscribes to the characteristic before listening so a separate Subscribe step isn't required.":
-    "Chặn cho đến khi notification của characteristic khớp tiền tố hex tùy chọn. Tự động đăng ký characteristic trước khi lắng nghe nên không cần bước Subscribe riêng.",
-  "Characteristic UUID": "UUID của Characteristic",
+    "Chờ cho đến khi notification từ characteristic khớp với tiền tố hex tùy chọn. Node sẽ tự động subscribe vào characteristic trước khi lắng nghe nên không cần thêm bước Subscribe riêng.",
+
+  "Characteristic UUID": "Characteristic UUID",
+
   "Target characteristic. Must be notifiable or indicatable.":
     "Characteristic mục tiêu. Phải hỗ trợ notify hoặc indicate.",
+
   "Match prefix (hex)": "Tiền tố khớp (hex)",
+
   "Optional hex prefix the payload must start with. Empty = match any notification.":
-    "Tiền tố hex tùy chọn mà payload phải bắt đầu bằng. Để trống = khớp mọi notification.",
+    "Tiền tố hex tùy chọn mà payload phải bắt đầu bằng. Để trống = khớp với mọi notification.",
+
   "Optional variable that receives the matched payload as hex.":
-    "Biến tùy chọn nhận payload đã khớp dưới dạng hex.",
+    "Biến tùy chọn dùng để lưu payload đã khớp dưới dạng hex.",
+
   "Wait for boot notification": "Chờ notification khởi động",
+
   "Connect → On Notification (uuid=…, match=AA01) → continue.":
-    "Connect → On Notification (uuid=…, match=<code>AA01</code>) → tiếp tục.",
+    "Connect → On Notification (uuid=…, match=AA01) → tiếp tục.",
   // Node: Timer
-  "Wait on a delay, interval, or exact date.":
-    "Chờ theo độ trễ, chu kỳ hoặc thời điểm chính xác.",
+   "Wait on a delay, interval, or exact date.":
+    "Chờ theo độ trễ, chu kỳ hoặc một thời điểm cụ thể.",
+
   "Waits on a time condition before continuing. After delay = one-shot wait. Interval = self-looping periodic tick that runs forever until stopped. Exact date = wait until an ISO-8601 timestamp.":
-    "Chờ một điều kiện thời gian trước khi tiếp tục. <strong>After delay</strong> = chờ một lần. <strong>Interval</strong> = nhịp định kỳ tự lặp chạy mãi cho đến khi dừng. <strong>Exact date</strong> = chờ đến một mốc thời gian ISO-8601.",
-  Mode: "Chế độ",
+    "Chờ một điều kiện thời gian trước khi tiếp tục. After delay = chờ một lần. Interval = kích hoạt định kỳ lặp lại cho đến khi bị dừng. Exact date = chờ đến một mốc thời gian ISO-8601.",
+
+  "Mode":
+    "Chế độ",
+
   "After delay: wait N seconds, then take edge 1 once. Interval: fire repeatedly on each N-second boundary. Exact date: wait until ISO-8601 timestamp.":
-    "After delay: chờ N giây, rồi đi theo edge 1 một lần. Interval: kích hoạt lặp lại mỗi mốc N giây. Exact date: chờ đến mốc thời gian ISO-8601.",
-  Seconds: "Số giây",
+    "After delay: chờ N giây rồi đi theo edge 1 một lần. Interval: kích hoạt lặp lại sau mỗi N giây. Exact date: chờ đến mốc thời gian ISO-8601.",
+
+  "Seconds":
+    "Số giây",
+
   "Delay or interval length for After / Interval modes.":
-    "Độ dài của độ trễ hoặc chu kỳ cho chế độ After / Interval.",
-  "Date (ISO-8601)": "Ngày (ISO-8601)",
+    "Độ dài của khoảng chờ hoặc chu kỳ cho chế độ After / Interval.",
+
+  "Date (ISO-8601)":
+    "Ngày giờ (ISO-8601)",
+
   "Used in Exact date mode (e.g. 2026-12-31T23:00:00Z). Past dates fire immediately.":
-    "Dùng trong chế độ Exact date (ví dụ <code>2026-12-31T23:00:00Z</code>). Ngày trong quá khứ kích hoạt ngay lập tức.",
-  Name: "Tên",
+    "Dùng trong chế độ Exact date (ví dụ: 2026-12-31T23:00:00Z). Nếu thời điểm đã qua, node sẽ kích hoạt ngay lập tức.",
+
+  "Name":
+    "Tên",
+
   "Optional identifier referenced by a Stop Timer node. Defaults to the node's label.":
-    "Định danh tùy chọn được node Stop Timer tham chiếu. Mặc định là nhãn của node.",
-  "Forever-periodic poll": "Thăm dò định kỳ vô hạn",
+    "Định danh tùy chọn được tham chiếu bởi node Stop Timer. Mặc định là nhãn của node.",
+
+  "Forever-periodic poll":
+    "Thăm dò định kỳ liên tục",
+
   "Start → Timer (interval, 5s) → Read Char. The Read fires every 5s; press Stop to end the workflow.":
-    "Start → Timer (interval, 5s) → Read Char. Read kích hoạt mỗi 5 giây; nhấn Stop để kết thúc quy trình.",
-  "Bounded periodic poll": "Thăm dò định kỳ có giới hạn",
+    "Start → Timer (interval, 5s) → Read Char. Node Read sẽ được kích hoạt mỗi 5 giây; nhấn Stop để kết thúc workflow.",
+
+  "Bounded periodic poll":
+    "Thăm dò định kỳ có giới hạn",
+
   "Repeat (10) → Timer (after, 5s) → Read Char. Body executes exactly 10 times spaced 5s apart.":
-    "Repeat (10) → Timer (after, 5s) → Read Char. Phần thân thực thi đúng 10 lần, cách nhau 5 giây.",
-  "Scheduled run": "Lần chạy theo lịch",
+    "Repeat (10) → Timer (after, 5s) → Read Char. Phần thân sẽ thực thi đúng 10 lần, mỗi lần cách nhau 5 giây.",
+
+  "Scheduled run":
+    "Chạy theo lịch",
+
   "Start → Timer (exactDate, 2026-12-31T23:00:00Z) → Start Scan → …":
-    "Start → Timer (exactDate, <code>2026-12-31T23:00:00Z</code>) → Start Scan → …",
-  // Node: Stop Timer
-  "Cancels a running Timer by name.": "Hủy một Timer đang chạy theo tên.",
+    "Start → Timer (exactDate, 2026-12-31T23:00:00Z) → Start Scan → …",
+
+  "Cancels a running Timer by name.":
+    "Hủy một Timer đang chạy theo tên.",
+
   "Cancels a running Timer node addressed by name. The targeted timer's pending wait is disposed immediately, no more ticks fire. Other branches and timers keep running.":
-    "Hủy một node Timer đang chạy được chỉ định theo tên. Lượt chờ đang treo của timer đó bị hủy ngay lập tức, không còn nhịp nào kích hoạt. Các nhánh và timer khác vẫn tiếp tục chạy.",
-  "Timer name": "Tên Timer",
+    "Hủy một node Timer đang chạy được xác định theo tên. Khoảng chờ đang tồn tại sẽ bị hủy ngay lập tức và timer sẽ không phát sinh thêm tick nào nữa. Các nhánh và timer khác vẫn tiếp tục hoạt động.",
+
+  "Timer name":
+    "Tên Timer",
+
   "Must match the target Timer node's Name field. Stopping by name lets one workflow run many timers and cancel them independently.":
-    "Phải khớp trường Name của node Timer mục tiêu. Dừng theo tên cho phép một quy trình chạy nhiều timer và hủy chúng độc lập.",
-  "Stop on condition": "Dừng theo điều kiện",
+    "Phải khớp với trường Name của node Timer mục tiêu. Việc dừng theo tên cho phép một workflow chạy nhiều timer và hủy chúng độc lập với nhau.",
+
+  "Stop on condition":
+    "Dừng theo điều kiện",
+
   "Timer (name=poll, interval, 5s) → Read Char → If (battery, <, 5) → true: Stop Timer (poll) → HTTP alert.":
-    "Timer (name=poll, interval, 5s) → Read Char → If (battery, <, 5) → true: Stop Timer (poll) → HTTP cảnh báo.",
-  "Race two timers": "Đua hai timer",
+    "Timer (name=poll, interval, 5s) → Read Char → If (battery, <, 5) → true: Stop Timer (poll) → HTTP alert.",
+
+  "Race two timers":
+    "Phối hợp hai timer",
+
   "Parallel → branch 1: Timer (name=A, interval, 1s) → … ; branch 2: Timer (name=B, after, 30s) → Stop Timer (A). After 30s the fast poller stops.":
-    "Parallel → nhánh 1: Timer (name=A, interval, 1s) → … ; nhánh 2: Timer (name=B, after, 30s) → Stop Timer (A). Sau 30 giây, bộ thăm dò nhanh dừng lại.",
-  // Node: Start Scan
-  "Begins a BLE scan asynchronously.": "Bắt đầu quét BLE một cách bất đồng bộ.",
+    "Parallel → nhánh 1: Timer (name=A, interval, 1s) → … ; nhánh 2: Timer (name=B, after, 30s) → Stop Timer (A). Sau 30 giây, bộ thăm dò nhanh sẽ dừng lại.",
+
+  "Begins a BLE scan asynchronously.":
+    "Bắt đầu một phiên scan BLE bất đồng bộ.",
+
   "Begins a BLE scan. Continues running asynchronously; subsequent steps execute immediately without waiting for results.":
-    "Bắt đầu quét BLE. Tiếp tục chạy bất đồng bộ; các bước sau thực thi ngay mà không chờ kết quả.",
-  "Service UUID": "UUID của Service",
+    "Bắt đầu scan BLE. Việc scan tiếp tục chạy bất đồng bộ và các bước phía sau sẽ được thực thi ngay lập tức mà không cần chờ kết quả.",
+
+  "Service UUID":
+    "Service UUID",
+
   "Optional. When set, only devices advertising this service appear in scan results. Empty = scan everything.":
-    "Tùy chọn. Khi đặt, chỉ các thiết bị quảng bá service này xuất hiện trong kết quả quét. Để trống = quét tất cả.",
-  "Allow duplicates": "Cho phép trùng lặp",
+    "Tùy chọn. Khi được đặt, chỉ các thiết bị quảng bá service này mới xuất hiện trong kết quả scan. Để trống = scan tất cả.",
+
+  "Allow duplicates":
+    "Cho phép trùng lặp",
+
   "When on, the same device produces multiple advertisement events. Useful for live RSSI tracking; off for one-shot discovery.":
-    "Khi bật, cùng một thiết bị tạo ra nhiều sự kiện advertisement. Hữu ích để theo dõi RSSI trực tiếp; tắt để phát hiện một lần.",
-  "Find a known device by service": "Tìm thiết bị đã biết theo service",
+    "Khi bật, cùng một thiết bị có thể tạo ra nhiều advertisement event. Hữu ích cho việc theo dõi RSSI theo thời gian thực; tắt để chỉ phát hiện thiết bị một lần.",
+
+  "Find a known device by service":
+    "Tìm thiết bị theo service",
+
   "Start Scan (svc=180D) → Delay 3s → Stop Scan → Connect (mac from scan results).":
-    "Start Scan (svc=180D) → Delay 3s → Stop Scan → Connect (mac từ kết quả quét).",
-  // Node: Stop Scan
-  "Stops an in-progress scan.": "Dừng một lần quét đang diễn ra.",
+    "Start Scan (svc=180D) → Delay 3s → Stop Scan → Connect (mac từ kết quả scan).",
+
+  "Stops an in-progress scan.":
+    "Dừng một phiên scan đang diễn ra.",
+
   "Stops an in-progress scan. Pair with Start Scan when you want a bounded discovery window.":
-    "Dừng một lần quét đang diễn ra. Kết hợp với Start Scan khi bạn muốn một cửa sổ phát hiện có giới hạn.",
-  "Bounded scan": "Quét có giới hạn",
+    "Dừng một phiên scan đang diễn ra. Thường được sử dụng cùng Start Scan khi bạn muốn giới hạn khoảng thời gian phát hiện thiết bị.",
+
+  "Bounded scan":
+    "Scan có giới hạn",
+
   "Start Scan → Delay 5s → Stop Scan. Without Stop Scan the radio keeps scanning until the workflow ends.":
-    "Start Scan → Delay 5s → Stop Scan. Không có Stop Scan, sóng radio tiếp tục quét cho đến khi quy trình kết thúc.",
-  // Node: Connect
+    "Start Scan → Delay 5s → Stop Scan. Nếu không có Stop Scan, radio sẽ tiếp tục scan cho đến khi workflow kết thúc.",
+
   "Connects to a peripheral by MAC.":
-    "Kết nối tới một thiết bị ngoại vi theo MAC.",
-  'Connects to a peripheral by MAC. Resolves on "connected" — i.e. CoreBluetooth fired didConnect and the link is up.':
-    'Kết nối tới một thiết bị ngoại vi theo MAC. Hoàn tất khi "connected" — tức là CoreBluetooth đã gọi didConnect và liên kết đã sẵn sàng.',
-  Device: "Thiết bị",
+    "Kết nối tới một peripheral thông qua MAC.",
+
+  "Connects to a peripheral by MAC. Resolves on \"connected\" — i.e. CoreBluetooth fired didConnect and the link is up.":
+    "Kết nối tới một peripheral thông qua MAC. Node hoàn tất khi trạng thái 'connected' được thiết lập — tức là CoreBluetooth đã gọi didConnect và kết nối đã sẵn sàng.",
+
+  "Device":
+    "Thiết bị",
+
   "Pick from the live device list (populated by Start Scan / known devices). The selected MAC becomes the workflow's active device for downstream BLE steps.":
-    "Chọn từ danh sách thiết bị trực tiếp (được điền bởi Start Scan / thiết bị đã biết). MAC được chọn trở thành thiết bị đang hoạt động của quy trình cho các bước BLE phía sau.",
-  "Connect then read": "Kết nối rồi đọc",
+    "Chọn từ danh sách thiết bị hiện có (được cung cấp bởi Start Scan hoặc danh sách thiết bị đã biết). MAC được chọn sẽ trở thành thiết bị đang hoạt động cho các bước BLE tiếp theo trong workflow.",
+
+  "Connect then read":
+    "Kết nối rồi đọc",
+
   "Connect (chosen device) → Discover Services → Read Char (battery level).":
     "Connect (thiết bị đã chọn) → Discover Services → Read Char (mức pin).",
-  "Reconnect on disconnect": "Kết nối lại khi mất kết nối",
+
+  "Reconnect on disconnect":
+    "Kết nối lại khi mất kết nối",
+
   "Try/Catch around Connect. On the catch path, Delay 1s → Connect again.":
-    "Try/Catch bao quanh Connect. Trên nhánh catch, Delay 1s → Connect lại.",
-  // Node: Disconnect
-  "Closes the active connection.": "Đóng kết nối đang hoạt động.",
+    "Đặt Connect bên trong Try/Catch. Trên nhánh catch: Delay 1s → Connect lại.",
+  "Closes the active connection.":
+    "Đóng kết nối đang hoạt động.",
+
   "Closes the active connection. Always good practice at the end of a workflow so the peripheral is free for other apps.":
-    "Đóng kết nối đang hoạt động. Luôn là thói quen tốt ở cuối quy trình để thiết bị ngoại vi rảnh cho ứng dụng khác.",
+    "Đóng kết nối đang hoạt động. Đây là một thực hành tốt ở cuối workflow để peripheral có thể được sử dụng bởi các ứng dụng khác.",
+
   "Defaults to the active device. Override only if you've connected to multiple peripherals in the same workflow.":
-    "Mặc định là thiết bị đang hoạt động. Chỉ ghi đè nếu bạn đã kết nối nhiều thiết bị ngoại vi trong cùng một quy trình.",
-  "Clean teardown": "Dọn dẹp gọn gàng",
-  "… → Read Char → Disconnect → End.": "… → Read Char → Disconnect → End.",
-  // Node: Discover Services
+    "Mặc định sử dụng thiết bị đang hoạt động. Chỉ thay đổi nếu bạn đã kết nối nhiều peripheral trong cùng một workflow.",
+
+  "Clean teardown":
+    "Kết thúc kết nối gọn gàng",
+
+  "… → Read Char → Disconnect → End.":
+    "… → Read Char → Disconnect → End.",
+
   "Enumerate the peripheral's services.":
-    "Liệt kê các service của thiết bị ngoại vi.",
+    "Liệt kê các service của peripheral.",
+
   "Asks the peripheral to enumerate its services. Required before reading/writing characteristics on most devices.":
-    "Yêu cầu thiết bị ngoại vi liệt kê các service của nó. Bắt buộc trước khi đọc/ghi characteristic trên hầu hết thiết bị.",
-  "Standard prep": "Chuẩn bị tiêu chuẩn",
+    "Yêu cầu peripheral liệt kê các service của nó. Đây là bước cần thiết trước khi đọc hoặc ghi characteristic trên hầu hết thiết bị.",
+
+  "Standard prep":
+    "Chuẩn bị tiêu chuẩn",
+
   "Connect → Discover Services → Discover Characteristics → Read Char.":
     "Connect → Discover Services → Discover Characteristics → Read Char.",
-  // Node: Discover Characteristics
+
   "Enumerate characteristics under each service.":
-    "Liệt kê các characteristic dưới mỗi service.",
+    "Liệt kê các characteristic của từng service.",
+
   "Enumerates the characteristics under each discovered service. Run after Discover Services.":
-    "Liệt kê các characteristic dưới mỗi service đã phát hiện. Chạy sau Discover Services.",
-  "Walk the GATT": "Duyệt qua GATT",
+    "Liệt kê các characteristic thuộc từng service đã được phát hiện. Thực hiện sau bước Discover Services.",
+
+  "Walk the GATT":
+    "Duyệt cấu trúc GATT",
+
   "Connect → Discover Services → Discover Characteristics. Now Read/Write/Subscribe can target any UUID.":
-    "Connect → Discover Services → Discover Characteristics. Giờ Read/Write/Subscribe có thể nhắm tới bất kỳ UUID nào.",
-  // Node: Read Char
+    "Connect → Discover Services → Discover Characteristics. Sau đó Read/Write/Subscribe có thể sử dụng bất kỳ UUID nào.",
+
   "Read a characteristic's current value.":
-    "Đọc giá trị hiện tại của một characteristic.",
+    "Đọc giá trị hiện tại của characteristic.",
+
   "Reads the current value of a characteristic. Resolves with raw bytes; the bytes are stored in lastReadHex and (optionally) into a named variable.":
-    "Đọc giá trị hiện tại của một characteristic. Trả về byte thô; các byte được lưu trong <code>lastReadHex</code> và (tùy chọn) vào một biến có tên.",
+    "Đọc giá trị hiện tại của characteristic. Kết quả trả về là dữ liệu thô dạng byte; dữ liệu được lưu trong lastReadHex và có thể lưu thêm vào một biến tùy chọn.",
+
   "Standard short (0x2A19) or 128-bit UUID. The picker fills this in from the discovered list.":
-    "UUID dạng ngắn chuẩn (<code>0x2A19</code>) hoặc 128-bit. Bộ chọn sẽ điền giá trị này từ danh sách đã phát hiện.",
-  "Value format / endian": "Định dạng giá trị / endian",
+    "UUID chuẩn dạng ngắn (0x2A19) hoặc UUID 128-bit. Trình chọn sẽ tự động điền giá trị từ danh sách đã phát hiện.",
+
+  "Value format / endian":
+    "Định dạng giá trị / endian",
+
   "How the result is decoded for display on the node card. Doesn't change lastReadHex — only the human-readable view.":
-    "Cách kết quả được giải mã để hiển thị trên thẻ node. Không thay đổi <code>lastReadHex</code> — chỉ là phần hiển thị dễ đọc cho người.",
+    "Xác định cách giải mã kết quả để hiển thị trên node. Không ảnh hưởng đến lastReadHex — chỉ thay đổi cách hiển thị dễ đọc.",
+
   "Optional variable name. The decoded value is stored under this name for use by downstream If / Transform steps.":
-    "Tên biến tùy chọn. Giá trị đã giải mã được lưu dưới tên này để các bước If / Transform phía sau dùng.",
-  "Battery snapshot": "Ảnh chụp mức pin",
+    "Tên biến tùy chọn. Giá trị đã giải mã sẽ được lưu dưới tên này để sử dụng trong các bước If hoặc Transform phía sau.",
+
+  "Battery snapshot":
+    "Đọc nhanh mức pin",
+
   "Connect → Discover … → Read Char (0x2A19, format=UInt8, store as=battery).":
-    "Connect → Discover … → Read Char (<code>0x2A19</code>, format=UInt8, store as=battery).",
-  "Conditional logic": "Logic điều kiện",
-  'Read Char → If (variable=battery, <, 20) → HTTP Request ("low battery").':
-    'Read Char → If (variable=battery, <, 20) → HTTP Request ("pin yếu").',
-  // Node: Write Char
-  "Write bytes to a characteristic.": "Ghi byte vào một characteristic.",
+    "Connect → Discover … → Read Char (0x2A19, format=UInt8, store as=battery).",
+
+  "Conditional logic":
+    "Logic điều kiện",
+
+  "Read Char → If (variable=battery, <, 20) → HTTP Request (\"low battery\").":
+    "Read Char → If (variable=battery, <, 20) → HTTP Request (\"pin yếu\").",
+
+  "Write bytes to a characteristic.":
+    "Ghi dữ liệu vào characteristic.",
+
   "Writes bytes to a characteristic. Supports hex (DE AD) or text payloads, and chooses write-with/without-response automatically based on the characteristic's properties.":
-    "Ghi byte vào một characteristic. Hỗ trợ payload hex (<code>DE AD</code>) hoặc văn bản, và tự chọn ghi có/không phản hồi dựa trên thuộc tính của characteristic.",
-  "Target characteristic.": "Characteristic mục tiêu.",
-  Payload: "Payload",
+    "Ghi dữ liệu vào characteristic. Hỗ trợ payload dạng hex (DE AD) hoặc văn bản, đồng thời tự động chọn write-with-response hoặc write-without-response dựa trên thuộc tính của characteristic.",
+
+  "Target characteristic.":
+    "Characteristic mục tiêu.",
+
+  "Payload":
+    "Payload",
+
   "Hex bytes (DE AD BE EF) or ${var} interpolations. The executor chunks payloads larger than the negotiated MTU automatically.":
-    "Byte hex (<code>DE AD BE EF</code>) hoặc nội suy <code>${var}</code>. Bộ thực thi tự chia nhỏ payload lớn hơn MTU đã thương lượng.",
-  "Wake a sensor": "Đánh thức cảm biến",
+    "Dữ liệu dạng hex (DE AD BE EF) hoặc nội suy biến ${var}. Payload lớn hơn MTU đã thương lượng sẽ được tự động chia thành nhiều phần.",
+
+  "Wake a sensor":
+    "Đánh thức cảm biến",
+
   "Connect → Discover … → Write Char (0xFF03, payload=01).":
-    "Connect → Discover … → Write Char (<code>0xFF03</code>, payload=<code>01</code>).",
-  "Send a variable": "Gửi một biến",
+    "Connect → Discover … → Write Char (0xFF03, payload=01).",
+
+  "Send a variable":
+    "Gửi một biến",
+
   "Set Variable (cmd=AA01) → Write Char (payload=${cmd}).":
-    "Set Variable (cmd=<code>AA01</code>) → Write Char (payload=<code>${cmd}</code>).",
-  // Node: Read Descriptor
-  "Read a GATT descriptor value.": "Đọc giá trị của một descriptor GATT.",
+    "Set Variable (cmd=AA01) → Write Char (payload=${cmd}).",
+
+  "Read a GATT descriptor value.":
+    "Đọc giá trị của một descriptor GATT.",
+
   "Reads a GATT descriptor (e.g. Characteristic User Description 0x2901, Format 0x2904, or the current notify-state bits in the CCCD 0x2902).":
-    "Đọc một descriptor GATT (ví dụ Characteristic User Description <code>0x2901</code>, Format <code>0x2904</code>, hoặc các bit trạng thái notify hiện tại trong CCCD <code>0x2902</code>).",
-  "Parent characteristic.": "Characteristic cha.",
-  "Descriptor UUID": "UUID của Descriptor",
+    "Đọc một descriptor GATT (ví dụ: Characteristic User Description 0x2901, Format 0x2904 hoặc các bit trạng thái notification hiện tại trong CCCD 0x2902).",
+
+  "Parent characteristic.":
+    "Characteristic cha.",
+
+  "Descriptor UUID":
+    "Descriptor UUID",
+
   "Standard short (0x2901, 0x2902, 0x2904) or 128-bit UUID.":
-    "UUID dạng ngắn chuẩn (<code>0x2901</code>, <code>0x2902</code>, <code>0x2904</code>) hoặc 128-bit.",
-  "Decoding for the result display.": "Cách giải mã để hiển thị kết quả.",
-  "Read a friendly name": "Đọc tên thân thiện",
+    "UUID chuẩn dạng ngắn (0x2901, 0x2902, 0x2904) hoặc UUID 128-bit.",
+
+  "Decoding for the result display.":
+    "Cách giải mã kết quả để hiển thị.",
+
+  "Read a friendly name":
+    "Đọc tên hiển thị",
+
   "Read Descriptor (char=…, desc=0x2901, format=text).":
-    "Read Descriptor (char=…, desc=<code>0x2901</code>, format=text).",
-  // Node: Write Descriptor
+    "Read Descriptor (char=…, desc=0x2901, format=text).",
+
   "Write to a GATT descriptor (not CCCD).":
     "Ghi vào một descriptor GATT (không phải CCCD).",
+
   "Writes bytes to a writable GATT descriptor. ⚠️ macOS blocks writes to the CCCD (0x2902) — use Subscribe instead. Useful for the rare devices that expose other writable descriptors.":
-    "Ghi byte vào một descriptor GATT có thể ghi. ⚠️ macOS chặn việc ghi vào CCCD (<code>0x2902</code>) — hãy dùng Subscribe thay thế. Hữu ích cho số ít thiết bị có descriptor khác cho phép ghi.",
+    "Ghi dữ liệu vào một descriptor GATT cho phép ghi. ⚠️ macOS không cho phép ghi trực tiếp vào CCCD (0x2902) — hãy sử dụng Subscribe thay thế. Hữu ích với một số thiết bị có descriptor tùy chỉnh cho phép ghi.",
+
   "Target descriptor — anything other than 0x2902.":
-    "Descriptor mục tiêu — bất kỳ cái nào khác <code>0x2902</code>.",
-  "Payload (hex)": "Payload (hex)",
-  "Bytes to write.": "Các byte cần ghi.",
-  "Set custom config": "Đặt cấu hình tùy chỉnh",
+    "Descriptor mục tiêu — bất kỳ descriptor nào ngoài 0x2902.",
+
+  "Payload (hex)":
+    "Payload (hex)",
+
+  "Bytes to write.":
+    "Dữ liệu cần ghi.",
+
+  "Set custom config":
+    "Thiết lập cấu hình tùy chỉnh",
+
   "Write Descriptor (char=…, desc=0xFFD1, payload=01).":
-    "Write Descriptor (char=…, desc=<code>0xFFD1</code>, payload=<code>01</code>).",
-  // Node: Subscribe
+    "Write Descriptor (char=…, desc=0xFFD1, payload=01).",
+
   "Enable notifications on a characteristic.":
-    "Bật notification trên một characteristic.",
+    "Bật notification cho characteristic.",
+
   "Enables notifications/indications on a characteristic. Subsequent notifications populate lastReadHex and fire Wait Notification steps.":
-    "Bật notification/indication trên một characteristic. Các notification sau đó sẽ điền vào <code>lastReadHex</code> và kích hoạt các bước Wait Notification.",
-  "Live stream": "Luồng trực tiếp",
+    "Bật notification hoặc indication trên characteristic. Các notification nhận được sau đó sẽ cập nhật lastReadHex và kích hoạt các bước Wait Notification.",
+
+  "Live stream":
+    "Luồng dữ liệu thời gian thực",
+
   "Subscribe (heart rate) → Wait Notification (5s) → Set Variable (hr = lastReadHex). Loop with Repeat.":
-    "Subscribe (nhịp tim) → Wait Notification (5s) → Set Variable (hr = lastReadHex). Lặp với Repeat.",
-  // Node: Unsubscribe
+    "Subscribe (heart rate) → Wait Notification (5s) → Set Variable (hr = lastReadHex). Lặp lại bằng Repeat.",
+
   "Turn off notifications for a characteristic.":
-    "Tắt notification cho một characteristic.",
+    "Tắt notification cho characteristic.",
+
   "Turns off notifications for a characteristic. Useful when a workflow has multiple subscribe/unsubscribe phases.":
-    "Tắt notification cho một characteristic. Hữu ích khi một quy trình có nhiều giai đoạn subscribe/unsubscribe.",
+    "Tắt notification cho characteristic. Hữu ích khi workflow có nhiều giai đoạn subscribe và unsubscribe khác nhau.",
+
   "Same UUID as the Subscribe step you want to stop.":
-    "Cùng UUID với bước Subscribe mà bạn muốn dừng.",
-  "Bounded listen window": "Cửa sổ lắng nghe có giới hạn",
+    "Sử dụng cùng UUID với bước Subscribe mà bạn muốn dừng.",
+
+  "Bounded listen window":
+    "Khoảng thời gian lắng nghe có giới hạn",
+
   "Subscribe → Delay 10s → Unsubscribe → Disconnect.":
     "Subscribe → Delay 10s → Unsubscribe → Disconnect.",
-  // Node: Repeat
+
   "Loop N times, then take the exit edge.":
-    "Lặp N lần, rồi đi theo edge thoát.",
+    "Lặp N lần rồi chuyển sang nhánh thoát.",
+
   "Loops its first output edge N times, then takes the second output (exit) once. Body executions are numbered (#1, #2, …) in the run log.":
-    "Lặp edge đầu ra thứ nhất N lần, rồi đi theo đầu ra thứ hai (thoát) một lần. Các lần chạy phần thân được đánh số (<code>#1</code>, <code>#2</code>, …) trong nhật ký chạy.",
-  Times: "Số lần",
+    "Lặp nhánh đầu ra thứ nhất N lần, sau đó đi theo nhánh đầu ra thứ hai (thoát) một lần. Mỗi lần thực thi sẽ được đánh số (#1, #2, …) trong run log.",
+
+  "Times":
+    "Số lần",
+
   "Number of iterations of the body branch before falling through to the exit branch.":
-    "Số lần lặp của nhánh thân trước khi rơi xuống nhánh thoát.",
-  "Poll a value": "Thăm dò một giá trị",
+    "Số lần lặp của nhánh thân trước khi chuyển sang nhánh thoát.",
+
+  "Poll a value":
+    "Thăm dò một giá trị",
+
   "Repeat (10) → body: Read Char → Delay 1s. Exit: Disconnect.":
     "Repeat (10) → thân: Read Char → Delay 1s. Thoát: Disconnect.",
-  // Node: Delay
-  "Pause this branch for N seconds.": "Tạm dừng nhánh này N giây.",
+
+  "Pause this branch for N seconds.":
+    "Tạm dừng nhánh này trong N giây.",
+
   "Pauses the branch for a fixed duration. Other parallel branches keep running.":
-    "Tạm dừng nhánh trong một khoảng thời gian cố định. Các nhánh song song khác vẫn tiếp tục chạy.",
-  "Duration (s)": "Thời lượng (giây)",
+    "Tạm dừng nhánh hiện tại trong một khoảng thời gian cố định. Các nhánh song song khác vẫn tiếp tục hoạt động.",
+
+  "Duration (s)":
+    "Thời lượng (giây)",
+
   "Seconds to wait before continuing. Floats are fine (0.25 = 250 ms).":
-    "Số giây chờ trước khi tiếp tục. Số thập phân hợp lệ (0.25 = 250 ms).",
-  "Settle after connect": "Ổn định sau khi kết nối",
+    "Số giây cần chờ trước khi tiếp tục. Hỗ trợ số thập phân (0.25 = 250 ms).",
+
+  "Settle after connect":
+    "Chờ ổn định sau khi kết nối",
+
   "Connect → Delay 0.5s → Discover Services (some peripherals need a beat).":
-    "Connect → Delay 0.5s → Discover Services (một số thiết bị ngoại vi cần một nhịp nghỉ).",
-  // Node: Parallel
-  "Fan out into concurrent branches.": "Tỏa ra thành các nhánh đồng thời.",
+    "Connect → Delay 0.5s → Discover Services (một số peripheral cần một khoảng thời gian ngắn để ổn định).",
+
+  "Fan out into concurrent branches.":
+    "Tách thành nhiều nhánh chạy đồng thời.",
+
   "Fans out into multiple branches that run concurrently. Each outgoing edge starts its own execution token.":
-    "Tỏa ra thành nhiều nhánh chạy đồng thời. Mỗi edge đi ra khởi tạo token thực thi riêng.",
-  "Read two characteristics at once": "Đọc hai characteristic cùng lúc",
+    "Tách thành nhiều nhánh chạy song song. Mỗi edge đầu ra sẽ tạo một luồng thực thi riêng.",
+
+  "Read two characteristics at once":
+    "Đọc hai characteristic cùng lúc",
+
   "Parallel → branch 1: Read Char A; branch 2: Read Char B → Join (waits for both).":
-    "Parallel → nhánh 1: Read Char A; nhánh 2: Read Char B → Join (chờ cả hai).",
-  // Node: Join
-  "Wait for every incoming branch.": "Chờ mọi nhánh đi vào.",
+    "Parallel → nhánh 1: Read Char A; nhánh 2: Read Char B → Join (chờ cả hai hoàn thành).",
+
+  "Wait for every incoming branch.":
+    "Chờ tất cả các nhánh đầu vào.",
+
   "Counterpart to Parallel: waits until every incoming edge has delivered a token before continuing downstream.":
-    "Đối ứng với Parallel: chờ đến khi mọi edge đi vào đã chuyển token trước khi tiếp tục về phía sau.",
-  "Fan-out / fan-in": "Tỏa ra / gộp vào",
+    "Là node đối ứng với Parallel: chờ cho đến khi tất cả các nhánh đầu vào hoàn thành trước khi tiếp tục.",
+
+  "Fan-out / fan-in":
+    "Tách nhánh / hợp nhánh",
+
   "Parallel → 3 branches do Read/Read/HTTP → Join → continue.":
-    "Parallel → 3 nhánh làm Read/Read/HTTP → Join → tiếp tục.",
+    "Parallel → 3 nhánh thực hiện Read/Read/HTTP → Join → tiếp tục.",
   // Node: Try / Catch
-  "Recover from failures on a branch.": "Phục hồi khi nhánh gặp lỗi.",
+  "Recover from failures on a branch.":
+    "Khôi phục khi một nhánh gặp lỗi.",
+
   "Wraps its protected branch (edge 0). If any downstream step on that branch fails, execution jumps to the catch branch (edge 1) instead of failing the workflow.":
-    "Bao bọc nhánh được bảo vệ (edge 0). Nếu bất kỳ bước nào phía sau trên nhánh đó lỗi, quá trình thực thi nhảy sang nhánh catch (edge 1) thay vì làm hỏng cả quy trình.",
-  "Reconnect on transient failure": "Kết nối lại khi lỗi tạm thời",
+    "Bao bọc nhánh được bảo vệ (edge 0). Nếu bất kỳ bước nào phía sau trên nhánh đó thất bại, quá trình thực thi sẽ chuyển sang nhánh catch (edge 1) thay vì làm toàn bộ workflow thất bại.",
+
+  "Reconnect on transient failure":
+    "Kết nối lại khi gặp lỗi tạm thời",
+
   "Try/Catch → protected: Read Char; catch: Delay 1s → Connect → Read Char again.":
-    "Try/Catch → được bảo vệ: Read Char; catch: Delay 1s → Connect → Read Char lại.",
-  // Node: Retry
-  "Retry a branch up to N attempts.": "Thử lại một nhánh tối đa N lần.",
+    "Try/Catch → nhánh bảo vệ: Read Char; nhánh catch: Delay 1s → Connect → Read Char lại.",
+
+  "Retry a branch up to N attempts.":
+    "Thử lại một nhánh tối đa N lần.",
+
   "Wraps a branch in a retry loop. If anything downstream of edge 0 errors, the executor delays then re-enters edge 0 — up to attempts total tries before falling through to edge 1 (the give-up branch).":
-    "Bao một nhánh trong vòng lặp thử lại. Nếu bất kỳ thứ gì phía sau edge 0 lỗi, bộ thực thi sẽ chờ rồi vào lại edge 0 — tối đa <code>attempts</code> lần trước khi rơi xuống edge 1 (nhánh bỏ cuộc).",
-  Attempts: "Số lần thử",
+    "Bao một nhánh trong vòng lặp retry. Nếu bất kỳ bước nào phía sau edge 0 gặp lỗi, trình thực thi sẽ chờ rồi chạy lại edge 0 — tối đa số lần được cấu hình trước khi chuyển sang edge 1 (nhánh từ bỏ).",
+
+  "Attempts":
+    "Số lần thử",
+
   "Total tries (1 = no retry; the branch runs once and any failure falls through immediately).":
-    "Tổng số lần thử (1 = không thử lại; nhánh chạy một lần và mọi lỗi rơi xuống ngay).",
-  "Backoff (s)": "Khoảng nghỉ (giây)",
+    "Tổng số lần thử (1 = không retry; nhánh chỉ chạy một lần và mọi lỗi sẽ chuyển sang nhánh thất bại ngay lập tức).",
+
+  "Backoff (s)":
+    "Thời gian chờ giữa các lần thử (giây)",
+
   "Delay applied before each retry. Doesn't apply before the first attempt.":
-    "Độ trễ áp dụng trước mỗi lần thử lại. Không áp dụng trước lần thử đầu tiên.",
-  "Reconnect on flaky link": "Kết nối lại khi liên kết chập chờn",
+    "Khoảng thời gian chờ trước mỗi lần retry. Không áp dụng cho lần thử đầu tiên.",
+
+  "Reconnect on flaky link":
+    "Kết nối lại khi liên kết không ổn định",
+
   "Retry (3 attempts, 1s) → protected: Connect → Read; give-up: HTTP alert.":
-    "Retry (3 lần, 1s) → được bảo vệ: Connect → Read; bỏ cuộc: HTTP cảnh báo.",
-  // Node: Endless
-  "Park a branch indefinitely.": "Giữ một nhánh chạy vô thời hạn.",
+    "Retry (3 lần thử, 1 giây) → nhánh bảo vệ: Connect → Read; nhánh từ bỏ: HTTP alert.",
+
+  "Park a branch indefinitely.":
+    "Giữ một nhánh hoạt động vô thời hạn.",
+
   "Parks the current branch indefinitely. The workflow stays in the running state until the user hits Stop, so concurrent triggers (timer, on-notification, on-device-discovered) can keep firing. Has no outgoing edges.":
-    "Giữ nhánh hiện tại chạy vô thời hạn. Quy trình ở trạng thái đang chạy cho đến khi người dùng nhấn Stop, nên các trình kích hoạt đồng thời (timer, on-notification, on-device-discovered) vẫn tiếp tục kích hoạt. Không có edge đi ra.",
-  "Notification-only flow": "Luồng chỉ có notification",
+    "Giữ nhánh hiện tại hoạt động vô thời hạn. Workflow sẽ tiếp tục ở trạng thái đang chạy cho đến khi người dùng nhấn Stop, cho phép các trigger đồng thời (Timer, On Notification, On Device Discovered...) tiếp tục hoạt động. Node này không có edge đầu ra.",
+
+  "Notification-only flow":
+    "Luồng chỉ xử lý notification",
+
   "Start → Connect → Subscribe → Endless. A parallel On Notification trigger reacts to inbound packets for as long as the run lasts.":
-    "Start → Connect → Subscribe → Endless. Một trình kích hoạt On Notification song song phản ứng với các gói đến trong suốt thời gian chạy.",
-  "Background poller": "Bộ thăm dò nền",
+    "Start → Connect → Subscribe → Endless. Một trigger On Notification chạy song song sẽ phản hồi các gói dữ liệu đến trong suốt thời gian workflow hoạt động.",
+
+  "Background poller":
+    "Bộ thăm dò nền",
+
   "Start → Timer (every 30s) → Read Char → Append CSV; in parallel: Endless. The Endless branch keeps the run alive so the timer keeps ticking.":
-    "Start → Timer (mỗi 30s) → Read Char → Append CSV; song song: Endless. Nhánh Endless giữ cho lần chạy sống để timer tiếp tục đếm nhịp.",
-  // Node: If
-  "Branch on a condition.": "Rẽ nhánh theo một điều kiện.",
+    "Start → Timer (mỗi 30 giây) → Read Char → Append CSV; song song: Endless. Nhánh Endless giữ workflow tiếp tục chạy để Timer tiếp tục kích hoạt.",
+
+  "Branch on a condition.":
+    "Rẽ nhánh theo điều kiện.",
+
   "Branches on a condition. Edge 0 = true, edge 1 = false. Compares a Source (variable, last RSSI, last hex, isConnected) against a Right-hand value using the chosen operator.":
-    "Rẽ nhánh theo một điều kiện. Edge 0 = đúng, edge 1 = sai. So sánh một Source (variable, last RSSI, last hex, isConnected) với một giá trị bên phải bằng toán tử đã chọn.",
-  Source: "Nguồn",
+    "Rẽ nhánh dựa trên một điều kiện. Edge 0 = đúng, edge 1 = sai. So sánh một Source (variable, last RSSI, lastReadHex hoặc isConnected) với một giá trị bên phải bằng toán tử được chọn.",
+
+  "Source":
+    "Nguồn",
+
   "What the left-hand value is: variable looks up a stored variable; lastRSSI / lastReadHex / isConnected use runtime state.":
-    "Giá trị bên trái là gì: <code>variable</code> tra một biến đã lưu; <code>lastRSSI</code> / <code>lastReadHex</code> / <code>isConnected</code> dùng trạng thái lúc chạy.",
-  "Variable Name": "Tên biến",
+    "Xác định giá trị bên trái: variable tra cứu một biến đã lưu; lastRSSI, lastReadHex và isConnected sử dụng trạng thái thực thi hiện tại.",
+
+  "Variable Name":
+    "Tên biến",
+
   "Only shown when Source = variable. The name to look up.":
-    "Chỉ hiển thị khi Source = variable. Tên cần tra.",
-  Operator: "Toán tử",
+    "Chỉ hiển thị khi Source = variable. Tên của biến cần tra cứu.",
+
+  "Operator":
+    "Toán tử",
+
   "=, ≠, <, ≤, >, ≥, contains, starts with. Numeric ops parse both sides as numbers; others compare as strings.":
-    "<code>=</code>, <code>≠</code>, <code><</code>, <code>≤</code>, <code>></code>, <code>≥</code>, <code>contains</code>, <code>starts with</code>. Toán tử số phân tích cả hai vế thành số; các toán tử khác so sánh dạng chuỗi.",
-  "Right-hand value": "Giá trị bên phải",
+    "=, ≠, <, ≤, >, ≥, contains, starts with. Các toán tử số học sẽ chuyển cả hai vế thành số; các toán tử còn lại sẽ so sánh dưới dạng chuỗi.",
+
+  "Right-hand value":
+    "Giá trị bên phải",
+
   "Literal value (with ${var} interpolation). When both sides start with 0x they're auto-normalized for hex comparison.":
-    "Giá trị nguyên văn (có nội suy <code>${var}</code>). Khi cả hai vế bắt đầu bằng <code>0x</code> chúng được tự chuẩn hóa để so sánh hex.",
-  "Low-battery alert": "Cảnh báo pin yếu",
+    "Giá trị nguyên văn (hỗ trợ nội suy ${var}). Khi cả hai vế đều bắt đầu bằng 0x, chúng sẽ được tự động chuẩn hóa để so sánh dữ liệu hex.",
+
+  "Low-battery alert":
+    "Cảnh báo pin yếu",
+
   "Read Char (store as=battery) → If (variable=battery, <, 20) → true: HTTP Request.":
     "Read Char (store as=battery) → If (variable=battery, <, 20) → true: HTTP Request.",
-  "Match a hex response": "Khớp một phản hồi hex",
+
+  "Match a hex response":
+    "Khớp phản hồi hex",
+
   "Subscribe → Wait Notification → If (lastReadHex, =, 0x AA 01) → true: continue.":
-    "Subscribe → Wait Notification → If (lastReadHex, =, <code>0x AA 01</code>) → true: tiếp tục.",
-  // Node: Wait Notification
+    "Subscribe → Wait Notification → If (lastReadHex, =, 0x AA 01) → true: tiếp tục.",
+
   "Block until a notification arrives.":
-    "Chặn cho đến khi có một notification.",
+    "Chờ đến khi có notification.",
+
   "Blocks the branch until a notification arrives on the characteristic, or the timeout elapses. The received bytes populate lastReadHex.":
-    "Chặn nhánh cho đến khi có notification trên characteristic, hoặc hết thời gian chờ. Các byte nhận được điền vào <code>lastReadHex</code>.",
-  "Must already be Subscribed.": "Phải đã được Subscribe trước đó.",
-  "Match (hex)": "Khớp (hex)",
+    "Tạm dừng nhánh cho đến khi characteristic nhận được notification hoặc hết thời gian chờ. Dữ liệu nhận được sẽ được lưu vào lastReadHex.",
+
+  "Must already be Subscribed.":
+    "Characteristic phải được Subscribe trước đó.",
+
+  "Match (hex)":
+    "Điều kiện khớp (hex)",
+
   "Optional. If set, ignore notifications that don't equal these bytes.":
-    "Tùy chọn. Nếu đặt, bỏ qua các notification không bằng các byte này.",
+    "Tùy chọn. Nếu được đặt, các notification không khớp với dữ liệu này sẽ bị bỏ qua.",
+
   "Maximum wait. Leave empty for no timeout.":
-    "Thời gian chờ tối đa. Để trống nếu không giới hạn.",
+    "Thời gian chờ tối đa. Để trống để không giới hạn.",
+
   "Optional variable name for the received bytes.":
-    "Tên biến tùy chọn cho các byte nhận được.",
-  "Wait for ack byte": "Chờ byte xác nhận",
+    "Tên biến tùy chọn để lưu dữ liệu nhận được.",
+
+  "Wait for ack byte":
+    "Chờ byte xác nhận",
+
   "Write Char (cmd) → Wait Notification (match=0x AA, timeout=2) → If on lastReadHex.":
-    "Write Char (cmd) → Wait Notification (match=<code>0x AA</code>, timeout=2) → If trên lastReadHex.",
-  // Node: Assert
+    "Write Char (cmd) → Wait Notification (match=0x AA, timeout=2) → If dựa trên lastReadHex.",
+
   "Fail the branch if a condition is false.":
-    "Làm nhánh thất bại nếu một điều kiện sai.",
+    "Làm nhánh thất bại nếu điều kiện không đúng.",
+
   "Checks a condition and fails the step if it's false. Same operand/operator semantics as the If node, but doesn't branch — it terminates the branch on failure (or jumps to the nearest Try/Catch / Retry catch edge).":
-    "Kiểm tra một điều kiện và làm bước thất bại nếu sai. Cùng ngữ nghĩa toán hạng/toán tử như node If, nhưng không rẽ nhánh — nó kết thúc nhánh khi thất bại (hoặc nhảy đến edge catch của Try/Catch / Retry gần nhất).",
-  "Source / Operator / Value": "Nguồn / Toán tử / Giá trị",
+    "Kiểm tra một điều kiện và đánh dấu bước là thất bại nếu điều kiện sai. Sử dụng cùng cách so sánh như node If nhưng không rẽ nhánh — nhánh hiện tại sẽ kết thúc (hoặc chuyển sang Try/Catch hoặc Retry gần nhất nếu có).",
+
+  "Source / Operator / Value":
+    "Nguồn / Toán tử / Giá trị",
+
   "Same as If. Compares a variable, lastRSSI, lastReadHex, or isConnected against a literal value.":
-    "Giống node If. So sánh một variable, lastRSSI, lastReadHex hoặc isConnected với một giá trị nguyên văn.",
-  Message: "Thông điệp",
+    "Tương tự node If. So sánh variable, lastRSSI, lastReadHex hoặc isConnected với một giá trị nguyên văn.",
+
+  "Message":
+    "Thông điệp",
+
   "Optional human-readable message included in the failure entry. Defaults to the operand-vs-expected summary.":
-    "Thông điệp dễ đọc tùy chọn được thêm vào mục thất bại. Mặc định là bản tóm tắt toán-hạng-so-với-kỳ-vọng.",
-  "Guard before write": "Bảo vệ trước khi ghi",
+    "Thông điệp tùy chọn để hiển thị khi thất bại. Mặc định là mô tả sự khác biệt giữa giá trị thực tế và giá trị mong đợi.",
+
+  "Guard before write":
+    "Kiểm tra trước khi ghi",
+
   "Read MTU (store as=mtu) → Assert (variable=mtu, ≥, 100) → Write Char (large payload).":
     "Read MTU (store as=mtu) → Assert (variable=mtu, ≥, 100) → Write Char (payload lớn).",
-  "Sanity check protocol": "Kiểm tra nhanh giao thức",
+
+  "Sanity check protocol":
+    "Kiểm tra tính hợp lệ của giao thức",
+
   "On Notification (store as=ack) → Assert (variable=ack, starts with, 0xAA01, msg=bad ack).":
-    "On Notification (store as=ack) → Assert (variable=ack, starts with, <code>0xAA01</code>, msg=<code>bad ack</code>).",
-  // Node: Set Variable
+    "On Notification (store as=ack) → Assert (variable=ack, starts with, 0xAA01, msg=bad ack).",
+
   "Store a value into a named variable.":
-    "Lưu một giá trị vào một biến có tên.",
+    "Lưu một giá trị vào biến.",
+
   "Stores a value into a named variable so later steps can reference it. The source can be a literal, another variable, last RSSI, last hex, or the connection state.":
-    "Lưu một giá trị vào một biến có tên để các bước sau tham chiếu. Nguồn có thể là giá trị nguyên văn, một biến khác, last RSSI, last hex, hoặc trạng thái kết nối.",
+    "Lưu một giá trị vào biến để các bước sau có thể sử dụng. Nguồn dữ liệu có thể là giá trị nguyên văn, một biến khác, lastRSSI, lastReadHex hoặc trạng thái kết nối.",
+
   "Destination. Pick something the If / Transform / payload steps will reference.":
-    "Đích đến. Chọn một tên mà các bước If / Transform / payload sẽ tham chiếu.",
+    "Tên biến đích. Đây là tên sẽ được tham chiếu trong các bước If, Transform hoặc payload.",
+
   "Where the value comes from: variable (literal or another variable), lastRSSI, lastReadHex, isConnected.":
-    "Giá trị đến từ đâu: <code>variable</code> (nguyên văn hoặc một biến khác), <code>lastRSSI</code>, <code>lastReadHex</code>, <code>isConnected</code>.",
-  Literal: "Nguyên văn",
+    "Nguồn dữ liệu: variable (giá trị nguyên văn hoặc biến khác), lastRSSI, lastReadHex hoặc isConnected.",
+
+  "Literal":
+    "Giá trị nguyên văn",
+
   "Only shown when Source = variable. If the text matches an existing variable name, that variable's value is used; otherwise it's stored as a literal string.":
-    "Chỉ hiển thị khi Source = variable. Nếu văn bản khớp tên một biến đã có, giá trị của biến đó được dùng; nếu không, nó được lưu thành chuỗi nguyên văn.",
-  "Snapshot RSSI": "Chụp nhanh RSSI",
+    "Chỉ hiển thị khi Source = variable. Nếu nội dung khớp tên một biến đã tồn tại thì giá trị của biến đó sẽ được dùng; nếu không, nội dung sẽ được lưu dưới dạng chuỗi nguyên văn.",
+
+  "Snapshot RSSI":
+    "Lưu RSSI hiện tại",
+
   "Read RSSI → Set Variable (name=rssi_at_start, source=lastRSSI).":
     "Read RSSI → Set Variable (name=rssi_at_start, source=lastRSSI).",
-  "Literal flag": "Cờ nguyên văn",
+
+  "Literal flag":
+    "Cờ trạng thái",
+
   "Set Variable (name=mode, source=variable, literal=night) → If (variable=mode, =, night).":
-    "Set Variable (name=mode, source=variable, literal=<code>night</code>) → If (variable=mode, =, night).",
-  // Node: Transform
+    "Set Variable (name=mode, source=variable, literal=night) → If (variable=mode, =, night).",
+
   "Convert hex ↔ UInt / Float / UTF-8.":
-    "Chuyển đổi hex ↔ UInt / Float / UTF-8.",
+    "Chuyển đổi giữa hex ↔ UInt / Float / UTF-8.",
+
   "Converts a hex string into a decoded value (UInt8 / UInt16 / Float / UTF-8 / sliced bytes) or vice versa. Reads from lastReadHex if no input variable is set.":
-    "Chuyển một chuỗi hex thành giá trị đã giải mã (UInt8 / UInt16 / Float / UTF-8 / byte cắt lát) hoặc ngược lại. Đọc từ <code>lastReadHex</code> nếu không đặt biến đầu vào.",
-  Operation: "Phép toán",
+    "Chuyển đổi chuỗi hex thành giá trị đã giải mã (UInt8, UInt16, Float, UTF-8 hoặc dữ liệu cắt lát) hoặc ngược lại. Nếu không chỉ định biến đầu vào, dữ liệu sẽ được lấy từ lastReadHex.",
+
+  "Operation":
+    "Phép chuyển đổi",
+
   "hexToUtf8 (auto-trims NUL / whitespace), utf8ToHex, hexToUInt8/16/Int16/Float32 (LE/BE), hexSlice (offset + length).":
-    "hexToUtf8 (tự cắt NUL / khoảng trắng), utf8ToHex, hexToUInt8/16/Int16/Float32 (LE/BE), hexSlice (offset + length).",
-  Input: "Đầu vào",
+    "hexToUtf8 (tự loại bỏ ký tự NUL và khoảng trắng thừa), utf8ToHex, hexToUInt8/16/Int16/Float32 (LE/BE), hexSlice (offset + length).",
+
+  "Input":
+    "Đầu vào",
+
   "Source variable name. Empty = use lastReadHex.":
-    "Tên biến nguồn. Để trống = dùng lastReadHex.",
-  Output: "Đầu ra",
-  "Destination variable name. Required.": "Tên biến đích. Bắt buộc.",
-  "Offset / Length": "Offset / Độ dài",
+    "Tên biến nguồn. Để trống để sử dụng lastReadHex.",
+
+  "Output":
+    "Đầu ra",
+
+  "Destination variable name. Required.":
+    "Tên biến đích. Bắt buộc.",
+
+  "Offset / Length":
+    "Offset / Độ dài",
+
   "For hexSlice only. Byte offset from the start, and how many bytes to keep (0 = to end).":
-    "Chỉ dành cho hexSlice. Offset byte tính từ đầu, và số byte giữ lại (0 = đến hết).",
-  "Decode a version string": "Giải mã một chuỗi phiên bản",
+    "Chỉ áp dụng cho hexSlice. Offset tính theo byte từ đầu dữ liệu và số byte cần giữ lại (0 = đến hết).",
+
+  "Decode a version string":
+    "Giải mã chuỗi phiên bản",
+
   "Read Char → Transform (hexToUtf8, output=version) → If (variable=version, =, 3.4.4).":
     "Read Char → Transform (hexToUtf8, output=version) → If (variable=version, =, 3.4.4).",
-  "First-byte command": "Lệnh ở byte đầu",
+
+  "First-byte command":
+    "Lệnh ở byte đầu tiên",
+
   "Subscribe → Wait Notif → Transform (hexSlice, offset=0, length=1, output=cmd_byte) → If (variable=cmd_byte, =, 0xAA).":
-    "Subscribe → Wait Notif → Transform (hexSlice, offset=0, length=1, output=cmd_byte) → If (variable=cmd_byte, =, <code>0xAA</code>).",
-  // Node: Payload Parser
+    "Subscribe → Wait Notif → Transform (hexSlice, offset=0, length=1, output=cmd_byte) → If (variable=cmd_byte, =, 0xAA).",
   "Parse a packet into named fields.":
-    "Phân tích một gói thành các trường có tên.",
-  Fields: "Các trường",
+    "Phân tích một gói dữ liệu thành các trường có tên.",
+
+  "Fields":
+    "Các trường",
+
   "Parses a hex payload into multiple named fields in one node — replaces a chain of Transform nodes when you have a structured packet with several offsets.":
-    "Phân tích một payload hex thành nhiều trường có tên trong một node — thay cho một chuỗi node Transform khi bạn có gói có cấu trúc với nhiều offset.",
+    "Phân tích một payload hex thành nhiều trường có tên trong một node duy nhất — thay thế cho chuỗi nhiều node Transform khi làm việc với các gói dữ liệu có cấu trúc và nhiều offset.",
+
   "One field per line: name offset length type [endian]. Types: hex, utf8, ascii, uint8/int8, uint16/int16, uint32/int32, float32, float64. length of 0 = to end. Endian (LE/BE) only required for multi-byte numeric types.":
-    "Mỗi dòng một trường: <code>name  offset  length  type  [endian]</code>. Kiểu: hex, utf8, ascii, uint8/int8, uint16/int16, uint32/int32, float32, float64. <code>length</code> bằng 0 = đến hết. Endian (LE/BE) chỉ bắt buộc với các kiểu số nhiều byte.",
-  "Sensor packet": "Gói cảm biến",
+    "Mỗi dòng một trường theo định dạng: <code>name offset length type [endian]</code>. Các kiểu dữ liệu hỗ trợ: hex, utf8, ascii, uint8/int8, uint16/int16, uint32/int32, float32, float64. <code>length = 0</code> nghĩa là đọc đến hết dữ liệu. Endian (LE/BE) chỉ bắt buộc với các kiểu số nhiều byte.",
+
+  "Sensor packet":
+    "Gói dữ liệu cảm biến",
+
   "Read Char → Payload Parser: temp 0 2 int16 LE hum 2 1 uint8 flag 3 1 hex":
-    "Read Char → Payload Parser:<br>temp 0 2 int16 LE<br>hum  2 1 uint8<br>flag 3 1 hex",
-  // Node: Read RSSI
-  "Read the current connection RSSI.": "Đọc RSSI hiện tại của kết nối.",
+    "Read Char → Payload Parser:<br>temp 0 2 int16 LE<br>hum 2 1 uint8<br>flag 3 1 hex",
+
+  "Read the current connection RSSI.":
+    "Đọc RSSI hiện tại của kết nối.",
+
   "Reads the current RSSI of the active connection. Stored in the lastRSSI runtime slot and (optionally) into a named variable.":
-    "Đọc RSSI hiện tại của kết nối đang hoạt động. Lưu trong ô runtime <code>lastRSSI</code> và (tùy chọn) vào một biến có tên.",
-  "Optional variable name.": "Tên biến tùy chọn.",
-  "Range check": "Kiểm tra tầm",
-  'Read RSSI → If (lastRSSI, <, -85) → true: HTTP "link weak".':
-    'Read RSSI → If (lastRSSI, <, -85) → true: HTTP "liên kết yếu".',
-  // Node: Read MTU
-  "Read the negotiated ATT MTU.": "Đọc ATT MTU đã thương lượng.",
+    "Đọc giá trị RSSI hiện tại của kết nối đang hoạt động. Giá trị được lưu vào biến runtime <code>lastRSSI</code> và có thể lưu thêm vào một biến tùy chọn.",
+
+  "Optional variable name.":
+    "Tên biến tùy chọn.",
+
+  "Range check":
+    "Kiểm tra cường độ tín hiệu",
+
+  "Read RSSI → If (lastRSSI, <, -85) → true: HTTP \"link weak\".":
+    "Read RSSI → If (lastRSSI, <, -85) → true: HTTP \"liên kết yếu\".",
+
+  "Read the negotiated ATT MTU.":
+    "Đọc ATT MTU đã được thương lượng.",
+
   "Reads the negotiated ATT MTU. macOS CoreBluetooth doesn't expose an API to request a specific MTU — this step just surfaces what the OS negotiated at connect time.":
-    "Đọc ATT MTU đã thương lượng. CoreBluetooth của macOS không cung cấp API để <em>yêu cầu</em> một MTU cụ thể — bước này chỉ hiển thị giá trị hệ điều hành đã thương lượng lúc kết nối.",
+    "Đọc ATT MTU đã được thương lượng. CoreBluetooth trên macOS không cung cấp API để yêu cầu một MTU cụ thể — node này chỉ hiển thị giá trị mà hệ điều hành đã thương lượng khi kết nối.",
+
   "Optional variable name for the MTU integer.":
-    "Tên biến tùy chọn cho số nguyên MTU.",
-  "Chunk sizing diagnostics": "Chẩn đoán kích thước phân mảnh",
+    "Tên biến tùy chọn để lưu giá trị MTU.",
+
+  "Chunk sizing diagnostics":
+    "Chẩn đoán kích thước phân mảnh",
+
   "Connect → Read MTU (store as=mtu) → HTTP Request (body uses ${mtu}).":
-    "Connect → Read MTU (store as=mtu) → HTTP Request (body dùng <code>${mtu}</code>).",
-  // Node: HTTP Request
-  "Send an HTTP request.": "Gửi một yêu cầu HTTP.",
+    "Connect → Read MTU (store as=mtu) → HTTP Request (body sử dụng <code>${mtu}</code>).",
+
+  "Send an HTTP request.":
+    "Gửi một yêu cầu HTTP.",
+
   "Sends an HTTP request to a URL with optional headers and body. Variables are interpolated with ${name}.":
-    "Gửi một yêu cầu HTTP tới một URL với header và body tùy chọn. Biến được nội suy bằng <code>${name}</code>.",
-  URL: "URL",
+    "Gửi một yêu cầu HTTP tới URL với header và body tùy chọn. Các biến được nội suy bằng cú pháp <code>${name}</code>.",
+
+  "URL":
+    "URL",
+
   "Full URL with ${var} allowed.":
-    "URL đầy đủ, cho phép dùng <code>${var}</code>.",
-  Method: "Phương thức",
-  "GET / POST / PUT / DELETE / PATCH.": "GET / POST / PUT / DELETE / PATCH.",
-  Headers: "Header",
+    "URL đầy đủ, hỗ trợ nội suy <code>${var}</code>.",
+
+  "Method":
+    "Phương thức",
+
+  "GET / POST / PUT / DELETE / PATCH.":
+    "GET / POST / PUT / DELETE / PATCH.",
+
+  "Headers":
+    "Header",
+
   "Key: value pairs, one per line. Values support ${var}.":
-    "Cặp khóa: giá trị, mỗi cặp một dòng. Giá trị hỗ trợ <code>${var}</code>.",
-  Body: "Body",
+    "Các cặp khóa: giá trị, mỗi dòng một cặp. Giá trị hỗ trợ <code>${var}</code>.",
+
+  "Body":
+    "Nội dung",
+
   "Raw body string. ${var} interpolation applies.":
-    "Chuỗi body thô. Áp dụng nội suy <code>${var}</code>.",
-  "Ship a reading": "Gửi một số đo",
-  'Read Char (store as=temp) → HTTP Request (POST https://api.x/ingest, body={"temp":${temp}}).':
-    'Read Char (store as=temp) → HTTP Request (POST https://api.x/ingest, body=<code>{"temp":${temp}}</code>).',
-  // Node: Append CSV
-  "Append a row to a CSV file.": "Thêm một dòng vào tệp CSV.",
+    "Nội dung body dạng văn bản thô. Hỗ trợ nội suy <code>${var}</code>.",
+
+  "Ship a reading":
+    "Gửi dữ liệu đo được",
+
+  "Read Char (store as=temp) → HTTP Request (POST https://api.x/ingest, body={\"temp\":${temp}}).":
+    "Read Char (store as=temp) → HTTP Request (POST https://api.x/ingest, body=<code>{\"temp\":${temp}}</code>).",
+
+  "Append a row to a CSV file.":
+    "Thêm một dòng vào tệp CSV.",
+
   "Appends a row to a CSV file on disk. Creates the file with the configured header on first run.":
-    "Thêm một dòng vào tệp CSV trên ổ đĩa. Tạo tệp với header đã cấu hình trong lần chạy đầu tiên.",
-  "File path": "Đường dẫn tệp",
-  "Absolute path to the CSV file.": "Đường dẫn tuyệt đối tới tệp CSV.",
-  Header: "Header",
+    "Thêm một dòng vào tệp CSV trên ổ đĩa. Nếu tệp chưa tồn tại, hệ thống sẽ tạo mới và ghi header đã cấu hình.",
+
+  "File path":
+    "Đường dẫn tệp",
+
+  "Absolute path to the CSV file.":
+    "Đường dẫn tuyệt đối đến tệp CSV.",
+
+  "Header":
+    "Header",
+
   "Comma-separated column names. Written once when the file is created.":
-    "Tên cột phân tách bằng dấu phẩy. Chỉ ghi một lần khi tệp được tạo.",
-  Row: "Dòng",
+    "Tên các cột, phân tách bằng dấu phẩy. Chỉ được ghi một lần khi tệp được tạo.",
+
+  "Row":
+    "Dòng dữ liệu",
+
   "Comma-separated values. ${var} interpolation applies.":
-    "Giá trị phân tách bằng dấu phẩy. Áp dụng nội suy <code>${var}</code>.",
-  "Telemetry log": "Nhật ký telemetry",
+    "Các giá trị phân tách bằng dấu phẩy. Hỗ trợ nội suy <code>${var}</code>.",
+
+  "Telemetry log":
+    "Nhật ký telemetry",
+
   "Loop: Read RSSI → Append CSV (header=ts,rssi, row=${now},${rssi}).":
     "Lặp: Read RSSI → Append CSV (header=<code>ts,rssi</code>, row=<code>${now},${rssi}</code>).",
-  // Node: Save File
+
   "Write a payload to disk in one shot.":
     "Ghi một payload xuống ổ đĩa trong một lần.",
+
   "Writes a payload to disk in one shot (overwrites if exists). Use for snapshots, not append-style logs.":
-    "Ghi một payload xuống ổ đĩa trong một lần (ghi đè nếu đã tồn tại). Dùng cho ảnh chụp, không phải nhật ký kiểu nối thêm.",
-  "Absolute path to the destination.": "Đường dẫn tuyệt đối tới đích.",
-  Content: "Nội dung",
+    "Ghi một payload xuống ổ đĩa trong một lần (ghi đè nếu tệp đã tồn tại). Phù hợp cho ảnh chụp trạng thái hoặc dữ liệu tạm thời, không dùng cho nhật ký dạng nối thêm.",
+
+  "Absolute path to the destination.":
+    "Đường dẫn tuyệt đối đến tệp đích.",
+
+  "Content":
+    "Nội dung",
+
   "Raw text content with ${var} interpolation.":
-    "Nội dung văn bản thô với nội suy <code>${var}</code>.",
-  "Dump last read": "Kết xuất lần đọc cuối",
+    "Nội dung văn bản thô, hỗ trợ nội suy <code>${var}</code>.",
+
+  "Dump last read":
+    "Lưu dữ liệu đọc gần nhất",
+
   "Read Char → Save File (path=/tmp/last.bin, content=${lastReadHex}).":
     "Read Char → Save File (path=<code>/tmp/last.bin</code>, content=<code>${lastReadHex}</code>).",
   // Request a node
