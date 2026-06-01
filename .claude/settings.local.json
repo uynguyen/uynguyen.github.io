@@ -35,7 +35,13 @@
       "Bash(git add *)",
       "Bash(cd *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(python3 -c \"s=open\\('index.html'\\).read\\(\\); print\\('open{',s.count\\('{'\\),'close}',s.count\\('}'\\)\\)\")",
+      "Bash(open *)",
+      "Bash(python3 /tmp/gen_flow.py)",
+      "Bash(python3 -)",
+      "Bash(cp index.html /tmp/index.bak3.html)",
+      "Bash(python3 /tmp/gen_flow2.py)"
     ]
   }
 }
