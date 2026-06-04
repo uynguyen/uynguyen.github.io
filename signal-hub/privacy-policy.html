@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Signal Hub — Privacy Policy</title>
+<meta name="description" content="Privacy Policy for Signal Hub, the macOS Bluetooth Low Energy (BLE) testing and automation app. How Signal Hub handles your data.">
+<meta name="author" content="Uy Nguyen">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://uynguyen.github.io/signal-hub/privacy-policy.html">
+<link rel="icon" href="/Post-Resources/SignalHubMac/logo-transparent.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fafafa;
+  --bg-alt: #f3f4f6;
+  --bg-dark: #0a0a0f;
+  --ink: #0a0a0f;
+  --ink-2: #1d1d1f;
+  --ink-3: #424246;
+  --muted: #6e6e73;
+  --line: rgba(0, 0, 0, 0.08);
+  --accent: #23b6e6;
+  --accent-2: #02d39a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(250, 250, 250, 0.72);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; letter-spacing: -0.01em; font-size: 16px;
+}
+.nav-logo { width: 32px; height: 32px; display: block; object-fit: contain; }
+.nav-links { display: flex; gap: 26px; font-size: 14px; font-weight: 500; color: var(--ink-3); }
+.nav-links a { transition: color 0.2s ease; }
+.nav-links a:hover { color: var(--accent); }
+
+/* ---------- Doc ---------- */
+.doc {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 130px 28px 90px;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 16px;
+}
+.eyebrow .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 0 4px rgba(2,211,154,0.22);
+}
+h1 {
+  font-size: clamp(30px, 5vw, 44px);
+  font-weight: 800; letter-spacing: -0.02em;
+  line-height: 1.1; color: var(--ink);
+}
+.updated { color: var(--muted); font-size: 14px; margin-top: 12px; }
+.doc h2 {
+  font-size: 20px; font-weight: 700; letter-spacing: -0.01em;
+  margin-top: 44px; margin-bottom: 10px; color: var(--ink-2);
+  padding-left: 14px; border-left: 3px solid var(--accent-2);
+}
+.doc p { color: var(--ink-3); margin-top: 12px; }
+.doc ul { margin: 12px 0 0 0; padding-left: 22px; color: var(--ink-3); }
+.doc li { margin: 7px 0; }
+.doc a { color: var(--accent); font-weight: 500; }
+.doc a:hover { text-decoration: underline; }
+.lead {
+  font-size: 18px; color: var(--ink-2); margin-top: 26px;
+}
+.divider { height: 1px; background: var(--line); margin: 30px 0; border: 0; }
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 50px 28px 60px;
+  text-align: center;
+  background: var(--bg-dark);
+  color: #6e6e7a;
+  font-size: 13px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer a { color: #b6b6bf; }
+.footer a:hover { color: #fff; }
+.footer-links { margin-top: 14px; display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-inner { padding: 12px 18px; }
+  .doc { padding-top: 100px; }
+}
+</style>
+</head>
+<body id="top">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/signal-hub/">
+      <img class="nav-logo" src="/Post-Resources/SignalHubMac/logo-transparent.png" alt="Signal Hub logo">
+      Signal Hub
+    </a>
+    <div class="nav-links">
+      <a href="/signal-hub/#connect">Connect</a>
+      <a href="/signal-hub/#workflows">Workflows</a>
+      <a href="/signal-hub/#simulate">Simulate</a>
+      <a href="/signal-hub/#export">Export</a>
+      <a href="/signal-hub/">Home</a>
+    </div>
+  </div>
+</nav>
+
+<main class="doc">
+  <div class="eyebrow"><span class="dot"></span> Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: June 4, 2026</p>
+
+  <p class="lead">
+    This Privacy Policy explains how <strong>Signal Hub</strong> (the “App”) handles
+    information. Signal Hub is a Bluetooth Low Energy (BLE) utility that lets you
+    discover, inspect, and communicate with nearby BLE peripherals. The App is
+    designed to operate primarily on your device, and we collect as little
+    information as possible.
+  </p>
+  <p>By using Signal Hub, you agree to the practices described in this policy.</p>
+
+  <h2>1. Information processed on your device</h2>
+  <p>
+    The core functionality of Signal Hub — scanning for BLE peripherals, reading
+    and writing characteristics, viewing logs, and managing your settings — runs
+    locally on your device. The following data is created and stored
+    <strong>only on your device</strong> and is <strong>not transmitted to us</strong>:
+  </p>
+  <ul>
+    <li>Details of BLE peripherals you discover (such as device names, identifiers, advertised services, and characteristic values).</li>
+    <li>Logs, scan history, workflows, and connection records.</li>
+    <li>App preferences and settings.</li>
+    <li>Any data you export or share is shared only when you explicitly choose to do so, to a destination you select.</li>
+  </ul>
+  <p>We do not have access to this data. It remains on your device unless you choose to export or share it.</p>
+
+  <h2>2. Crash and diagnostic data</h2>
+  <p>
+    To keep the App stable, Signal Hub uses <strong>Firebase Crashlytics</strong>,
+    a crash-reporting service provided by Google. When the App crashes or
+    encounters a serious error, Crashlytics may automatically collect:
+  </p>
+  <ul>
+    <li>Crash logs and stack traces.</li>
+    <li>Device type, operating system version, and App version.</li>
+    <li>A randomly generated installation identifier and diagnostic information about the crash.</li>
+  </ul>
+  <p>
+    This information is used solely to diagnose and fix problems. It is not used
+    to identify you personally. Crashlytics’ handling of this data is governed by
+    Google’s Privacy Policy, available at
+    <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.
+  </p>
+
+  <h2>3. Purchases and subscriptions</h2>
+  <p>
+    Signal Hub offers an optional auto-renewable subscription. All purchases are
+    processed by <strong>Apple</strong> through the App Store using your Apple
+    Account. We do <strong>not</strong> receive or store your payment card
+    details. Apple manages the transaction and may share limited purchase
+    information with us in accordance with Apple’s policies. For details on how
+    Apple handles your data, see
+    <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a>.
+  </p>
+  <p>
+    Subscription entitlement status is verified on your device through Apple’s
+    StoreKit framework and is not linked to any personal account maintained by us.
+  </p>
+
+  <h2>4. Fonts</h2>
+  <p>
+    Signal Hub may use the Google Fonts service to display certain typefaces. When
+    a font is loaded, a request may be made to Google’s font servers. This request
+    may include standard technical information such as your IP address and device
+    type, as is normal for any web request. See Google’s Privacy Policy at
+    <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.
+  </p>
+
+  <h2>5. What we do not do</h2>
+  <ul>
+    <li>We do not require you to create an account or provide your name, email, or contact details to use the App.</li>
+    <li>We do not sell, rent, or trade your information.</li>
+    <li>We do not use the App for advertising or third-party ad tracking.</li>
+    <li>We do not collect your precise location. (Some operating systems group Bluetooth access under location permissions, but the App does not access or store your geographic location.)</li>
+  </ul>
+
+  <h2>6. Data retention</h2>
+  <p>
+    Data stored locally on your device remains until you delete it or uninstall
+    the App. Crash and diagnostic data collected by Firebase Crashlytics is
+    retained according to Google’s standard retention periods for that service.
+  </p>
+
+  <h2>7. Children’s privacy</h2>
+  <p>
+    Signal Hub is not directed to children under the age of 13 (or the equivalent
+    minimum age in your jurisdiction), and we do not knowingly collect personal
+    information from children.
+  </p>
+
+  <h2>8. Your rights</h2>
+  <p>
+    Because the App does not collect personal information that identifies you,
+    most data subject to privacy laws such as the GDPR and CCPA simply never
+    leaves your device. You can remove all locally stored data at any time by
+    deleting the App. If you have questions about data handled by Firebase
+    Crashlytics, you may contact us using the details below.
+  </p>
+
+  <h2>9. Changes to this policy</h2>
+  <p>
+    We may update this Privacy Policy from time to time. When we do, we will
+    revise the “Last updated” date at the top of this page. Continued use of the
+    App after changes take effect constitutes acceptance of the updated policy.
+  </p>
+
+  <h2>10. Contact</h2>
+  <p>
+    If you have any questions about this Privacy Policy, please contact us at
+    <a href="mailto:uynguyen.itus@gmail.com">uynguyen.itus@gmail.com</a>.
+  </p>
+</main>
+
+<footer class="footer">
+  <div>Designed &amp; built by <a href="/">Uy Nguyen</a> — crafted for engineers who live in the BLE stack.</div>
+  <div class="footer-links">
+    <a href="/signal-hub/">Signal Hub</a>
+    <a href="/">Blog</a>
+    <a href="mailto:uynguyen.itus@gmail.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

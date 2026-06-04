@@ -2,24 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://uynguyen.github.io/</loc>
-    <lastmod>2026-06-01T15:14:53.112Z</lastmod>
+    <lastmod>2026-06-04T00:55:34.642Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://uynguyen.github.io/signal-hub/</loc>
-    <lastmod>2026-06-01T15:14:53.112Z</lastmod>
+    <lastmod>2026-06-04T00:55:34.642Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://uynguyen.github.io/2018/09/20/ANCS-Apple-Notification-Center-Service/</loc>
-    <lastmod>2024-03-23T03:54:36.080Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uynguyen.github.io/2020/05/30/Advanced-iOS-Concurrency-Async-Operations-2/</loc>
     <lastmod>2024-03-23T03:54:36.080Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -37,14 +31,14 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2018/01/16/Asynchronous-Programming-in-Swift/</loc>
+    <loc>https://uynguyen.github.io/2020/05/30/Advanced-iOS-Concurrency-Async-Operations-2/</loc>
     <lastmod>2024-03-23T03:54:36.080Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2026/03/14/Best-practice-BLE-cross-platform-iOS-Flutter-ReactNative/</loc>
-    <lastmod>2026-03-14T13:40:03.303Z</lastmod>
+    <loc>https://uynguyen.github.io/2018/01/16/Asynchronous-Programming-in-Swift/</loc>
+    <lastmod>2024-03-23T03:54:36.080Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -55,8 +49,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://uynguyen.github.io/2018/07/23/Best-practice-How-to-deal-with-Bluetooth-Low-Energy-in-background/</loc>
+    <lastmod>2026-04-01T10:24:50.519Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://uynguyen.github.io/2020/08/23/Best-practice-Advanced-BLE-scanning-process-on-iOS/</loc>
     <lastmod>2024-03-23T03:54:36.080Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uynguyen.github.io/2026/03/14/Best-practice-BLE-cross-platform-iOS-Flutter-ReactNative/</loc>
+    <lastmod>2026-03-14T13:40:03.303Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -73,26 +79,20 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2018/07/23/Best-practice-How-to-deal-with-Bluetooth-Low-Energy-in-background/</loc>
-    <lastmod>2026-04-01T10:24:50.519Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://uynguyen.github.io/2020/09/26/Best-practice-iOS-background-processing-Background-App-Refresh-Task/</loc>
     <lastmod>2026-04-01T10:23:48.230Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2024/06/30/Best-practice-iOS-vs-Android-Bluetooth/</loc>
-    <lastmod>2024-07-21T09:32:32.429Z</lastmod>
+    <loc>https://uynguyen.github.io/2023/03/25/Bluetooth-Integration-with-App-Clips-A-How-To-Guide/</loc>
+    <lastmod>2024-03-23T03:54:36.080Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2023/03/25/Bluetooth-Integration-with-App-Clips-A-How-To-Guide/</loc>
-    <lastmod>2024-03-23T03:54:36.080Z</lastmod>
+    <loc>https://uynguyen.github.io/2024/06/30/Best-practice-iOS-vs-Android-Bluetooth/</loc>
+    <lastmod>2024-07-21T09:32:32.429Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -109,6 +109,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://uynguyen.github.io/2026/01/31/Bluetooth-Callback-vs-Reactive-Programming/</loc>
+    <lastmod>2026-01-31T04:00:19.334Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uynguyen.github.io/2024/08/31/Bluetooth-security-Pairing-and-Bonding/</loc>
+    <lastmod>2024-10-06T07:01:03.274Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://uynguyen.github.io/2025/04/02/Bluetooth-security-Implement-authentication/</loc>
     <lastmod>2026-01-26T05:26:20.322Z</lastmod>
     <changefreq>monthly</changefreq>
@@ -121,19 +133,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2026/01/31/Bluetooth-Callback-vs-Reactive-Programming/</loc>
-    <lastmod>2026-01-31T04:00:19.334Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uynguyen.github.io/2017/09/25/Chuyen-o-Dai-Hoc-Phan-1/</loc>
+    <loc>https://uynguyen.github.io/2019/01/19/Crash-early-in-Swift/</loc>
     <lastmod>2024-03-23T03:54:36.081Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2019/01/19/Crash-early-in-Swift/</loc>
+    <loc>https://uynguyen.github.io/2017/09/25/Chuyen-o-Dai-Hoc-Phan-1/</loc>
     <lastmod>2024-03-23T03:54:36.081Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -151,19 +157,13 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://uynguyen.github.io/2019/09/02/Drag-and-Drop/</loc>
+    <lastmod>2024-03-23T03:54:36.081Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://uynguyen.github.io/2018/04/11/Documenting-a-Software-Architecture/</loc>
-    <lastmod>2024-03-23T03:54:36.081Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uynguyen.github.io/2017/09/25/Create-and-Distribute-Private-Libraries-with-Cocoapods/</loc>
-    <lastmod>2024-03-23T03:54:36.081Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uynguyen.github.io/2021/07/25/Dark-Hat-v1-0-has-been-released-yay/</loc>
     <lastmod>2024-03-23T03:54:36.081Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -175,19 +175,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2019/09/02/Drag-and-Drop/</loc>
-    <lastmod>2024-03-23T03:54:36.081Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://uynguyen.github.io/2018/01/04/Grand-Central-Dispatch-in-Swift/</loc>
     <lastmod>2024-03-23T03:54:36.081Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2019/12/11/Integrate-Google-Sign-In-on-MacOS-App-in-Swift/</loc>
+    <loc>https://uynguyen.github.io/2021/07/25/Dark-Hat-v1-0-has-been-released-yay/</loc>
     <lastmod>2024-03-23T03:54:36.081Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -199,14 +193,20 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2018/09/12/Memory-leak/</loc>
+    <loc>https://uynguyen.github.io/2026/04/05/Flutter-Background-Isolates/</loc>
+    <lastmod>2026-04-05T02:45:41.623Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uynguyen.github.io/2017/09/25/Create-and-Distribute-Private-Libraries-with-Cocoapods/</loc>
     <lastmod>2024-03-23T03:54:36.081Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2024/08/31/Bluetooth-security-Pairing-and-Bonding/</loc>
-    <lastmod>2024-10-06T07:01:03.274Z</lastmod>
+    <loc>https://uynguyen.github.io/2019/12/11/Integrate-Google-Sign-In-on-MacOS-App-in-Swift/</loc>
+    <lastmod>2024-03-23T03:54:36.081Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -223,12 +223,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2026/04/05/Flutter-Background-Isolates/</loc>
-    <lastmod>2026-04-05T02:45:41.623Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://uynguyen.github.io/2017/12/01/React-Native-In-My-Real-World/</loc>
     <lastmod>2024-03-23T03:54:36.082Z</lastmod>
     <changefreq>monthly</changefreq>
@@ -241,13 +235,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2017/10/20/Review-Book-Clean-Code/</loc>
-    <lastmod>2024-03-23T03:54:36.082Z</lastmod>
+    <loc>https://uynguyen.github.io/2018/09/12/Memory-leak/</loc>
+    <lastmod>2024-03-23T03:54:36.081Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uynguyen.github.io/2018/02/21/Play-Central-And-Peripheral-Roles-With-CoreBluetooth/</loc>
+    <lastmod>2024-03-23T03:54:36.082Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uynguyen.github.io/2017/10/20/Review-Book-Clean-Code/</loc>
     <lastmod>2024-03-23T03:54:36.082Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -265,8 +265,8 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2021/04/08/Remote-Notification/</loc>
-    <lastmod>2024-03-23T03:54:36.082Z</lastmod>
+    <loc>https://uynguyen.github.io/2026/04/12/Reliable-BLE-Data-Transfer-MTU-Throughput-Chunking/</loc>
+    <lastmod>2026-04-12T09:58:45.862Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -277,13 +277,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2020/09/26/Review-book-RxSwift-Reactive-Programming-with-Swift/</loc>
-    <lastmod>2024-08-04T05:33:38.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uynguyen.github.io/2018/12/13/Shipping-your-iOS-app-to-Store/</loc>
+    <loc>https://uynguyen.github.io/2021/04/08/Remote-Notification/</loc>
     <lastmod>2024-03-23T03:54:36.082Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -295,20 +289,8 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2026/05/24/Signal-Hub-for-Mac/</loc>
-    <lastmod>2026-05-24T09:25:26.272Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uynguyen.github.io/2026/04/12/Reliable-BLE-Data-Transfer-MTU-Throughput-Chunking/</loc>
-    <lastmod>2026-04-12T09:58:45.862Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uynguyen.github.io/2017/11/29/Swift-Summit-conference-in-San-Francisco-2017/</loc>
-    <lastmod>2024-03-23T03:54:36.082Z</lastmod>
+    <loc>https://uynguyen.github.io/2020/09/26/Review-book-RxSwift-Reactive-Programming-with-Swift/</loc>
+    <lastmod>2024-08-04T05:33:38.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -319,14 +301,20 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2021/08/06/Silent-notification/</loc>
-    <lastmod>2024-08-04T05:29:05.586Z</lastmod>
+    <loc>https://uynguyen.github.io/2026/04/01/Signal-Hub-BLE-Toolkit-App/</loc>
+    <lastmod>2026-04-01T10:15:25.128Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2019/05/19/Two-weeks-at-Fossil-Group-in-the-US/</loc>
-    <lastmod>2024-03-23T03:54:36.083Z</lastmod>
+    <loc>https://uynguyen.github.io/2017/11/29/Swift-Summit-conference-in-San-Francisco-2017/</loc>
+    <lastmod>2024-03-23T03:54:36.082Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uynguyen.github.io/2018/12/13/Shipping-your-iOS-app-to-Store/</loc>
+    <lastmod>2024-03-23T03:54:36.082Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -337,19 +325,31 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2026/04/01/Signal-Hub-BLE-Toolkit-App/</loc>
-    <lastmod>2026-04-01T10:15:25.128Z</lastmod>
+    <loc>https://uynguyen.github.io/2026/05/24/Signal-Hub-for-Mac/</loc>
+    <lastmod>2026-05-24T09:25:26.272Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uynguyen.github.io/2018/02/27/What-is-refactoring/</loc>
+    <loc>https://uynguyen.github.io/2019/05/19/Two-weeks-at-Fossil-Group-in-the-US/</loc>
     <lastmod>2024-03-23T03:54:36.083Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uynguyen.github.io/2022/10/30/Web-Bluetooth/</loc>
+    <lastmod>2024-03-23T03:54:36.083Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uynguyen.github.io/2021/08/06/Silent-notification/</loc>
+    <lastmod>2024-08-04T05:29:05.586Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uynguyen.github.io/2018/02/27/What-is-refactoring/</loc>
     <lastmod>2024-03-23T03:54:36.083Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -385,6 +385,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://uynguyen.github.io/2024/11/03/iOS-18-What-s-news-in-CoreBluetooth/</loc>
+    <lastmod>2024-11-23T03:55:02.261Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://uynguyen.github.io/2020/05/16/iOS-Concurrency-Operations/</loc>
     <lastmod>2024-03-23T03:54:36.083Z</lastmod>
     <changefreq>monthly</changefreq>
@@ -393,12 +399,6 @@
   <url>
     <loc>https://uynguyen.github.io/2020/07/18/iOS-Introducing-Stack-Views/</loc>
     <lastmod>2024-03-23T03:54:36.083Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uynguyen.github.io/2024/11/03/iOS-18-What-s-news-in-CoreBluetooth/</loc>
-    <lastmod>2024-11-23T03:55:02.261Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
