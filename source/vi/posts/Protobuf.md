@@ -4,9 +4,8 @@ date: 2024-01-12 16:07:40
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/protobuf/banner.png
 ---
-![](/Post-Resources/protobuf/banner.png "banner")
-
 Tôi đã làm việc với các sản phẩm Bluetooth, bao gồm thiết bị đeo và khóa thông minh, trong nhiều năm. Việc tạo điều kiện cho việc truyền message giữa các thành phần hệ thống là một khía cạnh quan trọng do sự khác biệt về ngôn ngữ lập trình, yêu cầu về tính nhất quán và giới hạn về kích thước truyền dữ liệu. Để giải quyết những thách thức này, chúng tôi sử dụng [Protocol Buffers](https://github.com/protocolbuffers/protobuf).
 Protocol Buffers, còn được gọi là Protobuf, là một định dạng dữ liệu đa nền tảng mã nguồn mở và miễn phí được sử dụng để serialize dữ liệu có cấu trúc, được phát triển bởi Google. Nó được thiết kế để hiệu quả, có thể mở rộng và thân thiện với người dùng. Trong bài hướng dẫn này, chúng ta sẽ tìm hiểu những kiến thức cơ bản về việc tạo một Protocol Buffers message đơn giản, định nghĩa schema và generate code trong các ngôn ngữ lập trình khác nhau.
 

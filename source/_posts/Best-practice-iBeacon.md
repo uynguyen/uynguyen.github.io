@@ -2,8 +2,8 @@
 title: 'Best practice: iBeacon'
 date: 2018-08-18 21:17:47
 tags: [BLE, iOS, iBeacon]
+thumbnail: /Post-Resources/ibeacon/ibeacon.png
 ---
-![](/Post-Resources/ibeacon/ibeacon.png "Delivery")
 Welcome to the next part of the series of "[How to deal with BLE in the background](/2018/07/23/Best-practice-How-to-deal-with-Bluetooth-Low-Energy-in-background/)".
 In the previous part, I guided you how to keep your app alive as long as possible when your app enters to background mode by using *State Preservation and Restoration* technique supported by Apple. However, there are some usecases this technique can not handle, as described below (refer to [Apple document: Conditions Under Which Bluetooth State Restoration Will Relaunch An App](https://developer.apple.com/library/archive/qa/qa1962/_index.html))
 ![](/Post-Resources/ibeacon/condition_relaunch.png "Conditions Under Which Bluetooth State Restoration Will Relaunch An App")

@@ -7,10 +7,10 @@ class Profile extends Component {
         if (!links.length) {
             return null;
         }
-        return <div class="level is-mobile">
+        return <div class="uy-profile-social">
             {links.filter(link => typeof link === 'object').map(link => {
-                return <a class="level-item button is-transparent is-marginless"
-                    target="_blank" rel="noopener" title={link.name} href={link.url}>
+                return <a class="uy-social-btn"
+                    target="_blank" rel="noopener" title={link.name} aria-label={link.name} href={link.url}>
                     {'icon' in link ? <i class={link.icon}></i> : link.name}
                 </a>;
             })}
@@ -21,34 +21,30 @@ class Profile extends Component {
         if (!donates || !donates.length) {
             return null;
         }
-        return <div style={{
-            'background': 'linear-gradient(135deg, #fff8f5, #fff3ee)',
-            'border': '2px solid rgba(255,107,53,0.25)',
-            'border-radius': '8px',
-            'box-shadow': '0 4px 16px rgba(255,107,53,0.12)',
-            'padding': '1rem',
+        return <div class="donate-card" style={{
+            'border-radius': '16px',
+            'padding': '1.1rem 1rem',
             'margin-top': '1rem',
             'text-align': 'center',
         }}>
-            <p style={{ 'font-size': '1.3rem', 'margin-bottom': '0.2rem' }}>☕</p>
+            <p style={{ 'font-size': '1.3rem', 'margin-bottom': '0.2rem', 'position': 'relative', 'z-index': '1' }}>☕</p>
             <p style={{
                 'font-size': '0.85rem',
-                'font-weight': '600',
-                'color': '#cc4a1a',
+                'font-weight': '700',
+                'color': '#0e7c93',
                 'margin-bottom': '0.75rem',
+                'position': 'relative',
+                'z-index': '1',
             }}>{this.props.donateTitle}</p>
-            <div class="buttons is-centered" style={{ 'margin-bottom': '0.4rem' }}>
-                {donates.map(({ url, label }) => (
-                    <a class="button is-rounded donate" href={url} target="_blank" rel="noopener" style={{
-                        'background': 'linear-gradient(135deg, #ff6b35, #f7c59f)',
-                        'color': 'white',
-                        'font-weight': 'bold',
-                        'border': 'none',
-                        'box-shadow': '0 4px 12px rgba(255,107,53,0.4)',
-                    }}>{label}</a>
+            <div class="buttons is-centered" style={{ 'margin-bottom': '0.4rem', 'position': 'relative', 'z-index': '1' }}>
+                {donates.map(({ url, label, icon, isWarning }) => (
+                    <a class={'button donate' + (isWarning ? ' is-warning' : '')} href={url} target="_blank" rel="noopener">
+                        {icon ? <span class="icon is-small"><i class={icon}></i></span> : null}
+                        <span>{label}</span>
+                    </a>
                 ))}
             </div>
-            <p style={{ 'font-size': '0.75rem', 'color': '#999', 'margin': '0' }}>
+            <p style={{ 'font-size': '0.75rem', 'color': '#6e6e73', 'margin': '0', 'position': 'relative', 'z-index': '1' }}>
                 Your support helps me keep writing and sharing 🙏
             </p>
         </div>;
@@ -65,51 +61,30 @@ class Profile extends Component {
             socialLinks,
             donates,
         } = this.props;
-        return <div class="card widget">
-            <div class="card-content">
-                <nav class="level">
-                    <div class="level-item has-text-centered flex-shrink-1">
-                        <div>
-                            <figure class="image is-128x128 mx-auto mb-2">
-                                <img class={avatarRounded ? 'is-rounded' : ''} src={avatar} alt={author} />
-                            </figure>
-                            {author ? <p class="title is-size-4 is-block line-height-inherit">{author}</p> : null}
-                            {authorTitle ? <p class="is-size-6 is-block">{authorTitle}</p> : null}
-                            {location ? <p class="is-size-6 is-flex justify-content-center">
-                                <i class="fas fa-envelope mr-1"></i>
-                                <span>{"uynguyen.itus@gmail.com"}</span>
-                            </p> : null}
-                        </div>
-                    </div>
-                </nav>
-                <nav class="level is-mobile">
-                    <div class="level-item has-text-centered is-marginless">
-                        <div>
-                            <p class="heading">{counter.post.title}</p>
-                            <a href={counter.post.url}>
-                                <p class="title">{counter.post.count}</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="level-item has-text-centered is-marginless">
-                        <div>
-                            <p class="heading">{counter.category.title}</p>
-                            <a href={counter.category.url}>
-                                <p class="title">{counter.category.count}</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="level-item has-text-centered is-marginless">
-                        <div>
-                            <p class="heading">{counter.tag.title}</p>
-                            <a href={counter.tag.url}>
-                                <p class="title">{counter.tag.count}</p>
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-                {this.renderDonates(donates)}
+        return <div class="card widget uy-profile">
+            <div class="uy-profile-cover"></div>
+            <div class="card-content uy-profile-body">
+                <figure class="uy-profile-avatar">
+                    <img src={avatar} alt={author} />
+                </figure>
+                {author ? <p class="uy-profile-name">{author}</p> : null}
+                {authorTitle ? <p class="uy-profile-role">{authorTitle}</p> : null}
+                <div class="uy-profile-meta">
+                    {location ? <span><i class="fas fa-map-marker-alt"></i>{location}</span> : null}
+                    <a href="mailto:uynguyen.itus@gmail.com"><i class="fas fa-envelope"></i>uynguyen.itus@gmail.com</a>
+                </div>
+                <div class="uy-profile-stats">
+                    <a class="uy-stat" href={counter.post.url}>
+                        <span class="uy-stat-num">{counter.post.count}</span>
+                        <span class="uy-stat-label">{counter.post.title}</span>
+                    </a>
+                    <a class="uy-stat" href={counter.tag.url}>
+                        <span class="uy-stat-num">{counter.tag.count}</span>
+                        <span class="uy-stat-label">{counter.tag.title}</span>
+                    </a>
+                </div>
                 {socialLinks ? this.renderSocialLinks(socialLinks) : null}
+                {this.renderDonates(donates)}
             </div>
         </div>;
     }
@@ -157,11 +132,27 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
         };
     }) : null;
 
+    const DONATE_ICONS = {
+        buymeacoffee: 'fas fa-coffee',
+        paypal: 'fab fa-paypal',
+        patreon: 'fab fa-patreon',
+        alipay: 'fab fa-alipay',
+        wechat: 'fab fa-weixin'
+    };
     const donateServices = Array.isArray(config.donates) ? config.donates : [];
-    const donates = donateServices.map(service => ({
-        url: url_for(service.url),
-        label: __('donate.' + service.type),
-    })).filter(d => d.url);
+    const donates = donateServices.map(service => {
+        const type = service.type;
+        const url = service.url ? url_for(service.url) : null;
+        if (!url) {
+            return null;
+        }
+        return {
+            url,
+            label: __('donate.' + type),
+            icon: DONATE_ICONS[type] || null,
+            isWarning: type === 'paypal'
+        };
+    }).filter(Boolean);
 
     return {
         avatar: getAvatar(),

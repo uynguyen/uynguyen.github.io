@@ -2,9 +2,8 @@
 title: "MQTT: Introduction, Setup, and Best Practices"
 date: 2026-03-29 10:00:00
 tags: [MQTT, IoT, Networking, Protocol, Swift, Python]
+thumbnail: /Post-Resources/MQTT/cover.png
 ---
-
-![](/Post-Resources/MQTT/cover.png "Cover")
 
 MQTT (Message Queuing Telemetry Transport) is a lightweight publish/subscribe messaging protocol designed for constrained devices and unreliable networks. Originally developed by IBM in the late 1990s for monitoring oil pipelines over satellite links, it has since become the de-facto standard for IoT communication — powering everything from smart home sensors to industrial automation systems.
 

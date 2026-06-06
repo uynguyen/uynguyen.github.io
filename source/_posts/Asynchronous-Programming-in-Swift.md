@@ -2,8 +2,8 @@
 title: Asynchronous Programming in Swift
 date: 2018-01-16 21:32:45
 tags: [Swift, iOS]
+thumbnail: /Post-Resources/PromiseKIT/PromiseKIT.png
 ---
-![](/Post-Resources/PromiseKIT/PromiseKIT.png "")
 <center>Promise Kit, one of the best frameworks to deal with asynchronous programming in Swift</center>
 
 In this post, I will use these following third parties to complete the project:

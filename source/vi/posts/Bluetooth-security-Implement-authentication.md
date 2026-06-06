@@ -4,9 +4,8 @@ date: 2025-04-02 18:03:38
 tags: [CoreBluetooh, BLE]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/BLESecurity/cover.png
 ---
-
-![](/Post-Resources/BLESecurity/cover.png "Bluetooth security")
 
 Bluetooth đã trở thành sợi dây vô hình kết nối các thiết bị của chúng ta, từ đồng hồ thông minh và thiết bị theo dõi sức khỏe đến khóa thông minh và hệ thống IoT công nghiệp. Nhưng sự tiện lợi đi kèm với rủi ro: giao tiếp Bluetooth là không dây và dễ bị chặn bắt, khiến nó dễ bị nghe lén, truy cập trái phép và tấn công phát lại.
 Để chống lại những mối đe dọa này, xác thực và mã hóa là thiết yếu. Trong bài viết này, tôi sẽ giới thiệu một luồng bảo mật Bluetooth mạnh mẽ, giải thích cách xác thực, trao đổi khóa và truyền dữ liệu mã hóa hoạt động cùng nhau. Chúng ta cũng sẽ so sánh nó với TLS/HTTPS vì cả hai đều chia sẻ cách tiếp cận bảo mật phân lớp tương tự.

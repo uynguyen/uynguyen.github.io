@@ -3,9 +3,8 @@ title: 'Flutter Background Isolates: True Concurrency Without Blocking the UI'
 date: 2026-04-05 09:00:00
 tags: [Flutter, Dart, Concurrency, BLE, Background]
 layout: post
+thumbnail: /Post-Resources/FlutterBackgroundIsolates/cover.png
 ---
-
-![](/Post-Resources/FlutterBackgroundIsolates/cover.png "Cover")
 
 Flutter runs on a single main thread — the **main isolate** — responsible for rendering the UI at 60 or 120 fps and handling user input. Any heavy work you put on that thread shows immediately: dropped frames, stuttered animations, and an app that feels sluggish.
 

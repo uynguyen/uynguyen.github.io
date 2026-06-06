@@ -5,9 +5,8 @@ tags: [BLE, Bluetooth, iOS, IoT, Tools, Mobile]
 ping: true
 layout: post
 lang: vi
+thumbnail: /Post-Resources/SignalHub/cover.png
 ---
-
-![](/Post-Resources/SignalHub/cover.png "Signal Hub — Bộ Công Cụ BLE Dành Cho Lập Trình Viên")
 
 Nếu bạn đã từng mất hàng giờ nhìn chằm chằm vào các chuỗi HEX thô để tìm hiểu tại sao thiết bị ngoại vi BLE không gửi đúng dữ liệu, bạn hiểu cảm giác đó như thế nào. Debug các thiết bị Bluetooth Low Energy vốn dĩ rất phức tạp — giao thức thì mạnh mẽ, nhưng công cụ hỗ trợ trên di động lại luôn thiếu thốn.
 

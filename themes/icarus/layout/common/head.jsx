@@ -144,13 +144,20 @@ module.exports = class extends Component {
             <link rel="stylesheet" href={iconcdn()} />
             {hlTheme ? <link rel="stylesheet" href={cdn('highlight.js', '9.12.0', 'styles/' + hlTheme + '.css')} /> : null}
             <link rel="stylesheet" href={fontCssUrl[variant]} />
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&display=swap" />
             <link rel="stylesheet" href={url_for('/css/' + variant + '.css')} />
             <link rel="stylesheet" href={url_for('/css/dark.css')} />
+            <link rel="stylesheet" href={url_for('/css/uy-theme.css')} />
             {/* Inline: apply saved/system theme immediately to prevent FOUC */}
             <script dangerouslySetInnerHTML={{ __html: `(function(){var s=localStorage.getItem('uy-theme');var p=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';if(s==='dark'||(s==='light'?false:p==='dark')){document.documentElement.setAttribute('data-theme','dark');}})();` }} />
+            {/* Inline: apply saved sidebar state (or auto-collapse on posts) before paint */}
+            <script dangerouslySetInnerHTML={{ __html: `(function(){try{var IS_POST=${(typeof is_post === 'function' && is_post()) ? 'true' : 'false'};var s=localStorage.getItem('uy-sidebar');var collapse=IS_POST?true:(s==='hide');if(collapse){document.documentElement.classList.add('sidebar-collapsed');}}catch(e){}})();` }} />
             <meta property="og:image" content={openGraphImages[0] ?? ''}/>
             <Plugins site={site} config={config} helper={helper} page={page} head={true} />
             <script src={url_for('/js/dark-mode.js')} defer={true}></script>
+            <script src={url_for('/js/uy-blog.js')} defer={true}></script>
 
             {adsenseClientId ? <script data-ad-client={adsenseClientId}
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async={true}></script> : null}

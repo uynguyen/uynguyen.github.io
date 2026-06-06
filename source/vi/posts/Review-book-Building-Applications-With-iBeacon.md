@@ -4,9 +4,8 @@ date: 2020-06-14 21:13:41
 tags: [Books, Study, BLE, iBeacon]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/ibeacons/ibeacon-cover.png
 ---
-![](/Post-Resources/ibeacons/ibeacon-cover.png "SwiftApprentice")
-
 Trong [bai viet truoc](/2018/08/18/Best-practice-iBeacon/), toi da gioi thieu so luoc ve iBeacon - Mot giao thuc Bluetooth duoc xay dung tren nen tang BLE boi Apple, va tao mot demo don gian ve cach iBeacon co the danh thuc mot ung dung sau khi bi nguoi dung tat. Tuy nhien, toi chua de cap den cac khai niem nen tang khac trong Beacon, no cung khong cho ban cai nhin sau ve cac uu diem va nhuoc diem cua cong nghe manh me nay.
 Hom nay, toi muon gioi thieu cho ban mot cuon sach tot cung cap kien thuc vung chac trong linh vuc Beacon, dac biet la iBeacon: `Building Applications With iBeacon` xuat ban boi O'Reilly.
 Sau khi doc cuon sach nay, toi dam bao rang ban se co duoc kien thuc tot trong linh vuc iBeacon va tam tri cua ban se coi mo hon voi cac y tuong sap toi.

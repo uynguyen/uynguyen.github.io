@@ -4,9 +4,8 @@ date: 2022-03-26 10:00:26
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/npm/cover.png
 ---
-
-![](/Post-Resources/npm/cover.png "")
 
 
 Khi phát triển một tính năng mới cho phần mềm của chúng ta, chúng ta có xu hướng tìm kiếm xem có thư viện hoặc framework "tương tự" nào có sẵn trong cộng đồng để tái sử dụng hay không. Không ai muốn phát minh lại bánh xe, phải không? Tuy nhiên, thư viện phù hợp nhất với yêu cầu của chúng ta đôi khi không hỗ trợ một tính năng bạn cần hoặc chỉ là một property tùy chỉnh. Bạn có thể mở một pull request đến repo gốc, nhưng có thể mất thời gian và phụ thuộc vào tác giả xem họ có chấp nhận thay đổi của bạn hay không. Trong trường hợp đó, bạn có thể tạo thư viện của riêng mình từ thư viện gốc, chúng ta gọi đó là quá trình "Fork".

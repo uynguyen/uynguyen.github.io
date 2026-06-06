@@ -2,8 +2,8 @@
 title: Grand Central Dispatch in Swift
 date: 2018-01-04 11:43:23
 tags: ["iOS", "DispatchQueue"]
+thumbnail: /Post-Resources/GCD/Banner.png
 ---
-![](/Post-Resources/GCD/Banner.png "")
 *Grand Central Dispatch*, or GCD for short, is a low-level C APIs for managing concurrent tasks. It helps us improve our app performance by executing a block of code in reasonable threads, like perform computationally expensive tasks in the background. GCD provides several options for running tasks such as synchronously, asynchronously, after a certain delay, etc.
 In this post I will explain more details about GCD and how it works, also provide some interesting points when we work with GCD. Let’s start.
 <!-- more --> 

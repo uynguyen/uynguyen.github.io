@@ -2,9 +2,8 @@
 title: Fork and publish your custom lib to npm - React Native Wheel Picker
 date: 2022-03-26 10:00:26
 tags:
+thumbnail: /Post-Resources/npm/cover.png
 ---
-
-![](/Post-Resources/npm/cover.png "")
 
 
 When developing a new feature of our software, we tend to search if there is a "similar" library or framework available in the community to reuse it. No one like to reinvent the wheel, dont you? 😉 However, the lib that most fits our requirement sometimes does not support a feature you need or just a custom property. You can open a pull request to the original repo, but it might take time and depend on the author whether he approves your changes or not. In that case, you can create your own library from the original one, we named it "Fork" process. 

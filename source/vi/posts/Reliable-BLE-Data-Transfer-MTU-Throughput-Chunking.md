@@ -4,9 +4,8 @@ date: 2026-04-12 10:00:00
 tags: [BLE, iOS, Android, Bluetooth, CoreBluetooh]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/BLE-DataTransfer/cover.png
 ---
-
-![](/Post-Resources/BLE-DataTransfer/cover.png "Cover")
 
 Sớm hay muộn, mọi lập trình viên BLE đều gặp phải cùng một vấn đề: bạn cần gửi hơn 20 byte mỗi lần. Có thể là một firmware image, một lô dữ liệu cảm biến, hoặc một gói cấu hình. Bạn gọi lệnh write và... chỉ có 20 byte đầu tiên đến được. Phần còn lại bị âm thầm bỏ qua.
 

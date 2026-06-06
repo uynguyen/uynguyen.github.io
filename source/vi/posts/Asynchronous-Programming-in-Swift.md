@@ -4,8 +4,8 @@ date: 2018-01-16 21:32:45
 tags: [Swift, iOS]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/PromiseKIT/PromiseKIT.png
 ---
-![](/Post-Resources/PromiseKIT/PromiseKIT.png "")
 <center>Promise Kit, một trong những framework tốt nhất để xử lý lập trình bất đồng bộ trong Swift</center>
 
 Trong bài viết này, tôi sẽ sử dụng các thư viện bên thứ ba sau để hoàn thành dự án:

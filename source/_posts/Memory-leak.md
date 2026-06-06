@@ -2,8 +2,8 @@
 title: Memory leak
 date: 2018-09-12 11:09:15
 tags: [iOS, Memory management]
+thumbnail: /Post-Resources/MemoryLeak/Cover.png
 ---
-![](/Post-Resources/MemoryLeak/Cover.png "")
 As a Software Engineer, you definitely have heard about the Memory leak concept. Memory leak is a situation where blocks of memory are located by the program remain in the memory despise they are no longer referenced. Leaks waste space by filling up pages of memory with inaccessible data. As a result, the size of memory using in your apps keep increasing, affect the user experiences and the performance of your app. Even worse, your app will be crashed randomly because a process will be terminated by the system if it consumes too much memory.
 In this topic, we will discuss how the memory is managed in iOS and how to use the memory efficiently. Read on.
 <!-- more --> 

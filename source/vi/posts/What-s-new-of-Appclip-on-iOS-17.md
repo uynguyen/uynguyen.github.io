@@ -4,9 +4,8 @@ date: 2023-11-09 20:18:20
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/wwdc-2023/wwdc-2023.jpg
 ---
-
-![](/Post-Resources/wwdc-2023/wwdc-2023.jpg "WWDC2023")
 
 Voi su ra mat cua iOS 17, cac ung dung gio day co kha nang khoi chay App Clips tu cac ung dung khac bang cach su dung invocation URL cua App Clip. Chuc nang nay mo ra nhieu kha nang khac nhau. Vi du, neu ban da phat trien mot bo cac ung dung, ban co the cho phep chung khoi chay App Clips tu nhau, cung cap cho nguoi dung quyen truy cap vao cac chuc nang cu the ma khong can cai dat ung dung day du.
 

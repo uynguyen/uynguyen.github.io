@@ -2,8 +2,8 @@
 title: 'Review book: Swift Apprentice - Raywenderlich'
 date: 2020-02-26 22:05:30
 tags:
+thumbnail: /Post-Resources/SwiftApprentice/banner.png
 ---
-![](/Post-Resources/SwiftApprentice/banner.png "SwiftApprentice")
 While I was searching for a book to boost my iOS development skill, I found this Swift Apprentice book on Raywenderlich’s book store. Take a quick look at the content of the book, I decided to add the book to my library.
 Generally, If your iOS skill is mid-level or senior, you’re so confident with your master programming skill, this book is not for you. But if you’re looking for a book to strengthen your knowledge, or you just want to make sure everything you understand about Swift language is right - as my purpose, then take this book with you.
 You’ll learn about very basic things like function, method, constants, control statement, etc. You’ll also have a chance to get in-depth knowledge about Stack/Heap allocation, protocol-oriented programming, and generic programming, which make your daily job more convenient, and you will find yourself like a master in Swift language.

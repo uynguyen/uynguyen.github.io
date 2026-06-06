@@ -2,8 +2,8 @@
 title: Crash early in Swift
 date: 2019-01-19 11:59:38
 tags: [iOS, Swift]
+thumbnail: /Post-Resources/Crashing/crashing.png
 ---
-![](/Post-Resources/Crashing/crashing.png "Crashing")
 Last night, I read a chapter of a book as one of my favorite books: `"The pragmatic programmer"` (By Andrew Hunt and David Thomas). This chapter discusses how to use assertion to make the code easier for debugging. We all know that assertion is an essential tool for writing tests, but It does more than that. Let's go with me to meet this guy: *Assertion*.
 <!-- more --> 
 ## Crash, don't trash

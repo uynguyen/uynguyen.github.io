@@ -2,9 +2,8 @@
 title: Schedule task in background from foreground service
 date: 2023-07-22 21:56:13
 tags:
+thumbnail: /Post-Resources/ScheduleTask/banner.png
 ---
-![](/Post-Resources/ScheduleTask/banner.png "ScheduleTask")
-
 If you're running your service on Android, be aware that Android has introduced stricter background execution restrictions in recent versions. Starting from Android 8.0 (API level 26) and above, background services have limitations on their execution time, especially when the app is in the background. Make sure you are aware of these restrictions and adapt your service accordingly.
 
 <!-- more -->

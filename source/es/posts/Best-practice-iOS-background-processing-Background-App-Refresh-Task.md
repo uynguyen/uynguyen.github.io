@@ -5,9 +5,8 @@ tags: [iOS, BLE]
 ping: true
 layout: post
 lang: es
+thumbnail: /Post-Resources/RefreshInBg/RefreshAppBg.png
 ---
-
-![](/Post-Resources/RefreshInBg/RefreshAppBg.png "Cover")
 
 A diferencia de Android, iOS restringe el procesamiento en segundo plano para mejorar la duración de la batería y la experiencia del usuario. Cuando una app entra en modo de segundo plano, los desarrolladores pierden el control directo sobre ella. Cómo y cuándo la app puede ejecutar una tarea depende completamente del sistema. En esencia, iOS usa un algoritmo complejo para determinar qué apps pueden ejecutarse en segundo plano, basándose en factores como los patrones de actividad del usuario, el estado de la batería y más.
 

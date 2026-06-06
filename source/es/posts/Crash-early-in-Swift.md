@@ -4,8 +4,8 @@ date: 2019-01-19 11:59:38
 tags: [iOS, Swift]
 layout: post
 lang: es
+thumbnail: /Post-Resources/Crashing/crashing.png
 ---
-![](/Post-Resources/Crashing/crashing.png "Crashing")
 Anoche, leí un capítulo de un libro que es uno de mis favoritos: `"The pragmatic programmer"` (De Andrew Hunt y David Thomas). Este capítulo discute cómo usar assertion para hacer el código más fácil de depurar. Todos sabemos que assertion es una herramienta esencial para escribir tests, pero hace más que eso. Vamos conmigo a conocer a este chico: *Assertion*.
 <!-- more -->
 ## Fallar, no corromper

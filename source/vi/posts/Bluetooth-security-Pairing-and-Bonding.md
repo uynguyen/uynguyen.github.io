@@ -4,9 +4,8 @@ date: 2024-08-31 10:38:32
 tags: [CoreBluetooh, BLE]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/Bonding/cover.png
 ---
-
-![](/Post-Resources/Bonding/cover.png "Bluetooth security")
 
 Trong thời đại hiện đại, Bluetooth đóng vai trò quan trọng trong việc kết nối các thiết bị một cách liền mạch. Từ thiết bị theo dõi thể dục đến thiết bị nhà thông minh, Bluetooth Low Energy (BLE) cho phép các thiết bị giao tiếp hiệu quả trong khi giảm tiêu thụ năng lượng. Tuy nhiên, với sự gia tăng của truyền thông không dây, đảm bảo bảo mật đã trở thành mối quan tâm chính. Hai khái niệm cốt lõi của bảo mật Bluetooth là **Pairing** và **Bonding**, thường bị hiểu nhầm trong bối cảnh BLE.
 

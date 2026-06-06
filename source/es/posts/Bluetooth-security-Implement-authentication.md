@@ -4,9 +4,8 @@ date: 2025-04-02 18:03:38
 tags: [CoreBluetooh, BLE]
 layout: post
 lang: es
+thumbnail: /Post-Resources/BLESecurity/cover.png
 ---
-
-![](/Post-Resources/BLESecurity/cover.png "Seguridad Bluetooth")
 
 Bluetooth se ha convertido en el hilo invisible que conecta nuestros dispositivos, desde relojes inteligentes y rastreadores de salud hasta cerraduras inteligentes y sistemas IoT industriales. Pero con la comodidad viene el riesgo: la comunicación Bluetooth es inalámbrica y fácilmente interceptable, lo que la hace vulnerable a la interceptación, acceso no autorizado y ataques de repetición.
 Para defendernos contra estas amenazas, la autenticación y el cifrado son esenciales. En esta publicación, presentaré un flujo de seguridad Bluetooth robusto, explicando cómo funcionan juntos la autenticación, el intercambio de claves y la transferencia cifrada. También lo compararemos con TLS/HTTPS ya que ambos comparten un enfoque similar de seguridad por capas.

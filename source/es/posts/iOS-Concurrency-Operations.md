@@ -4,9 +4,9 @@ date: 2020-05-16 20:54:36
 tags: [iOS, Concurrency, Operations]
 layout: post
 lang: es
+thumbnail: /Post-Resources/Operations/operations.png
 ---
 
-![](/Post-Resources/Operations/operations.png "Operations")
 Hay dos tecnicas para manejar la Concurrencia en iOS: GCD - Grand Central Dispatch y Operations. La mayoria del tiempo, GCD proporciona la mayoria de las capacidades de concurrencia que necesitas. Sin embargo, a veces querras algunas personalizaciones avanzadas adicionales. Es hora de usar Operations. Este tutorial introducira Operations en Swift, tambien explicara cuando y por que usar Operation en lugar de GCD.
 Cambiemos de marcha!
 > Hay una gran brecha entre conocer el camino y recorrerlo.

@@ -2,9 +2,8 @@
 title: 'Dark Hat - v1.0 has been released 🎉'
 date: 2021-07-25 19:35:30
 tags:
+thumbnail: /Post-Resources/Darkhat/darkhat.png
 ---
-
-![](/Post-Resources/Darkhat/darkhat.png "")
 
 After years of working in BLE technology, I found that despite there are many applications helping to test BLE devices but none of them performs their roles well. That’s why I decided to implement a BLE application on my own - [Dark Hat](https://apps.apple.com/az/app/dark-hat/id1576175854?ign-mpt=uo%3D2). The core objective of this application is to share a better tool with you - an engineer working in BLE field.
 <!-- more -->

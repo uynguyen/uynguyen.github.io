@@ -2,10 +2,9 @@
 title: "Introducing Signal Hub: The Professional BLE Toolkit for Developers and IoT Makers"
 date: 2026-04-01 10:00:00
 tags: [BLE, Bluetooth, iOS, IoT, Tools, Mobile]
+thumbnail: /Post-Resources/SignalHub/cover.png
 ping: true
 ---
-
-![](/Post-Resources/SignalHub/cover.png "Signal Hub — BLE Toolkit for Developers")
 
 If you have ever spent hours staring at raw HEX dumps trying to figure out why your BLE peripheral is not sending the right data, you know the pain. Debugging Bluetooth Low Energy devices is notoriously tricky — the protocol is powerful, but the tooling available on mobile has always felt lacking.
 

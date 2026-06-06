@@ -4,8 +4,8 @@ date: 2018-08-18 21:17:47
 tags: [BLE, iOS, iBeacon]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/ibeacon/ibeacon.png
 ---
-![](/Post-Resources/ibeacon/ibeacon.png "Delivery")
 Chào mừng bạn đến với phần tiếp theo của series "[Cách xử lý BLE ở chế độ background](/2018/07/23/Best-practice-How-to-deal-with-Bluetooth-Low-Energy-in-background/)".
 Trong phần trước, tôi đã hướng dẫn bạn cách giữ cho ứng dụng của bạn sống càng lâu càng tốt khi ứng dụng vào chế độ background bằng cách sử dụng kỹ thuật *State Preservation and Restoration* được Apple hỗ trợ. Tuy nhiên, có một số trường hợp sử dụng mà kỹ thuật này không thể xử lý được, như mô tả bên dưới (tham khảo [tài liệu Apple: Conditions Under Which Bluetooth State Restoration Will Relaunch An App](https://developer.apple.com/library/archive/qa/qa1962/_index.html))
 ![](/Post-Resources/ibeacon/condition_relaunch.png "Các điều kiện mà Bluetooth State Restoration sẽ khởi chạy lại ứng dụng")

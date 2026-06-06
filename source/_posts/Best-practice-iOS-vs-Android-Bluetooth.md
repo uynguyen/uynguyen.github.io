@@ -2,9 +2,8 @@
 title: "Best practice: iOS vs Android Bluetooth"
 date: 2024-06-30 10:48:09
 tags: [BLE, iOS, Android]
+thumbnail: /Post-Resources/IOSAndroid/ios_android.png
 ---
-
-![](/Post-Resources/IOSAndroid/ios_android.png "Cover")
 
 Bluetooth technology has become an integral part of modern mobile applications, enabling seamless wireless communication between devices. Whether it's for connecting to a wireless headset, transferring files, or interacting with smart home devices, Bluetooth plays a crucial role in enhancing user experience.
 

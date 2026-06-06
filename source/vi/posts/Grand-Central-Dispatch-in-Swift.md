@@ -4,8 +4,8 @@ date: 2018-01-04 11:43:23
 tags: ["iOS", "DispatchQueue"]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/GCD/Banner.png
 ---
-![](/Post-Resources/GCD/Banner.png "")
 *Grand Central Dispatch*, hay viết tắt là GCD, là một tập API C cấp thấp để quản lý các tác vụ đồng thời. Nó giúp chúng ta cải thiện hiệu suất ứng dụng bằng cách thực thi một khối code trên các thread phù hợp, như thực hiện các tác vụ tính toán nặng ở background. GCD cung cấp nhiều tùy chọn để chạy các tác vụ như đồng bộ, bất đồng bộ, sau một khoảng delay nhất định, v.v.
 Trong bài viết này, tôi sẽ giải thích chi tiết hơn về GCD và cách nó hoạt động, cũng như cung cấp một số điểm thú vị khi làm việc với GCD. Hãy bắt đầu.
 <!-- more -->

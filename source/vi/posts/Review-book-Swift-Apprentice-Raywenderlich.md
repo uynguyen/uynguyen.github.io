@@ -4,8 +4,8 @@ date: 2020-02-26 22:05:30
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/SwiftApprentice/banner.png
 ---
-![](/Post-Resources/SwiftApprentice/banner.png "SwiftApprentice")
 Khi toi dang tim kiem mot cuon sach de nang cao ky nang phat trien iOS, toi tim thay cuon Swift Apprentice nay tren cua hang sach cua Raywenderlich. Xem qua noi dung cua cuon sach, toi quyet dinh them cuon sach vao thu vien cua minh.
 Noi chung, neu ky nang iOS cua ban la mid-level hoac senior, ban rat tu tin voi ky nang lap trinh bac thay cua minh, cuon sach nay khong danh cho ban. Nhung neu ban dang tim kiem mot cuon sach de cung co kien thuc, hoac ban chi muon dam bao moi thu ban hieu ve ngon ngu Swift la dung - nhu muc dich cua toi, thi hay mang cuon sach nay theo.
 Ban se hoc ve nhung thu rat co ban nhu function, method, constants, control statement, v.v. Ban cung se co co hoi co duoc kien thuc sau ve Stack/Heap allocation, protocol-oriented programming, va generic programming, dieu nay lam cho cong viec hang ngay cua ban thuan tien hon, va ban se thay minh nhu mot bac thay trong ngon ngu Swift.

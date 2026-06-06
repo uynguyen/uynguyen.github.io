@@ -4,9 +4,8 @@ date: 2024-08-31 10:38:32
 tags: [CoreBluetooh, BLE]
 layout: post
 lang: es
+thumbnail: /Post-Resources/Bonding/cover.png
 ---
-
-![](/Post-Resources/Bonding/cover.png "Seguridad Bluetooth")
 
 En los tiempos modernos, Bluetooth juega un papel crucial en la conexión de dispositivos de manera fluida. Desde rastreadores de fitness hasta dispositivos domésticos inteligentes, Bluetooth Low Energy (BLE) permite que los dispositivos se comuniquen de manera eficiente mientras reducen el consumo de energía. Sin embargo, con el aumento de la comunicación inalámbrica, garantizar la seguridad se ha convertido en una preocupación clave. Dos conceptos fundamentales de la seguridad Bluetooth son el **Emparejamiento** y la **Vinculación**, que a menudo se malinterpretan en el contexto de BLE.
 

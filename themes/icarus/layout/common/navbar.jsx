@@ -36,9 +36,10 @@ class Navbar extends Component {
         return <Fragment>
             <nav class="navbar navbar-main">
                 <div class="container">
-                    <div class="navbar-brand justify-content-center">
-                        <a class="navbar-item navbar-logo" href={siteUrl}>
-                            {logo && logo.text ? logo.text : <img src={logoUrl} alt={siteTitle} height="28" />}
+                    <div class="navbar-brand">
+                        <a class="navbar-item navbar-logo uy-brand" href={siteUrl}>
+                            {logo && logo.text ? logo.text : <img class="uy-brand-avatar" src={logoUrl} alt={siteTitle} />}
+                            <span class="uy-brand-name">Uy Nguyen</span>
                         </a>
                     </div>
                     <div class="navbar-menu">

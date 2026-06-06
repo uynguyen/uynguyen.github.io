@@ -2,9 +2,9 @@
 title: Create and Distribute Private Libraries with Cocoapods
 date: 2017-09-25 11:38:40
 tags: iOS
+thumbnail: /Post-Resources/PrivatePod/PrivatePod.png
 ---
 
-![](/Post-Resources/PrivatePod/PrivatePod.png "")
 [CocoaPods](https://cocoapods.org/) is a dependency manager for Swift and Objective-C projects. This tool not only allows us to easily integrate those dependencies but also allows us to create our own libraries. In this post I'm going to guide you how to create a private library and distribute it to your private team without publishing the library.
 <!-- more --> 
 # Init repositories

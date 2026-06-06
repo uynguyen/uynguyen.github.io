@@ -4,9 +4,8 @@ date: 2021-08-06 19:59:44
 tags: [iOS, Notification]
 layout: post
 lang: es
+thumbnail: /Post-Resources/Silent-Notification/silent_notification.png
 ---
-
-![](/Post-Resources/Silent-Notification/silent_notification.png "")
 
 En el mundo en constante evolucion del desarrollo de aplicaciones moviles, mantener a los usuarios comprometidos e informados es clave. Para los desarrolladores de iOS, las notificaciones en segundo plano son una herramienta poderosa que mejora la experiencia del usuario sin interrumpir sus actividades actuales. Pero, que son exactamente las notificaciones en segundo plano y como funcionan? Profundicemos en los detalles.
 

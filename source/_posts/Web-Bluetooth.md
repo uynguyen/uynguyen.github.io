@@ -2,9 +2,8 @@
 title: Web Bluetooth
 date: 2022-10-30 14:55:24
 tags: [Web Bluetooth, Bluetooth]
+thumbnail: /Post-Resources/WebBluetooth/banner.png
 ---
-
-![](/Post-Resources/WebBluetooth/banner.png "Banner")
 
 Have you ever wanted to create a web application that enables users to communicate with your device using Bluetooth? Until the introduction of [Web Bluetooth](https://webbluetoothcg.github.io/web-bluetooth/), this was only possible through native mobile apps. However, with the advent of Web Bluetooth you can now turn your idea into a reality.
 Web Bluetooth is a game-changing technology that allows web developers to connect their applications directly to Bluetooth devices, opening up a wide range of possibilities for IoT, wearables, and other Bluetooth-enabled devices. By leveraging the power of Web Bluetooth, you can create web applications that can communicate with devices without the need for a separate native app.

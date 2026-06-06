@@ -4,9 +4,8 @@ date: 2020-07-18 17:00:08
 tags: [UI, UIStackView, iOS]
 layout: post
 lang: es
+thumbnail: /Post-Resources/StackView/stackview.png
 ---
-
-![](/Post-Resources/StackView/stackview.png "Banner")
 
 A medida que tu habilidad de desarrollo iOS crece, creo que usas `UIScrollView`, `UICollectionView`, `UITableView` y otras vistas nativas regularmente y con competencia en tus aplicaciones. Sin embargo, algunos desarrolladores iOS todavia no saben que es exactamente `UIStackView`, para que se usa o en que situacion debemos usar `UIStackView`.
 En este tutorial, te presentare `UIStackView` - Una vista que nos ayuda a simplificar nuestros layouts de iOS.

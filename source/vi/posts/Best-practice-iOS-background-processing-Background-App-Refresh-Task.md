@@ -5,9 +5,8 @@ tags: [iOS, BLE]
 ping: true
 layout: post
 lang: vi
+thumbnail: /Post-Resources/RefreshInBg/RefreshAppBg.png
 ---
-
-![](/Post-Resources/RefreshInBg/RefreshAppBg.png "Cover")
 
 Không giống Android, iOS hạn chế xử lý nền nhằm cải thiện thời lượng pin và trải nghiệm người dùng. Khi ứng dụng chuyển sang chế độ nền, developers mất quyền kiểm soát trực tiếp. Cách thức và thời điểm ứng dụng được phép thực thi tác vụ hoàn toàn phụ thuộc vào hệ thống. Về cơ bản, iOS sử dụng một thuật toán phức tạp để xác định ứng dụng nào được phép chạy nền, dựa trên các yếu tố như mô hình hoạt động của người dùng, trạng thái pin hiện tại và nhiều yếu tố khác.
 

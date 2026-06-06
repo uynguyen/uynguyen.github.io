@@ -2,9 +2,8 @@
 title: Silent notification
 date: 2021-08-06 19:59:44
 tags: [iOS, Notification]
+thumbnail: /Post-Resources/Silent-Notification/silent_notification.png
 ---
-
-![](/Post-Resources/Silent-Notification/silent_notification.png "")
 
 In the ever-evolving world of mobile app development, keeping users engaged and informed is key. For iOS developers, background notifications are a powerful tool that enhances user experience without interrupting their current activities. But what exactly are background notifications, and how do they work? Let’s dive into the details.
 

@@ -2,10 +2,9 @@
 title: "Reliable BLE Data Transfer: Handling MTU, Throughput & Chunking"
 date: 2026-04-12 10:00:00
 tags: [BLE, iOS, Android, Bluetooth, CoreBluetooh]
+thumbnail: /Post-Resources/BLE-DataTransfer/cover.png
 layout: post
 ---
-
-![](/Post-Resources/BLE-DataTransfer/cover.png "Cover")
 
 Sooner or later, every BLE developer runs into the same wall: you need to send more than 20 bytes at a time. Maybe it is a firmware image, a batch of sensor readings, or a configuration payload. You fire off a write and... only the first 20 bytes arrive. The rest is silently dropped.
 

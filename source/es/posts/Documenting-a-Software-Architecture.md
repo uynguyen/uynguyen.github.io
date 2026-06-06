@@ -4,8 +4,8 @@ date: 2018-04-11 22:19:20
 tags: [UML, Software Architecture]
 layout: post
 lang: es
+thumbnail: /Post-Resources/UML/Banner.png
 ---
-![](/Post-Resources/UML/Banner.png "")
 Está claro que documentar arquitecturas es una de las tareas más ~~aburridas~~ importantes de la Ingeniería de Software.
 <!-- more -->
 ## Una actividad de dos caras

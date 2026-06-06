@@ -4,8 +4,8 @@ date: 2019-12-11 21:28:10
 tags: [macOS, Swift, Cocoa]
 layout: post
 lang: es
+thumbnail: /Post-Resources/GGSignIn-Mac/gg_banner.jpg
 ---
-![](/Post-Resources/GGSignIn-Mac/gg_banner.jpg "banner")
 Como desarrollador iOS, podrías tener la oportunidad de escribir aplicaciones en Mac OS. Y a veces, tus aplicaciones requieren que los usuarios se autentiquen antes de poder usar tu app. Habilitar Google Sign in te ayuda a ahorrar mucho tiempo para implementar el flujo de autenticación. Desafortunadamente, hay falta de documentación sobre cómo integrar Google Sign in en apps de MacOS, particularmente en Swift. Una vez tuve la oportunidad de implementar esta característica en mi app. Ahora quiero compartir contigo cómo podemos hacerlo. Comencemos.
 <!-- more -->
 ## Configuración

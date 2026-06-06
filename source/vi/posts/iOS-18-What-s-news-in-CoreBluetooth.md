@@ -4,9 +4,8 @@ date: 2024-11-03 10:33:53
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/AccessorySetupKit/cover.png
 ---
-
-![](/Post-Resources/AccessorySetupKit/cover.png "AccessorySetupKit")
 
 `AccessorySetupKit`, được giới thiệu trong iOS 18, cách mạng hóa cách các phụ kiện Bluetooth và Wi-Fi của bên thứ ba tích hợp với các thiết bị iOS. Framework này mang lại trải nghiệm thiết lập liền mạch, tăng cường sự tiện lợi cho người dùng và mở rộng khả năng cho các nhà phát triển.
 Trong khi `AccessorySetupKit` hỗ trợ khám phá cho các thiết bị Bluetooth, Wi-Fi và Local Network, bài viết này sẽ tập trung cụ thể vào BLE (Bluetooth Low Energy). Quy trình thiết lập cho các thiết bị Wi-Fi và Local Network tuân theo cách tiếp cận tương tự.

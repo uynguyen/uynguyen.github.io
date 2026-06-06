@@ -4,9 +4,8 @@ date: 2023-07-22 21:56:13
 tags:
 layout: post
 lang: es
+thumbnail: /Post-Resources/ScheduleTask/banner.png
 ---
-![](/Post-Resources/ScheduleTask/banner.png "ScheduleTask")
-
 Si estas ejecutando tu servicio en Android, ten en cuenta que Android ha introducido restricciones mas estrictas de ejecucion en segundo plano en versiones recientes. A partir de Android 8.0 (nivel de API 26) y superior, los servicios en segundo plano tienen limitaciones en su tiempo de ejecucion, especialmente cuando la aplicacion esta en segundo plano. Asegurate de conocer estas restricciones y adaptar tu servicio en consecuencia.
 
 <!-- more -->

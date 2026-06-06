@@ -4,9 +4,8 @@ date: 2026-03-14 10:00:00
 tags: [BLE, iOS, Flutter, React Native, Cross Platform]
 lang: vi
 layout: post
+thumbnail: /Post-Resources/BLE-CrossPlatform/cover.png
 ---
-
-![](/Post-Resources/BLE-CrossPlatform/cover.png "Cover")
 
 Bluetooth Low Energy (BLE) là công nghệ cốt lõi trong các thiết bị theo dõi sức khỏe, nhà thông minh, thiết bị y tế và nhiều sản phẩm IoT khác. Khi xây dựng ứng dụng có BLE, bạn thường phải lựa chọn giữa: iOS thuần (native), Flutter hoặc React Native.
 

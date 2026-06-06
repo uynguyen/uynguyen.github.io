@@ -4,9 +4,8 @@ date: 2021-04-08 18:22:07
 tags: [iOS, Notification]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/Remote_Notification/remote_notification.png
 ---
-
-![](/Post-Resources/Remote_Notification/remote_notification.png "")
 
 Push notification cho phép ứng dụng của bạn tiếp cận người dùng thường xuyên hơn, và cũng có thể thực hiện một số tác vụ. Trong hướng dẫn này, chúng ta sẽ học cách cấu hình ứng dụng để nhận remote notifications, hiển thị nội dung và sau đó thực hiện một số hành động khi người dùng nhấn vào.
 Hãy bắt đầu.

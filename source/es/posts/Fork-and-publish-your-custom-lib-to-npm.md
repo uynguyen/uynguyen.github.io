@@ -4,9 +4,8 @@ date: 2022-03-26 10:00:26
 tags:
 layout: post
 lang: es
+thumbnail: /Post-Resources/npm/cover.png
 ---
-
-![](/Post-Resources/npm/cover.png "")
 
 
 Cuando desarrollamos una nueva característica de nuestro software, tendemos a buscar si hay una biblioteca o framework "similar" disponible en la comunidad para reutilizarla. A nadie le gusta reinventar la rueda, ¿verdad? Sin embargo, la biblioteca que más se ajusta a nuestros requisitos a veces no soporta una característica que necesitas o solo una propiedad personalizada. Puedes abrir un pull request al repositorio original, pero puede tomar tiempo y depende del autor si aprueba tus cambios o no. En ese caso, puedes crear tu propia biblioteca desde la original, lo llamamos proceso "Fork".

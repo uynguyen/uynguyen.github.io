@@ -4,9 +4,9 @@ date: 2017-09-25 11:38:40
 tags: iOS
 layout: post
 lang: es
+thumbnail: /Post-Resources/PrivatePod/PrivatePod.png
 ---
 
-![](/Post-Resources/PrivatePod/PrivatePod.png "")
 [CocoaPods](https://cocoapods.org/) es un gestor de dependencias para proyectos Swift y Objective-C. Esta herramienta no solo nos permite integrar fácilmente esas dependencias, sino que también nos permite crear nuestras propias bibliotecas. En esta publicación voy a guiarte sobre cómo crear una biblioteca privada y distribuirla a tu equipo privado sin publicar la biblioteca.
 <!-- more -->
 # Inicializar repositorios

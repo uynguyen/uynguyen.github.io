@@ -4,9 +4,8 @@ date: 2021-02-25 19:03:28
 tags:
 layout: post
 lang: es
+thumbnail: /Post-Resources/AppGetKilled/AppGetKilled.png
 ---
-![](/Post-Resources/AppGetKilled/AppGetKilled.png "AppGetKilled")
-
 Alguna vez te has preguntado por que tu aplicacion es terminada por el sistema cuando entra en segundo plano? Este articulo va a resumir las principales razones introducidas por Apple en WWDC 2020, y lo que puedes hacer para evitar que tu aplicacion sea terminada en segundo plano. Al aplicar estos consejos, podemos mejorar la experiencia de nuestra aplicacion porque no tendra que reiniciarse desde cero.
 Comencemos!
 

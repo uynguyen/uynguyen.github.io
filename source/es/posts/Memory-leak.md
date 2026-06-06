@@ -4,8 +4,8 @@ date: 2018-09-12 11:09:15
 tags: [iOS, Memory management]
 layout: post
 lang: es
+thumbnail: /Post-Resources/MemoryLeak/Cover.png
 ---
-![](/Post-Resources/MemoryLeak/Cover.png "")
 Como Ingeniero de Software, definitivamente has escuchado sobre el concepto de fuga de memoria. La fuga de memoria es una situación donde los bloques de memoria están ubicados por el programa y permanecen en la memoria a pesar de que ya no están referenciados. Las fugas desperdician espacio llenando páginas de memoria con datos inaccesibles. Como resultado, el tamaño de memoria usado en tus aplicaciones sigue aumentando, afectando la experiencia del usuario y el rendimiento de tu aplicación. Peor aún, tu aplicación se cerrará aleatoriamente porque un proceso será terminado por el sistema si consume demasiada memoria.
 En este tema, discutiremos cómo se gestiona la memoria en iOS y cómo usar la memoria eficientemente. Continúa leyendo.
 <!-- more -->

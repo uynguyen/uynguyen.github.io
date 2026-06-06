@@ -2,9 +2,8 @@
 title: 'iOS: Introducing Stack Views Programmatically'
 date: 2020-07-18 17:00:08
 tags: [UI, UIStackView, iOS]
+thumbnail: /Post-Resources/StackView/stackview.png
 ---
-
-![](/Post-Resources/StackView/stackview.png "Banner")
 
 As your iOS development skill is growing, I believe you use `UIScrollView`, `UICollectionView`, `UITableView`, and other native views regularly and proficiently in your applications. Yet, some iOS developers still don’t know what exactly `UIStackView` is, what it uses for or in which situation should we use `UIStackView`. 
 In this tutorial, I will introduce you to `UIStackView` - A view helps us to simplify our iOS layouts.

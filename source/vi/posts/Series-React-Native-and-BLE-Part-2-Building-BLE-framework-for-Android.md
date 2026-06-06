@@ -4,9 +4,8 @@ date: 2022-02-13 10:57:24
 tags: [BLE, Bluetooth, Android]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/RN-BLE/cover2.png
 ---
-
-![](/Post-Resources/RN-BLE/cover2.png "")
 
 Khi nói đến công nghệ di động, iOS và Android là hai hệ điều hành thống trị cung cấp năng lượng cho phần lớn điện thoại thông minh và máy tính bảng trên toàn thế giới. Là các nhà phát triển, điều cần thiết là chúng ta phải có kiến thức và công cụ để làm việc hiệu quả với cả hai nền tảng. Điều này đặc biệt đúng khi nói đến việc sử dụng công nghệ Bluetooth, là một thành phần quan trọng của nhiều ứng dụng di động hiện đại.
 Trong phần 1 của chuỗi bài tutorial này, chúng ta đã tạo một BLE (Bluetooth Low Energy) framework có thể được kết nối với UI sử dụng React Native. Tuy nhiên, framework này chỉ hoạt động trên iOS, điều đó có nghĩa là chúng ta cần phát triển một giải pháp riêng cho Android.

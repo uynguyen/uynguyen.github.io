@@ -2,8 +2,8 @@
 title: Big Endian vs Little Endian
 date: 2018-04-30 10:51:30
 tags: [Swift, Objective-C, iOS]
+thumbnail: /Post-Resources/Endian/cover.png
 ---
-![](/Post-Resources/Endian/cover.png "Endian cover")
 In computer science, a bit is the smallest piece of information. It represents a digit of the binary numeral system. A string of 8 bits called a byte. There are two ways to store a string of data in computers: Big Endian and Little Endian. If your tasks are working with data in a piece of bytes, you ought to know how to deal with bytes in these two formats. In this post, I will explain how data is stored in computers, what are the main differences between these two, then provide some useful code to work with bytes in Swift and Objective-C.
 <!-- more --> 
 ## Basic concepts

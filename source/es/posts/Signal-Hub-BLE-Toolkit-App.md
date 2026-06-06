@@ -5,9 +5,8 @@ tags: [BLE, Bluetooth, iOS, IoT, Tools, Mobile]
 ping: true
 layout: post
 lang: es
+thumbnail: /Post-Resources/SignalHub/cover.png
 ---
-
-![](/Post-Resources/SignalHub/cover.png "Signal Hub — Kit de Herramientas BLE para Desarrolladores")
 
 Si alguna vez has pasado horas mirando volcados HEX sin procesar tratando de entender por qué tu periférico BLE no envía los datos correctos, conoces ese dolor. Depurar dispositivos Bluetooth Low Energy es notoriamente complicado — el protocolo es poderoso, pero las herramientas disponibles en móvil siempre han dejado mucho que desear.
 

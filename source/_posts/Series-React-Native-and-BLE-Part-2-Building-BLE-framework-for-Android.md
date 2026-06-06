@@ -2,9 +2,8 @@
 title: 'Series React Native and BLE: Part 2 - Building BLE framework for Android'
 date: 2022-02-13 10:57:24
 tags: [BLE, Bluetooth, Android]
+thumbnail: /Post-Resources/RN-BLE/cover2.png
 ---
-
-![](/Post-Resources/RN-BLE/cover2.png "")
 
 When it comes to mobile technology, iOS and Android are the two dominant operating systems that power the majority of smartphones and tablets worldwide. As developers, it is essential that we have the knowledge and tools to work with both platforms effectively. This is especially true when it comes to utilizing Bluetooth technology, which is a crucial component of many modern mobile applications.
 In part 1 of this tutorial series, we created a BLE (Bluetooth Low Energy) framework that could be connected to the UI using React Native. However, this framework only worked on iOS, which meant that we needed to develop a separate solution for Android.

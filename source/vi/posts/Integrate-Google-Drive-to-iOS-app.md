@@ -4,8 +4,8 @@ date: 2019-02-15 20:00:50
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/GoogleDrive/GoogleDrive.png
 ---
-![](/Post-Resources/GoogleDrive/GoogleDrive.png "Cover")
 Tại Fossil, tôi đã có cơ hội thử nghiệm tích hợp Google Drive như một nền tảng lưu trữ đám mây. Ưu điểm chính của việc sử dụng Google Drive là dễ dàng chia sẻ với các thành viên khác, với giao diện web tốt để chỉnh sửa nội dung các thư mục, và nó miễn phí. Tuy nhiên, tôi đã gặp khó khăn khi cố gắng làm cho Google Drive hoạt động do thiếu tài liệu và bài viết liên quan đến Google Drive APIs, đặc biệt là trong Swift. Ngoài ra, code và ví dụ trên trang web của Google đã lỗi thời. Do đó, tôi quyết định viết bài viết này với hy vọng tiết kiệm thời gian của bạn khi bạn muốn tích hợp Google Drive vào ứng dụng của mình. Hãy bắt đầu.
 <!-- more -->
 ## Tạo ứng dụng và quyền truy cập Google API

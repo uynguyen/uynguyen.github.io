@@ -4,9 +4,9 @@ date: 2017-09-25 11:38:40
 tags: iOS
 layout: post
 lang: vi
+thumbnail: /Post-Resources/PrivatePod/PrivatePod.png
 ---
 
-![](/Post-Resources/PrivatePod/PrivatePod.png "")
 [CocoaPods](https://cocoapods.org/) là một dependency manager cho các dự án Swift và Objective-C. Công cụ này không chỉ cho phép chúng ta dễ dàng tích hợp các dependencies mà còn cho phép chúng ta tạo các thư viện của riêng mình. Trong bài viết này, tôi sẽ hướng dẫn bạn cách tạo một private library và phân phối nó cho private team của bạn mà không cần publish thư viện.
 <!-- more -->
 # Khởi tạo repositories

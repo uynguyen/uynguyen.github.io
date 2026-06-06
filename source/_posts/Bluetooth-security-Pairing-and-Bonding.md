@@ -2,9 +2,8 @@
 title: "Bluetooth security: Pairing and Bonding"
 date: 2024-08-31 10:38:32
 tags: [CoreBluetooh, BLE]
+thumbnail: /Post-Resources/Bonding/cover.png
 ---
-
-![](/Post-Resources/Bonding/cover.png "Bluetooth security")
 
 In modern times, Bluetooth plays a crucial role in connecting devices seamlessly. From fitness trackers to smart home devices, Bluetooth Low Energy (BLE) allows devices to communicate efficiently while reducing power consumption. However, with the rise of wireless communication, ensuring security has become a key concern. Two core concepts of Bluetooth security are **Pairing** and **Bonding**, which are often misunderstood in the context of BLE.
 

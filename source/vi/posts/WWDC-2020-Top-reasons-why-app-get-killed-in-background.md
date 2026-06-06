@@ -4,9 +4,8 @@ date: 2021-02-25 19:03:28
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/AppGetKilled/AppGetKilled.png
 ---
-![](/Post-Resources/AppGetKilled/AppGetKilled.png "AppGetKilled")
-
 Bạn có bao giờ thắc mắc tại sao ứng dụng của bạn bị hệ thống kill khi nó chuyển sang chế độ nền? Bài viết này sẽ tóm tắt những lý do hàng đầu được Apple giới thiệu trong WWDC 2020, và những gì bạn có thể làm để ngăn ứng dụng của mình bị kill ở chế độ nền. Bằng cách áp dụng những mẹo này, chúng ta có thể cải thiện trải nghiệm ứng dụng vì ứng dụng của bạn không phải khởi động lại từ đầu.
 Hãy bắt đầu!
 

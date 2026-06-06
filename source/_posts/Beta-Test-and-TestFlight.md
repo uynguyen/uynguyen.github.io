@@ -2,8 +2,8 @@
 title: Beta Test and TestFlight
 date: 2020-04-14 21:25:25
 tags:
+thumbnail: /Post-Resources/TestFlight/Cover.png
 ---
-![](/Post-Resources/TestFlight/Cover.png "TestFlight")
 As an iOS developer, you might have heard about TestFlight - a product of Apple that allows you to distribute your apps to beta users. So what can we do with it? Is it useful? 
 In this tutorial, we will walk through steps uploading a build to TestFlight, and invite users to test your app. 
 You also need to refer the previous post [Shipping your app to Store](/2018/12/13/Shipping-your-iOS-app-to-Store/) to complete this tutorial.

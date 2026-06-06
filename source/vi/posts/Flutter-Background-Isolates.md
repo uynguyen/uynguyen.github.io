@@ -4,9 +4,8 @@ date: 2026-04-05 09:00:00
 tags: [Flutter, Dart, Concurrency, BLE, Background]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/FlutterBackgroundIsolates/cover.png
 ---
-
-![](/Post-Resources/FlutterBackgroundIsolates/cover.png "Cover")
 
 Flutter chạy trên một luồng chính duy nhất — **main isolate** — chịu trách nhiệm render UI ở 60 hoặc 120 fps và xử lý các tương tác của người dùng. Bất kỳ tác vụ nặng nào đặt lên luồng đó đều thể hiện ngay lập tức: mất frame, animation bị giật và ứng dụng có cảm giác chậm chạp.
 

@@ -2,10 +2,9 @@
 title: 'Best practice: iOS background processing - Background App Refresh Task'
 date: 2020-09-26 21:53:32
 tags: [iOS, BLE]
+thumbnail: /Post-Resources/RefreshInBg/RefreshAppBg.png
 ping: true
 ---
-
-![](/Post-Resources/RefreshInBg/RefreshAppBg.png "Cover")
 
 Unlike Android, iOS restricts background processing in an effort to improve battery life and user experience. When your app enters background mode, developers lose direct control over it. How and when your app gets a chance to execute a task depends entirely on the system. At its core, iOS uses an internally complex algorithm to determine which apps are allowed to run in the background, based on factors such as user activity patterns, current battery state, and more.
 

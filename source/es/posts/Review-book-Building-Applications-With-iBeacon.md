@@ -4,9 +4,8 @@ date: 2020-06-14 21:13:41
 tags: [Books, Study, BLE, iBeacon]
 layout: post
 lang: es
+thumbnail: /Post-Resources/ibeacons/ibeacon-cover.png
 ---
-![](/Post-Resources/ibeacons/ibeacon-cover.png "SwiftApprentice")
-
 En [la publicación anterior](/2018/08/18/Best-practice-iBeacon/), básicamente te di un vistazo rápido a iBeacon - Un protocolo Bluetooth construido sobre BLE por Apple, e hice una demostración simple de cómo iBeacon puede despertar una aplicación después de ser terminada por el usuario. Sin embargo, no mencioné otros conceptos fundamentales en Beacon, tampoco te di una visión profunda de las ventajas y desventajas de esta poderosa tecnología.
 Hoy, me gustaría presentarte un buen libro que proporciona un conocimiento sólido en el campo de Beacon, especialmente iBeacon: `Building Applications With iBeacon` publicado por O'Reilly.
 Después de leer este libro, te aseguro que obtendrás un buen conocimiento en el campo de iBeacon y tu mente estará más abierta a las próximas ideas.

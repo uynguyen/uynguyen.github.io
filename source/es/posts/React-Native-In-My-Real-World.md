@@ -4,8 +4,8 @@ date: 2017-12-01 11:46:47
 tags: [ReactNative, CrossPlatform]
 layout: post
 lang: es
+thumbnail: /Post-Resources/ReactNative/Banner.jpg
 ---
-![](/Post-Resources/ReactNative/Banner.jpg "Banner")
 React Native fue presentado en enero de 2015 en React.js Con: La primera vista previa pública. En marzo de 2015, React Native se abre y está disponible en Github. Después de su lanzamiento, React Native rápidamente se volvió popular y es constantemente actualizado por miles de desarrolladores en el mundo. Actualmente, React Native es uno de los [repositorios con más estrellas](https://github.com/search?p=2&q=stars%3A%3E1&s=stars&type=Repositories) en Github.
 <!-- more -->
 # Threads

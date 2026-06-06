@@ -4,9 +4,8 @@ date: 2026-01-30 10:00:00
 tags: [iOS, BLE, WWDC26]
 lang: vi
 layout: post
+thumbnail: /Post-Resources/BLEiOS26/cover.png
 ---
-
-![](/Post-Resources/BLEiOS26/cover.png "Banner")
 
 Apple tiếp tục nâng cao khả năng Bluetooth Low Energy trong iOS 26, mang đến các tính năng mới và cải tiến cho các nhà phát triển xây dựng trải nghiệm kết nối. Trong bài viết này, chúng ta sẽ khám phá những bổ sung mới nhất cho Core Bluetooth và cách chúng có thể mang lại lợi ích cho ứng dụng của bạn.
 

@@ -4,8 +4,8 @@ date: 2020-01-30 17:33:16
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/MixMatch/mix-match-banner.png
 ---
-![](/Post-Resources/MixMatch/mix-match-banner.png "")
 Khi Swift đã trở thành ngôn ngữ chủ lực cho phát triển iOS, hầu hết các project iOS mới ngày nay đều được xây dựng bằng Swift. Tuy nhiên, có nhiều thư viện hữu ích được phát triển bằng các ngôn ngữ lập trình cấp thấp khác như Objective-C và / hoặc C++ để tăng hiệu suất. Mặt khác, không phải tất cả các vị trí kỹ sư đều mở cho các project mới, hầu hết họ được tuyển để bảo trì và phát triển các tính năng mới dựa trên codebase hiện tại được xây dựng bằng Objective-C.
 Có kiến thức để kết hợp hai ngôn ngữ trong một project duy nhất là tốt cho kỹ năng phát triển iOS của bạn vì bạn sẽ gặp nó một ngày nào đó trong sự nghiệp của mình. Trong bài viết này, tôi sẽ chỉ cho bạn không chỉ cách sử dụng Objective-C và Swift trong một project duy nhất mà còn cách sử dụng một tập hợp các ngôn ngữ lập trình trong một project, bao gồm C++/ Objective-C/ Swift và React Native. Hy vọng bạn sẽ thấy bài viết này thú vị.
 Hãy bắt đầu.

@@ -4,9 +4,8 @@ date: 2024-06-30 10:48:09
 tags: [BLE, iOS, Android]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/IOSAndroid/ios_android.png
 ---
-
-![](/Post-Resources/IOSAndroid/ios_android.png "Cover")
 
 Công nghệ Bluetooth đã trở thành một phần không thể thiếu của các ứng dụng di động hiện đại, cho phép giao tiếp không dây liền mạch giữa các thiết bị. Dù là để kết nối với tai nghe không dây, truyền file, hay tương tác với các thiết bị smart home, Bluetooth đóng vai trò quan trọng trong việc nâng cao trải nghiệm người dùng.
 

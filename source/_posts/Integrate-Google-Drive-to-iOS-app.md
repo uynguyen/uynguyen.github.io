@@ -2,8 +2,8 @@
 title: Integrate Google Drive to iOS app
 date: 2019-02-15 20:00:50
 tags:
+thumbnail: /Post-Resources/GoogleDrive/GoogleDrive.png
 ---
-![](/Post-Resources/GoogleDrive/GoogleDrive.png "Cover")
 At Fossil, I've had the chance to experiment with Google Drive integration, as a cloud bases storage. The main advantage of using Google Drive is to share with other members easily, with a good web-based UI to modify the contents of folders, and it’s free. However, I struggled when trying to make Google Drive work due to lack of documents and articles related to Google Drive APIs, especially in Swift. Additionally, the code and examples on Google’s sites are out of date. Therefore, I decided to write this article with a hope of saving your time when you want to integrate Google Drive to your apps. Let’s get started.
 <!-- more --> 
 ## Create your app and Google API access

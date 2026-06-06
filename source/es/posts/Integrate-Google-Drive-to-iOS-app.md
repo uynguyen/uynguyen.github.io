@@ -4,8 +4,8 @@ date: 2019-02-15 20:00:50
 tags:
 layout: post
 lang: es
+thumbnail: /Post-Resources/GoogleDrive/GoogleDrive.png
 ---
-![](/Post-Resources/GoogleDrive/GoogleDrive.png "Cover")
 En Fossil, tuve la oportunidad de experimentar con la integración de Google Drive, como almacenamiento basado en la nube. La principal ventaja de usar Google Drive es compartir con otros miembros fácilmente, con una buena interfaz web para modificar los contenidos de las carpetas, y es gratis. Sin embargo, tuve dificultades al intentar hacer funcionar Google Drive debido a la falta de documentación y artículos relacionados con las APIs de Google Drive, especialmente en Swift. Además, el código y los ejemplos en los sitios de Google están desactualizados. Por lo tanto, decidí escribir este artículo con la esperanza de ahorrarte tiempo cuando quieras integrar Google Drive a tus apps. Comencemos.
 <!-- more -->
 ## Crear tu app y acceso a la API de Google

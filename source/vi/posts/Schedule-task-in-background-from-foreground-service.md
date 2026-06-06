@@ -4,9 +4,8 @@ date: 2023-07-22 21:56:13
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/ScheduleTask/banner.png
 ---
-![](/Post-Resources/ScheduleTask/banner.png "ScheduleTask")
-
 Nếu bạn đang chạy service trên Android, hãy lưu ý rằng Android đã giới thiệu các hạn chế thực thi nền nghiêm ngặt hơn trong các phiên bản gần đây. Bắt đầu từ Android 8.0 (API level 26) trở lên, background service có giới hạn về thời gian thực thi, đặc biệt khi ứng dụng ở chế độ nền. Hãy đảm bảo bạn nhận thức được các hạn chế này và điều chỉnh service của mình cho phù hợp.
 
 <!-- more -->

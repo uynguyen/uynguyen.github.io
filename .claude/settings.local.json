@@ -41,7 +41,14 @@
       "Bash(python3 /tmp/gen_flow.py)",
       "Bash(python3 -)",
       "Bash(cp index.html /tmp/index.bak3.html)",
-      "Bash(python3 /tmp/gen_flow2.py)"
+      "Bash(python3 /tmp/gen_flow2.py)",
+      "Bash(git mv *)",
+      "Bash(sed -n '34,38p' _config.yml)",
+      "Bash(ls -la public/about/)",
+      "Bash(git check-ignore *)",
+      "Bash(python3 -c \"import re;h=open\\('source/about/index.html'\\).read\\(\\);print\\('ul', h.count\\('<ul'\\), h.count\\('</ul>'\\),'| li', len\\(re.findall\\(r'<li>',h\\)\\), h.count\\('</li>'\\)\\)\")",
+      "Bash(sed -n '1,9p' source/_posts/iOS-18-What-s-news-in-CoreBluetooth.md)",
+      "Bash(sed -n '1,9p' source/vi/posts/All-About-Alamofire.md)"
     ]
   }
 }

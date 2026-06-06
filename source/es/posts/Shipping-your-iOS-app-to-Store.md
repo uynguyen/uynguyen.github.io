@@ -4,9 +4,8 @@ date: 2018-12-13 17:34:08
 tags:
 layout: post
 lang: es
+thumbnail: /Post-Resources/Delivery/delivery.png
 ---
-![](/Post-Resources/Delivery/delivery.png "Delivery")
-
 Enviar tu aplicación a la Apple Store no es tan simple como presionar un botón "mágico" que hace todo, pero tampoco es tan complicado como piensas. Quizás es tu primera vez lanzando tu primera aplicación, y no has tenido la oportunidad de familiarizarte con el proceso de envío antes. Este tutorial paso a paso te mostrará el flujo principal para enviar aplicaciones desde cero hasta ser un experto. Ten en cuenta que necesitas tener una Cuenta de Desarrollador de Pago para completarlo.
 ¡Comencemos!
 <!-- more -->

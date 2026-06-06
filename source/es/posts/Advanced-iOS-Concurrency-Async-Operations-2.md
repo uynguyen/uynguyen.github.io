@@ -4,9 +4,8 @@ date: 2020-05-30 17:02:31
 tags: [Concurrency, Operations, iOS]
 layout: post
 lang: es
+thumbnail: /Post-Resources/Operations_2/operations.png
 ---
-
-![](/Post-Resources/Operations_2/operations.png "Operations")
 
 En la publicación anterior, [Concurrencia Avanzada en iOS: Operations](/2020/05/16/iOS-Concurrency-Operations), revisamos los conceptos de Operation en iOS e hicimos una aplicación de demostración que obtiene algunas de mis publicaciones. Después de descargar las imágenes de portada, se les aplicará un filtro simple y luego se mostrarán en una tabla. Sin embargo, la aplicación aún no está completa. Hay algo que salió mal con nuestra aplicación que hace que no muestre las imágenes descargadas correctamente. En este tutorial, continuaremos donde lo dejamos.
 ¡Prepárate!

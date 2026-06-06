@@ -4,8 +4,8 @@ date: 2017-12-01 11:46:47
 tags: [ReactNative, CrossPlatform]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/ReactNative/Banner.jpg
 ---
-![](/Post-Resources/ReactNative/Banner.jpg "Banner")
 React Native được giới thiệu vào tháng 1 năm 2015 tại React.js Con: Bản xem trước công khai đầu tiên. Vào tháng 3 năm 2015, React Native được mở và có sẵn trên Github. Sau khi phát hành, React Native nhanh chóng trở nên phổ biến và được cập nhật liên tục bởi hàng ngàn lập trình viên trên thế giới. Hiện tại, React Native là một trong những [repository có nhiều star nhất](https://github.com/search?p=2&q=stars%3A%3E1&s=stars&type=Repositories) trên Github.
 <!-- more -->
 # Threads

@@ -4,9 +4,8 @@ date: 2021-08-06 19:59:44
 tags: [iOS, Notification]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/Silent-Notification/silent_notification.png
 ---
-
-![](/Post-Resources/Silent-Notification/silent_notification.png "")
 
 Trong thế giới phát triển ứng dụng di động không ngừng phát triển, việc giữ cho người dùng tương tác và được cập nhật thông tin là điều then chốt. Đối với các nhà phát triển iOS, background notification là một công cụ mạnh mẽ giúp nâng cao trải nghiệm người dùng mà không làm gián đoạn các hoạt động hiện tại của họ. Nhưng chính xác thì background notification là gì và chúng hoạt động như thế nào? Hãy cùng tìm hiểu chi tiết.
 

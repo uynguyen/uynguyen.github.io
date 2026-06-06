@@ -4,9 +4,8 @@ date: 2026-01-31 10:00:00
 tags: [iOS, Android, BLE, RxSwift, RxJava, Reactive]
 lang: es
 layout: post
+thumbnail: /Post-Resources/BLEReactive/cover.png
 ---
-
-![](/Post-Resources/BLEReactive/cover.png "Banner")
 
 Construir aplicaciones Bluetooth Low Energy implica manejar numerosas operaciones asíncronas: escaneo, conexión, descubrimiento de servicios, lectura/escritura de características y manejo de desconexiones. El enfoque tradicional basado en callbacks puede volverse rápidamente difícil de manejar, llevando a lo que los desarrolladores llaman "callback hell". En este artículo, compararemos el enfoque de callback con la programación reactiva usando RxSwift y RxJava, y exploraremos cómo los patrones reactivos pueden mejorar dramáticamente tu código BLE.
 

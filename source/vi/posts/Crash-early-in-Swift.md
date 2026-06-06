@@ -4,8 +4,8 @@ date: 2019-01-19 11:59:38
 tags: [iOS, Swift]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/Crashing/crashing.png
 ---
-![](/Post-Resources/Crashing/crashing.png "Crashing")
 Tối qua, tôi đọc một chương của một cuốn sách là một trong những cuốn sách yêu thích của tôi: `"The pragmatic programmer"` (Của Andrew Hunt và David Thomas). Chương này thảo luận về cách sử dụng assertion để làm code dễ debug hơn. Chúng ta đều biết rằng assertion là một công cụ thiết yếu để viết test, nhưng nó làm được nhiều hơn thế. Hãy cùng tôi gặp gỡ anh chàng này: *Assertion*.
 <!-- more -->
 ## Crash, đừng phá hỏng

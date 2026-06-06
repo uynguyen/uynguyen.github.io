@@ -4,9 +4,8 @@ date: 2026-03-29 10:00:00
 tags: [MQTT, IoT, Networking, Protocol, Swift, Python]
 lang: vi
 layout: post
+thumbnail: /Post-Resources/MQTT/cover.png
 ---
-
-![](/Post-Resources/MQTT/cover.png "Cover")
 
 MQTT (Message Queuing Telemetry Transport) là một giao thức nhắn tin publish/subscribe nhẹ, được thiết kế cho các thiết bị bị giới hạn tài nguyên và mạng không ổn định. Ban đầu được IBM phát triển vào cuối những năm 1990 để giám sát đường ống dầu qua liên kết vệ tinh, ngày nay nó đã trở thành tiêu chuẩn thực tế cho giao tiếp IoT — từ cảm biến nhà thông minh đến hệ thống tự động hóa công nghiệp.
 

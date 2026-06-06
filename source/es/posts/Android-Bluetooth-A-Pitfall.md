@@ -4,9 +4,8 @@ date: 2024-08-04 12:10:39
 tags: [Android, Bluetooth]
 layout: post
 lang: es
+thumbnail: /Post-Resources/BluetoothPitfall/bluetooth_pitfall.png
 ---
-
-![](/Post-Resources/BluetoothPitfall/bluetooth_pitfall.png "Bluetooth")
 
 Desarrollar aplicaciones Android habilitadas para BLE está lleno de desafíos, especialmente cuando se trata de gestionar operaciones concurrentes. Una de las trampas más comunes que enfrentan los desarrolladores es el comportamiento inesperado que ocurre cuando intentan ejecutar operaciones BLE en rápida sucesión. En esta publicación de blog, profundizaremos en por qué esto sucede y cómo puedes superarlo implementando un mecanismo de cola personalizado para operaciones BLE.
 

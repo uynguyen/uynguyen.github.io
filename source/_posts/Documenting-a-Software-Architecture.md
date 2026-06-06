@@ -2,8 +2,8 @@
 title: Documenting a Software Architecture
 date: 2018-04-11 22:19:20
 tags: [UML, Software Architecture]
+thumbnail: /Post-Resources/UML/Banner.png
 ---
-![](/Post-Resources/UML/Banner.png "")
 It's clear that documenting architectures is one of the most ~~boring~~ important tasks of Software Engineering. 
 <!-- more --> 
 ## A two-sided activity

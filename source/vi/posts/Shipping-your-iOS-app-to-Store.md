@@ -4,9 +4,8 @@ date: 2018-12-13 17:34:08
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/Delivery/delivery.png
 ---
-![](/Post-Resources/Delivery/delivery.png "Delivery")
-
 Gửi ứng dụng của bạn lên Apple Store không đơn giản như việc nhấn một nút "thần kỳ" rồi mọi thứ tự động hoàn thành, nhưng cũng không phức tạp như bạn nghĩ. Có thể đây là lần đầu tiên bạn phát hành ứng dụng đầu tiên của mình, và bạn chưa có cơ hội làm quen với quy trình gửi ứng dụng trước đó. Hướng dẫn từng bước này sẽ chỉ cho bạn quy trình chính để gửi ứng dụng từ con số không đến thành công. Lưu ý rằng bạn cần có Tài khoản Developer trả phí để hoàn thành việc này.
 Bắt đầu thôi!
 <!-- more -->

@@ -2,9 +2,8 @@
 title: "Review book: RxSwift Reactive Programming with Swift"
 date: 2020-09-26 21:51:41
 tags:
+thumbnail: /Post-Resources/RxSwift/rxSwift.png
 ---
-
-![](/Post-Resources/RxSwift/rxSwift.png "RxSwift")
 
 In the ever-evolving world of iOS development, mastering reactive programming can set you apart as a developer. One of the best resources to dive into reactive programming with Swift is the book "RxSwift: Reactive Programming with Swift." This comprehensive guide provides everything you need to understand and leverage RxSwift in your applications. Let’s explore what makes this book an essential read for Swift developers.
 

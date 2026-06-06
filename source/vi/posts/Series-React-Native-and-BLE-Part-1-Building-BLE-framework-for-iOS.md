@@ -4,9 +4,8 @@ date: 2021-12-25 18:16:08
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/RN-BLE/cover1.png
 ---
-
-![](/Post-Resources/RN-BLE/cover1.png "")
 
 Tôi đã làm việc trong lĩnh vực phát triển di động trên cả các dự án native và cross platform (React Native, Flutter), và tôi cũng có kinh nghiệm làm việc với BLE. Đôi khi tôi nhận được email hỏi về việc giao tiếp giữa RN/Flutter và BLE. Vì vậy, tôi quyết định giới thiệu chuỗi bài React Native và BLE này để hướng dẫn bạn cách phát triển một BLE framework native và kết nối nó với React Native.
 Tất nhiên, sẽ có một chuỗi bài khác cho Flutter và BLE sau khi hoàn thành chuỗi bài React Native.

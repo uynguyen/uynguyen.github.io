@@ -4,9 +4,8 @@ date: 2020-08-23 09:51:43
 tags: [iOS, BLE]
 layout: post
 lang: es
+thumbnail: /Post-Resources/ScanningInBG/cover.png
 ---
-
-![](/Post-Resources/ScanningInBG/cover.png "Banner")
 
 Los desarrolladores de iOS están creando aplicaciones que desempeñan ambos roles, Peripheral y Central, para intercambiar datos con otras copias de aplicaciones. Los datos pueden intercambiarse como pequeña información a través de paquetes BLE o el valor del indicador de intensidad de señal (RSSI) de uno a otro. Sin embargo, mantener la aplicación para siempre en primer plano es imposible. Tarde o temprano, la aplicación entrará en modo background por el usuario y finalmente será suspendida por el sistema dependiendo de la RAM disponible, el consumo de energía y otros factores. Por lo tanto, comprender el procedimiento de advertising y scanning en dispositivos iOS te ayuda a construir buenas aplicaciones que cumplan tus expectativas.
 Al final de este tutorial, construiremos una aplicación simple que actúa tanto como scanner como advertiser. Cuando dos aplicaciones se encuentren entre sí, escribirán un registro de log para análisis. Dependiendo de los resultados, descubriremos qué tan efectiva es nuestra aplicación usando Core Bluetooth.

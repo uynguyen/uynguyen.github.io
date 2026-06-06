@@ -4,9 +4,8 @@ date: 2026-01-31 10:00:00
 tags: [iOS, Android, BLE, RxSwift, RxJava, Reactive]
 lang: vi
 layout: post
+thumbnail: /Post-Resources/BLEReactive/cover.png
 ---
-
-![](/Post-Resources/BLEReactive/cover.png "Banner")
 
 Xây dựng ứng dụng Bluetooth Low Energy liên quan đến việc xử lý nhiều thao tác bất đồng bộ: quét, kết nối, khám phá dịch vụ, đọc/ghi characteristic, và xử lý ngắt kết nối. Cách tiếp cận dựa trên callback truyền thống có thể nhanh chóng trở nên khó quản lý, dẫn đến điều mà các nhà phát triển gọi là "callback hell". Trong bài viết này, chúng ta sẽ so sánh cách tiếp cận callback với lập trình reactive sử dụng RxSwift và RxJava, và khám phá cách các pattern reactive có thể cải thiện đáng kể code BLE của bạn.
 

@@ -4,9 +4,8 @@ date: 2026-04-12 10:00:00
 tags: [BLE, iOS, Android, Bluetooth, CoreBluetooh]
 layout: post
 lang: es
+thumbnail: /Post-Resources/BLE-DataTransfer/cover.png
 ---
-
-![](/Post-Resources/BLE-DataTransfer/cover.png "Cover")
 
 Tarde o temprano, todo desarrollador BLE se topa con el mismo muro: necesitas enviar más de 20 bytes a la vez. Tal vez sea una imagen de firmware, un lote de lecturas de sensores o un payload de configuración. Lanzas una escritura y... solo llegan los primeros 20 bytes. El resto se descarta silenciosamente.
 

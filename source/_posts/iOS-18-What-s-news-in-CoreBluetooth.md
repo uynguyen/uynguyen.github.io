@@ -2,9 +2,8 @@
 title: "iOS 18: What's news in CoreBluetooth?"
 date: 2024-11-03 10:33:53
 tags:
+thumbnail: /Post-Resources/AccessorySetupKit/cover.png
 ---
-
-![](/Post-Resources/AccessorySetupKit/cover.png "AccessorySetupKit")
 
 `AccessorySetupKit`, introduced in iOS 18, revolutionizes how third-party Bluetooth and Wi-Fi accessories integrate with iOS devices. This framework delivers a seamless setup experience, enhancing convenience for users and expanding capabilities for developers.  
 While `AccessorySetupKit` supports discovery for Bluetooth, Wi-Fi, and Local Network devices, this post will focus specifically on BLE (Bluetooth Low Energy). The setup process for Wi-Fi and Local Network devices follows a similar approach.

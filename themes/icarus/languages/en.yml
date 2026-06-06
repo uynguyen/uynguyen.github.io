@@ -33,12 +33,12 @@ article:
     about: 'About'
     words: 'words'
 donate:
-    title: 'Found this helpful? Buy me a coffee ☕'
+    title: 'Found this helpful? Buy me a coffee'
     alipay: 'Alipay'
     wechat: 'Wechat'
-    paypal: 'Paypal'
+    paypal: 'PayPal'
     patreon: 'Patreon'
-    buymeacoffee: '☕ Buy me a coffee'
+    buymeacoffee: 'Buy me a coffee'
 plugin:
     backtotop: 'Back to Top'
     visit: '%s visits'

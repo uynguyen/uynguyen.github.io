@@ -4,9 +4,8 @@ date: 2021-07-25 19:35:30
 tags:
 layout: post
 lang: es
+thumbnail: /Post-Resources/Darkhat/darkhat.png
 ---
-
-![](/Post-Resources/Darkhat/darkhat.png "")
 
 Después de años trabajando en tecnología BLE, descubrí que a pesar de que hay muchas aplicaciones que ayudan a probar dispositivos BLE, ninguna de ellas cumple bien su función. Por eso decidí implementar una aplicación BLE por mi cuenta - [Dark Hat](https://apps.apple.com/az/app/dark-hat/id1576175854?ign-mpt=uo%3D2). El objetivo principal de esta aplicación es compartir una mejor herramienta contigo, un ingeniero que trabaja en el campo de BLE.
 <!-- more -->

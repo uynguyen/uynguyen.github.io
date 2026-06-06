@@ -4,8 +4,8 @@ date: 2018-01-16 21:32:45
 tags: [Swift, iOS]
 layout: post
 lang: es
+thumbnail: /Post-Resources/PromiseKIT/PromiseKIT.png
 ---
-![](/Post-Resources/PromiseKIT/PromiseKIT.png "")
 <center>Promise Kit, uno de los mejores frameworks para manejar programación asíncrona en Swift</center>
 
 En esta publicación, usaré las siguientes librerías de terceros para completar el proyecto:

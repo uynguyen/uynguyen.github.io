@@ -2,9 +2,8 @@
 title: 'Advanced iOS Concurrency: Async Operations [2]'
 date: 2020-05-30 17:02:31
 tags: [Concurrency, Operations, iOS]
+thumbnail: /Post-Resources/Operations_2/operations.png
 ---
-
-![](/Post-Resources/Operations_2/operations.png "Operations")
 
 In the previous post, [Advanced iOS Concurrency: Operations](/2020/05/16/iOS-Concurrency-Operations), we walked through the Operation concepts on iOS and made a demo application that fetches some posts of mine. After downloading the cover images, they will be applied to a simple filter, then be displayed in a table view. The application, however, has not been completed yet. There's something that went wrong with our app making the app did not show downloaded images properly. In this tutorial, we will continue where we left off.
 Get ready!

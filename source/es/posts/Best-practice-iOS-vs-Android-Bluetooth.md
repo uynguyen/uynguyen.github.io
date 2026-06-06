@@ -4,9 +4,8 @@ date: 2024-06-30 10:48:09
 tags: [BLE, iOS, Android]
 layout: post
 lang: es
+thumbnail: /Post-Resources/IOSAndroid/ios_android.png
 ---
-
-![](/Post-Resources/IOSAndroid/ios_android.png "Cover")
 
 La tecnología Bluetooth se ha convertido en una parte integral de las aplicaciones móviles modernas, permitiendo una comunicación inalámbrica fluida entre dispositivos. Ya sea para conectarse a unos auriculares inalámbricos, transferir archivos o interactuar con dispositivos del hogar inteligente, Bluetooth juega un papel crucial en mejorar la experiencia del usuario.
 

@@ -4,9 +4,9 @@ date: 2018-06-05 21:03:32
 tags: [iOS, Concurrency]
 layout: post
 lang: es
+thumbnail: /Post-Resources/ThreadSafe/cover.png
 ---
 
-![](/Post-Resources/ThreadSafe/cover.png "")
 Como ya sabes, el termino "Thread safe" se refiere a un concepto de ciencias de la computacion en el contexto de programas multi-hilo. Un codigo se llama "Thread safe" si cualquier dato compartido es accedido por solo un hilo en cualquier momento dado. Ten en cuenta que estos datos compartidos se llaman secciones criticas en un sistema operativo.
 El punto es que los tipos de coleccion de Swift como Array y Dictionary no son thread-safe cuando se declaran como mutables (con la palabra clave `var`).
 En esta publicacion, discutiremos algunas tecnicas para hacer nuestro codigo thread safe en iOS.

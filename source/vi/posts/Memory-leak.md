@@ -4,8 +4,8 @@ date: 2018-09-12 11:09:15
 tags: [iOS, Memory management]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/MemoryLeak/Cover.png
 ---
-![](/Post-Resources/MemoryLeak/Cover.png "")
 Là một Software Engineer, bạn chắc chắn đã nghe về khái niệm Memory leak. Memory leak là tình huống các khối bộ nhớ được cấp phát bởi chương trình vẫn còn trong bộ nhớ mặc dù chúng không còn được tham chiếu nữa. Leak lãng phí không gian bằng cách lấp đầy các trang bộ nhớ với dữ liệu không thể truy cập. Kết quả là, kích thước bộ nhớ sử dụng trong ứng dụng của bạn tiếp tục tăng, ảnh hưởng đến trải nghiệm người dùng và hiệu suất của ứng dụng. Tệ hơn nữa, ứng dụng của bạn sẽ bị crash ngẫu nhiên vì một tiến trình sẽ bị hệ thống kết thúc nếu nó tiêu thụ quá nhiều bộ nhớ.
 Trong chủ đề này, chúng ta sẽ thảo luận cách bộ nhớ được quản lý trong iOS và cách sử dụng bộ nhớ hiệu quả. Đọc tiếp nào.
 <!-- more -->

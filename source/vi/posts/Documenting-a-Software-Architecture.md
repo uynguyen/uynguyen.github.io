@@ -4,8 +4,8 @@ date: 2018-04-11 22:19:20
 tags: [UML, Software Architecture]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/UML/Banner.png
 ---
-![](/Post-Resources/UML/Banner.png "")
 Rõ ràng là việc tài liệu hóa kiến trúc là một trong những công việc ~~nhàm chán~~ quan trọng nhất của Kỹ thuật Phần mềm.
 <!-- more -->
 ## Một hoạt động hai mặt

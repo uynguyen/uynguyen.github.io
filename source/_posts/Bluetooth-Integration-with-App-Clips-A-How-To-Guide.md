@@ -2,9 +2,8 @@
 title: 'Bluetooth Integration with App Clips: A How-To Guide'
 date: 2023-03-25 10:14:11
 tags: [Bluetooth, Appclip, iOS]
+thumbnail: /Post-Resources/Appclip/banner.png
 ---
-![](/Post-Resources/Appclip/banner.png "Appclip")
-
 Nowadays, users demand quick and easy access to services they need, without downloading the full version of an app. App Clips - a feature introduced by Apple on iOS 14 - offers a solution to this demand by enabling users to access a small part of an app. By integrating your Bluetooth-enabled app to App clip, you can take user experience to the next level. This opens up new possibilities, such as allowing users to connect to nearby devices, perform a specific feature, and more. In this tutorial, I'll guide you through integrating Bluetooth into your App Clip. Whether you're a seasoned developer or a newbie, you will find everything you need to get started. So, let's dive in!
 <!-- more --> 
 

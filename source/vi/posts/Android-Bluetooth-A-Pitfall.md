@@ -4,9 +4,8 @@ date: 2024-08-04 12:10:39
 tags: [Android, Bluetooth]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/BluetoothPitfall/bluetooth_pitfall.png
 ---
-
-![](/Post-Resources/BluetoothPitfall/bluetooth_pitfall.png "Bluetooth")
 
 Phát triển ứng dụng Android hỗ trợ BLE đầy rẫy thách thức, đặc biệt khi nói đến việc quản lý các thao tác đồng thời. Một trong những cạm bẫy phổ biến nhất mà các nhà phát triển gặp phải là hành vi không mong đợi xảy ra khi cố gắng thực hiện các thao tác BLE liên tiếp nhanh chóng. Trong bài blog này, chúng ta sẽ đi sâu vào lý do tại sao điều này xảy ra và cách bạn có thể vượt qua nó bằng cách triển khai cơ chế hàng đợi tùy chỉnh cho các thao tác BLE.
 

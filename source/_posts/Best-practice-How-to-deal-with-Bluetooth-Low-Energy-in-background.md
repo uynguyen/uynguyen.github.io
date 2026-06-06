@@ -2,11 +2,11 @@
 title: 'Best practice: How to deal with Bluetooth Low Energy in background'
 date: 2018-07-23 18:26:27
 tags: [iOS, BLE]
+thumbnail: /Post-Resources/BackgroundProcessing/Cover.png
 ping: true
 ---
-## Preface
 When working with CoreBluetooth, have you ever wondered how a BLE app on iOS can survive when it is terminated by the system? How can we bring it back to the background? Is there anything like an Android service that can run indefinitely? You can find the answer to all these questions in this post. Read on!
-![](/Post-Resources/BackgroundProcessing/Cover.png "")
+
 <!-- more --> 
 ## Application life cycle on iOS
 Before gaining a deeper understanding of how we can keep our app alive in the background, it helps to start with the iOS application life cycle.

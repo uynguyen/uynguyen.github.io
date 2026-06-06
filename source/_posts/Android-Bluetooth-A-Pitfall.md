@@ -2,9 +2,8 @@
 title: 'Android Bluetooth: A Pitfall'
 date: 2024-08-04 12:10:39
 tags: [Android, Bluetooth]
+thumbnail: /Post-Resources/BluetoothPitfall/bluetooth_pitfall.png
 ---
-
-![](/Post-Resources/BluetoothPitfall/bluetooth_pitfall.png "Bluetooth")
 
 Developing BLE-enabled Android apps is fraught with challenges, especially when it comes to managing concurrent operations. One of the most common pitfalls developers face is the unexpected behavior that occurs when trying to execute BLE operations in rapid succession. In this blog post, we'll delve into why this happens and how you can overcome it by implementing a custom queuing mechanism for BLE operations.
 

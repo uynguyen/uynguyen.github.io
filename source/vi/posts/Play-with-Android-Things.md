@@ -4,5 +4,5 @@ date: 2019-02-07 18:09:25
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/AndroidThings/androidthings.png
 ---
-![](/Post-Resources/AndroidThings/androidthings.png "Android things")

@@ -2,9 +2,8 @@
 title: Shipping your iOS app to Store
 date: 2018-12-13 17:34:08
 tags:
+thumbnail: /Post-Resources/Delivery/delivery.png
 ---
-![](/Post-Resources/Delivery/delivery.png "Delivery")
-
 Submitting your app to the Apple Store isn’t as simple as pressing a “magic” button then it does everything, but it’s not as complicated as you think either. It’s maybe your first time launching your first app, and you don’t have a chance to get familiar with the submitting process before. This step-by-step tutorial will show you the main flow to submit apps from zero to a hero. Kindly note that you need to have a Paid Developer Account to get it done.
 Jump in!
 <!-- more --> 

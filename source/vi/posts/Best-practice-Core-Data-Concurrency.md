@@ -4,9 +4,9 @@ date: 2019-09-01 10:13:01
 tags: [Core Data, iOS, Concurrency]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/CoreDataConcurrency/banner.png
 ---
 
-![](/Post-Resources/CoreDataConcurrency/banner.png "Core data stack")
 Một số ứng dụng có thể tồn tại mà không cần bất kỳ bộ lưu trữ dữ liệu nào. Tuy nhiên, hầu hết các ứng dụng hữu ích khác đều lưu một số trạng thái như cấu hình người dùng, hồ sơ người dùng, mục tiêu, v.v. Trên iOS, Apple cung cấp Core Data như một framework để lưu trữ dữ liệu quý giá của bạn. Một điều cần lưu ý là mặc dù CoreData có thể lưu trữ dữ liệu trong cơ sở dữ liệu quan hệ nhưng thực tế nó không phải là một database engine.
 Trong bài hướng dẫn này, tôi sẽ chia sẻ với bạn một trải nghiệm tồi tệ tôi gặp phải khi làm việc với Core Data. Hy vọng rằng sau khi đọc chia sẻ của tôi, bạn sẽ tránh được vấn đề tương tự trong các dự án của mình.
 Hãy bắt đầu.

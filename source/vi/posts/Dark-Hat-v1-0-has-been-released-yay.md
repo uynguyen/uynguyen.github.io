@@ -4,9 +4,8 @@ date: 2021-07-25 19:35:30
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/Darkhat/darkhat.png
 ---
-
-![](/Post-Resources/Darkhat/darkhat.png "")
 
 Sau nhiều năm làm việc với công nghệ BLE, tôi nhận thấy rằng mặc dù có nhiều ứng dụng giúp kiểm tra thiết bị BLE nhưng không có ứng dụng nào thực hiện tốt vai trò của mình. Đó là lý do tại sao tôi quyết định xây dựng một ứng dụng BLE của riêng mình - [Dark Hat](https://apps.apple.com/az/app/dark-hat/id1576175854?ign-mpt=uo%3D2). Mục tiêu cốt lõi của ứng dụng này là chia sẻ một công cụ tốt hơn với bạn - một kỹ sư làm việc trong lĩnh vực BLE.
 <!-- more -->

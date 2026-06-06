@@ -4,9 +4,8 @@ date: 2021-04-08 18:22:07
 tags: [iOS, Notification]
 layout: post
 lang: es
+thumbnail: /Post-Resources/Remote_Notification/remote_notification.png
 ---
-
-![](/Post-Resources/Remote_Notification/remote_notification.png "")
 
 Las notificaciones push permiten que tu aplicación llegue a los usuarios con más frecuencia, y también pueden realizar algunas tareas. En este tutorial, aprenderemos cómo configurar aplicaciones para recibir notificaciones remotas, mostrar contenido y luego realizar algunas acciones cuando el usuario presiona sobre ellas.
 Comencemos.

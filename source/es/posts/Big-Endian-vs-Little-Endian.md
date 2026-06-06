@@ -4,8 +4,8 @@ date: 2018-04-30 10:51:30
 tags: [Swift, Objective-C, iOS]
 layout: post
 lang: es
+thumbnail: /Post-Resources/Endian/cover.png
 ---
-![](/Post-Resources/Endian/cover.png "Endian cover")
 En ciencias de la computacion, un bit es la pieza de informacion mas pequena. Representa un digito del sistema numeral binario. Una cadena de 8 bits se llama un byte. Hay dos formas de almacenar una cadena de datos en computadoras: Big Endian y Little Endian. Si tus tareas trabajan con datos en piezas de bytes, debes saber como tratar con bytes en estos dos formatos. En este articulo, explicare como se almacenan los datos en las computadoras, cuales son las principales diferencias entre estos dos, y luego proporcionare algo de codigo util para trabajar con bytes en Swift y Objective-C.
 <!-- more -->
 ## Conceptos basicos

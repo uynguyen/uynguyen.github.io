@@ -4,9 +4,8 @@ date: 2026-04-05 09:00:00
 tags: [Flutter, Dart, Concurrency, BLE, Background]
 lang: es
 layout: post
+thumbnail: /Post-Resources/FlutterBackgroundIsolates/cover.png
 ---
-
-![](/Post-Resources/FlutterBackgroundIsolates/cover.png "Cover")
 
 Flutter corre sobre un único hilo principal — el **main isolate** — que se encarga de renderizar la UI a 60 o 120 fps y de procesar los eventos del usuario. Cuando introduces trabajo pesado en ese hilo, el resultado es inmediato: frames perdidos, animaciones cortadas y una experiencia que se siente lenta.
 

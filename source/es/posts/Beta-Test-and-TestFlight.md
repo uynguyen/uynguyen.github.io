@@ -4,8 +4,8 @@ date: 2020-04-14 21:25:25
 tags:
 layout: post
 lang: es
+thumbnail: /Post-Resources/TestFlight/Cover.png
 ---
-![](/Post-Resources/TestFlight/Cover.png "TestFlight")
 Como desarrollador iOS, probablemente hayas escuchado sobre TestFlight - un producto de Apple que te permite distribuir tus aplicaciones a usuarios beta. Entonces, ¿qué podemos hacer con él? ¿Es útil?
 En este tutorial, recorreremos los pasos para subir un build a TestFlight e invitar usuarios a probar tu aplicación.
 También necesitas referirte a la publicación anterior [Enviando tu aplicación a la Store](/2018/12/13/Shipping-your-iOS-app-to-Store/) para completar este tutorial.

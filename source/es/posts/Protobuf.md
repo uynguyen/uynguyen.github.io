@@ -4,9 +4,8 @@ date: 2024-01-12 16:07:40
 tags:
 layout: post
 lang: es
+thumbnail: /Post-Resources/protobuf/banner.png
 ---
-![](/Post-Resources/protobuf/banner.png "banner")
-
 He trabajado en productos Bluetooth, incluyendo dispositivos wearables y cerraduras inteligentes, durante muchos anos. Facilitar la transferencia de mensajes entre componentes del sistema es un aspecto crucial debido a las diferencias en los lenguajes de programacion, la necesidad de consistencia y las limitaciones en el tamano de transferencia de datos. Para abordar estos desafios, utilizamos [Protocol Buffers](https://github.com/protocolbuffers/protobuf).
 Protocol Buffers, tambien conocido como Protobuf, es un formato de datos multiplataforma gratuito y de codigo abierto utilizado para serializar datos estructurados desarrollado por Google. Esta disenado para ser eficiente, extensible y facil de usar. En este tutorial, cubriremos los conceptos basicos de crear un mensaje simple de Protocol Buffers, definir un esquema y generar codigo en varios lenguajes de programacion.
 

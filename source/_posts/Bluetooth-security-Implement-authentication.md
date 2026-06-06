@@ -2,9 +2,8 @@
 title: 'Securing Bluetooth Communication: Implementing Authentication and Encryption Flows'
 date: 2025-04-02 18:03:38
 tags: [CoreBluetooh, BLE]
+thumbnail: /Post-Resources/BLESecurity/cover.png
 ---
-
-![](/Post-Resources/BLESecurity/cover.png "Bluetooth security")
 
 Bluetooth has become the invisible thread connecting our devices, from smartwatches and health trackers to smart locks and industrial IoT systems. But with convenience comes risk: Bluetooth communication is wireless and easily intercepted, making it vulnerable to eavesdropping, unauthorized access, and replay attacks.
 To defend against these threats, authentication and encryption are essential. In this post, I'll introduce a robust Bluetooth security flow, explaining how authentication, key exchange, and encrypted transfer work together. We'll also compare it to TLS/https since both share similar approach of layered security.

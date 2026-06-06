@@ -4,8 +4,8 @@ date: 2020-04-27 20:56:51
 tags: Hexo
 layout: post
 lang: es
+thumbnail: /Post-Resources/Hexo/Cover.png
 ---
-![](/Post-Resources/Hexo/Cover.png "Hexo")
 Cuando construí este sitio personal, mi primer objetivo es disfrutar mi hobby de escribir. Escribo lo que aprendo durante mi trabajo diario, y lo comparto. Espero que lo que comparto ayude a alguien cuando lo necesite. A cambio, tendré una comprensión profunda de lo que escribo, y a veces, recibiré "una taza de café" (Buy me Coffee) de un amigo que nunca he conocido.
 > **El poder se gana compartiendo conocimiento, no acaparándolo**
 

@@ -4,9 +4,8 @@ date: 2020-05-30 17:02:31
 tags: [Concurrency, Operations, iOS]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/Operations_2/operations.png
 ---
-
-![](/Post-Resources/Operations_2/operations.png "Operations")
 
 Trong bài viết trước, [iOS Concurrency Nâng Cao: Operations](/2020/05/16/iOS-Concurrency-Operations), chúng ta đã đi qua các khái niệm về Operation trên iOS và xây dựng một ứng dụng demo để tải một số bài viết của tôi. Sau khi tải các hình ảnh bìa, chúng sẽ được áp dụng một filter đơn giản, sau đó được hiển thị trong table view. Tuy nhiên, ứng dụng vẫn chưa hoàn thiện. Có điều gì đó không đúng với ứng dụng của chúng ta khiến nó không hiển thị đúng các hình ảnh đã tải. Trong hướng dẫn này, chúng ta sẽ tiếp tục từ nơi đã dừng lại.
 Sẵn sàng nào!

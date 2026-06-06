@@ -2,9 +2,9 @@
 title: 'Best practice: Core Data Concurrency'
 date: 2019-09-01 10:13:01
 tags: [Core Data, iOS, Concurrency]
+thumbnail: /Post-Resources/CoreDataConcurrency/banner.png
 ---
 
-![](/Post-Resources/CoreDataConcurrency/banner.png "Core data stack")
 Some applications can survive without any data storage. Most other useful applications, however, save some state such as user configurations, user profile, goals, etc. on iOS, Apple provides Core Data as a framework to persist your valuable data. One thing to keep in mind that although CoreData can store data in a relational database it’s actually not a database engine.
 In this tutorial, I will share with you a bad experience I faced when I work with Core Data. Hopefully, after reading my sharing, you will avoid facing the same problem in your projects.
 Let’s get started.

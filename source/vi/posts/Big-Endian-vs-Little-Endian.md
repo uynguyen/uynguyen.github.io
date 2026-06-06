@@ -4,8 +4,8 @@ date: 2018-04-30 10:51:30
 tags: [Swift, Objective-C, iOS]
 layout: post
 lang: vi
+thumbnail: /Post-Resources/Endian/cover.png
 ---
-![](/Post-Resources/Endian/cover.png "Endian cover")
 Trong khoa học máy tính, bit là đơn vị thông tin nhỏ nhất. Nó đại diện cho một chữ số của hệ thống số nhị phân. Một chuỗi 8 bit được gọi là một byte. Có hai cách để lưu trữ một chuỗi dữ liệu trong máy tính: Big Endian và Little Endian. Nếu công việc của bạn liên quan đến dữ liệu theo byte, bạn nên biết cách xử lý byte theo hai định dạng này. Trong bài viết này, tôi sẽ giải thích cách dữ liệu được lưu trữ trong máy tính, sự khác biệt chính giữa hai định dạng này, sau đó cung cấp một số code hữu ích để làm việc với byte trong Swift và Objective-C.
 <!-- more -->
 ## Các khái niệm cơ bản

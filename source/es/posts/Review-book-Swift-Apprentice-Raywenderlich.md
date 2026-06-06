@@ -4,8 +4,8 @@ date: 2020-02-26 22:05:30
 tags:
 layout: post
 lang: es
+thumbnail: /Post-Resources/SwiftApprentice/banner.png
 ---
-![](/Post-Resources/SwiftApprentice/banner.png "SwiftApprentice")
 Mientras buscaba un libro para mejorar mis habilidades de desarrollo iOS, encontré este libro Swift Apprentice en la tienda de libros de Raywenderlich. Después de echar un vistazo rápido al contenido del libro, decidí agregarlo a mi biblioteca.
 En general, si tu nivel de iOS es intermedio o senior, y estás muy seguro de tu dominio de habilidades de programación, este libro no es para ti. Pero si estás buscando un libro para fortalecer tu conocimiento, o solo quieres asegurarte de que todo lo que entiendes sobre el lenguaje Swift es correcto - como fue mi propósito, entonces lleva este libro contigo.
 Aprenderás sobre cosas muy básicas como funciones, métodos, constantes, sentencias de control, etc. También tendrás la oportunidad de obtener conocimiento profundo sobre la asignación de Stack/Heap, programación orientada a protocolos y programación genérica, lo cual hace tu trabajo diario más conveniente, y te encontrarás como un maestro en el lenguaje Swift.

@@ -2,9 +2,8 @@
 title: 'WWDC 2020 - Top reasons why app get killed in background'
 date: 2021-02-25 19:03:28
 tags:
+thumbnail: /Post-Resources/AppGetKilled/AppGetKilled.png
 ---
-![](/Post-Resources/AppGetKilled/AppGetKilled.png "AppGetKilled")
-
 Ever wonder why your app gets killed from the system when it enters the background? This post is going to summarize the top reasons introduced by Apple in WWDC 2020, and what you can do to prevent your app from being killed in the background. By applying these tips, we can improve our app’s experience because your app does not have to re-launch from the scratch.
 Let's rock!
 

@@ -2,8 +2,8 @@
 title: 'iOS: Mix and Match'
 date: 2020-01-30 17:33:16
 tags:
+thumbnail: /Post-Resources/MixMatch/mix-match-banner.png
 ---
-![](/Post-Resources/MixMatch/mix-match-banner.png "")
 As Swift has been becoming a flagship language for iOS development, most of the new iOS projects nowadays are built in Swift. However, there are many useful libraries are developed in other low-level programming languages such as Objective-C and / or C++ to boost performance. On the other hand, not all engineering positions are open to new projects, most of them are hired to maintain and develop new features based on the current code base that are built-in Objective-C.
 Having the knowledge to mix the two languages within a single project is good for your iOS development skills as you will face it someday in your career path. In this post, I’m going to show you not only how to use Objective-C and Swift in one single project but also how to use a set of programming languages in a single one, including C++/ Objective-C/ Swift and React Native. Hope you will find this post interesting.
 Let’s drive-in.

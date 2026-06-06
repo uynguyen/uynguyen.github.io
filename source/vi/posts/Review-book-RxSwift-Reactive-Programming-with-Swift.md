@@ -4,9 +4,8 @@ date: 2020-09-26 21:51:41
 tags:
 layout: post
 lang: vi
+thumbnail: /Post-Resources/RxSwift/rxSwift.png
 ---
-
-![](/Post-Resources/RxSwift/rxSwift.png "RxSwift")
 
 Trong the gioi phat trien iOS lien tuc phat trien, viec thao tac thuan thuc reactive programming co the giup ban noi bat nhu mot lap trinh vien. Mot trong nhung tai nguyen tot nhat de di sau vao reactive programming voi Swift la cuon sach "RxSwift: Reactive Programming with Swift." Huong dan toan dien nay cung cap moi thu ban can de hieu va tan dung RxSwift trong cac ung dung cua ban. Hay cung kham pha dieu gi lam cho cuon sach nay tro thanh tai lieu can doc cho cac lap trinh vien Swift.
 

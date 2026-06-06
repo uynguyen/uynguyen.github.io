@@ -4,8 +4,8 @@ date: 2018-08-18 21:17:47
 tags: [BLE, iOS, iBeacon]
 layout: post
 lang: es
+thumbnail: /Post-Resources/ibeacon/ibeacon.png
 ---
-![](/Post-Resources/ibeacon/ibeacon.png "Delivery")
 Bienvenido a la siguiente parte de la serie de "[Cómo manejar BLE en segundo plano](/2018/07/23/Best-practice-How-to-deal-with-Bluetooth-Low-Energy-in-background/)".
 En la parte anterior, te guié sobre cómo mantener tu aplicación viva el mayor tiempo posible cuando tu aplicación entra en modo de segundo plano usando la técnica *State Preservation and Restoration* soportada por Apple. Sin embargo, hay algunos casos de uso que esta técnica no puede manejar, como se describe a continuación (referencia al [documento de Apple: Conditions Under Which Bluetooth State Restoration Will Relaunch An App](https://developer.apple.com/library/archive/qa/qa1962/_index.html))
 ![](/Post-Resources/ibeacon/condition_relaunch.png "Condiciones bajo las cuales Bluetooth State Restoration relanzará una aplicación")

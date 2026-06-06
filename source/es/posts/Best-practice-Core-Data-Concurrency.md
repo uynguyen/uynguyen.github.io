@@ -4,9 +4,9 @@ date: 2019-09-01 10:13:01
 tags: [Core Data, iOS, Concurrency]
 layout: post
 lang: es
+thumbnail: /Post-Resources/CoreDataConcurrency/banner.png
 ---
 
-![](/Post-Resources/CoreDataConcurrency/banner.png "Core data stack")
 Algunas aplicaciones pueden sobrevivir sin ningun almacenamiento de datos. La mayoria de las otras aplicaciones utiles, sin embargo, guardan algun estado como configuraciones de usuario, perfil de usuario, objetivos, etc. En iOS, Apple proporciona Core Data como un framework para persistir tus datos valiosos. Una cosa a tener en cuenta es que aunque CoreData puede almacenar datos en una base de datos relacional, en realidad no es un motor de base de datos.
 En este tutorial, compartire contigo una mala experiencia que enfrente cuando trabaje con Core Data. Esperemos que despues de leer lo que comparto, evites enfrentar el mismo problema en tus proyectos.
 Comencemos.

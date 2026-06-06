@@ -75,7 +75,6 @@ navbar:
     menu:
         Home: /
         Archives: /archives
-        Categories: /categories
         Tags: /tags
         About: /about
     # Links to be shown on the right of the navigation bar
@@ -139,13 +138,11 @@ donates:
         type: buymeacoffee
         # URL to the "Buy me a coffee" page
         url: 'https://ko-fi.com/uynguyen'
-    # Paypal donate button configurations
+    # PayPal — uses a PayPal.me link (the Donations product isn't available
+    # for Vietnam-based accounts, so we link to PayPal.me "send money" instead)
     -
         type: paypal
-        # Paypal business ID or email address
-        business: 'uynguyen.itus@gmail.com'
-        # Currency code
-        currency_code: USD
+        url: 'https://paypal.me/uynguyen505'
 # Share plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
 share:
@@ -187,25 +184,20 @@ widgets:
         follow_link: 'https://ko-fi.com/uynguyen'
         # Links to be shown on the bottom of the profile widget
         social_links:
-            Github:
+            GitHub:
                 icon: fab fa-github
                 url: 'https://github.com/uynguyen'
-            Twitter:
-                icon: fab fa-linkedin
+            LinkedIn:
+                icon: fab fa-linkedin-in
                 url: 'https://www.linkedin.com/in/uynguyen505'
+            Email:
+                icon: fas fa-envelope
+                url: 'mailto:uynguyen.itus@gmail.com'
     # Table of contents widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
         position: left
         type: toc
-    # Recommendation links widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: links
-        # Names and URLs of the sites
-        links:
-            Uy Nguyen: 'https://uynguyen.github.io'
     # Categories widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar

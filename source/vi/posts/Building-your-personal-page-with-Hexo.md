@@ -4,8 +4,8 @@ date: 2020-04-27 20:56:51
 tags: Hexo
 layout: post
 lang: vi
+thumbnail: /Post-Resources/Hexo/Cover.png
 ---
-![](/Post-Resources/Hexo/Cover.png "Hexo")
 Khi tôi xây dựng trang web cá nhân này, mục tiêu đầu tiên của tôi là tận hưởng sở thích viết lách. Tôi viết bất cứ điều gì tôi học được trong công việc hàng ngày, và chia sẻ nó. Tôi hy vọng những chia sẻ của tôi sẽ giúp ai đó khi họ cần. Đổi lại, tôi sẽ có hiểu biết sâu hơn về những gì tôi viết, và đôi khi, nhận được "một ly cà phê" (Buy me Coffee) từ một người bạn tôi chưa từng gặp.
 > **Sức mạnh đạt được bằng cách chia sẻ kiến thức, không phải bằng cách tích trữ nó**
 
