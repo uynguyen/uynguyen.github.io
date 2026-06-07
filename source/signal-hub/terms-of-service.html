@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Signal Hub — Terms of Service</title>
+<meta name="description" content="Terms of Service for Signal Hub, the macOS Bluetooth Low Energy (BLE) testing and automation app. Subscription, licensing, and usage terms.">
+<meta name="author" content="Uy Nguyen">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://uynguyen.github.io/signal-hub/terms-of-service.html">
+<link rel="icon" href="/Post-Resources/SignalHubMac/logo-transparent.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fafafa;
+  --bg-alt: #f3f4f6;
+  --bg-dark: #0a0a0f;
+  --ink: #0a0a0f;
+  --ink-2: #1d1d1f;
+  --ink-3: #424246;
+  --muted: #6e6e73;
+  --line: rgba(0, 0, 0, 0.08);
+  --accent: #23b6e6;
+  --accent-2: #02d39a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(250, 250, 250, 0.72);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; letter-spacing: -0.01em; font-size: 16px;
+}
+.nav-logo { width: 32px; height: 32px; display: block; object-fit: contain; }
+.nav-links { display: flex; gap: 26px; font-size: 14px; font-weight: 500; color: var(--ink-3); }
+.nav-links a { transition: color 0.2s ease; }
+.nav-links a:hover { color: var(--accent); }
+
+/* ---------- Doc ---------- */
+.doc {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 130px 28px 90px;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 16px;
+}
+.eyebrow .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 0 4px rgba(2,211,154,0.22);
+}
+h1 {
+  font-size: clamp(30px, 5vw, 44px);
+  font-weight: 800; letter-spacing: -0.02em;
+  line-height: 1.1; color: var(--ink);
+}
+.updated { color: var(--muted); font-size: 14px; margin-top: 12px; }
+.doc h2 {
+  font-size: 20px; font-weight: 700; letter-spacing: -0.01em;
+  margin-top: 44px; margin-bottom: 10px; color: var(--ink-2);
+  padding-left: 14px; border-left: 3px solid var(--accent-2);
+}
+.doc p { color: var(--ink-3); margin-top: 12px; }
+.doc ul { margin: 12px 0 0 0; padding-left: 22px; color: var(--ink-3); }
+.doc li { margin: 7px 0; }
+.doc a { color: var(--accent); font-weight: 500; }
+.doc a:hover { text-decoration: underline; }
+.lead {
+  font-size: 18px; color: var(--ink-2); margin-top: 26px;
+}
+.divider { height: 1px; background: var(--line); margin: 30px 0; border: 0; }
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 50px 28px 60px;
+  text-align: center;
+  background: var(--bg-dark);
+  color: #6e6e7a;
+  font-size: 13px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer a { color: #b6b6bf; }
+.footer a:hover { color: #fff; }
+.footer-links { margin-top: 14px; display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-inner { padding: 12px 18px; }
+  .doc { padding-top: 100px; }
+}
+</style>
+</head>
+<body id="top">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/signal-hub/">
+      <img class="nav-logo" src="/Post-Resources/SignalHubMac/logo-transparent.png" alt="Signal Hub logo">
+      Signal Hub
+    </a>
+    <div class="nav-links">
+      <a href="/signal-hub/#connect">Connect</a>
+      <a href="/signal-hub/#workflows">Workflows</a>
+      <a href="/signal-hub/#simulate">Simulate</a>
+      <a href="/signal-hub/#export">Export</a>
+      <a href="/signal-hub/">Home</a>
+    </div>
+  </div>
+</nav>
+
+<main class="doc">
+  <div class="eyebrow"><span class="dot"></span> Legal</div>
+  <h1>Terms of Service</h1>
+  <p class="updated">Last updated: June 7, 2026</p>
+
+  <p class="lead">
+    These Terms of Service (the “Terms”) govern your use of <strong>Signal Hub</strong>
+    (the “App”), a macOS Bluetooth Low Energy (BLE) testing and automation
+    application. By downloading, installing, or using the App, you agree to these
+    Terms. If you do not agree, do not use the App.
+  </p>
+
+  <h2>1. The App</h2>
+  <p>
+    Signal Hub lets you discover, inspect, connect to, and automate workflows with
+    nearby BLE peripherals. The App is a developer and engineering utility provided
+    for lawful testing, development, and diagnostics.
+  </p>
+
+  <h2>2. License</h2>
+  <p>
+    The App is licensed, not sold, to you. Your license is governed by Apple's
+    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Licensed Application End User License Agreement (EULA)</a>,
+    which applies in addition to these Terms. Where these Terms and the Apple EULA
+    conflict, the Apple EULA controls with respect to your license to use the App.
+  </p>
+  <p>
+    Subject to that license, you are granted a personal, non-transferable,
+    non-exclusive right to use the App on Apple-branded devices that you own or
+    control. You may not reverse engineer, decompile, redistribute, or resell the
+    App except to the extent permitted by law.
+  </p>
+
+  <h2>3. Subscriptions and billing</h2>
+  <p>
+    The App is free to download and use. <strong>Signal Hub Pro</strong> is an
+    optional <strong>auto-renewable subscription</strong> that unlocks premium
+    features. Current pricing is <strong>$4.99 USD per month</strong> (or the
+    equivalent in your local currency as set by Apple). See the
+    <a href="/signal-hub/pricing.html">Pricing page</a> for details.
+  </p>
+  <ul>
+    <li>Payment is charged to your Apple Account upon confirmation of purchase.</li>
+    <li>Subscriptions renew automatically unless auto-renew is turned off at least 24 hours before the end of the current period.</li>
+    <li>Your Apple Account is charged for renewal within 24 hours prior to the end of the current period at the then-current price.</li>
+    <li>You can manage or cancel your subscription in <strong>System Settings → Apple Account → Media &amp; Purchases → Subscriptions</strong>, or at <a href="https://apps.apple.com/account/subscriptions">apps.apple.com/account/subscriptions</a>. Cancellation takes effect at the end of the current billing period.</li>
+  </ul>
+
+  <h2>4. Acceptable use</h2>
+  <p>You agree to use the App lawfully and responsibly. In particular, you agree not to:</p>
+  <ul>
+    <li>Use the App to access, interfere with, or disrupt any BLE device, network, or system you do not own or are not authorized to test.</li>
+    <li>Use the App to violate any applicable law, regulation, or third-party right.</li>
+    <li>Attempt to disrupt, attack, or gain unauthorized access to any device or service.</li>
+  </ul>
+  <p>
+    You are solely responsible for the peripherals you connect to and the commands
+    you send. Interacting with BLE hardware can change device state or behavior; you
+    assume all risk for how you use the App.
+  </p>
+
+  <h2>5. Disclaimer of warranties</h2>
+  <p>
+    The App is provided <strong>“as is” and “as available,”</strong> without
+    warranties of any kind, whether express or implied, including but not limited to
+    implied warranties of merchantability, fitness for a particular purpose, and
+    non-infringement. We do not warrant that the App will be uninterrupted,
+    error-free, or compatible with every BLE peripheral.
+  </p>
+
+  <h2>6. Limitation of liability</h2>
+  <p>
+    To the maximum extent permitted by law, in no event shall the developer be
+    liable for any indirect, incidental, special, consequential, or punitive
+    damages, or for any loss of data, hardware, or profits, arising out of or
+    related to your use of (or inability to use) the App, even if advised of the
+    possibility of such damages. To the extent liability cannot be excluded, it is
+    limited to the amount you paid for the App in the twelve months preceding the
+    claim.
+  </p>
+
+  <h2>7. Changes to the App and Terms</h2>
+  <p>
+    We may update, modify, or discontinue features of the App at any time. We may
+    also revise these Terms; when we do, we will update the “Last updated” date
+    above. Continued use of the App after changes take effect constitutes acceptance
+    of the revised Terms.
+  </p>
+
+  <h2>8. Termination</h2>
+  <p>
+    These Terms apply until terminated. Your rights under these Terms end
+    automatically if you fail to comply with them. You may stop using the App at any
+    time by deleting it. Cancelling a subscription is handled through your Apple
+    Account as described above.
+  </p>
+
+  <h2>9. Governing law</h2>
+  <p>
+    These Terms are governed by the laws applicable in the developer's place of
+    residence, without regard to conflict-of-laws principles, except where mandatory
+    consumer-protection laws of your country of residence apply.
+  </p>
+
+  <h2>10. Contact</h2>
+  <p>
+    Questions about these Terms? Contact us at
+    <a href="mailto:uynguyen.itus@gmail.com">uynguyen.itus@gmail.com</a>.
+  </p>
+</main>
+
+<footer class="footer">
+  <div>Designed &amp; built by <a href="/">Uy Nguyen</a> — crafted for engineers who live in the BLE stack.</div>
+  <div class="footer-links">
+    <a href="/signal-hub/">Signal Hub</a>
+    <a href="/signal-hub/pricing.html">Pricing</a>
+    <a href="/signal-hub/terms-of-service.html">Terms of Service</a>
+    <a href="/signal-hub/refund-policy.html">Refund Policy</a>
+    <a href="/signal-hub/privacy-policy.html">Privacy Policy</a>
+    <a href="mailto:uynguyen.itus@gmail.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

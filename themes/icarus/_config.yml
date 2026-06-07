@@ -106,6 +106,9 @@ footer:
     #         url: 'https://github.com/ppoffice/hexo-theme-icarus'
 # Article related configurations
 article:
+    # Default social-share (og:image) for pages without their own thumbnail
+    # (home, archives, tags, etc.). Posts still use their own thumbnail.
+    og_image: 'https://uynguyen.github.io/Post-Resources/og-home.png'
     # Code highlight settings
     highlight:
         # Code highlight themes
