@@ -52,7 +52,8 @@
       "Bash(command -v magick convert)",
       "Bash(echo \"ImageMagick: $\\(command -v magick convert)",
       "Bash(magick identify *)",
-      "Bash(magick source/Post-Resources/about.jpg -gravity center -crop 640x640+0+0 +repage -resize 300x300 /tmp/crop_test.png)"
+      "Bash(magick source/Post-Resources/about.jpg -gravity center -crop 640x640+0+0 +repage -resize 300x300 /tmp/crop_test.png)",
+      "Bash(git rm *)"
     ]
   }
 }
