@@ -114,7 +114,7 @@ NEW_BADGES = {
     "log":"≣","expression":"ƒ","counter":"#","switchCase":"⎇","stopwatch":"⏲",
     "macNotification":"✦","crc":"⊕","jsonExtract":"{}","random":"⚂",
     "captureAdvertisement":"⦿","base64":"⠿","debounce":"⏸","bitMask":"⊞",
-    "throttle":"⏬","foreach":"∀",
+    "throttle":"⏬","foreach":"∀","gps":"⌖",
 }
 
 def first_sentence(s):
