@@ -15,7 +15,7 @@ Let's get started!
 <!-- more --> 
 
 ## Foundational knowledge
-Before diving into practice, it helps to understand how iOS manages application states. Apple officially presented a video at WWDC describing the top factors that affect background execution ([WWDC 2020 - Background execution demystified](https://developer.apple.com/videos/play/wwdc2020/10063/?fbclid=IwAR1_oejf0JY9B8yV4d9riMAH4MQsLasO86iVjhwqmAruw2v64_utbuGZIEc)). Apple designed iOS to balance two competing concerns: keeping app content up to date, while adapting to its core goals:
+Before diving into practice, it helps to understand how iOS manages application states. Apple officially presented a video at WWDC describing the top factors that affect background execution ([WWDC 2020 - Background execution demystified](https://developer.apple.com/videos/play/wwdc2020/10063/?fbclid=IwAR1_oejf0JY9B8yV4d9riMAH4MQsLasO86iVjhwqmAruw2v64_utbuGZIEc)). Apple designed iOS to keep app content up to date while balancing several core goals:
 
 - **Battery life**: allowing background execution while maintaining all-day battery life.
 - **Performance**: ensuring background execution does not negatively affect active usage.
@@ -27,7 +27,13 @@ With these goals in mind, here are the top 7 factors that influence how the syst
 - **Critical low battery**: When the phone is about to run out of battery (< 20%), background execution will be paused by the system to conserve power.
 - **Low power mode**: When users switch to low power mode, they are explicitly signaling the system to preserve battery for critical tasks only.
 - **Background App refresh setting**: The user can toggle this setting to allow or disallow a specific app from running background tasks.
+
+<center>
+
 ![](/Post-Resources/RefreshInBg/app_refresh_setting.png "App refresh setting")
+
+</center>
+
 - **App usage**: Resources on the phone are limited, so the system must prioritize which apps to allocate resources to — typically those the user opens most often. Apple also introduced an "on-device predictive engine" that learns which apps the user frequently uses and when, and uses that information to prioritize background execution.
 - **App switcher**: Only apps visible in the App Switcher have opportunities to run background tasks.
 - **System budget**: To prevent background activities from draining battery and data plans, there is a daily limit on background execution time and data usage.
@@ -35,12 +41,20 @@ With these goals in mind, here are the top 7 factors that influence how the syst
 
 Additional factors include: Airplane mode, device temperature, display state, device lock state, and more.
 
+<center>
+
 ![](/Post-Resources/RefreshInBg/factors.png "Factors")
+
+</center>
 
 ## Capabilities
 Make sure your app has the following capabilities enabled.
 
+<center>
+
 ![](/Post-Resources/RefreshInBg/BG-Capabilities.png "Capability")
+
+</center>
 
 ## Prior to iOS 13
 Setting up a background fetch before iOS 13 is straightforward.
@@ -62,7 +76,11 @@ func application(_ application: UIApplication, performFetchWithCompletionHandler
 
 To simulate a background fetch, go to the tab bar > Debug > Simulate Background Fetch. Note that this only works on a real device.
 
+<center>
+
 ![](/Post-Resources/RefreshInBg/simulate_bg_fetch.png "Simulate background fetch")
+
+</center>
 
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/oOysGc_f0pA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -119,11 +137,11 @@ To register background tasks, add the following inside `application(_:didFinishL
         }
     }
 
-     @available(iOS 13.0, *)
+    @available(iOS 13.0, *)
     func scheduleBackgroundProcessing() {
         let request = BGProcessingTaskRequest(identifier: appProcessingTaskId)
-        request.requiresNetworkConnectivity = true // Need to true if your task need to network process. Defaults to false.
-        request.requiresExternalPower = true // Need to true if your task requires a device connected to power source. Defaults to false.
+        request.requiresNetworkConnectivity = true // Set to true if your task needs network access. Defaults to false.
+        request.requiresExternalPower = true // Set to true if your task requires the device to be connected to a power source. Defaults to false.
 
         request.earliestBeginDate = Date(timeIntervalSinceNow: 5 * 60) // Process after 5 minutes.
 
@@ -173,10 +191,20 @@ The output should look like this:
 
 ## Expectation vs Reality
 You might expect background execution to be evenly distributed throughout the day.
+
+<center>
+
 ![](/Post-Resources/RefreshInBg/Expectation.png "Expectation")
 
+</center>
+
 However, here is what we actually observe. Because of the 7 factors introduced above, the on-device predictive engine learns the user's usage patterns — for example, that they typically open the app in the morning, at lunchtime, and in the evening. The system will therefore schedule background tasks to run just before the user brings the app to the foreground. Other factors that affect the result include the user enabling Low Power Mode, or the device reaching a critically low battery state.
+
+<center>
+
 ![](/Post-Resources/RefreshInBg/Reality.png "Reality")
+
+</center>
 
 ## Best Practices
 - Background tasks will not run until the device is unlocked for the first time after a reboot.

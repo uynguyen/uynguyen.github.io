@@ -5,18 +5,25 @@ tags: [iOS, BLE]
 thumbnail: /Post-Resources/BackgroundProcessing/Cover.png
 ping: true
 ---
+
 When working with CoreBluetooth, have you ever wondered how a BLE app on iOS can survive when it is terminated by the system? How can we bring it back to the background? Is there anything like an Android service that can run indefinitely? You can find the answer to all these questions in this post. Read on!
 
 <!-- more --> 
 ## Application life cycle on iOS
 Before gaining a deeper understanding of how we can keep our app alive in the background, it helps to start with the iOS application life cycle.
 As you may know, every iOS app has five main states.
+
+<center>
+
 ![](/Post-Resources/BackgroundProcessing/iOS_App_LifeCycle.png "iOS app life cycle")
-*Not running* — The app has not been launched, or was running but was terminated by the system or the user.
-*Inactive* — The transitional state the app enters before moving to another state.
-*Active* — The app is running in the foreground and receiving user events.
-*Background* — The app is in the background and invisible to the user. An app that requests extra execution time may remain in this state for a period of time. Note that an app transitions through the inactive state before entering background mode.
-*Suspended* — The app is in the background and is not allowed to execute any code. The system moves the app to this state automatically, and the app will not receive any events. When foreground apps need more memory, the system may terminate suspended apps to free up space. We cannot predict when a suspended app will be terminated. After termination, the app returns to the not running state.
+
+</center>
+
+- ***Not running*** — The app has not been launched, or was running but was terminated by the system or the user.
+- ***Inactive*** — The transitional state the app enters before moving to another state.
+- ***Active*** — The app is running in the foreground and receiving user events.
+- ***Background*** — The app is in the background and invisible to the user. An app that requests extra execution time may remain in this state for a period of time. Note that an app transitions through the inactive state before entering background mode.
+- ***Suspended*** — The app is in the background and is not allowed to execute any code. The system moves the app to this state automatically, and the app will not receive any events. When foreground apps need more memory, the system may terminate suspended apps to free up space. We cannot predict when a suspended app will be terminated. After termination, the app returns to the not running state.
 
 <center>
 
