@@ -56,7 +56,9 @@
       "Bash(git rm *)",
       "WebFetch(domain:getsignalhub.app)",
       "Bash(bash -n deploy.sh)",
-      "Bash(chmod +x deploy.sh)"
+      "Bash(chmod +x deploy.sh)",
+      "Bash(git rev-list *)",
+      "Bash(git -C ../uynguyen.github.io remote -v)"
     ]
   }
 }

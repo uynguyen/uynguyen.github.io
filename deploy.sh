@@ -43,11 +43,16 @@ nvm use "$NODE_VERSION"
 log "Using $(node -v)"
 
 # --- 2. Commit & push the source ------------------------------------------
+# NOTE: origin/master is the *published* site (built HTML, force-pushed in
+# step 4 from the deploy repo). The source code lives on its own branch, so we
+# push the currently checked-out branch here — never master.
 cd "$SOURCE_DIR"
-log "Committing source changes..."
+SOURCE_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+[ "$SOURCE_BRANCH" = "master" ] && fail "Refusing to push source onto 'master' (that branch is the published site)."
+log "Committing source changes on '${SOURCE_BRANCH}'..."
 commit_if_changed "$COMMIT_MSG"
-log "Pushing source to origin/master..."
-git push -u origin master
+log "Pushing source to origin/${SOURCE_BRANCH}..."
+git push -u origin "$SOURCE_BRANCH"
 
 # --- 3. Build the static site ---------------------------------------------
 log "Cleaning previous build..."
