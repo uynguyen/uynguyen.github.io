@@ -55,13 +55,12 @@ module.exports = cacheComponent(Footer, 'common.footer', props => {
         { name: 'Home', url: url_for('/') },
         { name: 'Archives', url: url_for('/archives') },
         { name: 'Tags', url: url_for('/tags') },
-        { name: 'About', url: url_for('/about') },
         { name: 'Signal Hub', url: url_for('/signal-hub/') }
     ];
 
     const social = [
         { title: 'GitHub', icon: 'fab fa-github', url: 'https://github.com/uynguyen' },
-        { title: 'LinkedIn', icon: 'fab fa-linkedin-in', url: 'https://www.linkedin.com/in/uynguyen505' },
+        { title: 'LinkedIn', icon: 'fab fa-linkedin-in', url: 'javascript:void(0)' },
         { title: 'Email', icon: 'fas fa-envelope', url: 'mailto:uynguyen.itus@gmail.com' }
     ];
 

@@ -34,7 +34,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - signal-hub/*.html
-  - about/*.html
+  # - about/*.html  # /about page disabled (source/about/index.html.bak)
 
 # Writing
 new_post_name: :title.md # File name of new posts

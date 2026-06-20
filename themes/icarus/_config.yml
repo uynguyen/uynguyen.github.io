@@ -76,7 +76,7 @@ navbar:
         Home: /
         Archives: /archives
         Tags: /tags
-        About: /about
+        # About: /about
     # Links to be shown on the right of the navigation bar
     # links:
     #     Download on GitHub:
@@ -192,7 +192,7 @@ widgets:
                 url: 'https://github.com/uynguyen'
             LinkedIn:
                 icon: fab fa-linkedin-in
-                url: 'https://www.linkedin.com/in/uynguyen505'
+                url: 'javascript:void(0)'
             Email:
                 icon: fas fa-envelope
                 url: 'mailto:uynguyen.itus@gmail.com'
